@@ -3,6 +3,9 @@ Author        : Li Yanyan
 Logo          : False
 Doc class     : [10pt]amsart
 Bibliography: MovingPlan.bib
+Pdf Latex : xelatex
+Latex : xelatex
+Package :  [fontset=windowsnew]ctex
 
 [TITLE]
 该笔记是基于Li Yanyan教授在南京大学的报告整理而得. 
@@ -52,4 +55,37 @@ $$
    
 ~
 
+~ Proof
+  
+  ```latex
+  path pat[];
+  pat0=fullcircle scaled 10u;
+  pat1=(-5u*up--5u*up) shifted (-2u*right);
+  draw pat0; draw pat1;
+  pat2=buildcycle(pat1,pat0);
+  hatchfill pat2 withcolor slash;
+  pat3=-6u*right--6u*right;
+  drawarrow pat3;
+  drawarrow pat3 rotated 90;
+
+  label.bot(btex $x_1$ etex, point 1 of pat3);
+  label.urt(btex $B_1$ etex, point .5 of pat0);
+  dotlabel("", origin);
+  picture lab;
+  lab=thelabel(btex $\Sigma_\lambda$ etex, (-3u,2u));
+  unfill bbox(lab);
+  draw lab;
+  labeloffset:=-.4u;
+  label.ulft(btex $\left\{x_1=\lambda\right\}=:T_\lambda$ etex, point 1 of pat1);
+    ```
+![截屏2020-09-23 下午8.47.13]
+
+[截屏2020-09-23 下午8.47.13]: images/-2020-09-23-8.47.13.png "截屏2020-09-23 下午8.47.13" { width:auto; max-width:90% }
+
+我们将利用@BerestyckiNirenberg1991method 中的"narrow domain"思想.
+
+如图, 假设$0<\lambda<1$, 令$T_\lambda=\left\{ x_1=\lambda\right\}$, $\Sigma_\lambda=\left\{ x\in B_1: x_1<\lambda\right\}$. 
+
+**第一步**. 我们将证明, 存在充分接近$-1$的$\lambda_0>-1$, 使得对任意的$x\in\Sigma_\lambda$都有$u_\lambda(x):=u(2\lambda-x_1,x')<u(x)$.
+~
 [BIB]
