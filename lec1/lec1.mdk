@@ -1,0 +1,387 @@
+Title         : 高等几何
+Date          : 2021-03-03
+[INCLUDE=../header.mdk]
+
+# 高等几何简介{#intro}
+
+* 课程地位: 高等师范院校数学专业的专业核心课 
+* 课程内容: 
+  1. 以初等几何和解析几何为基础, 以线性代数为主要工具
+  2. 在几何学的群论观点指导下, 系统讲授射影几何(包括仿射几何)的基本知识.
+* 课程目标:
+  1. 扩大学生的几何知识领域
+  2. 提高对几何学的认识
+  3. 能以较高和统一的观点来处理包括中学几何课程在内的各类几何问题
+  4. 提高对有关图形和空间问题的认识和分析能力,为今后更好地开展中学几何课程的教学打下坚实的基础.
+
+## 什么是高等几何?{#what}
+
+几何本质上可以认为是研究几何体(例如三角形, 四面体等)在**各种**运动下的**几何不变性质**. 
+
+按照运动(群)来分类:
+
+* 欧氏几何: **刚体**(不变形)运动, 例如: 平移、旋转、轴反射
+* 仿射几何: **仿射**变换(有限次平行射影的复合), 例如: 太阳光的照射
+* 射影几何: **射影变换**(有限次中心射影的复合), 例如: 灯光的照射
+
++----------+------------+------------------------+
+|运动群观点                                    |||
++:---------+:----------:+:-----------------------+
+| 几何学   | 运动群     |不变性                  |
++----------+------------+------------------------+
+| 欧氏几何 | 正交变换群 | 长度、面积、体积       |
++----------+------------+------------------------+
+| 仿射几何 | 仿射变换群 | 平行性、两平行线段的比 |
++----------+------------+------------------------+
+| 射影几何 | 射影变换群 | 线的共点性、点的共线性 |
++----------+------------+------------------------+
+
+# 透视仿射对应{#projection}
+
+## 变换{#translation}
+
+几何=研究在各种运动之下几何图形的不变性质.
+
+~ Definition
+集合$S$到自身的双射 (单满射) 称为$S$的变换. 
+~
+ 
+常见的变换有：恒等变换、平移变换、旋转变换、反射变换、位似变换等。
+
+~ Figure{caption:"平移、旋转、反射"}
+![tranrotref]
+[tranrotref]: images/tranrotref.png "tranrotref" { width:auto; max-width:90% }
+~
+
+~ Slide
+~ Begin Figure{caption: "位似变换"}
+![homothetic]
+[homothetic]: images/homothetic.png "homothetic" { width:auto; max-width:90% }
+~ End Figure
+~
+
+
+## 透视仿射对应{#projection-comp}
+
+为了从数学上刻画平行光透视，我们给出如下定义。
+
+~ Definition {caption: " 透视仿射对应"}
+假设$a$、$a'$是平面上的两条直线，$\vec v$是与$a$、$a'$都不平行的一个方向（单位向量）。对任一点$A\in a$, 都存在唯一的$A'\in a'$使得$\overrightarrow{AA'}\parallel \vec v$，我们称这样的对应$A\mapsto A'\in a'$为两直线间的一个 **透视仿射对应**。
+~ 
+
+~ Framed
+思考：如何类似定义平面间的透视对应？
+~
+
+~ Slide
+~ Begin Figure{caption: "平面间的透视仿射对应"}
+![projection]
+
+[projection]: images/projection.png "projection" { width:400px; max-width:90% }
+~ End Figure
+
+~ Begin Framed
+思考：透视仿射对应有那些不变元素？（[自对应点、透视轴]{color: cyan}）
+~ End Framed
+~
+
+# 仿射对应和仿射变换{#affine}
+
+~ Framed
+思考：透视仿射对应是否是一个变换？
+~
+
+~ Slide
+为了利用透视仿射对应来定义一个变换，一个办法是考虑它们的复合。
+~ Begin Definition { caption: " 仿射对应与仿射变换"}
+假设$\phi_1:\pi_1\to \pi_2$, $\phi_2 :\pi_2\to\pi_3$,$\ldots$,$\phi_{n-1}:\pi_{n-1}\to\pi_n$是$n-1$个平面间的透视仿射对应，则称它们的复合映射
+~ Begin Math
+\phi=\phi_{n-1}\circ\cdots\circ\phi_2\circ\phi_1:\pi_1\to\pi_n,
+~ End Math
+为平面$\pi_1$到平面$\pi_n$的**仿射对应**。特别地，当$\pi_1=\pi_n$时，我们称$\phi$为**仿射变换**。
+~ End Definition
+因此，透视仿射对应是特殊的仿射对应；仿射变换也是特殊的仿射对应。
+~
+
+## 仿射对应的基本性质{#affine-property}
+
+仿射对应有如下基本性质：
+
+* _同素性_: 仿射对应将点变为点、直线变为直线；
+* _结合性_：假设点$A$在直线$a$上，则仿射对应下的像点$A'$也在像直线$a'$上；
+* _平行性_：假设$a_1$,$a_2$是平面中的两条平行直线，则通过仿射对应后，它们的像直线$a_1'$, $a_2'$也是平行的。
+
+此外，按照定义容易知道如下定理成立。
+~ Theorem
+ 仿射变换的复合是仿射变换；仿射变换的逆变换是仿射变换；恒等变换是仿射变换。
+~
+上述定理定理表明，仿射变换构成一个群，称为**仿射变换群**。
+~ Slide
+仿射对应另一个重要性质是保持共线三点的单比不变。
+
+~ Begin Definition
+假设$A$、$B$、$C$是共线三点且$B$、$C$互异，若$\overrightarrow{AC}=\lambda\overrightarrow{BC}$，则称$\lambda$为$A$、$B$、$C$在此顺序下的**单比**或**简比**，记作$(ABC)$。
+~ End Definition
+
+~ Begin Framed
+思考：
+
+1. 当$A$、$B$、$C$满足怎样的位置关系时，单比$(ABC)$大于/小于/等于零？
+2. 当$(ABC)=\pm 1$，则$A$、$B$、$C$满足什么关系？
+3. 若$(ABC)=(ABC')$, 是否一定有$C=C'$?
+~ End Framed
+~
+
+## 仿射变换保持单比{#simpleratio}
+
+~ Begin Theorem
+仿射对应保持共线三点的单比不变。
+~ End Theorem
+
+~ Slide
+~ Begin Figure {caption: "单比不变"; #simpleratio}
+![simpleratio]
+[simpleratio]: images/simpleratio.png "simpleratio" { width:400px; max-width:90% }
+~ End Figure
+~ Begin Proof
+如图[#simpleratio]所示，由于$AA'$、$BB'$、$CC'$互相平行，所以有
+~ Begin Math
+\begin{aligned}
+(ABC)=\lambda&\iff\overrightarrow{AC}=\lambda \overrightarrow{BC}\\
+&\iff\\
+\overrightarrow{A'C'}=\lambda \overrightarrow{B'C'}&\iff
+(A'B'C')=\lambda.
+\end{aligned}
+~ End Math
+~ End Proof
+~
+
+~ Slide {display: none}
+~ Begin Example
+证明仿射对应将向量变为向量。
+~ End Example
+~ Begin Proof
+不妨假设$\overrightarrow{AB}$是非零向量，点$A,B$在仿射对应$\phi$下的像点分别为$A',B'$. 若$C$是线段$AB$內的一点（不同于端点），则根据仿射对应保持单比不变知，其像点$C'$满足
+~ Begin Math
+  0 > (ABC)=(A'B'C')
+~ End Math
+这表明$C'$在线段$A'B'$內部。
+
+~ End Proof
+~
+~ Slide
+~ Begin Example
+ 证明仿射对应保持平行线段的比；
+~ End Example
+~ Begin Proof
+假设两平行线段$AB$、$CD$的比为$\lambda$, 不妨假设$\overrightarrow{AB}=\lambda\overrightarrow{CD}$。取$C,D$决定的直线上的点$E$，使得
+~ Begin Math
+\overrightarrow{CE}=\overrightarrow{AB}=\lambda\overrightarrow{CD}\implies \lambda=(EDC).
+~ End Math
+现在，若用添加撇号来表示仿射对应的像点, 则由于仿射对应保持单比不变，我们得到$\lambda=(E'D'C')$, 即$\overrightarrow{C'E'}=\lambda\overrightarrow{C'D'}$. 由于$\overrightarrow{CE}=\overrightarrow{AB}$, 按照定义我们知道$\overrightarrow{C'E'}=\overrightarrow{A'B'}$. 故$\overrightarrow{A'B'}=\lambda\overrightarrow{C'D'}$.
+~ End Proof
+~
+~ Slide
+~ Begin Example
+证明仿射变换保持向量的线性关系：假设$\phi$是平面$\pi$上的仿射变换，$\vec a$, $\vec b$是$\pi$中两个向量，$\lambda,\mu$是两个实数，则$\phi(\lambda\vec a+\mu\vec b)=\lambda\phi(\vec a)+\mu\phi(\vec b)$;
+~ End Example
+
+~ Begin Proof
+ 假设$\vec a=\overrightarrow{OA}$, $\vec b=\overrightarrow{AB}$, 若用撇号来记$\phi$下的像点，并规定$\phi(\vec a)=\phi(\overrightarrow{OA})=\overrightarrow{O'A'}$，则
+ ~ Begin Math
+ \begin{aligned}
+ \phi(\vec a+\vec b)&=\phi(\overrightarrow{OA}+\overrightarrow{AB})=\phi(\overrightarrow{OB})\\
+ &=\overrightarrow{O'B'}=\overrightarrow{O'A'}+\overrightarrow{A'B'}=\phi(\vec a)+\phi(\vec b).
+ \end{aligned}
+ ~ End Math
+ 结合上一个例子的证明， 我们知道结论成立。
+~ End Proof
+~
+
+# 仿射坐标系 {#affine-cord}
+解析几何是建立在笛卡尔坐标系之上的，为了利用代数方法研究仿射几何，我们需要建立仿射坐标系。
+
+~ Definition {caption: " 仿射坐标系"}
+ 取定平面上一点$O$以及一对有序的线性无关的向量$\vec e_1, \vec e_2$，称它们构成该平面上一个**仿射标架**, 记作$\{O;\vec e_1,\vec e_2\}$. $O$称为**原点**, $\vec e_1,\vec e_2$称为**基向量**。
+ 
+ 对平面上任意一点$P$，在该平面的一个仿射标架$\{O; \vec e_1,\vec e_2\}$下，明显有
+ 
+ ~ Begin Math
+  \overrightarrow{OP}=x\vec e_1+y\vec e_2.
+ ~ End Math
+ 有序对$(x,y)$称为$P$在该标架下的**仿射坐标**。平面上所有点与它们的仿射坐标之间的对应关系称为**平面仿射坐标系**。
+~
+~ Remark
+明显直角坐标系是特殊的仿射坐标系。
+~
+## 单比的仿射坐标表示 {#simpleratio-affinecord}
+~ Theorem {#simpleratio-affine-rep}
+ 假设$\{O; \vec e_1,\vec e_2\}$是平面上的一个仿射标架，而$P_i(x_i,y_i)$, $i=1,2,3$是共线三点，且$P_2\neq P_3$. 则单比
+ ~ Begin Math
+ (P_1P_2P_3)=\frac{x_3-x_1}{x_3-x_2}=\frac{y_3-y_1}{y_3-y_2}.
+ ~ End Math
+~
+~ Slide
+~ Begin Proof
+ 假设$P_1, P_2, P_3$在沿着方向$\vec e_2$到$x$-轴的仿射透视对应下的像点分别为$P_1',P_2',P_3'$, 则根据单比在仿射对应下保持不变知道
+ ~ Begin Math
+ \begin{aligned}
+ (P_1P_2P_3)&=(P_1'P_2'P_3')=:\lambda,\\
+ \overrightarrow{P_1'P_3'}&=\lambda\overrightarrow{P_2'P_3'}=\lambda (\overrightarrow{OP_3'}-\overrightarrow{OP_2'})=\lambda(x_3-x_2),\\
+ x_3-x_1&=\lambda(x_3-x_2)\implies
+ (P_1P_2P_3)=\frac{x_3-x_1}{x_3-x_2}.
+ \end{aligned}
+ ~ End Math
+ 同理可知对$y$坐标也成立（考虑沿$\vec e_1$向$y$轴的仿射透视对应）。
+~ End Proof
+~
+
+## 直线在仿射坐标下的方程 {#line-eq-affinecord}
+~ Theorem
+假设$\{O; \vec e_1,\vec e_2\}$是平面上的一个仿射标架，$P_1(x_1,y_1)$, $Q(x_2,y_2)$是该平面上两相异点。则由$P_1,P_2$决定的直线方程可表示为
+
+~ Begin Math
+\begin{vmatrix}
+x&y&1\\
+x_1&y_1&1\\
+x_2&y_2&1
+\end{vmatrix}=0.
+~ End Math
+
+~ Begin Corollary
+特别地，直线在仿射坐标下的一般表达式为
+~ Begin Math
+A x+ By+C=0 \quad (A^2+B^2\neq0).
+~ End Math
+~ End Corollary
+~
+~ Slide
+~ Begin Proof
+假设$P(x,y)$是$P_1,P_2$所决定直线上一动点，则根据定理[#simpleratio-affine-rep]有
+~ Begin Math
+(PP_1P_2)=\frac{x_2-x}{x_2-x_1}=\frac{y_2-y}{y_2-y_1}.
+~ End Math
+
+因此
+~ Begin Math
+0=\begin{vmatrix}
+x-x_2&y-y_2&0\\
+x_1-x_2&y_1-y_2&0\\
+x_2&y_2&1
+\end{vmatrix}=\begin{vmatrix}
+x&y&1\\
+x_1&y_1&1\\
+x_2&y_2&1
+\end{vmatrix}.
+~ End Math
+~ End Proof
+~
+
+## 仿射变换的代数表示{#affine-algebra-rep}
+
+假设$\Sigma\equiv\{O;\vec e_1,\vec e_2\}$是平面$\pi$上的仿射标架，考虑$\pi$上的仿射变换$\phi$, 由于它保持向量的线性关系不变，我们得到新的仿射标架$\Sigma'\equiv\{O';\vec{e_1}',\vec{e_2}'\}$。和直角坐标系一样，我们规定向量的仿射坐标为其终点坐标减去起点坐标。假设在原标架$\Sigma$下，$O'=(a,b)$, $\vec{e_1}'=(a_{11},a_{21})$, $\vec{e_2}'=(a_{12},a_{22})$. 则对任意一点$P$, 若它及其像点在$\Sigma$下的坐标分别为$(x,y)$与$(x',y')$. 我们来求它们之间的关系。
+
+按照定义，我们有
+~ Begin Math
+ \overrightarrow{O'P'}=\phi(\overrightarrow{OP})=\phi(x\vec e_1+y\vec e_2).
+~ End Math
+根据仿射变换保持向量的线性关系不变，我们得到
+~ Begin Math
+\overrightarrow{O'P'}=x\vec{e_1}'+y\vec{e_2}',
+~ End Math
+
+~ Slide
+而
+~ Begin Math
+\begin{aligned}
+ \overrightarrow{O'P'}&=\overrightarrow{OP'}-\overrightarrow{OO'}
+ =x'\vec e_1+y'\vec e_2-a\vec e_1-b\vec e_2\\
+ &=(x'-a)\vec e_1+(y'-b)\vec e_2,\\
+ \overrightarrow{O'P'}&=x\vec{e_1}'+y\vec{e_2}'\\
+ &=x(a_{11}\vec e_1+a_{21}\vec e_2)+y(a_{12}\vec e_1+a_{22}\vec e_2)\\
+ &=(a_{11}x+a_{12}y)\vec e_1+(a_{21}x+a_{22}y)\vec e_2.
+\end{aligned}
+~ End Math
+由此，我们得到（注意$\vec{e_1}', \vec{e_2}'$不平行）
+~ Begin Equation {#eq-affine-rep}
+\begin{cases}
+x'=a_{11}x+a_{12}y+a\\
+y'=a_{21}x+a_{22}y+b
+\end{cases}\quad
+\begin{vmatrix}
+a_{11}&a_{12}\\
+a_{21}&a_{22}
+\end{vmatrix}\neq0.
+~ End Equation
+公式[#eq-affine-rep]称为**放射变换的代数表示**。
+~
+~ Slide
+~ Begin Example
+试确定仿射变换，使得$x$、$y$轴分别变为$x-y-1=0$以及$x+y+1=0$, 且将单位点$(1,1)$变为原点$(0,0)$.
+~ End Example
+~ Begin Proof
+不妨假设所求的仿射变换为
+~ Begin Math
+\begin{cases}
+x'=a_{11}x+a_{12}y+a\\
+y'=a_{21}x+a_{22}y+b
+\end{cases}\quad
+\begin{vmatrix}
+a_{11}&a_{12}\\
+a_{21}&a_{22}
+\end{vmatrix}\neq0.
+~ End Math
+容易知道，在该仿射变换下，$(0,0)\mapsto(0,-1)$, $(1,1)\mapsto (0,0)$. 由此可知
+~ Begin Math
+\begin{cases}
+0=a\\
+-1=b\\
+0=a_{11}+a_{12}+a\\
+0=a_{21}+a_{22}+b\\
+\end{cases}\implies
+\begin{cases}
+a=0,b=-1,\\
+a_{11}+a_{12}=0\\
+a_{21}+a_{22}=1
+\end{cases}
+~ End Math
+~ End Proof
+~
+
+~ Slide
+~ Begin Proof {replace:'//证明/证明续//g'}
+为了求解, 我们还需要两个独立方程. 注意到, 利用仿射变换保持向量的平行性我们知道, $(-1,0)\mapsto \lambda(1,1)$, $(0,-1)\mapsto\mu(-1,1)$. 由此得到
+~ Begin Math
+\begin{pmatrix}
+-\lambda&\mu\\
+-\lambda&-\mu
+\end{pmatrix}=A=\begin{pmatrix}
+a_{11}&a_{12}\\
+a_{21}&a_{22}
+\end{pmatrix}
+~ End Math
+由此得到
+~ Begin Math
+\begin{cases}
+a_{11}=a_{21}\\
+a_{12}+a_{22}=0
+\end{cases}
+~ End Math
+结合前两个方程, 我们解得
+~ Begin Math
+A=\begin{pmatrix}
+\frac{1}{2}&-\frac{1}{2}\\
+\frac{1}{2}&\frac{1}{2}
+\end{pmatrix}.
+~ End Math
+~ End Proof
+~
+
+# 习题{#exes}
+
+1. 仿射对应将下列哪些图形变为同类图形：三角形、平行四边形、梯形、菱形、正多边形；
+2. 证明仿射变换基本定理：存在唯一一个仿射变换，将不共线三点变为不共线三点;
+3. 证明平面变换若将共线三点变为共线三点且保持单比不变，则该变换是仿射变换。
+4. 求仿射变换使得它分别将$O(0,0)$, $E(1,1)$, $P(1,-1)$变为$O'(2,3)$, $E(2,5)$, $P(3,-7)$;
+5. 利用仿射变换的代数表达式证明仿射变换保持共线三点的单比不变;
+6. 利用仿射变换的代数表达式证明仿射变换保持直线的平行性不变;

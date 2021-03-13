@@ -1,0 +1,55 @@
+.madoko { html-lang: zh-Hans-CN; }
+[INCLUDE=presentation]
+Sub Title     : 第[&docname;]{replace: "//lec/ //1/一//2/二\
+                                       //3/三//4/四//5/五//6/六\
+                                       //7/七//8/八//9/九//10/十\
+                                       //11/十一//12/十二//13/十三\
+                                       //14/十四//15/十五//16/十六//g"}次授课讲义
+
+Title Note    : 初稿, &date;
+Title Running : 高等几何
+Author        : 艾万君
+Affiliation   : 西南大学
+Email         : van141.abel@gmail.com
+Reveal Theme  : solarized
+Beamer Theme  : Singapore
+Math Latex Full: pdflatex
+Pdf Latex     :  xelatex
+Package*      :  [fontset=adobe]ctex
+
+Definition {
+    replace:"//Definition/定义//g";
+      theorem-caption-end: " " 
+}
+Theorem {
+    replace:"//Theorem/定理//g" ;
+      theorem-caption-end: " "
+}
+Figure {
+    replace:"//Figure/图//g" 
+}
+Proof {
+    replace:"//Proof/证明//g";
+      theorem-caption-end: " " 
+}
+Remark {
+    replace:"//Remark/注记//g";
+      theorem-caption-end: " " 
+}
+Corollary {
+    replace:"//Corollary/推论//g";
+      theorem-caption-end: " "
+}
+Example {
+    replace:"//Example/例子//g";
+      theorem-caption-end: " "
+}
+~ TEXRAW
+\beamertemplatenavigationsymbolsempty
+~
+
+[TITLE]
+
+# 目录
+
+[TOC]
