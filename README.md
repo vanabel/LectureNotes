@@ -15,6 +15,8 @@ madoko -vv --pdf lec1 lec2 lec3
 
 ## 讲义列表
 
+目前已有的讲义见下表。可以在线查看`lec*/out/*.pdf`也可下载相应的`html`文件到本地，用浏览器打开。
+
 1. [高等几何](https://github.com/vanabel/LectureNotes/tree/高等几何)
 2. [线性代数](https://github.com/vanabel/LectureNotes/tree/线性代数)
 
