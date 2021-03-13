@@ -1,0 +1,475 @@
+Title         : 高等几何
+Css Header    : .column {vertical-align: middle}
+[INCLUDE=../header.mdk]
+
+# 射影平面 {#projective-plane}
+## 齐次仿射坐标 {#homogenours-affine-coord}
+
+在平面仿射坐标系下, 射影平面上所有的通常点与全体实数偶 (点的仿射坐标)之间的对应是一一对应. 因此, 不能再用有序实数偶表示无穷远点. 
+~ Framed
+思考: 如何来定义无穷远点的仿射坐标呢?
+~
+
+~ Slide
+我们知道, 从几何上来说, 无穷远点和通常点都可视为两直线的交点. 因此, 我们首先来考察两直线的交点坐标.
+
+假设$\{O;\vec e_1,\vec e_2\}$是平面$\pi$上的一个仿射标架, $\pi$上两条直线在该仿射坐标下的方程分别为
+~ Begin Math
+A_1x+B_1y+C_1=0,\quad
+A_2x+B_2y+C_2=0.
+~ End Math
+则联立求得其交点坐标为
+~ Begin Math
+\begin{cases}
+x=-\frac{C_1B_2-C_2B_1}{A_1B_2-A_2B_1},\\
+y=-\frac{A_1C_2-A_2C_1}{A_1B_2-A_2B_1}.
+\end{cases}\quad A_1B_2-A_2B_1\neq0.
+~ End Math
+注意, 如果$A_1B_2-A_2B_1=0$, 即直线的方向向量$(-B_1,A_1)\parallel(-B_2,A_2)$, 故两直线平行.
+~
+
+~ Slide
+~ Begin Definition {caption: " 齐次仿射点坐标"}
+由此可见, 为了统一仿射平面上通常点和无穷远点的坐标. 我们称$(a,b,c)$为通常点$P(a/c,b/c)$的一个**齐次仿射坐标**. 
+
+我们称$(-b,a,0)$为方向为$(-b,a)$的无穷远点的**齐次仿射坐标**. 其对应的直线簇为$ax+by+c=0$. 
+~ End Definition
+明显地, 若$(a,b,c)$为点$P$的一个齐次仿射坐标, 则$(\rho a,\rho b,\rho c)$, $\rho\neq0$ 也是$P$的一个齐次仿射坐标.
+
+~ Begin Framed
+思考: 如何定义一维直线上点的一维齐次仿射坐标?
+~ End Framed
+~
+
+~ Slide
+~ Begin Example
+  求直线$2x-y+1=0$以及直线$2x_1-3x_2+x_3=0$的无穷远点的坐标.
+~ End Example
+
+~ Begin Proof {replace: "//证明/解//g"}
+容易知道, 它们无穷远点的齐次仿射坐标分别为$(1,2,0)$, $(3,2,0)$.
+~ End Proof
+~
+~ Slide
+~ Begin Example {#examp-line-coord}
+假设$A,B,C$是射影直线上三相异通常点, 它们的齐次仿射坐标分别为$(a_1,a_2,a_3)$, $(b_1,b_2,b_3)$, $(c_1,c_2,c_3)$. 则, $C$的齐次仿射坐标可以表示为$A$, $B$两点的齐次仿射坐标的线性组合:
+~ Begin Math
+(c_1,c_2,c_3)=\lambda (a_1,a_2,a_3)+\mu(b_1,b_2,b_3),\quad \lambda\mu\neq0.
+~ End Math
+~ End Example
+~ Begin Proof  {replace: "//证明/解//g"}
+由于$A,B,C$是通常点, 故可假设它们的非齐次仿射坐标为$A(x_1,y_1)$, $B(x_2,y_2)$, $C(x_3,y_3)$. 假设$(ABC)=\sigma\neq0,1$, 则
+~ Begin Math
+\sigma=\frac{x_3-x_1}{x_3-x_2}=\frac{y_3-y_1}{y_3-y_2}.
+~ End Math
+即, 
+~ Begin Math
+x_3=\frac{x_1-\sigma x_2}{1-\sigma},\quad
+y_3=\frac{y_1-\sigma y_2}{1-\sigma}.
+~ End Math
+~ End Proof
+~
+
+~ Slide
+~ Begin Proof {replace: "//证明/解续//g"}
+若令$k=\frac{1}{1-\sigma}$, $l=-\frac{\sigma}{1-\sigma}$, 则
+~ Begin Math
+(x_3,y_3,1)=k(x_1,y_1,1)+l(x_2,y_2,1).
+~ End Math
+由此, 利用齐次仿射坐标与非齐次仿射坐标的关系, 得到
+~ Begin Math
+(c_1,c_2,c_3)=\frac{kc_3}{a_3}(a_1,a_2,a_3)+\frac{lc_3}{b_3}(b_1,b_2,b_3).
+~ End Math
+由于$kl=\frac{-\sigma}{(1-\sigma)^2}\neq0$, 以及$A,B,C$为通常点, 我们知道
+~ Begin Math
+\lambda\cdot\mu=\frac{kc_3}{a_3}\cdot\frac{lc_3}{b_3}\neq0.
+~ End Math
+~ End Proof
+~
+~ Slide
+~ Begin Corollary { replace="/<(.*?)>//" }
+特别地, 若$A(a_1,a_2,a_3)$, $B(b_1,b_2,b_3)$, $C(c_1,c_2,c_3)$是射影直线上三共线相异通常点, 且
+~ Begin Math
+(c_1,c_2,c_3)=\lambda (a_1,a_2,a_3)+\mu(b_1,b_2,b_3),\quad \lambda\mu\neq0,
+~ End Math
+则其单比可表示为
+~ Begin Math
+(ABC)=\sigma=-\frac{l}{k}=-\frac{\mu b_3}{\lambda a_3}.
+~ End Math
+~ End Corollary  
+~
+~ Slide
+### 直线在齐次仿射坐标系下的方程
+假设$\xi$是射影平面上的直线, 其通常点的方程由$Ax+By+C=0$给出. 流动通常点$P(x,y)$在该直线上当且仅当其齐次仿射坐标$(x_1,x_2,x_3)$满足方程
+~ Begin Equation {#homogenours-coord-line}
+Ax_1+Bx_2+Cx_3=0;
+~ End Equation 
+此外, 该直线上的无穷远点$(-B,A,0)$也满足齐次方程[#homogenours-coord-line].  
+
+如果$\xi$为射影平面上的无穷远直线, 即任何无穷远点$(x_1,x_2,0)$都在该直线上, 故此时直线的齐次仿射坐标方程为
+~ Begin Equation {#homogenours-coord-line-infinity}
+x_3=0.
+~ End Equation
+由此, 我们得到
+~ Begin Theorem
+齐次仿射坐标系下, 直线的方程是三元一次齐次方程
+~ Begin Equation {#eq-homogenours-coord-line}
+u_1x_1+u_2x_2+u_3x_3=0,\quad (u_1^2+u_2^2+u_3^2\neq0).
+~ End Equation
+~ End Theorem
+~
+
+~ Slide
+~ Begin Corollary
+假设$P(a_1,a_2,a_3)$, $Q(b_1,b_2,b_3)$是射影平面上两相异点, 则其连线方程可表示为
+~ Begin Math
+\begin{vmatrix}
+x_1&x_2&x_3\\
+a_1&a_2&a_3\\
+b_1&b_2&b_3
+\end{vmatrix}=0.
+~ End Math
+~ End Corollary
+~ Begin Proof
+事实上, 假设$P,Q$的连线方程为
+~ Begin Math
+u_1 x_1+u_2 x_2+u_3x_3=0,\quad(u_1^2+u_2^2+u_3^2\neq0).
+~ End Math
+根据$u_1,u_2,u_3$不全为零, 我们知道$P(a_1,a_2,a_3)$, $Q(b_1,b_2,b_3)$是上述方程的两个线性无关解. 而且, 其它任一解都是这两个解的线性组合. 即
+~ Begin Math
+(x_1,x_2,x_3)=\lambda(a_1,a_2,a_3)+\mu(b_1,b_2,b_3),\quad\lambda\mu\neq0.
+~ End Math
+由此可见结论成立.
+~ End Proof
+~
+~ Slide
+前面我们说明了直线的齐次仿射坐标满足三元一次齐次方程:
+~ Begin Math
+u_1x_1+u_2x_2+u_3x_3=0,\quad(u_1^2+u_2^2+u_3^2\neq0).
+~ End Math
+反过来, 任一三元一次齐次方程都表示一条直线.
+~ Begin Corollary
+假设$u_1,u_2,u_3$不全为零. 则三元一次齐次方程
+~ Begin Math
+u_1 x_1+u_2x_2+u_3x_3=0,
+~ End Math
+表示的是射影平面上一条直线.
+~ End Corollary
+~
+~ Slide
+~ Begin Proof
+由于$u_1,u_2,u_3$不全为零, 假设$P(a_1,a_2,a_3)$, $Q(b_1,b_2,b_3)$是三元一次齐次方程的两个线性无关解, 即
+~ Begin Math
+\begin{cases}
+u_1 a_1+u_2 a_2+u_3 a_3=0,\\
+u_1 b_1+u_2 b_2+u_3 b_3=0,
+\end{cases}
+~ End Math
+由此解得
+~ Begin Math
+u_1 : u_2 : u_3=\begin{vmatrix}a_2&a_3\\b_2&b_3\end{vmatrix}:\begin{vmatrix}a_3&a_1\\b_3&b_1\end{vmatrix}:
+\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix}.
+~ End Math
+将其带入方程$u_1x_1+u_2x_2+u_3x_3=0$, 得到
+~ Begin Math
+\begin{vmatrix}
+x_1&x_2&x_3\\
+a_1&a_2&a_3\\
+b_1&b_2&b_3
+\end{vmatrix}=0,
+~ End Math
+它表示的是点$P,Q$的连线方程.
+~ End Proof
+~
+## 齐次仿射线坐标 {#homogenours-affine-line-coord}
+
+由于在射影平面采用齐次坐标之后, 射影直线的方程可统一写成
+~ Equation {#eq-line-coord}
+u_1x_1+u_2x_2+u_3x_3=0,\quad (u_1^2+u_2^2+u_3^2\neq0).
+~
+其中, $(x_1,x_2,x_3)$是该直线上任一流动点坐标. 显然方程
+~ Math
+\rho u_1x_1+\rho u_2x_2+\rho u_3x_3=0,\quad(\rho\neq0)
+~
+表示的直线与[#eq-line-coord]是同一直线. 
+
+因此我们称有序三元组$[u_1,u_2,u_3]$为射影直线[#eq-line-coord]的**齐次仿射线坐标**. 
+
+当[#eq-line-coord]中固定点$(x_1,x_2,x_3)$时, 若将$[u_1,u_2,u_3]$看作流动线坐标, 则[#eq-line-coord]表示的是过固定点$(x_1,x_2,x_3)$的**线束**方程. 该固定点称为**线束中心**, 此时也称[#eq-line-coord]为点$x=(x_1,x_2,x_3)$的方程.
+
+~ Slide
+~ Begin Example
+写出直线$2x_1+3x_2-x_3=0$的齐次仿射线坐标; 写出以点$(2,3,-1)$为中心的线束方程.
+~ End Example
+~
+
+~ Slide
+~ Begin Example
+求两条相异直线$\alpha=[\alpha_1,\alpha_2,\alpha_3]$, $\beta=[\beta_1,\beta_2,\beta_3]$的交点方程.
+~ End Example
+~ Begin Proof
+按照齐次仿射线坐标的定义, 两条直线$\alpha$, $\beta$的齐次方程分别为
+~ Begin Math
+\alpha_1x_1+\alpha_2x_2+\alpha_3x_3=0,\quad
+\beta_1x_1+\beta_2x_2+\beta_3x_3=0.
+~ End Math
+联立求解得到其交点坐标为
+~ Begin Math
+x_1:x_2:x_3=\begin{vmatrix}\alpha_2&\alpha_3\\\beta_2&\beta_3\end{vmatrix}:\begin{vmatrix}\alpha_3&\alpha_1\\\beta_3&\beta_1\end{vmatrix}:
+\begin{vmatrix}\alpha_1&\alpha_2\\\beta_1&\beta_2\end{vmatrix}.
+~ End Math
+因此, 其交点方程为
+~ Begin Math
+\begin{vmatrix}
+x_1&x_2&x_3\\
+\alpha_1&\alpha_2&\alpha_3\\
+\beta_1&\beta_2&\beta_3
+\end{vmatrix}=0.
+~ End Math
+~ End Proof
+~
+~ Slide
+~ Begin Corollary
+射影平面上三相异点$a=(a_1,a_2,a_3)$, $b=(b_1,b_2,b_3)$, $c=(c_1,c_2,c_3)$共线的充要条件是
+~ Begin Math
+\begin{vmatrix}
+a_1&a_2&a_3\\
+b_1&b_2&b_3\\
+c_1&c_2&c_3
+\end{vmatrix}=0.
+~ End Math
+~ End Corollary
+~ Begin Corollary
+射影平面上三相异线$\alpha=[\alpha_1,\alpha_2,\alpha_3]$, $\beta=[\beta_1,\beta_2,\beta_3]$, $\gamma=[\gamma_1,\gamma_2,\gamma_3]$共点的充要条件是
+~ Begin Math
+\begin{vmatrix}
+\alpha_1&\alpha_2&\alpha_3\\
+\beta_1&\beta_2&\beta_3\\
+\gamma_1&\gamma_2&\gamma_3
+\end{vmatrix}=0.
+~ End Math
+~ End Corollary
+~
+~Slide
+~ Begin Corollary
+假设$a=(a_1,a_2,a_3)$, $b=(b_1,b_2,b_3)$是射影平面上两相异点，则它们连线上任一点$c$的齐次仿射坐标可表示为
+~ Begin Math
+(c_1,c_2,c_3)=\lambda(a_1,a_2,a_3)+\mu(b_1,b_2,b_3),
+~ End Math
+其中$\lambda,\mu$不全为零.
+
+有时我们将这种关系简写为
+~ Begin Math
+c=\lambda a+\mu b,\quad (\lambda^2+\mu^2\neq0).
+~ End Math
+~ End Corollary
+~ Begin Corollary
+假设$\alpha=(\alpha_1,\alpha_2,\alpha_3)$, $\beta=(\beta_1,\beta_2,\beta_3)$是射影平面上两相异直线，则过它们交点处任一直线$\gamma$的齐次仿射线坐标可表示为
+~ Begin Math
+[\gamma_1,\gamma_2,\gamma_3]=\lambda[\alpha_1,\alpha_2,\alpha_3]+\mu[\beta_1,\beta_2,\beta_3],
+~ End Math
+其中$\lambda,\mu$不全为零.
+
+有时我们将这种关系简写为
+~ Begin Math
+\gamma=\lambda \alpha+\mu \beta,\quad (\lambda^2+\mu^2\neq0).
+~ End Math
+~ End Corollary
+~
+~ Slide
+~ Begin Corollary
+射影平面上三相异点$a,b,c$共线的充要条件是存在不全为零的三实数$\lambda$, $\mu$, $\nu$, 使得
+~ Begin Math
+  \lambda a+\mu b+\nu c=0.
+~ End Math
+~ End Corollary
+~ Begin Corollary
+射影平面上三相异直线$\alpha$, $\beta$, $\gamma$共点的充要条件是存在不全为零的三实数$\lambda$, $\mu$, $\nu$, 使得
+~ Begin Math
+  \lambda \alpha+\mu \beta+\nu \gamma=0.
+~ End Math
+~ End Corollary
+~
+~ Slide
+注意, 借助向量的外积, 我们得到
+~ Begin Corollary
+射影平面上两相异点$\vec a=(a_1,a_2,a_3)$, $\vec b=(b_1,b_2,b_3)$的连线的齐次线坐标为$\vec a\times \vec b$; 
+
+两相异直线$\vec\alpha=[\alpha_1,\alpha_2,\alpha_3]$, $\vec\beta=[\beta_1,\beta_2,\beta_3]$的交点的齐次点坐标为$\vec\alpha\times\vec\beta$.
+~ End Corollary
+借助混合积, 我们得到
+~ Begin Corollary
+射影平面上两相异点$\vec a=(a_1,a_2,a_3)$, $\vec b=(b_1,b_2,b_3)$的连线上的点$\vec x=(x_1,x_2,x_3)$所满足的齐次方程为$(\vec x,\vec a,\vec b)=0$;
+
+两相异直线$\vec\alpha=[\alpha_1,\alpha_2,\alpha_3]$, $\vec\beta=[\beta_1,\beta_2,\beta_3]$的交点所满足的齐次线束方程为$(\vec u,\vec\alpha,\vec\beta)=0$.
+~ End Corollary
+~
+## 复射影平面 {#complex-projective-plane}
+
+我们可以利用点与直线点仿射齐次坐标定义复点与复直线. 我们称仿射齐次坐标$(\rho z_1,\rho z_2,\rho z_3)$组成的集合为**复点**, 其中$z_1,z_2,z_3$为不全为零的复数, 而$\rho$为任意非零复数. 如果$(z_1,z_2,z_3)$与三个不全为零的实数成比例, 则称它为**实点**的齐次仿射坐标, 否则称为**虚点**的齐次仿射坐标.
+
+完全类似的定义**复直线**、**实直线**、**虚直线**.
+
+如果两个复点的坐标分别为$(a_1,a_2,a_3)$, $(\bar a_1,\bar a_2,\bar a_3)$, 即它们的齐次仿射坐标互为共轭, 则称它们为**共轭复点**. 完全类似定义**共轭复直线**. 
+
+~ Slide
+~ Begin Theorem
+两共轭虚点的连线为实直线; 两共轭虚直线的交点为实点.
+~ End Theorem
+~ Begin Proof
+假设$\vec a=(a_1,a_2,a_3)$, $\vec{\bar a}=(\bar a_1,\bar a_2,\bar a_3)$是共轭虚点, 则其连线的线坐标为
+~ Begin Math
+u_1:u_2:u_3=\begin{vmatrix}a_2&a_3\\\bar a_2&\bar a_3 \end{vmatrix}:
+\begin{vmatrix}a_3&a_1\\\bar a_3&\bar a_1\end{vmatrix}:\begin{vmatrix}a_1&a_2\\\bar a_1&\bar a_2\end{vmatrix},
+~ End Math
+注意到类似$a_2\bar a_3-a_3\bar a_2$的三项都为纯虚数, 故上述线坐标是实坐标. 
+~ End Proof
+~ Begin Theorem
+任一实直线上有无限多个虚点, 任一虚直线上有且仅有一个实点; 通过任一实点有无限多条虚直线, 通过任一虚点有且仅有一条是实直线.
+~ End Theorem
+~
+## 射影平面的模型 {#model-projective-plane}
+
+射影平面与欧氏平面是不同的，为了更好的理解射影平面，我们来看射影平面的几个模型。这些模型并不将点与直线作通常的直观理解，但对射影几何的研究目的，即研究点与直线的结合关系来讲,这些模型与射影平面并无本质的区别。
+
+~ Slide
+### 丛模型
+在射影空间（欧氏空间添加无穷远点和无穷远直线以及无穷远平面）中，通过一通常点$O$的所有射影直线和射影平面的集合称为以$O$为中心的**丛**。
+~ Begin Figure {caption: " 丛模型"}
+![bundle-model]
+~ End Figure
+[bundle-model]: images/bundle-model.png "bundle-model" { width:250px; max-width:90% }
+~
+~ Slide
+给定了丛$O$以及不通过$O$的射影平面$\pi$, 我们建立它们之间的对应如下：
+
+* 对丛里任一直线$p$(称为丛的**点**）, 我们将其对应为$p$与$\pi$的交点$P$;
+* 对丛里任一平面$\alpha$(称为丛的**直线**）, 我么将其对应为$\alpha$与$\pi$的交线$\xi$.
+
+由于任一射影直线与$\pi$都只有唯一一个交点；任一射影平面与$\pi$都只有唯一一条交线。我们知道上述对应是一个一一对应（双射）。
+
+而且，该对应还保持结合关系：若$p$是丛$O$中一条在$\alpha$上的直线，则它们都像满足，$P$在直线$\xi$上。
+~
+~ Slide
+### 球面模型 {#sphere-model-projective-plane}
+设$S$是欧氏空间中以$O$点为中心的球面. 通过$O$的每条直线必与$S$交于两个对径点. 我们把每两个对径点看成一个整体, 称为一个**对径点偶**. 将$S$上所有的对径点偶和大圆组成的集合记为$S^2$, 其中的对径点偶叫做**点**, 大圆叫做**直线**, 并且把一个对径点偶的两个点落在一个大圆上叫做**点与直线结合**. 
+
+若令每个对径点偶与过该点偶的直线对应, 每个大圆与他所在的平面对应, 则此对应是$S^2$与丛$O$之间的一个**保持结合关系**的一一对应.
+~
+~ Slide
+~ Begin Figure {caption: " 球面模型"}
+![sphere-model]
+~ End Figure
+[sphere-model]: images/sphere-model.png "sphere-model" {width:500px}
+~
+~ Slide
+### 半球面模型 {#half-sphere-model-projective-plane}
+~ Begin Columns
+~ Begin Column {width:50%}
+为了直观上便于想象, 可以只考虑半个球面. 对于半球面, 只需叠合其边界大圆$C$上的对径点, 即可得到一个丛$O$与半球面间保持点与直线结合关系的一一对应。
+~ End Column
+~ Begin Column 
+![half-sphere-model]
+~ End Column
+~ End Columns
+[half-sphere-model]: images/half-sphere-model.png "half-sphere-model" {width:500px}
+~
+~ Slide
+### 解析模型 {#analytic-model-projective-plane}
+设 $x = (x_1, x_2, x_3)$ 是任意非零三元数组, $\rho$是任意非零实数. 我们将所有 $\rho x = (\rho x_1,\rho x_2,\rho x_3)$ 的集合称为$x$的**类**, 记作 $[x]$. 显然 $[\rho x]$ 与 $[x]$ 是同一类. 若将每个类称为 **点**; 满足方程
+~ Begin Math
+Ax_1 +Bx_2 +Cx_3 =0, \quad(A^2 +B^2 +C^2\neq0)
+~ End Math
+的所有类 $[x]$ 的集合称为 **直线**; 将 **点** 属于 **直线** 称为 **点与直线结合**. 
+
+如果将所有这样的**点**与**直线**组成的集合记作$S$, 那么当我们把$S$的点与射影平面$\pi$上的齐次坐标为$x$的点对应, 就得到$S$到$\pi$ **保持点与直线结合关系**的一个双射.
+~
+
+## 平面对偶原理 {#dulity}
+从前面的学习我们知道，在射影平面上通过引入齐次仿射坐标，点与直线都有解析表达（即坐标），而且点$x$与直线$\xi$的结合关系可用坐标表示为$x\cdot \xi=0$.因此可从它们出发 解析地展开平面射影几何. 
+
+有趣的是, 点和直线的解析表示具有完全相同的形式和性质, 点与直线结合的解析条件中点坐标与线坐标也处于完全对称的地位. 由于平面射影几何所研究的图形性质只涉及点与直线的结合关系, 所以当我们用射影坐标或方程论证完一个定理之后, 若将证明过程中原来的点坐标解释为线坐标, 同时将原来的线坐标解释为点坐标, 则同一代数证明又证得了一个定理.
+
+因此在射影几何中定理总是成对出现的, 每对定理无非是同一代数命题的两种几何解释. 这就是著名的**对偶原理**.
+~ Slide
+~ Begin Definition
+射影几何中的几何概念称为**射影概念**. 
+
+平面射影几何里有三个基本的射影概念:“点”、“直线”、点和直线的 “结合关系”. 它们是不加定义的. 
+
+以它们为基础, 可逐个定义其余的射影概念. 这时, 对于一个射影概念$A$, 若将其定义中的 “点” 换成 “直线”, 同时将 “直线” 换成 “点”, 则又得到一个射影概念$A'$的定义. 我们称$A'$为$A$的平面**对偶概念**. 
+
+显然,射影概念的对偶关系是相互的. 若互相对偶的概念是同一概念, 则称之为**自对偶概念**.
+~ End Definition
+~
+~ Slide
+~ Begin Example
+下面的概念都是互为对偶的：
+
+1. 两直线的交点与两点的连线；
+2. 三点共线与三线共点；
+3. 点列与线束；
+4. 点列的底与线束的中心. 
+~ End Example
+~ Begin Remark
+“点” 与 “直线” 本身也称为互相对偶的概念, 而 “点与直线结合” 是自对偶概念.
+~ End Remark
+~
+~ Slide
+### 平面对偶原理
+将平面射影几何的一个命题中所有的射影概念都换成其平面对偶概念后 所得的命题称为原命题的**平面对偶命题**.
+~ Begin Theorem {caption: " 平面对偶原理"}
+平面射影几何中每个定理的平面对偶命题也真实.
+~ End Theorem
+~
+~ Slide
+~ Begin Example
+写出下列命题的平面对偶命题:
+
+1. 相异三点 $A$,$B$,$C$ 共线的充要条件是它们分别具有坐标 $a$,$b$,$c$ 使得 $a + b + c = 0$;
+2. 以一直线为底的点列与点集合$\Gamma$至多有两个公共点.
+~ End Example
+~
+~ Slide
+### 对偶图形
+~ Begin Definition {caption: " 平面对偶图形"}
+若将一个图形$F$的定义或描述中的射影概念都换成其对偶概念, 则又得到一个图形$F'$ 的定义或描述. 我们称$F'$为$F$的**对偶图形**.
+~ End Definition
+~ Begin Definition {caption: " 三点形与三线形"}
+不共线的三点及其两两的连线所组成的图形称为**三点形**; 这三个点称为**顶点**, 它们的连线称为**边**.
+
+不共点的三直线及其两两的交点所组成的图形称为**三线形**; 这三直线称为**边**, 它们的交点称为**顶点**.
+~ End Definition
+~ Begin Remark
+三点形与三线形实际上是同一种图形. 一般地, 若一个图形与它的对偶 图形是同一种图形, 则称它为**自对偶图形**.
+~ End Remark
+~
+~ Slide
+~ Begin Definition {caption: " 完全四点形"}
+射影平面上由四个点 (其中每三点不共线) 及其每两点的连线组
+成的图形称为**完全四点形**; 这四个点称为**顶点**, 没有公共顶点的两边叫做**对边**, 对边的交点叫做**对边点**.
+
+完全四点形的三个对边点及其两两的连线构成一个三点形, 称之为完全四点形的**对边三点形**.
+~ End Definition
+~ Begin Figure {caption: " 完全四点形"}
+![full-four-point-shape]
+~ End Figure
+[full-four-point-shape]: images/full-four-point-shape.png "full-four-point-shape" { width:auto; max-width:90% }
+~
+
+~ Slide
+~ Begin Definition {caption: " 完全四线形"}
+射影平面上的四条直线 (其中每三线不共点) 及其每两直线的交点组成的图形称为**完全四线形**; 每两边的交点称为**顶点**, 没有公共边的两顶点叫做**对顶点**, 对顶点的连线叫做**对顶线**。
+
+完全四线形的三条对顶线不共点, 以三条对顶线为边的三线称为完全四线形的**对顶三线形**.
+~ End Definition
+~ Begin Figure {caption: " 完全四线形"}
+![full-four-line-shape]
+~ End Figure
+[full-four-line-shape]: images/full-four-line-shape.png "full-four-line-shape" { width:250px; max-width:90% }
+~
+## Desargues定理 {#desargues-theorem}
+
+## 习题 {#excs}
+
+1. 在射影平面的各个模型中，指出无穷远元素是什么？
