@@ -1,0 +1,327 @@
+Title         : 高等几何
+[INCLUDE=../header.mdk]
+
+# 仿射平面 {#affine-plane}
+## 几类特殊的仿射变换 {#specialaffine}
+
+为了方便讨论， 我们将仿射变换的代数表示改写为矩阵形式：
+~ Begin Equation{#eq-affine-algebra-rep-matrix}
+\begin{pmatrix}
+  x'\\
+  y'
+\end{pmatrix}=A\begin{pmatrix}
+x\\
+y
+\end{pmatrix}+\begin{pmatrix}
+a\\b
+\end{pmatrix},\quad \det A\neq0.
+~ End Equation
+其中，
+~ Begin Math
+A=\begin{pmatrix}
+  a_{11}&a_{12}\\
+  a_{21}&a_{22}
+\end{pmatrix}.
+~ End Math
+~ Slide
+### 正交变换
+~ Begin Definition{caption: " 正交变换"}
+在直角坐标系下，我们称[#eq-affine-algebra-rep-matrix]为平面上的正交变换，如果$A$为正交矩阵，即$AA^T=I_2$.  
+~ End Definition
+注意到，$\det A=\pm1$. 若令$\epsilon=\det A$, 则由
+~ Begin Math
+A^T=A^{-1}=\frac{1}{\epsilon}\begin{pmatrix}
+a_{22}&-a_{12}\\
+-a_{21}&a_{11}
+\end{pmatrix},
+~ End Math
+得到$
+a_{12}=-\epsilon a_{21},
+a_{22}=\epsilon a_{11}.$
+注意到$AA^T=I_2$, 我们有$a_{11}^2+a_{21}^2=1$. 因此，存在$\theta\in[0,2\pi)$, 使得$a_{11}=\cos\theta$, $a_{21}=\sin\theta$. 故，$a_{12}=-\epsilon\sin\theta$, $a_{22}=\epsilon\cos\theta$. 这样，正交变换在直角坐标系下的代数表达式可表示为:
+~ Begin Equation {#orthgonal-trans-rep}
+\begin{cases}
+x'=x\cos\theta-y\epsilon\sin\theta+a\\
+y'=x\sin\theta+y\epsilon\cos\theta+b.
+\end{cases}
+~ End Equation
+~
+
+~ Slide
+### 位似变换与相似变换
+根据位似变换的定义，容易知道：在直角坐标系下，以点$A(a_1,a_2)$为中心，实数$k$为位似比的位似变换在直角坐标系下的代数表达式为：
+~ Begin Math {.fragment}
+\begin{cases}
+x'=kx+(1-k)a_1\\
+y'=ky+(1-k)a_2.
+\end{cases}
+~ End Math
+
+~ Begin Definition {caption: " 相似变换"; .fragment}
+我们称正交变换和位似变换的乘积为**相似变换**. 其中位似变换的位似比称为相似变换的**相似比**.
+~ End Definition
+~
+
+~ Slide
+根据正交变换的代数表达式，我们知道
+~ Begin Math
+\begin{cases}
+x'=k(x\cos\theta-y\epsilon\sin\theta)+ka+(1-k)a_1\\
+y'=k(x\sin\theta+y\epsilon\cos\theta)+kb+(1-k)a_2.
+\end{cases}
+~ End Math
+若令$a_{11}=k\cos\theta$, $a_{21}=k\sin\theta$, $c_1=ka+(1-k)a_1$, $c_2=kb+(1-k)a_2$, 则相似变换在直角坐标系下的代数表达式为
+~ Begin Equation {#similar-trans-rep}
+  \begin{cases}
+    x'=a_{11}x-\epsilon a_{21}y+c_1\\
+    y'=a_{21}x+\epsilon a_{11}y+c_2.
+    \end{cases}
+~ End Equation
+根据正交变换和位似变换的性质知道，位似变换保持任意两线段的比以及角度。
+
+可以证明相似变换构成一个群，称为**相似变换群**。
+~
+
+## 仿射变换的性质及其应用 {#affine-trans-prop-applicaton}
+前面我们学习了仿射变换的一些基本性质：
+同素性、结合性、平行性、线性、平行线段的比、单比。
+
+这里，我们进一步研究仿射变换下图形的面积比。
+~ Begin Theorem {#affine-prop-area}
+仿射变换保持任意两个封闭图形的面积之比不变。
+~ End Theorem
+~ Slide
+~ Begin Proof
+由于任意两个封闭图形的面积可以用平行四边形来逼近。我们只需对平行四边形来证明即可。考察平行四边形$ABCD$，我们记邻边向量$\overrightarrow{AB}=\vec a$, $\overrightarrow{AD}=\vec b$. 假设在仿射变换之下，平行四边形$ABCD$变为$A'B'C'D'$, 并令$\vec a'=\overrightarrow{A'B'}$, $\vec b'=\overrightarrow{A'D'}$. 如果在仿射坐标$\{O;\vec e_1,\vec e_1\}$之下，
+~ Begin Math
+\begin{cases}
+\vec a=\lambda_1\vec e_1+\mu_1\vec e_2,\\
+\vec b=\lambda_2\vec e_1+\mu_2\vec e_2.
+\end{cases}
+~ End Math
+则由于仿射变换的线性性，我们知道
+~ Begin Math
+\begin{cases}
+\vec a'=\lambda_1\vec{e_1}'+\mu_1\vec{e_2}'\\
+\vec b'=\lambda_2\vec{e_1}'+\mu_2\vec{e_2}'
+\end{cases}
+~ End Math
+~ End Proof
+~
+~ Slide
+~ Begin Proof {replace: '//证明/证明续//g'}
+注意到，
+~ Begin Math
+\lvert\vec a\times\vec b\rvert=\lvert\lambda_1\mu_2-\lambda_2\mu_1\rvert\lvert\vec e_1\times\vec e_2\rvert,
+~ End Math
+我们得到
+~ Begin Math
+\lvert\vec a'\times\vec b'\rvert:\lvert\vec a\times\vec b\rvert
+=\lvert\vec{e_1}'\times\vec{e_2}'\rvert:\lvert\vec e_1\times\vec e_2\rvert=\lvert \det A \rvert.
+~ End Math
+~ End Proof
+~
+~ Slide
+### 仿射变换的应用
+~ Begin Example
+利用仿射变换求椭圆的面积。
+~ End Example
+~ Begin Proof
+
+~ Begin Figure {#affineCircle2Ellisolid; caption: " 仿射变换将圆变为椭圆"}
+![affineCircle2Ellisolid]
+[affineCircle2Ellisolid]: images/affineCircle2Ellisolid.png
+~ End Figure
+如图[#affinecircle2ellisolid], 存在一个仿射变换将半径为$r$的圆变为椭圆. 事实上, 根据仿射变换的代数表达式, 考虑$O\mapsto O'$, $B\mapsto B'$, $C\mapsto C'$确定的仿射变换即可. 
+~ End Proof
+~
+~ Slide
+  事实上, 假设在直角坐标系下(它也是仿射坐标系), $O(0,0)$, $B(r,0)$, $C(0,r)$, 分别变为$O'(c_1,c_2)$, $B'(c_1+b,c_2)$, $C'(c_1,c_2+a)$. 带入仿射变换的代数表达式, 解得
+~ Begin Math
+\begin{cases}
+  x'=bx/r+c_1,\\
+  y'=ay/r+c_2.
+\end{cases}\implies
+\begin{cases}
+x=r(x'-c_1)/b,\\
+y=r(y'-c_2)/a.
+\end{cases}
+~ End Math
+该仿射变换明显将圆的方程变为椭圆方程
+~ Begin Math
+\frac{x^2}{r^2}+\frac{y^2}{r^2}=1\mapsto
+\frac{(x'-c_1)^2}{b^2}+\frac{(y'-c_2)^2}{a^2}=1.
+~ End Math
+
+现在, 利用仿射变换保持任意两个图形的面积之比不变(参考定理[#affine-prop-area]), 我们得到, 椭圆的面积:圆的面积等于
+~ Begin Math
+\frac{S_{\triangle OBC}}{S_{\triangle O'B'C'}}=\frac{ab}{r^2}(=\lvert \det A \rvert),
+~ End Math
+由此知道椭圆的面积为$\pi ab$.
+~
+
+## 习题 {#excs}
+
+1. 证明正交变换保持向量的长度与夹角。
+2. 试用正交变换的代数表达式证明正交变换可以写成旋转、平移与反射的乘积。
+3. 经过$A(-3,2)$和$B(6,1)$的直线$AB$与直线$x+3y-6=0$交于点$P$, 求$(ABP)$.
+4. 求一个仿射变换, 使得它保持直线$x+2y-1=0$上的每个点都不变, 且将点$(1,-1)$变为点$(-1,2)$.
+5. 求仿射变换$\begin{cases}x'=7x-y+1,\\y'=4x+2y+4,\end{cases}$的不变点和不变直线.
+
+## 习题解答 {#excs-ans}
+1. 回忆正交变换是在直角坐标系下满足$AA^T=I_2$的仿射变换，而在仿射变换之下，我们知道向量$\vec v=(x,y)$变为向量$\vec v'=(x',y')$的变换公式为：
+~ Begin Math
+\begin{pmatrix}x'\\y'\end{pmatrix}=\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix},
+~ End Math
+我们将其简记为
+~ Begin Math
+X'=AX,\quad X=\begin{pmatrix}x\\y\end{pmatrix},\quad X'=\begin{pmatrix}x'\\y'\end{pmatrix}.
+~ End Math
+注意到，若用矩阵乘法，我们可将向量的内积在直角坐标系下表示为(令$\vec v_1$,$\vec v_2$的坐标分别为$X_1$, $X_2$)
+~ Begin Math
+\langle \vec v_1,\vec v_2\rangle=X_1^TX_2.
+~ End Math
+
+~ Slide
+由此，我们得到
+~ Begin Math
+\begin{aligned}
+\langle \vec v_1',\vec v_2' \rangle=X_1'^TX_2'=(AX_1)^TAX_2=X_1A^TAX_2.
+\end{aligned}
+~ End Math
+最后，由于$AA^T=I_2$, 我们知道$A^T=A^{-1}$, 故$A^TA=I_2$. 因此
+~ Begin Math
+\langle \vec v_1',\vec v_2'\rangle=X_1^TX_2=\langle \vec v_1,\vec v_2\rangle.
+~ End Math
+这表明正交变换保持向量的内积不变。
+
+现在，由于任一向量$\vec v$的长度定义为$\lvert \vec v\rvert=\sqrt{\langle \vec v,\vec v\rangle}$, 以及任意两向量的夹角定义为：
+~ Begin Math
+\angle(\vec v_1,\vec v_2)=\arccos\left(\frac{\langle \vec v_1,\vec v_2\rangle}{\lvert \vec v_1\rvert \lvert v_2 \rvert}\right),
+~ End Math
+由此可见正交变换保持向量的长度以及两向量的夹角。
+~
+~ Slide
+3. 不妨假设$P(6-3y,y)$, 则根据单比的代数表达式,
+ ~ Begin Math
+ (ABP)=\frac{6-3y-(-3)}{6-3y-6}=\frac{y-2}{y-1}\implies y=\frac{3}{2}, (ABP)=-1.
+ ~ End Math
+~ 
+~ Slide
+4. 明显, 若一个仿射变换保持直线上两点不变, 则该直线上所有点都是不变点. 考虑不变直线上两特殊点$A(1,0)$, $B(0,1/2)$. 根据仿射变换的代数表达式, 得到
+ ~ Begin Math
+ \begin{cases}
+ 1=a_{11}+a,\quad 0=a_{21}+b\\
+ 0=a_{12}/2+a,\quad
+ 1/2=a_{22}/2+b,\\
+ -1=a_{11}-a_{12}+a,\quad
+ 2=a_{21}-a_{22}+b
+ \end{cases}
+ ~ End Math
+ 故
+ ~ Begin Math
+ \begin{aligned}
+ a_{12}&=-2a,&\quad a_{21}&=-b,&\quad a_{22}&=1-2b,\\
+ a_{11}&=-1-3a,&\quad a&=-1&\quad a_{21}&=3-3b,\\
+ b&=3/2,&\quad a_{11}&=2,&\quad a_{12}&=2,\\
+ a_{21}&=-3/2,&\quad a_{22}&=-2.\\
+ \end{aligned}
+ ~ End Math
+ ~
+ ~ Slide
+ 即所求的仿射变换为
+ ~ Begin Math
+ \begin{cases}
+ x'=2x+2y-1,\\
+ y'=-3x/2-2y+3/2.
+ \end{cases}
+ ~ End Math
+ ~
+ ~ Slide
+ 5. 先求不变点: 由给出的仿射变换得到
+ ~ Begin Math
+ \begin{cases}
+ x=7x-y+1,\\
+ y=4x+2y+4,
+ \end{cases}
+ ~ End Math
+ 解得$x=-1/2$, $y=-2$. 注意这并不表示没有不变直线, 因为不变直线是指在仿射变换下该直线的像集仍是该直线, 并不表示直线上每个点都是不动点.
+~
+
+~ Slide
+为了求该仿射变换下的不变直线, 我们不妨设该直线为(利用通过给定点的直线簇):$y+2=\lambda\left(x+\frac{1}{2}\right)$.
+
+在仿射变换下, 直线上的点$(x,\lambda(x+1/2)-2)$变为
+~ Begin Math
+\begin{cases}
+x'=7x-[\lambda(x+1/2)-2]+1=(7-\lambda)x+3-\lambda/2,\\
+y'=4x+2[\lambda(x+1/2)-2]+4=(4+2\lambda)x+\lambda.
+\end{cases}
+~ End Math
+它仍在直线上, 即$y'+2=\lambda(x'+1/2)$, 故 $(4+2\lambda)x+\lambda+2=\lambda((7-\lambda)x+7/2-\lambda/2)$.
+
+利用$x$的任意性, 比较其系数得到
+~ Begin Math
+2(2+\lambda)=\lambda(7-\lambda),\quad
+\lambda+2=\lambda(7-\lambda)/2.
+~ End Math
+解得$\lambda_1=1,\quad\lambda_2=4$. 因此所求的不变直线为$y=x-3/2,\quad y=4x$.
+
+最后, 容易检验$x=-\frac{1}{2}$不是该仿射变换的不变直线.
+~
+
+# 射影平面 {#projecitve-plane}
+
+回忆, 前面我们通过研究平行射影, 定义了透视仿射对应; 进而, 利用有限个仿射透视对应的乘积, 定义了仿射对应和仿射变换. 接着研究了仿射变换的代数表示以及一些基本不变性.
+
+为了类似的研究中心射影, 我们需要射影平面的概念. 和平行射影不同的是, 中心射影并不构成直线到直线或者平面到平面的一一对应(双射).
+
+## 中心对应 {#centeral-map}
+
+考察平面上两直线$a$, $a'$, 假设$O$是直线$a$, $a'$外一点. 我们尝试定义映射如下: 对$A\in a$, 将其对应到, 连接$OA$的直线与$a'$的交点$A'$.
+
+~ Framed {.fragment}
+思考: 将$A\mapsto A'$是否构成了直线$a$到直线$a'$的映射?
+~
+
+明显地, 当$a$与$a'$相交时, 对$a$上的点$P$, 若$OP\parallel a'$, 则在$a'$上无对应点; 同样的, 对$Q'\in a'$, 若$OQ'\parallel a$, 则在$a$上也没有点, 使得其像点为$Q'$. 
+{.fragment}
+
+对两相交平面, 也有类似情形. 此外,我们还看到在该对应下, 将$\pi$中两相交直线变为$\pi'$中两平行直线.
+{.fragment}
+~ Center
+![centerialPrjoection]
+~
+[centerialPrjoection]: images/centerialPrjoection.png "centerialPrjoection" { width:auto; max-width:90% }
+
+~ Slide
+为了使得上述对应为一个一一对应(双射)并且保持点线的结合关系, 我们引入如下约定:
+
+1. 原来的每条直线上有且仅有一个无穷远点;
+2. 平行直线的无穷远点相同;
+3. 不平行直线的无穷远点相异.
+
+注意: 直线上的无穷远点也看作是加在空间中以及该直线所在的每一个平面上的.
+~
+~ Slide
+增加了无穷远点的直线、平面和空间分别称为**射影直线**、**射影平面**和**射影空间**. 无穷远点以外的点称为**通常点**. 今后还常将原来的平面 (仿射平面或欧氏平面) 统称为**通常平面**.
+
+显然, 每一个射影平面内部都有无限多个无穷远点. 射影平面内所有无穷远点组成的集合称为**无穷远直线**. 此外, 射影空间内所有无穷远点的集合
+称为**无穷远平面**, 它与任意一个射影平面交于该平面的无穷远直线.
+~
+
+## 中心射影 {#centeral-projection}
+明显地, 我们开始定义的对应构成了射影直线与射影直线、射影平面与射影平面间的一个一一对应, 我们称其为**中心射影**或者**透视对应**. 其中点$O$为**射影中心**或者**透视中心**, 无穷远元素的像或者原像称为**消影点**或者**消影线**.
+
+如下的定理是容易证明的.
+
+~ Begin Theorem
+在射影平面上, 任意两条不同的直线都有唯一的交点, 任意两个不同点决定一条通过它们的直线.
+~ End Theorem
+~ Begin Theorem
+在射影空间内, 任一直线与不通过它的任一平面有唯一的公共点, 两个不同的平面有唯一公共的直线.
+~ End Theorem
+容易证明, 中心射影保持同素性、结合性, 但没有平行性.
+~ Begin Framed
+思考: 中心射影是否保持共线三点的单比? (参考教材上的例子)
+~ End Framed
