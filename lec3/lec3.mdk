@@ -1,0 +1,300 @@
+Title         : 线性代数II
+[INCLUDE=../header.mdk]
+
+# 行列式的基本性质 {#determinant-properties}
+从行列式的定义我们知道，它一般是$n!$项的代数和，当$n$较大时，用定义来计算比较困难。我们将从行列式的定义导出行列式的一些基本性质，这些性质可以简化计算。
+## 转置不变性 {#transport-invariant}
+~ Begin Theorem
+假设行列式$D=\lvert (a_{ij})_{n\times n}\rvert$, 即
+~ Begin Math
+D=\begin{vmatrix}\begin{smallmatrix}
+  a_{11}&a_{12}&\cdots&a_{1n}\\
+  a_{21}&a_{22}&\cdots&a_{2n}\\
+  \vdots&\vdots&&\vdots\\
+  a_{n1}&a_{n2}&\cdots&a_{nn}
+\end{smallmatrix}\end{vmatrix}.
+~ End Math
+如果我们定义$D$的**转置行列式**$D^T$为
+~ Begin Math
+D=\begin{vmatrix}\begin{smallmatrix}
+  a_{11}&a_{21}&\cdots&a_{n1}\\
+  a_{12}&a_{22}&\cdots&a_{n2}\\
+  \vdots&\vdots&&\vdots\\
+  a_{1n}&a_{2n}&\cdots&a_{nn}
+\end{smallmatrix}\end{vmatrix},
+~ End Math
+那么$D=D^T$.
+~ End Theorem
+~ Begin Remark
+由此，我们知道行列式关于行的性质对行列式的列也成立。
+~ End Remark
+~ Slide
+~ Begin Proof
+令$b_{ij}=a_{ji}$, $i,j=1,2,\ldots,n$, 则按照行列式的定义
+~ Begin Math
+\begin{aligned}
+  D^T&=\sum{k_1k_2\ldots k_n}(-1)^{\tau(k_1k_2\ldots k_n)}b_{1k_1}b_{2k_2}\cdots b_{nk_n}\\
+  &=\sum{k_1k_2\ldots k_n}(-1)^{\tau(k_1k_2\ldots k_n)}a_{k_11}a_{k_22}\cdots a_{k_nn}.
+\end{aligned}
+~ End Math
+由上节定理(行列式按列展开公式）, 我们知道$D^T=D$.
+~ End Proof
+~
+## 交换两行变号 {#exchange-two-rwo-change-sign}
+~ Begin Theorem
+交换行列式的两行，行列式相差一个符号。即
+~ Begin Math
+\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}& a_{12}&\cdots&a_{1n}\\           
+    \vdots&\vdots&&\vdots\\
+    a_{i1}& a_{i2}&\cdots&a_{in}\\
+    \vdots&\vdots&&\vdots\\
+    a_{j1}& a_{j2}&\cdots&a_{jn}\\
+    \vdots&\vdots&&\vdots\\
+    a_{n1}& a_{n2}&\cdots&a_{nn}
+  \end{smallmatrix}\end{vmatrix}=-\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}& a_{12}&\cdots&a_{1n}\\           
+    \vdots&\vdots&&\vdots\\
+    a_{j1}& a_{j2}&\cdots&a_{jn}\\
+    \vdots&\vdots&&\vdots\\
+    a_{i1}& a_{i2}&\cdots&a_{in}\\
+    \vdots&\vdots&&\vdots\\
+    a_{n1}& a_{n2}&\cdots&a_{nn}
+  \end{smallmatrix}
+\end{vmatrix}.
+~ End Math
+~ End Theorem
+~ Begin Corollary
+ 若行列式中有两行元素完全相同，则该行列式为零。
+~ End Corollary
+~ Slide
+~ Begin Proof
+  如果我们将预证结论左右两端的行列式分别记作$D$、$D'$. 则按照行列式的定义，我们知道
+  ~ Begin Math
+  \begin{aligned}
+    D'&=\sum_{k_1\cdots k_i\cdots k_j\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_j\cdots k_n)}
+    a_{1k_1}\cdots a_{jk_i}\cdots a_{ik_j}\cdots a_{np_n}\\
+    &=\sum_{k_1\cdots k_j\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_j\cdots k_i\cdots k_n)}
+    a_{1k_1}\cdots a_{jk_j}\cdots a_{ik_i}\cdots a_{np_n}\\
+    &=-\sum_{k_1\cdots k_i\cdots k_j\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_j\cdots k_n)}
+    a_{1k_1}\cdots a_{ik_i}\cdots a_{jk_j}\cdots a_{np_n}\\
+    &=-D.
+  \end{aligned}
+  ~ End Math
+~ End Proof
+~
+## 数乘线性 {#determinant-scalar-multiply}
+~ Theorem
+  行列式某行元素的公因子可以提到行列式符号之外，即
+  ~ Begin Math
+  \begin{vmatrix}
+   a_{11}&a_{12}&\cdots&a_{1n}\\
+   \vdots&\vdots&&\vdots\\
+   c a_{i1}&ca_{i2}&\cdots&c a_{in}\\
+   \vdots&\vdots&&\vdots\\
+    a_{n1}&a_{n2}&\dots& a_{nn}
+  \end{vmatrix}=c\begin{vmatrix}
+   a_{11}&a_{12}&\cdots&a_{1n}\\
+   \vdots&\vdots&&\vdots\\
+    a_{i1}&a_{i2}&\dots& a_{in}\\
+   \vdots&\vdots&&\vdots\\
+    a_{n1}&a_{n2}&\dots& a_{nn}
+  \end{vmatrix}.
+  ~ End Math
+~
+~ Corollary
+若行列式某一行全为零，则该行列式为零；
+
+若行列式某两行成比例，则该行列式为零。
+~
+~ Slide
+~ Begin Proof
+假设预证等式左右边行列式分别记为$D'$、$D$, 则按照行列式定义，我们有
+~ Begin Math
+\begin{aligned}
+  D'&=\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots ca_{ik_i}\cdots a_{nk_n}\\
+  &=c\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots a_{ik_i}\cdots a_{nk_n}\\
+  &=cD.
+\end{aligned}
+~ End Math
+~ End Proof
+~
+
+## 加法线性 {#determinant-addition-linearity}
+~ Theorem 
+行列式关于一行的加法可以分开，即
+~ Begin Math
+  \begin{vmatrix}
+    \begin{smallmatrix}
+      a_{11}&a_{12}&\cdots&a_{1n}\\
+      \vdots&\vdots&&\vdots\\
+      b_{i1}+c_{i1}&b_{i2}+c_{i2}&\dots& b_{in}+c_{in}\\
+      \vdots&\vdots&&\vdots\\
+      a_{n1}&a_{n2}&\dots& a_{nn}
+    \end{smallmatrix}
+  \end{vmatrix}=\begin{vmatrix}
+   \begin{smallmatrix}
+     a_{11}&a_{12}&\cdots&a_{1n}\\
+   \vdots&\vdots&&\vdots\\
+    b_{i1}&b_{i2}&\dots& b_{in}\\
+   \vdots&\vdots&&\vdots\\
+    a_{n1}&a_{n2}&\dots& a_{nn}
+   \end{smallmatrix}
+  \end{vmatrix}+\begin{vmatrix}
+   \begin{smallmatrix}
+     a_{11}&a_{12}&\cdots&a_{1n}\\
+   \vdots&\vdots&&\vdots\\
+    c_{i1}&c_{i2}&\dots& c_{in}\\
+   \vdots&\vdots&&\vdots\\
+    a_{n1}&a_{n2}&\dots& a_{nn}
+   \end{smallmatrix}
+  \end{vmatrix}.
+~ End Math
+~
+~ Corollary
+ 将行列式的某行元素的一个倍数加到该行列式的另一行不改变原行列式的值。
+~
+~ Slide
+~ Begin Proof
+分别记预证等式中三个行列式为$D$、$D_1$、$D_2$，则按照行列式的定义，我们知道
+~ Begin Math
+\begin{aligned}
+  D&=\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots (b_{ik_i}+c_{ik_i})\cdots a_{nk_n}\\
+  &=\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots b_{ik_i}\cdots a_{nk_n}\\
+  &\qquad+\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots c_{ik_i}\cdots a_{nk_n}\\
+ &=D_1+D_2.
+\end{aligned}
+~ End Math
+~ End Proof
+~
+## 利用行列式的性质计算 {#examp-determinant-by-property}
+~ Example
+计算行列式
+~ Begin Math
+D=\begin{vmatrix}
+  3&1&1&1\\
+  1&3&1&1\\
+  1&1&3&1\\
+  1&1&1&3\\
+\end{vmatrix}.
+~ End Math
+~
+~ Slide
+~ Begin Proof {replace="//证明/解//"}
+ 观察发现，行列式有很多相同元素，而且每一行相加的和相同。故
+~ Begin Math
+\begin{aligned}
+ D&=\begin{vmatrix}
+  6&6&6&6\\
+  1&3&1&1\\
+  1&1&3&1\\
+  1&1&1&3\\
+\end{vmatrix}=6\begin{vmatrix}
+  1&1&1&1\\
+  0&2&0&0\\
+  0&0&2&0\\
+  0&0&0&2\\
+\end{vmatrix}=48.
+\end{aligned}
+~ End Math
+~ End Proof
+~
+~ Slide
+~ Begin Example
+  计算行列式
+  ~ Begin Math
+  D=\begin{vmatrix}
+  3&1&-1&2\\
+  -5&1&3&-4\\
+  2&0&1&-1\\
+  1&-5&3&-3
+  \end{vmatrix}.
+  ~ End Math
+~ End Example  
+~
+~ Slide
+~ Begin Proof
+书上的办法是利用行或者列变换将其化为上三角行列式。我们给出只利用列变换化成下三角行列式的办法。
+~ Begin Math
+\begin{aligned}
+  -D&=
+  \begin{vmatrix}
+    \begin{smallmatrix}
+      1 & 3&-1&2\\
+      1 &-5&3 &-4\\
+      0 & 2&1 &-1\\
+      -5& 1&3 &-3
+    \end{smallmatrix}
+  \end{vmatrix}=\begin{vmatrix}
+    \begin{smallmatrix}
+      1 & 0 &0 &0\\
+      1 &-8 &4 &-6\\
+      0 & 2 &1 &-1\\
+      -5& 16&-2&7
+    \end{smallmatrix}
+  \end{vmatrix}=-8\begin{vmatrix}
+    \begin{smallmatrix}
+      1 & 0 &0 &0\\
+      1 &1 &4 &-6\\
+      0 &-1/4  &1 &-1\\
+      -5& -2&-2&7
+    \end{smallmatrix}
+  \end{vmatrix}\\
+    &=-8\begin{vmatrix}
+    \begin{smallmatrix}
+      1 & 0 &0 &0\\
+      1 &1 &0 &0\\
+      0 &-1/4 &2 &-5/2\\
+      -5& -2&6&-5
+    \end{smallmatrix}
+  \end{vmatrix}=-8\begin{vmatrix}
+    \begin{smallmatrix}
+      1 & 0 &0 &0\\
+      1 &1 &0 &0\\
+      0 &-1/4 &2 &0\\
+      -5& -2&6&5/2
+    \end{smallmatrix}
+  \end{vmatrix}=-40.
+\end{aligned}
+~ End Math
+~ End Proof
+~
+## 分块行列式公式 {#blocked-determinant}
+更一般地，我们可以利用行列式的行变换(列变换)将任一行列式化为与之等值的上三角或者下三角行列式。由此，可以证明
+~ Theorem
+关于分块下三角行列式，我们有
+~ Begin Math
+D=\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}&a_{12}&\cdots&a_{1s}&0&0&\cdots&0\\
+    a_{21}&a_{22}&\cdots&a_{2s}&0&0&\cdots&0\\
+    \vdots&\vdots&&\vdots&\vdots&\vdots&&\vdots\\
+    a_{s1}&a_{s2}&\cdots&a_{ss}&0&0&\cdots&0\\
+    c_{11}&c_{12}&\cdots&c_{1s}&b_{11}&b_{12}&\cdots&b_{1t}\\
+    c_{21}&c_{22}&\cdots&c_{2s}&b_{21}&b_{22}&\cdots&b_{2t}\\
+    \vdots&\vdots&&\vdots&\vdots&\vdots&&\vdots\\
+    c_{t1}&c_{t2}&\cdots&c_{ts}&b_{t1}&b_{t2}&\cdots&b_{tt}
+  \end{smallmatrix}
+\end{vmatrix}=\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}&a_{12}&\cdots&a_{1s}\\
+    a_{21}&a_{22}&\cdots&a_{2s}\\
+    \vdots&\vdots&&\vdots\\
+    a_{s1}&a_{s2}&\cdots&a_{ss}
+  \end{smallmatrix}
+\end{vmatrix}
+\begin{vmatrix}
+  \begin{smallmatrix}
+    b_{11}&b_{12}&\cdots&b_{1t}\\
+    b_{21}&b_{22}&\cdots&b_{2t}\\
+    \vdots&\vdots&&\vdots\\
+    b_{t1}&b_{t2}&\cdots&b_{tt}
+  \end{smallmatrix}
+\end{vmatrix}.
+~ End Math
+~
+# 习题 {#excs}
+
+p22: 4, 5; p23: 6.

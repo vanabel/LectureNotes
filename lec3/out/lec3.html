@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.2.3" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="author" content="艾万君" />
+  <title>线性代数II</title>
+  <style type="text/css"  class="link">
+  /*# sourceURL=madoko.css */
+  
+  .madoko .toc>.tocblock .tocblock .tocblock {
+    margin-left: 2.25em;
+  }
+  .madoko .toc>.tocblock .tocblock {
+    margin-left: 1.5em;
+  }
+  .madoko .toc-contents>.tocblock>.tocitem {
+    font-weight: bold;
+  }
+  .madoko .toc {
+    margin-top: 1em;
+  }
+  .madoko p.para-continue {
+    margin-bottom: 0pt;
+  }
+  .madoko .para-block+p {
+    margin-top: 0pt;
+  }
+  .madoko ul.para-block, .madoko ol.para-block {
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+  }
+  .madoko ul.para-end, .madoko ol.para-end {
+    margin-bottom: 1em;
+  }
+  .madoko dl {
+    margin-left: 0em;
+  }
+  .madoko blockquote {
+    font-style: italic;
+  }
+  .madoko a.localref {
+    text-decoration: none;
+  }
+  .madoko a.localref:hover {
+    text-decoration: underline;
+  }
+  .madoko .footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+  }
+  .madoko .footnotes hr {
+    width: 50%;
+    text-align: left;
+  }
+  .madoko .footnote {
+    margin-left: 1em;
+  }
+  .madoko .footnote-before {
+    margin-left: -1em;
+    width: 1em;
+    display: inline-block;
+  }
+  .madoko .align-center, .madoko .align-center>p {
+    text-align: center !important;
+  }
+  .madoko .align-center pre {
+    text-align: left;
+  }
+  .madoko .align-center>* {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-left, .madoko .align-left>p {
+    text-align: left !important;
+  }
+  .madoko .align-left>* {
+    margin-left: 0pt !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-right, .madoko .align-right>p {
+    text-align: right !important;
+  }
+  .madoko .align-right>* {
+    margin-left: auto !important;
+    margin-right: 0pt !important;
+  }
+  .madoko .align-center>table,
+  .madoko .align-left>table,
+  .madoko .align-right>table {
+    text-align: left !important;
+  }
+  .madoko .equation-before {
+    float: right;
+  }
+  .madoko .bibitem {
+    font-size: smaller;
+  }
+  .madoko .bibsearch {
+    font-size: x-small;
+    text-decoration:none;
+    color: black;
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .figure {
+    padding: 0.5em;
+    margin-left: 0pt;
+    margin-right: 0pt;
+  }
+  .madoko .hidden {
+    display: none;
+  }
+  .madoko .invisible {
+    visibility: hidden;
+  }
+  .madoko.preview .invisible {
+    visibility: visible;
+    opacity: 0.5;
+  }
+  .madoko code.code, .madoko span.code {
+    white-space: pre-wrap;
+  }
+  .madoko hr, hr.madoko {
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 0.5ex;
+  }
+  .madoko .framed>*:first-child {
+    margin-top: 0pt;
+  }
+  .madoko .framed>*:last-child {
+    margin-bottom: 0pt;
+  }
+  .madoko ul.list-style-type-dash {
+      list-style-type: none !important;
+  }
+  .madoko ul.list-style-type-dash > li:before {
+      content: "\2013";
+      position: absolute;
+      margin-left: -1em;
+  }
+  .madoko table.madoko {
+    border-collapse: collapse;
+  }
+  .madoko td, .madoko th {
+    padding: 0ex 0.5ex;
+    margin: 0pt;
+    vertical-align: top;
+  }
+  .madoko .cell-border-left {
+    border-left: 1px solid black;
+  }
+  .madoko .cell-border-right {
+    border-right: 1px solid black;
+  }
+  .madoko thead>tr:first-child>.cell-line,
+  .madoko tbody:first-child>tr:first-child>.cell-line {
+    border-top: 1px solid black;
+    border-bottom: none;
+  }
+  .madoko .cell-line, .madoko .cell-double-line {
+    border-bottom: 1px solid black;
+    border-top: none;
+  }
+  .madoko .cell-double-line {
+    border-top: 1px solid black;
+    padding-top: 1.5px !important;
+  }
+  .madoko .input-mathpre .MathJax_Display {
+    text-align: left !important;
+  }
+  .madoko div.input-mathpre {
+    text-align: left;
+    margin-top: 1.5ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .math-rendering {
+    text-align: left;
+    white-space: pre;
+    color: gray;
+  }
+  .madoko .mathdisplay {
+    text-align: center;
+  }
+  .madoko span.math-rendering {
+    display:inline-block;
+    width:8em;
+    overflow-x:auto;
+    font-size:70%;
+  }
+  .madoko span.math-rendering::-webkit-scrollbar {
+    width:4px;
+  }
+  .madoko .pretty table {
+    border-collapse: collapse;
+  }
+  .madoko .pretty td {
+    padding: 0em;
+  }
+  .madoko .pretty td.empty {
+    min-width: 1.5ex;
+  }
+  .madoko .pretty td.expander {
+    width: 100em;
+  }
+  body.madoko, .madoko .serif {
+    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
+  }
+  .madoko .sans-serif {
+    font-family: "Calibri", "Optima", sans-serif;
+  }
+  .madoko .symbol {
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  body.madoko {
+    -webkit-text-size-adjust: 100%;       
+    text-rendering: optimizeLegibility;
+  }
+  body.madoko {
+    max-width: 88ex; 
+    margin: 1em auto;
+    padding: 0em 2em;
+  }
+  body.preview.madoko {
+    padding: 0em 1em;
+  }
+  .madoko p {
+    text-align: justify;
+  }
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 {
+    margin-top: 1.22em;
+    margin-bottom: 1ex;
+  }
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  {
+    margin-top: 1ex;
+  }
+  .madoko h5, .madoko h6 {
+    margin-top: 1ex;
+    font-size: 1em;
+  }
+  .madoko h5 {
+    margin-bottom: 0.5ex;
+  }
+  .madoko h5 + p {
+    margin-top: 0.5ex;
+  }
+  .madoko h6 {
+    margin-bottom: 0pt;
+  }
+  .madoko h6 + p {
+    margin-top: 0pt;
+  }
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt,
+  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
+    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
+    font-size: 0.85em;
+  }
+  .madoko pre code, .madoko .token-indent {
+    font-size: 0.95em;
+  }
+  .madoko pre code {
+    font-family: inherit !important;
+  }
+  .madoko ol.linenums li {
+    background-color: white;
+    list-style-type: decimal;
+  }
+  .madoko .remote {
+    background-color: #F0FFF0;
+  }
+  .madoko .remote + * {
+    margin-top: 0pt;
+  }
+  @media print {
+    body.madoko {
+      font-size: 10pt;
+    }
+    @page {
+      margin: 1in 1.5in;
+    }
+  }
+  @media only screen and (max-device-width:1024px) {
+    body.madoko {
+      padding: 0em 0.5em;
+    }
+    .madoko li {
+      text-align: left;
+    }
+  }
+  
+    </style>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/reveal.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/solarized.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="lib/user.css"  class="link">
+  <script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/head.min.js"  class="script preview"></script>
+  <script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/js/reveal.js"  class="script preview"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/solarized.css" id="theme">    
+      <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/html5shiv.js"></script>
+      <![endif]-->
+      <style>
+      body.madoko {
+        margin: 0pt;
+        padding: 0pt;
+        max-width: 100%;      
+      }
+      .madoko .reveal h1 {
+          font-size: 3.7em;
+      }
+      .madoko .reveal h2 {
+          font-size: 2.1em;
+      }
+      .reveal .authorblock .author {
+          font-size: 120%;
+          margin-bottom: 1ex;
+      }        
+      .reveal table {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .reveal pre table {
+        margin-left: 0pt;
+      }
+      .madoko .reveal pre.pretty {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+      }
+      .reveal li p {
+          text-align: left;
+      }
+      .reveal h2 {
+          margin-bottom: 0.7em;
+      }
+      .reveal section ul,
+      .reveal section ol {
+          margin-top: 0.35em;
+          margin-bottom: 0.35em;
+      }
+      .reveal section img.math-display {
+          padding: 1em;
+          box-shadow: none;
+          border: none;
+      }
+      .reveal section img.math-inline {
+          margin: 0pt;
+          padding: 0pt;
+          background-color: none;
+          box-shadow: none;
+          border: none;
+      }
+      .reveal section img {
+          box-shadow: none;
+          border: none;
+      }
+      .madoko .reveal pre {
+          border: 1px solid black;
+          word-wrap: normal;
+          background-color: white;
+          font-size: 0.7em;
+          padding: 0.7em;
+          line-height: 100%;
+          width: 100%;
+      }      
+      .reveal pre code, .reveal code {
+          padding: 0pt;
+      }
+      .reveal nav.toc {
+          line-height: 1em;
+          font-size: 60%;
+          overflow-y: auto;
+      }    
+      .reveal .tocitem {
+          text-align: left;
+      }
+      .reveal .toc>.tocblock .tocblock {
+          margin-left: 0.5em;
+      }   
+      .reveal .toc>.tocblock .tocblock .tocblock {
+          margin-left: 1em;
+      }
+      .reveal .bibliography {
+        height: 18em;
+        overflow-y: auto;
+        font-size: 0.8em;
+        line-height: 1.25;
+      }
+      .reveal section[data-smaller=""],
+      .reveal section[data-smaller="true"] {
+        font-size: 80%;
+        width: 110%;
+      }
+      .reveal .slides>section[data-smaller=""],
+      .reveal .slides>section[data-smaller="true"] {
+        left: -55%;
+      }
+      .reveal .details {
+        display: none;
+      }
+      .reveal[data-details=""] .details,
+      .reveal[data-details="true"] .details {
+        display: initial;
+      }
+      /* Display in the preview window */
+      html, body.madoko.preview, body.madoko.preview-full, .body.madoko {
+        height  : 100% !important;
+        width   : auto!important;
+        padding : 0pt !important;
+        margin  : 0pt !important;
+      }
+      body.madoko.preview, body.madoko.preview-full, .preview .body.madoko {
+        overflow: hidden !important;
+      }
+      body.preview .reveal .slides .fragment {
+        visibility: visible;
+        opacity: 0.5;
+      }
+      body.preview .reveal .slides .fragment.visible {
+        opacity: 1.0;
+      }
+      .preview .reveal div.notes,
+      .preview .reveal aside.notes {
+        display  : block;
+        position : absolute;
+        width    : 30%;
+        left     : 70%;
+        top      : -15%;
+        font-size: 50%;
+        border   : 1px solid black;
+        border-radius   : 10px;
+        background-color: white;
+      }
+      /* 'static' display in the preview window, unused for now */
+      body.preview.static div.reveal, 
+      body.preview.static div.ticreveal .slides, 
+      body.preview.static div.reveal section {
+        display: block !important;
+        position: relative !important;
+        width: auto !important;      
+      }
+      body.preview.static div.reveal section {
+        border: solid 1px black;
+        padding: 1em !important;
+        margin-top: 1em;
+        min-height: 15em;
+        top: 0pt;
+      }
+      body.madoko.preview.static section {
+        font-size: 75%;
+      }
+      body.madoko.preview.static {
+        padding: 0em 1em !important;
+      }
+      body.madoko.preview.static .reveal pre {
+        width: 95%;
+      }    
+      body.preview .reveal[data-details="false"] .details {
+        display: initial;
+        color: gray;
+      }
+      body.preview .reveal[data-long="false"] section[data-long] {
+        border-left: 2px black solid;
+      }
+      </style>
+      <script>    
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      window.revealConfig = {
+          controls: true,
+          progress: true,
+          history: true,
+          center: /^\s*(true|1)\s*$/i.test("true"),
+          slideNumber: /^\s*(true|1)\s*$/i.test("true"),
+          dependencies: [
+            { src: 'https://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'https://cdn.jsdelivr.net/reveal.js/2.6.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'https://cdn.jsdelivr.net/reveal.js/2.6.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          ],
+      };
+      function revealAddFragments() {
+        [].forEach.call(document.querySelectorAll( ".fragmented" ), function(elem0) {
+          var elem = (/^H\d$/.test(elem0.nodeName) ? elem0.parentNode : elem0);
+          [].forEach.call(elem.children, function(item) {
+            if (item==elem0) return;
+            if (item && !/\bfragment(ed)?\b/.test(item.className) && item.nodeType===1) {
+              item.className = item.className + " fragment";
+            }
+          });
+        });
+      }
+      function revealQuotedList(listType) {
+        //compatibility with Rmarkdown slides
+        [].forEach.call( document.querySelectorAll("blockquote>" + listType), function(ul) {
+          if (!/\bfragmented\b/.test(ul.className)) {
+            ul.className = ul.className + " fragmented";
+          }        
+          var quote = ul.parentNode;
+          if (quote.childElementCount===1) {
+            quote.parentNode.replaceChild(ul,quote);
+          }
+        });
+      }
+      function revealBuildToFragmented() {
+        [].forEach.call(document.querySelectorAll( ".build" ), function(elem) {
+          if (elem && !/\bfragmented\b/.test(elem.className) && elem.nodeType===1) {
+            elem.className = elem.className + " fragmented";
+          }
+        });
+      }
+      function revealDivNotesToAside() {
+        [].forEach.call(document.querySelectorAll("div.notes"), function(elem) {
+          var aside = document.createElement("ASIDE");
+          if (elem.id) aside.id = elem.id;
+          aside.className = elem.className;
+          [].forEach.call(elem.attributes, function(attr) {
+            aside.setAttribute( attr.name, attr.value );
+          });
+          aside.innerHTML = elem.innerHTML;
+          elem.parentNode.replaceChild(aside,elem);
+        });
+      }
+      function revealDataQuery() {
+        var reveal = document.querySelector(".reveal");
+        if (!reveal) return;
+        window.location.search.replace(/\bdata-(\w+)(?:=(\w+))?\b/g, function(matched,key,value) {
+          reveal.setAttribute("data-" + key, (value ? value : ""));
+          return matched;
+        });
+      }
+      function revealRemoveLong() {
+        // remove parts for 'long' presentation
+        if (/\bpreview(?![\w\-])/.test(document.body.className)) return;
+        var reveal = document.querySelector(".reveal");
+        if (!reveal) return;
+        var value = reveal.hasAttribute("data-long") ? reveal.getAttribute("data-long") : null;
+        if (value==null || value=="false" || value=="0") {
+          [].forEach.call( document.querySelectorAll("section[data-long]"), function(elem) {
+            elem.parentNode.removeChild(elem);
+          });
+        }
+      }
+      revealConfig.onLoad = function() {
+        revealConfig.getEmbeddedImages();
+        revealDataQuery();
+        revealRemoveLong();
+        revealQuotedList("ul");
+        revealQuotedList("ol");
+        revealBuildToFragmented();
+        revealDivNotesToAside();
+        revealAddFragments();
+      };
+      document.addEventListener("load",revealConfig.onLoad);    
+      document.addEventListener("DOMContentLoaded", function() {
+        if (typeof Reveal !== "undefined" && !Reveal.isReady()) {
+          revealConfig.onLoad();
+          Reveal.initialize(revealConfig);
+        }
+      });    
+      // add support for printing:
+      // use  ?print-pdf to get a pdf-printable version (in Chrome)
+      // use  ?print-paper to get a paper-printable version.
+      revealConfig.initPrint = function() {
+        var cssLink = null;
+        var bodyClass = null;
+        var cap = window.location.search.match(/\bprint-(\w+)\b/);
+        if (cap) {
+          bodyClass = cap[0];
+          cssLink = "https://cdn.jsdelivr.net/reveal.js/2.6.2/css/print/" + cap[1] + ".css";
+        }
+        if (cssLink) {
+          var link  = document.createElement( "link" );
+          link.rel  = "stylesheet";
+          link.type = "text/css";
+          link.href = cssLink;
+          var head = document.getElementsByTagName( 'head' )[0];
+          if (head) head.appendChild( link );
+        }
+        if (bodyClass) {
+          document.body.className = document.body.className + " " + bodyClass;
+        }
+      };
+      revealConfig.getEmbeddedImages = function() {
+        var images = {};
+        [].forEach.call( document.querySelectorAll("img[data-linkid]"), function(img) {
+          var linkid = img.getAttribute("data-linkid");
+          if (linkid) images["/" + linkid] = img.src;
+          var path = img.getAttribute("data-path");
+          if (path) images["/" + path] = img.src;
+        });     
+        [].forEach.call( document.querySelectorAll("section"), function(slide) {
+          var attrName = "data-background";
+          var image = slide.getAttribute(attrName);
+          if (!image) {
+            attrName = "data-background-image";
+            image = slide.getAttribute(attrName);
+          }
+          if (!image) return;
+          var cap = /^\s*!?\[([^\]]+)\]\s*$/.exec(image);
+          var href = images["/" + (cap ? cap[1] : image)];
+          if (!href) return;
+          if (attrName==="data-background" && /^data:/.test(href)) href = "url(" + href + ")";
+          slide.setAttribute(attrName, href);
+        });
+      };    
+      </script>
+  </head>
+<body class="madoko">
+
+<div class="body madoko" lang="zh-Hans-CN" style="line-adjust:0">
+<div class="reveal" data-long="false" data-details="false" data-line="2;out/../../header.mdk:48" style="line-adjust:0">
+<div class="slides" data-line="2;out/../../header.mdk:48" style="line-adjust:0">
+<section class="titleblock align-center para-block" data-line="2;out/../../header.mdk:52" style="text-align:center;line-adjust:0">
+<div class="titleheader align-center" data-line="2;out/../../header.mdk:52" style="text-align:center;line-adjust:0">
+<h1 class="title para-block" data-line="2;out/../../header.mdk:52" style="font-weight:bold;margin-bottom:0.5ex;font-size:3em;line-adjust:0"><span data-line="2;out/../../header.mdk:52"></span>线性代数II</h1>
+<h2 class="subtitle para-block" data-line="2;out/../../header.mdk:55" style="margin-bottom:0.5ex;font-size:1.8em;line-adjust:0"><span data-line="2;out/../../header.mdk:55"></span>第 三次授课讲义</h2>
+<div class="titlenote para-block" data-line="3" style="line-adjust:0"><span data-line="3"></span>初稿, 2021-03-13</div></div>
+<div class="authors align-center" data-line="8" style="text-align:center;width:80%;line-adjust:0"><table class="authorrow columns block" data-line="8" style="margin-top:2ex;width:100%;line-adjust:0">
+<tbody><tr><td class="author column" data-line="8" style="text-align:center;font-size:x-large;line-adjust:0">
+<div class="authorname" data-line="8" style="font-size:1.4em;line-adjust:0"><span data-line="8"></span>艾万君</div>
+<div class="authoraddress" data-line="11" style="line-adjust:0"><span data-line="11"></span>西南大学</div>
+<div class="authoremail email" data-line="14" style="line-adjust:0"><span data-line="14"></span>van141.abel@gmail.com</div></td></tr></tbody></table></div></section>
+<section id="section" class="section section1" data-section-depth="1" data-line="2;out/../../header.mdk:54"><h2 id="heading-section" class="h1" data-heading-depth="1" style="display:block">目录</h2><span data-line="2;out/../../header.mdk:56"></span>
+<nav class="toc toc-contents" style="height:20em">
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;\u76EE\u5F55" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">1</span>.&#8194;目录</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="determinant-properties" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;\u884C\u5217\u5F0F\u7684\u57FA\u672C\u6027\u8D28" style="toctarget:determinant-properties"><a href="#determinant-properties" class="localref"><span class="heading-label">2</span>.&#8194;行列式的基本性质</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="transport-invariant" data-toc-depth="2" data-toc-line="[2.1]{.heading-label}.&#8194;\u8F6C\u7F6E\u4E0D\u53D8\u6027" style="toctarget:transport-invariant"><a href="#transport-invariant" class="localref"><span class="heading-label">2.1</span>.&#8194;转置不变性</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="exchange-two-rwo-change-sign" data-toc-depth="2" data-toc-line="[2.2]{.heading-label}.&#8194;\u4EA4\u6362\u4E24\u884C\u53D8\u53F7" style="toctarget:exchange-two-rwo-change-sign"><a href="#exchange-two-rwo-change-sign" class="localref"><span class="heading-label">2.2</span>.&#8194;交换两行变号</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="determinant-scalar-multiply" data-toc-depth="2" data-toc-line="[2.3]{.heading-label}.&#8194;\u6570\u4E58\u7EBF\u6027" style="toctarget:determinant-scalar-multiply"><a href="#determinant-scalar-multiply" class="localref"><span class="heading-label">2.3</span>.&#8194;数乘线性</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="determinant-addition-linearity" data-toc-depth="2" data-toc-line="[2.4]{.heading-label}.&#8194;\u52A0\u6CD5\u7EBF\u6027" style="toctarget:determinant-addition-linearity"><a href="#determinant-addition-linearity" class="localref"><span class="heading-label">2.4</span>.&#8194;加法线性</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="examp-determinant-by-property" data-toc-depth="2" data-toc-line="[2.5]{.heading-label}.&#8194;\u5229\u7528\u884C\u5217\u5F0F\u7684\u6027\u8D28\u8BA1\u7B97" style="toctarget:examp-determinant-by-property"><a href="#examp-determinant-by-property" class="localref"><span class="heading-label">2.5</span>.&#8194;利用行列式的性质计算</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="blocked-determinant" data-toc-depth="2" data-toc-line="[2.6]{.heading-label}.&#8194;\u5206\u5757\u884C\u5217\u5F0F\u516C\u5F0F" style="toctarget:blocked-determinant"><a href="#blocked-determinant" class="localref"><span class="heading-label">2.6</span>.&#8194;分块行列式公式</a></div></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="excs" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;\u4E60\u9898" style="toctarget:excs"><a href="#excs" class="localref"><span class="heading-label">3</span>.&#8194;习题</a></div></div></nav></section>
+<section id="determinant-properties" class="section section1" data-section-depth="1" data-line="4"><h2 id="heading-determinant-properties" class="h1" data-heading-depth="1" style="display:block">行列式的基本性质</h2>
+<p class="p noindent" data-line="5"><span data-line="5"></span>从行列式的定义我们知道，它一般是<span data-line="5"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7683em;width:0.9614em" viewBox='34.67 54.718 9.156 7.317'><desc>$n!$</desc><g id='math-388f55'><use x='34.869' y='61.836' xlink:href='#g2-110'/><use x='40.849' y='61.836' xlink:href='#g5-33'/></g></svg><span data-line="5"></span>项的代数和，当<span data-line="5"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.6707em" viewBox='88.468 57.347 6.388 4.688'><desc>$n$</desc><g id='math-7b8b96'><use x='88.667' y='61.836' xlink:href='#g2-110'/></g></svg><span data-line="5"></span>较大时，用定义来计算比较困难。我们将从行列式的定义导出行列式的一些基本性质，这些性质可以简化计算。
+</p></section>
+<section id="transport-invariant" class="section section2" data-section-depth="2" data-line="6"><h3 id="heading-transport-invariant" class="h2" data-heading-depth="2" style="display:block">转置不变性</h3>
+<div class="theorem" data-line="7" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="8"><span data-line="8"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">1</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="8"></span>假设行列式<span data-line="8"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.3318em;height:1.1257em;width:6.7576em" viewBox='34.67 54.164 64.358 10.721'><desc>$D=\lvert (a_{ij})_{n\times n}\rvert$</desc><g id='math-9c1f87'><use x='34.869' y='61.836' xlink:href='#g2-68'/><use x='46.162' y='61.836' xlink:href='#g5-61'/><use x='56.678' y='61.836' xlink:href='#g0-106'/><use x='59.445' y='61.836' xlink:href='#g5-40'/><use x='63.319' y='61.836' xlink:href='#g2-97'/><use x='68.586' y='63.33' xlink:href='#g3-105'/><use x='71.404' y='63.33' xlink:href='#g3-106'/><use x='75.602' y='61.836' xlink:href='#g5-41'/><use x='79.476' y='63.33' xlink:href='#g3-110'/><use x='84.401' y='63.33' xlink:href='#g1-2'/><use x='90.628' y='63.33' xlink:href='#g3-110'/><use x='96.051' y='61.836' xlink:href='#g0-106'/></g></svg><span data-line="8"></span>, 即
+</p>
+<div class="math para-block" data-line="9">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="10" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.8077em;width:9.5009em" viewBox='215.281 52.67 90.485 36.264'><desc>\[D=\begin{vmatrix}\begin{smallmatrix}
+  a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+  a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\
+  \vdots&amp;\vdots&amp;&amp;\vdots\\
+  a_{n1}&amp;a_{n2}&amp;\cdots&amp;a_{nn}
+\end{smallmatrix}\end{vmatrix}.
+\]</desc><g id='math-cbc98b'><use x='215.48' y='73.293' xlink:href='#g2-68'/><use x='226.772' y='73.293' xlink:href='#g5-61'/><use x='237.288' y='52.869' xlink:href='#g8-12'/><use x='237.288' y='58.847' xlink:href='#g8-12'/><use x='237.288' y='64.825' xlink:href='#g8-12'/><use x='237.288' y='70.802' xlink:href='#g8-12'/><use x='237.288' y='76.78' xlink:href='#g8-12'/><use x='237.288' y='82.757' xlink:href='#g8-12'/><use x='242.768' y='57.204' xlink:href='#g3-97'/><use x='247.09' y='58.2' xlink:href='#g7-49'/><use x='250.48' y='58.2' xlink:href='#g7-49'/><use x='258.132' y='57.204' xlink:href='#g3-97'/><use x='262.454' y='58.2' xlink:href='#g7-49'/><use x='265.844' y='58.2' xlink:href='#g7-50'/><use x='272.997' y='57.204' xlink:href='#g1-1'/><use x='275.363' y='57.204' xlink:href='#g1-1'/><use x='277.73' y='57.204' xlink:href='#g1-1'/><use x='284.722' y='57.204' xlink:href='#g3-97'/><use x='289.043' y='58.2' xlink:href='#g7-49'/><use x='292.433' y='58.2' xlink:href='#g4-110'/><use x='242.768' y='63.181' xlink:href='#g3-97'/><use x='247.09' y='64.178' xlink:href='#g7-50'/><use x='250.48' y='64.178' xlink:href='#g7-49'/><use x='258.132' y='63.181' xlink:href='#g3-97'/><use x='262.454' y='64.178' xlink:href='#g7-50'/><use x='265.844' y='64.178' xlink:href='#g7-50'/><use x='272.997' y='63.181' xlink:href='#g1-1'/><use x='275.363' y='63.181' xlink:href='#g1-1'/><use x='277.73' y='63.181' xlink:href='#g1-1'/><use x='284.722' y='63.181' xlink:href='#g3-97'/><use x='289.043' y='64.178' xlink:href='#g7-50'/><use x='292.433' y='64.178' xlink:href='#g4-110'/><use x='247.185' y='72.701' xlink:href='#g5-46'/><use x='247.185' y='76.686' xlink:href='#g5-46'/><use x='247.185' y='80.671' xlink:href='#g5-46'/><use x='262.548' y='72.701' xlink:href='#g5-46'/><use x='262.548' y='76.686' xlink:href='#g5-46'/><use x='262.548' y='80.671' xlink:href='#g5-46'/><use x='289.636' y='72.701' xlink:href='#g5-46'/><use x='289.636' y='76.686' xlink:href='#g5-46'/><use x='289.636' y='80.671' xlink:href='#g5-46'/><use x='242.27' y='86.649' xlink:href='#g3-97'/><use x='246.591' y='87.645' xlink:href='#g4-110'/><use x='250.979' y='87.645' xlink:href='#g7-49'/><use x='257.633' y='86.649' xlink:href='#g3-97'/><use x='261.955' y='87.645' xlink:href='#g4-110'/><use x='266.342' y='87.645' xlink:href='#g7-50'/><use x='272.997' y='86.649' xlink:href='#g1-1'/><use x='275.363' y='86.649' xlink:href='#g1-1'/><use x='277.73' y='86.649' xlink:href='#g1-1'/><use x='284.223' y='86.649' xlink:href='#g3-97'/><use x='288.544' y='87.645' xlink:href='#g4-110'/><use x='292.932' y='87.645' xlink:href='#g4-110'/><use x='297.817' y='52.869' xlink:href='#g8-12'/><use x='297.817' y='58.847' xlink:href='#g8-12'/><use x='297.817' y='64.825' xlink:href='#g8-12'/><use x='297.817' y='70.802' xlink:href='#g8-12'/><use x='297.817' y='76.78' xlink:href='#g8-12'/><use x='297.817' y='82.757' xlink:href='#g8-12'/><use x='302.799' y='73.293' xlink:href='#g2-58'/></g></svg></div></div>
+<p class="p noindent para-continued para-continue" data-line="17"><span data-line="17"></span>如果我们定义<span data-line="17"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7566em;width:0.9380em" viewBox='88.468 54.829 8.933 7.206'><desc>$D$</desc><g id='math-f623e7'><use x='88.667' y='61.836' xlink:href='#g2-68'/></g></svg><span data-line="17"></span>的<span data-line="17"></span><strong class="strong-star2">转置行列式</strong><span data-line="17"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.9218em;width:1.5971em" viewBox='88.468 53.256 15.21 8.779'><desc>$D^T$</desc><g id='math-a6ec74'><use x='88.667' y='61.836' xlink:href='#g2-68'/><use x='97.192' y='58.22' xlink:href='#g3-84'/></g></svg><span data-line="17"></span>为
+</p>
+<div class="math para-block" data-line="18">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="19" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.8077em;width:9.5009em" viewBox='161.482 52.67 90.485 36.264'><desc>\[D=\begin{vmatrix}\begin{smallmatrix}
+  a_{11}&amp;a_{21}&amp;\cdots&amp;a_{n1}\\
+  a_{12}&amp;a_{22}&amp;\cdots&amp;a_{n2}\\
+  \vdots&amp;\vdots&amp;&amp;\vdots\\
+  a_{1n}&amp;a_{2n}&amp;\cdots&amp;a_{nn}
+\end{smallmatrix}\end{vmatrix},
+\]</desc><g id='math-6584e1'><use x='161.682' y='73.293' xlink:href='#g2-68'/><use x='172.974' y='73.293' xlink:href='#g5-61'/><use x='183.49' y='52.869' xlink:href='#g8-12'/><use x='183.49' y='58.847' xlink:href='#g8-12'/><use x='183.49' y='64.825' xlink:href='#g8-12'/><use x='183.49' y='70.802' xlink:href='#g8-12'/><use x='183.49' y='76.78' xlink:href='#g8-12'/><use x='183.49' y='82.757' xlink:href='#g8-12'/><use x='188.97' y='57.204' xlink:href='#g3-97'/><use x='193.292' y='58.2' xlink:href='#g7-49'/><use x='196.682' y='58.2' xlink:href='#g7-49'/><use x='204.334' y='57.204' xlink:href='#g3-97'/><use x='208.655' y='58.2' xlink:href='#g7-50'/><use x='212.045' y='58.2' xlink:href='#g7-49'/><use x='219.199' y='57.204' xlink:href='#g1-1'/><use x='221.565' y='57.204' xlink:href='#g1-1'/><use x='223.931' y='57.204' xlink:href='#g1-1'/><use x='230.923' y='57.204' xlink:href='#g3-97'/><use x='235.245' y='58.2' xlink:href='#g4-110'/><use x='239.632' y='58.2' xlink:href='#g7-49'/><use x='188.97' y='63.181' xlink:href='#g3-97'/><use x='193.292' y='64.178' xlink:href='#g7-49'/><use x='196.682' y='64.178' xlink:href='#g7-50'/><use x='204.334' y='63.181' xlink:href='#g3-97'/><use x='208.655' y='64.178' xlink:href='#g7-50'/><use x='212.045' y='64.178' xlink:href='#g7-50'/><use x='219.199' y='63.181' xlink:href='#g1-1'/><use x='221.565' y='63.181' xlink:href='#g1-1'/><use x='223.931' y='63.181' xlink:href='#g1-1'/><use x='230.923' y='63.181' xlink:href='#g3-97'/><use x='235.245' y='64.178' xlink:href='#g4-110'/><use x='239.632' y='64.178' xlink:href='#g7-50'/><use x='193.386' y='72.701' xlink:href='#g5-46'/><use x='193.386' y='76.686' xlink:href='#g5-46'/><use x='193.386' y='80.671' xlink:href='#g5-46'/><use x='208.75' y='72.701' xlink:href='#g5-46'/><use x='208.75' y='76.686' xlink:href='#g5-46'/><use x='208.75' y='80.671' xlink:href='#g5-46'/><use x='235.838' y='72.701' xlink:href='#g5-46'/><use x='235.838' y='76.686' xlink:href='#g5-46'/><use x='235.838' y='80.671' xlink:href='#g5-46'/><use x='188.471' y='86.649' xlink:href='#g3-97'/><use x='192.793' y='87.645' xlink:href='#g7-49'/><use x='196.183' y='87.645' xlink:href='#g4-110'/><use x='203.835' y='86.649' xlink:href='#g3-97'/><use x='208.157' y='87.645' xlink:href='#g7-50'/><use x='211.547' y='87.645' xlink:href='#g4-110'/><use x='219.199' y='86.649' xlink:href='#g1-1'/><use x='221.565' y='86.649' xlink:href='#g1-1'/><use x='223.931' y='86.649' xlink:href='#g1-1'/><use x='230.425' y='86.649' xlink:href='#g3-97'/><use x='234.746' y='87.645' xlink:href='#g4-110'/><use x='239.134' y='87.645' xlink:href='#g4-110'/><use x='244.019' y='52.869' xlink:href='#g8-12'/><use x='244.019' y='58.847' xlink:href='#g8-12'/><use x='244.019' y='64.825' xlink:href='#g8-12'/><use x='244.019' y='70.802' xlink:href='#g8-12'/><use x='244.019' y='76.78' xlink:href='#g8-12'/><use x='244.019' y='82.757' xlink:href='#g8-12'/><use x='249' y='73.293' xlink:href='#g2-59'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="26"><span data-line="26"></span>那么<span data-line="26"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.9218em;width:3.8869em" viewBox='88.468 53.256 37.018 8.779'><desc>$D=D^T$</desc><g id='math-4a4fe4'><use x='88.667' y='61.836' xlink:href='#g2-68'/><use x='99.96' y='61.836' xlink:href='#g5-61'/><use x='110.476' y='61.836' xlink:href='#g2-68'/><use x='119.001' y='58.22' xlink:href='#g3-84'/></g></svg><span data-line="26"></span>.</p></div>
+<div class="remark note" data-line="28" style="display:block;theorem-caption-end: ">
+<p class="p noindent" data-line="29"><span data-line="29"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">注记</span></strong>.
+</span><span data-line="30"></span>由此，我们知道行列式关于行的性质对行列式的列也成立。</p></div></section>
+<section class="slide section" data-line="31">
+<div class="proof" data-line="32" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="33"><span data-line="33"></span><span class="proof-before"><strong class="strong-star2">证明</strong>. <span class="theorem-caption"></span> </span><span data-line="33"></span>令<span data-line="33"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.3325em;height:1.0675em;width:3.9130em" viewBox='34.67 54.718 37.267 10.167'><desc>$b_{ij}=a_{ji}$</desc><g id='math-575326'><use x='34.869' y='61.836' xlink:href='#g2-98'/><use x='39.145' y='63.33' xlink:href='#g3-105'/><use x='41.964' y='63.33' xlink:href='#g3-106'/><use x='48.929' y='61.836' xlink:href='#g5-61'/><use x='59.445' y='61.836' xlink:href='#g2-97'/><use x='64.711' y='63.33' xlink:href='#g3-106'/><use x='68.411' y='63.33' xlink:href='#g3-105'/></g></svg><span data-line="33"></span>, <span data-line="33"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2339em;height:0.9351em;width:7.2171em" viewBox='88.468 55.066 68.734 8.906'><desc>$i,j=1,2,\ldots,n$</desc><g id='math-869f42'><use x='88.667' y='61.836' xlink:href='#g2-105'/><use x='92.1' y='61.836' xlink:href='#g2-59'/><use x='96.528' y='61.836' xlink:href='#g2-106'/><use x='103.968' y='61.836' xlink:href='#g5-61'/><use x='114.484' y='61.836' xlink:href='#g5-49'/><use x='119.465' y='61.836' xlink:href='#g2-59'/><use x='123.893' y='61.836' xlink:href='#g5-50'/><use x='128.874' y='61.836' xlink:href='#g2-59'/><use x='133.302' y='61.836' xlink:href='#g2-58'/><use x='137.73' y='61.836' xlink:href='#g2-58'/><use x='142.158' y='61.836' xlink:href='#g2-58'/><use x='146.586' y='61.836' xlink:href='#g2-59'/><use x='151.013' y='61.836' xlink:href='#g2-110'/></g></svg><span data-line="33"></span>, 则按照行列式的定义
+</p>
+<div class="math para-block" data-line="34">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="35" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.8077em;width:23.8128em" viewBox='93.33 52.67 226.789 36.264'><desc>\[\begin{aligned}
+  D^T&amp;=\sum{k_1k_2\ldots k_n}(-1)^{\tau(k_1k_2\ldots k_n)}b_{1k_1}b_{2k_2}\cdots b_{nk_n}\\
+  &amp;=\sum{k_1k_2\ldots k_n}(-1)^{\tau(k_1k_2\ldots k_n)}a_{k_11}a_{k_22}\cdots a_{k_nn}.
+\end{aligned}
+\]</desc><g id='math-484033'><use x='93.53' y='63.33' xlink:href='#g2-68'/><use x='102.055' y='59.217' xlink:href='#g3-84'/><use x='111.098' y='63.33' xlink:href='#g5-61'/><use x='121.614' y='53.865' xlink:href='#g8-88'/><use x='137.665' y='63.33' xlink:href='#g2-107'/><use x='142.852' y='64.824' xlink:href='#g6-49'/><use x='147.321' y='63.33' xlink:href='#g2-107'/><use x='152.508' y='64.824' xlink:href='#g6-50'/><use x='158.637' y='63.33' xlink:href='#g2-58'/><use x='163.065' y='63.33' xlink:href='#g2-58'/><use x='167.493' y='63.33' xlink:href='#g2-58'/><use x='171.921' y='63.33' xlink:href='#g2-107'/><use x='177.107' y='64.824' xlink:href='#g3-110'/><use x='182.53' y='63.33' xlink:href='#g5-40'/><use x='186.405' y='63.33' xlink:href='#g0-0'/><use x='194.153' y='63.33' xlink:href='#g5-49'/><use x='199.135' y='63.33' xlink:href='#g5-41'/><use x='203.009' y='59.217' xlink:href='#g3-28'/><use x='207.489' y='59.217' xlink:href='#g6-40'/><use x='210.603' y='59.217' xlink:href='#g3-107'/><use x='214.838' y='60.213' xlink:href='#g7-49'/><use x='218.726' y='59.217' xlink:href='#g3-107'/><use x='222.961' y='60.213' xlink:href='#g7-50'/><use x='226.85' y='59.217' xlink:href='#g3-58'/><use x='229.216' y='59.217' xlink:href='#g3-58'/><use x='231.582' y='59.217' xlink:href='#g3-58'/><use x='233.948' y='59.217' xlink:href='#g3-107'/><use x='238.183' y='60.213' xlink:href='#g4-110'/><use x='243.069' y='59.217' xlink:href='#g6-41'/><use x='246.681' y='63.33' xlink:href='#g2-98'/><use x='250.956' y='64.824' xlink:href='#g6-49'/><use x='254.927' y='64.824' xlink:href='#g3-107'/><use x='259.163' y='65.821' xlink:href='#g7-49'/><use x='263.549' y='63.33' xlink:href='#g2-98'/><use x='267.825' y='64.824' xlink:href='#g6-50'/><use x='271.796' y='64.824' xlink:href='#g3-107'/><use x='276.031' y='65.821' xlink:href='#g7-50'/><use x='282.078' y='63.33' xlink:href='#g0-1'/><use x='286.506' y='63.33' xlink:href='#g0-1'/><use x='290.934' y='63.33' xlink:href='#g0-1'/><use x='295.361' y='63.33' xlink:href='#g2-98'/><use x='299.637' y='64.824' xlink:href='#g3-110'/><use x='304.562' y='64.824' xlink:href='#g3-107'/><use x='308.797' y='65.821' xlink:href='#g4-110'/><use x='111.098' y='83.255' xlink:href='#g5-61'/><use x='121.614' y='73.791' xlink:href='#g8-88'/><use x='137.665' y='83.255' xlink:href='#g2-107'/><use x='142.852' y='84.75' xlink:href='#g6-49'/><use x='147.321' y='83.255' xlink:href='#g2-107'/><use x='152.508' y='84.75' xlink:href='#g6-50'/><use x='158.637' y='83.255' xlink:href='#g2-58'/><use x='163.065' y='83.255' xlink:href='#g2-58'/><use x='167.493' y='83.255' xlink:href='#g2-58'/><use x='171.921' y='83.255' xlink:href='#g2-107'/><use x='177.107' y='84.75' xlink:href='#g3-110'/><use x='182.53' y='83.255' xlink:href='#g5-40'/><use x='186.405' y='83.255' xlink:href='#g0-0'/><use x='194.153' y='83.255' xlink:href='#g5-49'/><use x='199.135' y='83.255' xlink:href='#g5-41'/><use x='203.009' y='79.142' xlink:href='#g3-28'/><use x='207.489' y='79.142' xlink:href='#g6-40'/><use x='210.603' y='79.142' xlink:href='#g3-107'/><use x='214.838' y='80.138' xlink:href='#g7-49'/><use x='218.726' y='79.142' xlink:href='#g3-107'/><use x='222.961' y='80.138' xlink:href='#g7-50'/><use x='226.85' y='79.142' xlink:href='#g3-58'/><use x='229.216' y='79.142' xlink:href='#g3-58'/><use x='231.582' y='79.142' xlink:href='#g3-58'/><use x='233.948' y='79.142' xlink:href='#g3-107'/><use x='238.183' y='80.138' xlink:href='#g4-110'/><use x='243.069' y='79.142' xlink:href='#g6-41'/><use x='246.681' y='83.255' xlink:href='#g2-97'/><use x='251.947' y='84.75' xlink:href='#g3-107'/><use x='256.182' y='85.746' xlink:href='#g7-49'/><use x='260.07' y='84.75' xlink:href='#g6-49'/><use x='264.54' y='83.255' xlink:href='#g2-97'/><use x='269.806' y='84.75' xlink:href='#g3-107'/><use x='274.041' y='85.746' xlink:href='#g7-50'/><use x='277.929' y='84.75' xlink:href='#g6-50'/><use x='284.059' y='83.255' xlink:href='#g0-1'/><use x='288.487' y='83.255' xlink:href='#g0-1'/><use x='292.915' y='83.255' xlink:href='#g0-1'/><use x='297.343' y='83.255' xlink:href='#g2-97'/><use x='302.609' y='84.75' xlink:href='#g3-107'/><use x='306.844' y='85.746' xlink:href='#g4-110'/><use x='311.73' y='84.75' xlink:href='#g3-110'/><use x='317.153' y='83.255' xlink:href='#g2-58'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="40"><span data-line="40"></span>由定理<span data-line="40"></span>[#determinant-column-explanation]<span data-line="40"></span>(行列式按列展开公式）, 我们知道<span data-line="40"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.9218em;width:3.8869em" viewBox='88.468 53.256 37.018 8.779'><desc>$D^T=D$</desc><g id='math-f0f574'><use x='88.667' y='61.836' xlink:href='#g2-68'/><use x='97.192' y='58.22' xlink:href='#g3-84'/><use x='106.236' y='61.836' xlink:href='#g5-61'/><use x='116.752' y='61.836' xlink:href='#g2-68'/></g></svg><span data-line="40"></span>.</p></div></section>
+<section id="exchange-two-rwo-change-sign" class="section section2" data-section-depth="2" data-line="43"><h3 id="heading-exchange-two-rwo-change-sign" class="h2" data-heading-depth="2" style="display:block">交换两行变号</h3>
+<div class="theorem" data-line="44" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="45"><span data-line="45"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">2</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="45"></span>交换行列式的两行，行列式相差一个符号。即
+</p>
+<div class="math para-block" data-line="46">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="47" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:7.9812em;width:16.2980em" viewBox='129.115 52.67 155.219 76.011'><desc>\[\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}&amp; a_{12}&amp;\cdots&amp;a_{1n}\\           
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{i1}&amp; a_{i2}&amp;\cdots&amp;a_{in}\\
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{j1}&amp; a_{j2}&amp;\cdots&amp;a_{jn}\\
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{n1}&amp; a_{n2}&amp;\cdots&amp;a_{nn}
+  \end{smallmatrix}\end{vmatrix}=-\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}&amp; a_{12}&amp;\cdots&amp;a_{1n}\\           
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{j1}&amp; a_{j2}&amp;\cdots&amp;a_{jn}\\
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{i1}&amp; a_{i2}&amp;\cdots&amp;a_{in}\\
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{n1}&amp; a_{n2}&amp;\cdots&amp;a_{nn}
+  \end{smallmatrix}
+\end{vmatrix}.
+\]</desc><g id='math-28824f'><use x='129.315' y='54.809' xlink:href='#g8-12'/><use x='129.315' y='60.787' xlink:href='#g8-12'/><use x='129.315' y='66.765' xlink:href='#g8-12'/><use x='129.315' y='72.742' xlink:href='#g8-12'/><use x='129.315' y='78.72' xlink:href='#g8-12'/><use x='129.315' y='84.698' xlink:href='#g8-12'/><use x='129.315' y='90.675' xlink:href='#g8-12'/><use x='129.315' y='96.653' xlink:href='#g8-12'/><use x='129.315' y='102.631' xlink:href='#g8-12'/><use x='129.315' y='108.608' xlink:href='#g8-12'/><use x='129.315' y='114.586' xlink:href='#g8-12'/><use x='129.315' y='120.564' xlink:href='#g8-12'/><use x='134.795' y='56.114' xlink:href='#g3-97'/><use x='139.116' y='57.11' xlink:href='#g7-49'/><use x='142.506' y='57.11' xlink:href='#g7-49'/><use x='150.158' y='56.114' xlink:href='#g3-97'/><use x='154.48' y='57.11' xlink:href='#g7-49'/><use x='157.87' y='57.11' xlink:href='#g7-50'/><use x='165.023' y='56.114' xlink:href='#g1-1'/><use x='167.39' y='56.114' xlink:href='#g1-1'/><use x='169.756' y='56.114' xlink:href='#g1-1'/><use x='176.748' y='56.114' xlink:href='#g3-97'/><use x='181.069' y='57.11' xlink:href='#g7-49'/><use x='184.459' y='57.11' xlink:href='#g4-110'/><use x='139.211' y='65.634' xlink:href='#g5-46'/><use x='139.211' y='69.619' xlink:href='#g5-46'/><use x='139.211' y='73.604' xlink:href='#g5-46'/><use x='154.575' y='65.634' xlink:href='#g5-46'/><use x='154.575' y='69.619' xlink:href='#g5-46'/><use x='154.575' y='73.604' xlink:href='#g5-46'/><use x='181.663' y='65.634' xlink:href='#g5-46'/><use x='181.663' y='69.619' xlink:href='#g5-46'/><use x='181.663' y='73.604' xlink:href='#g5-46'/><use x='135.161' y='79.582' xlink:href='#g3-97'/><use x='139.482' y='80.578' xlink:href='#g4-105'/><use x='142.14' y='80.578' xlink:href='#g7-49'/><use x='150.525' y='79.582' xlink:href='#g3-97'/><use x='154.846' y='80.578' xlink:href='#g4-105'/><use x='157.504' y='80.578' xlink:href='#g7-50'/><use x='165.023' y='79.582' xlink:href='#g1-1'/><use x='167.39' y='79.582' xlink:href='#g1-1'/><use x='169.756' y='79.582' xlink:href='#g1-1'/><use x='177.114' y='79.582' xlink:href='#g3-97'/><use x='181.435' y='80.578' xlink:href='#g4-105'/><use x='184.093' y='80.578' xlink:href='#g4-110'/><use x='139.211' y='89.101' xlink:href='#g5-46'/><use x='139.211' y='93.086' xlink:href='#g5-46'/><use x='139.211' y='97.071' xlink:href='#g5-46'/><use x='154.575' y='89.101' xlink:href='#g5-46'/><use x='154.575' y='93.086' xlink:href='#g5-46'/><use x='154.575' y='97.071' xlink:href='#g5-46'/><use x='181.663' y='89.101' xlink:href='#g5-46'/><use x='181.663' y='93.086' xlink:href='#g5-46'/><use x='181.663' y='97.071' xlink:href='#g5-46'/><use x='134.878' y='103.049' xlink:href='#g3-97'/><use x='139.199' y='104.045' xlink:href='#g4-106'/><use x='142.423' y='104.045' xlink:href='#g7-49'/><use x='150.242' y='103.049' xlink:href='#g3-97'/><use x='154.563' y='104.045' xlink:href='#g4-106'/><use x='157.787' y='104.045' xlink:href='#g7-50'/><use x='165.023' y='103.049' xlink:href='#g1-1'/><use x='167.39' y='103.049' xlink:href='#g1-1'/><use x='169.756' y='103.049' xlink:href='#g1-1'/><use x='176.831' y='103.049' xlink:href='#g3-97'/><use x='181.152' y='104.045' xlink:href='#g4-106'/><use x='184.376' y='104.045' xlink:href='#g4-110'/><use x='139.211' y='113.538' xlink:href='#g5-46'/><use x='139.211' y='117.523' xlink:href='#g5-46'/><use x='139.211' y='121.508' xlink:href='#g5-46'/><use x='154.575' y='113.538' xlink:href='#g5-46'/><use x='154.575' y='117.523' xlink:href='#g5-46'/><use x='154.575' y='121.508' xlink:href='#g5-46'/><use x='181.663' y='113.538' xlink:href='#g5-46'/><use x='181.663' y='117.523' xlink:href='#g5-46'/><use x='181.663' y='121.508' xlink:href='#g5-46'/><use x='134.296' y='127.485' xlink:href='#g3-97'/><use x='138.617' y='128.481' xlink:href='#g4-110'/><use x='143.005' y='128.481' xlink:href='#g7-49'/><use x='149.66' y='127.485' xlink:href='#g3-97'/><use x='153.981' y='128.481' xlink:href='#g4-110'/><use x='158.369' y='128.481' xlink:href='#g7-50'/><use x='165.023' y='127.485' xlink:href='#g1-1'/><use x='167.39' y='127.485' xlink:href='#g1-1'/><use x='169.756' y='127.485' xlink:href='#g1-1'/><use x='176.249' y='127.485' xlink:href='#g3-97'/><use x='180.571' y='128.481' xlink:href='#g4-110'/><use x='184.958' y='128.481' xlink:href='#g4-110'/><use x='189.844' y='54.809' xlink:href='#g8-12'/><use x='189.844' y='60.787' xlink:href='#g8-12'/><use x='189.844' y='66.765' xlink:href='#g8-12'/><use x='189.844' y='72.742' xlink:href='#g8-12'/><use x='189.844' y='78.72' xlink:href='#g8-12'/><use x='189.844' y='84.698' xlink:href='#g8-12'/><use x='189.844' y='90.675' xlink:href='#g8-12'/><use x='189.844' y='96.653' xlink:href='#g8-12'/><use x='189.844' y='102.631' xlink:href='#g8-12'/><use x='189.844' y='108.608' xlink:href='#g8-12'/><use x='189.844' y='114.586' xlink:href='#g8-12'/><use x='189.844' y='120.564' xlink:href='#g8-12'/><use x='195.932' y='93.166' xlink:href='#g5-61'/><use x='206.448' y='93.166' xlink:href='#g0-0'/><use x='215.857' y='54.809' xlink:href='#g8-12'/><use x='215.857' y='60.787' xlink:href='#g8-12'/><use x='215.857' y='66.765' xlink:href='#g8-12'/><use x='215.857' y='72.742' xlink:href='#g8-12'/><use x='215.857' y='78.72' xlink:href='#g8-12'/><use x='215.857' y='84.698' xlink:href='#g8-12'/><use x='215.857' y='90.675' xlink:href='#g8-12'/><use x='215.857' y='96.653' xlink:href='#g8-12'/><use x='215.857' y='102.631' xlink:href='#g8-12'/><use x='215.857' y='108.608' xlink:href='#g8-12'/><use x='215.857' y='114.586' xlink:href='#g8-12'/><use x='215.857' y='120.564' xlink:href='#g8-12'/><use x='221.337' y='56.114' xlink:href='#g3-97'/><use x='225.659' y='57.11' xlink:href='#g7-49'/><use x='229.049' y='57.11' xlink:href='#g7-49'/><use x='236.701' y='56.114' xlink:href='#g3-97'/><use x='241.022' y='57.11' xlink:href='#g7-49'/><use x='244.413' y='57.11' xlink:href='#g7-50'/><use x='251.566' y='56.114' xlink:href='#g1-1'/><use x='253.932' y='56.114' xlink:href='#g1-1'/><use x='256.298' y='56.114' xlink:href='#g1-1'/><use x='263.29' y='56.114' xlink:href='#g3-97'/><use x='267.612' y='57.11' xlink:href='#g7-49'/><use x='271.002' y='57.11' xlink:href='#g4-110'/><use x='225.753' y='65.634' xlink:href='#g5-46'/><use x='225.753' y='69.619' xlink:href='#g5-46'/><use x='225.753' y='73.604' xlink:href='#g5-46'/><use x='241.117' y='65.634' xlink:href='#g5-46'/><use x='241.117' y='69.619' xlink:href='#g5-46'/><use x='241.117' y='73.604' xlink:href='#g5-46'/><use x='268.205' y='65.634' xlink:href='#g5-46'/><use x='268.205' y='69.619' xlink:href='#g5-46'/><use x='268.205' y='73.604' xlink:href='#g5-46'/><use x='221.42' y='79.582' xlink:href='#g3-97'/><use x='225.742' y='80.578' xlink:href='#g4-106'/><use x='228.966' y='80.578' xlink:href='#g7-49'/><use x='236.784' y='79.582' xlink:href='#g3-97'/><use x='241.106' y='80.578' xlink:href='#g4-106'/><use x='244.329' y='80.578' xlink:href='#g7-50'/><use x='251.566' y='79.582' xlink:href='#g1-1'/><use x='253.932' y='79.582' xlink:href='#g1-1'/><use x='256.298' y='79.582' xlink:href='#g1-1'/><use x='263.374' y='79.582' xlink:href='#g3-97'/><use x='267.695' y='80.578' xlink:href='#g4-106'/><use x='270.919' y='80.578' xlink:href='#g4-110'/><use x='225.753' y='90.07' xlink:href='#g5-46'/><use x='225.753' y='94.055' xlink:href='#g5-46'/><use x='225.753' y='98.04' xlink:href='#g5-46'/><use x='241.117' y='90.07' xlink:href='#g5-46'/><use x='241.117' y='94.055' xlink:href='#g5-46'/><use x='241.117' y='98.04' xlink:href='#g5-46'/><use x='268.205' y='90.07' xlink:href='#g5-46'/><use x='268.205' y='94.055' xlink:href='#g5-46'/><use x='268.205' y='98.04' xlink:href='#g5-46'/><use x='221.703' y='104.018' xlink:href='#g3-97'/><use x='226.025' y='105.014' xlink:href='#g4-105'/><use x='228.683' y='105.014' xlink:href='#g7-49'/><use x='237.067' y='104.018' xlink:href='#g3-97'/><use x='241.389' y='105.014' xlink:href='#g4-105'/><use x='244.046' y='105.014' xlink:href='#g7-50'/><use x='251.566' y='104.018' xlink:href='#g1-1'/><use x='253.932' y='104.018' xlink:href='#g1-1'/><use x='256.298' y='104.018' xlink:href='#g1-1'/><use x='263.656' y='104.018' xlink:href='#g3-97'/><use x='267.978' y='105.014' xlink:href='#g4-105'/><use x='270.636' y='105.014' xlink:href='#g4-110'/><use x='225.753' y='113.538' xlink:href='#g5-46'/><use x='225.753' y='117.523' xlink:href='#g5-46'/><use x='225.753' y='121.508' xlink:href='#g5-46'/><use x='241.117' y='113.538' xlink:href='#g5-46'/><use x='241.117' y='117.523' xlink:href='#g5-46'/><use x='241.117' y='121.508' xlink:href='#g5-46'/><use x='268.205' y='113.538' xlink:href='#g5-46'/><use x='268.205' y='117.523' xlink:href='#g5-46'/><use x='268.205' y='121.508' xlink:href='#g5-46'/><use x='220.838' y='127.485' xlink:href='#g3-97'/><use x='225.16' y='128.481' xlink:href='#g4-110'/><use x='229.547' y='128.481' xlink:href='#g7-49'/><use x='236.202' y='127.485' xlink:href='#g3-97'/><use x='240.524' y='128.481' xlink:href='#g4-110'/><use x='244.911' y='128.481' xlink:href='#g7-50'/><use x='251.566' y='127.485' xlink:href='#g1-1'/><use x='253.932' y='127.485' xlink:href='#g1-1'/><use x='256.298' y='127.485' xlink:href='#g1-1'/><use x='262.792' y='127.485' xlink:href='#g3-97'/><use x='267.113' y='128.481' xlink:href='#g4-110'/><use x='271.501' y='128.481' xlink:href='#g4-110'/><use x='276.386' y='54.809' xlink:href='#g8-12'/><use x='276.386' y='60.787' xlink:href='#g8-12'/><use x='276.386' y='66.765' xlink:href='#g8-12'/><use x='276.386' y='72.742' xlink:href='#g8-12'/><use x='276.386' y='78.72' xlink:href='#g8-12'/><use x='276.386' y='84.698' xlink:href='#g8-12'/><use x='276.386' y='90.675' xlink:href='#g8-12'/><use x='276.386' y='96.653' xlink:href='#g8-12'/><use x='276.386' y='102.631' xlink:href='#g8-12'/><use x='276.386' y='108.608' xlink:href='#g8-12'/><use x='276.386' y='114.586' xlink:href='#g8-12'/><use x='276.386' y='120.564' xlink:href='#g8-12'/><use x='281.368' y='93.166' xlink:href='#g2-58'/></g></svg></div></div></div>
+<div class="corollary" data-line="69" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="70"><span data-line="70"></span><span class="corollary-before"><strong class="strong-star2">推论&#160;<span class="corollary-label">1</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="70"></span> 若行列式中有两行元素完全相同，则该行列式为零。</p></div></section>
+<section class="slide section" data-line="72">
+<div class="proof" data-line="73" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="74"><span data-line="74"></span><span class="proof-before"><strong class="strong-star2">证明</strong>. <span class="theorem-caption"></span> </span><span data-line="74"></span>  如果我们将预证结论左右两端的行列式分别记作<span data-line="74"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7566em;width:0.9380em" viewBox='88.468 54.829 8.933 7.206'><desc>$D$</desc><g id='math-f623e7'><use x='88.667' y='61.836' xlink:href='#g2-68'/></g></svg><span data-line="74"></span>、<span data-line="74"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.8282em;width:1.2315em" viewBox='88.468 54.147 11.729 7.888'><desc>$D&#39;$</desc><g id='math-0232f2'><use x='88.667' y='61.836' xlink:href='#g2-68'/><use x='97.192' y='58.22' xlink:href='#g1-48'/></g></svg><span data-line="74"></span>. 则按照行列式的定义，我们知道
+</p>
+<div class="math para-block" data-line="75">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="76" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:10.2655em;width:30.3075em" viewBox='115.704 52.67 288.643 97.767'><desc>\[  \begin{aligned}
+    D&#39;&amp;=\sum_{k_1\cdots k_i\cdots k_j\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_j\cdots k_n)}
+    a_{1k_1}\cdots a_{jk_i}\cdots a_{ik_j}\cdots a_{np_n}\\
+    &amp;=\sum_{k_1\cdots k_j\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_j\cdots k_i\cdots k_n)}
+    a_{1k_1}\cdots a_{jk_j}\cdots a_{ik_i}\cdots a_{np_n}\\
+    &amp;=-\sum_{k_1\cdots k_i\cdots k_j\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_j\cdots k_n)}
+    a_{1k_1}\cdots a_{ik_i}\cdots a_{jk_j}\cdots a_{np_n}\\
+    &amp;=-D.
+  \end{aligned}
+\]</desc><g id='math-0e086e'><use x='115.903' y='63.33' xlink:href='#g2-68'/><use x='124.428' y='59.217' xlink:href='#g1-48'/><use x='129.99' y='63.33' xlink:href='#g5-61'/><use x='160.255' y='53.865' xlink:href='#g8-88'/><use x='140.506' y='75.313' xlink:href='#g3-107'/><use x='144.742' y='76.309' xlink:href='#g7-49'/><use x='148.63' y='75.313' xlink:href='#g1-1'/><use x='150.996' y='75.313' xlink:href='#g1-1'/><use x='153.362' y='75.313' xlink:href='#g1-1'/><use x='155.728' y='75.313' xlink:href='#g3-107'/><use x='159.963' y='76.309' xlink:href='#g4-105'/><use x='163.12' y='75.313' xlink:href='#g1-1'/><use x='165.486' y='75.313' xlink:href='#g1-1'/><use x='167.852' y='75.313' xlink:href='#g1-1'/><use x='170.218' y='75.313' xlink:href='#g3-107'/><use x='174.453' y='76.309' xlink:href='#g4-106'/><use x='178.175' y='75.313' xlink:href='#g1-1'/><use x='180.541' y='75.313' xlink:href='#g1-1'/><use x='182.907' y='75.313' xlink:href='#g1-1'/><use x='185.273' y='75.313' xlink:href='#g3-107'/><use x='189.509' y='76.309' xlink:href='#g4-110'/><use x='194.394' y='63.33' xlink:href='#g5-40'/><use x='198.269' y='63.33' xlink:href='#g0-0'/><use x='206.018' y='63.33' xlink:href='#g5-49'/><use x='210.999' y='63.33' xlink:href='#g5-41'/><use x='214.873' y='59.217' xlink:href='#g3-28'/><use x='219.353' y='59.217' xlink:href='#g6-40'/><use x='222.467' y='59.217' xlink:href='#g3-107'/><use x='226.702' y='60.213' xlink:href='#g7-49'/><use x='230.59' y='59.217' xlink:href='#g1-1'/><use x='232.956' y='59.217' xlink:href='#g1-1'/><use x='235.323' y='59.217' xlink:href='#g1-1'/><use x='237.689' y='59.217' xlink:href='#g3-107'/><use x='241.924' y='60.213' xlink:href='#g4-105'/><use x='245.08' y='59.217' xlink:href='#g1-1'/><use x='247.446' y='59.217' xlink:href='#g1-1'/><use x='249.812' y='59.217' xlink:href='#g1-1'/><use x='252.178' y='59.217' xlink:href='#g3-107'/><use x='256.414' y='60.213' xlink:href='#g4-106'/><use x='260.136' y='59.217' xlink:href='#g1-1'/><use x='262.502' y='59.217' xlink:href='#g1-1'/><use x='264.868' y='59.217' xlink:href='#g1-1'/><use x='267.234' y='59.217' xlink:href='#g3-107'/><use x='271.469' y='60.213' xlink:href='#g4-110'/><use x='276.355' y='59.217' xlink:href='#g6-41'/><use x='279.966' y='63.33' xlink:href='#g2-97'/><use x='285.233' y='64.824' xlink:href='#g6-49'/><use x='289.204' y='64.824' xlink:href='#g3-107'/><use x='293.439' y='65.821' xlink:href='#g7-49'/><use x='299.486' y='63.33' xlink:href='#g0-1'/><use x='303.914' y='63.33' xlink:href='#g0-1'/><use x='308.342' y='63.33' xlink:href='#g0-1'/><use x='312.769' y='63.33' xlink:href='#g2-97'/><use x='318.035' y='64.824' xlink:href='#g3-106'/><use x='321.735' y='64.824' xlink:href='#g3-107'/><use x='325.97' y='65.821' xlink:href='#g4-105'/><use x='331.285' y='63.33' xlink:href='#g0-1'/><use x='335.713' y='63.33' xlink:href='#g0-1'/><use x='340.141' y='63.33' xlink:href='#g0-1'/><use x='344.568' y='63.33' xlink:href='#g2-97'/><use x='349.835' y='64.824' xlink:href='#g3-105'/><use x='352.653' y='64.824' xlink:href='#g3-107'/><use x='356.889' y='65.821' xlink:href='#g4-106'/><use x='362.769' y='63.33' xlink:href='#g0-1'/><use x='367.197' y='63.33' xlink:href='#g0-1'/><use x='371.625' y='63.33' xlink:href='#g0-1'/><use x='376.052' y='63.33' xlink:href='#g2-97'/><use x='381.319' y='64.824' xlink:href='#g3-110'/><use x='386.243' y='64.824' xlink:href='#g3-112'/><use x='390.35' y='65.821' xlink:href='#g4-110'/><use x='129.99' y='92.72' xlink:href='#g5-61'/><use x='160.255' y='83.255' xlink:href='#g8-88'/><use x='140.506' y='104.703' xlink:href='#g3-107'/><use x='144.742' y='105.699' xlink:href='#g7-49'/><use x='148.63' y='104.703' xlink:href='#g1-1'/><use x='150.996' y='104.703' xlink:href='#g1-1'/><use x='153.362' y='104.703' xlink:href='#g1-1'/><use x='155.728' y='104.703' xlink:href='#g3-107'/><use x='159.963' y='105.699' xlink:href='#g4-106'/><use x='163.685' y='104.703' xlink:href='#g1-1'/><use x='166.052' y='104.703' xlink:href='#g1-1'/><use x='168.418' y='104.703' xlink:href='#g1-1'/><use x='170.784' y='104.703' xlink:href='#g3-107'/><use x='175.019' y='105.699' xlink:href='#g4-105'/><use x='178.175' y='104.703' xlink:href='#g1-1'/><use x='180.541' y='104.703' xlink:href='#g1-1'/><use x='182.907' y='104.703' xlink:href='#g1-1'/><use x='185.273' y='104.703' xlink:href='#g3-107'/><use x='189.509' y='105.699' xlink:href='#g4-110'/><use x='194.394' y='92.72' xlink:href='#g5-40'/><use x='198.269' y='92.72' xlink:href='#g0-0'/><use x='206.018' y='92.72' xlink:href='#g5-49'/><use x='210.999' y='92.72' xlink:href='#g5-41'/><use x='214.873' y='88.606' xlink:href='#g3-28'/><use x='219.353' y='88.606' xlink:href='#g6-40'/><use x='222.467' y='88.606' xlink:href='#g3-107'/><use x='226.702' y='89.603' xlink:href='#g7-49'/><use x='230.59' y='88.606' xlink:href='#g1-1'/><use x='232.956' y='88.606' xlink:href='#g1-1'/><use x='235.323' y='88.606' xlink:href='#g1-1'/><use x='237.689' y='88.606' xlink:href='#g3-107'/><use x='241.924' y='89.603' xlink:href='#g4-106'/><use x='245.646' y='88.606' xlink:href='#g1-1'/><use x='248.012' y='88.606' xlink:href='#g1-1'/><use x='250.378' y='88.606' xlink:href='#g1-1'/><use x='252.744' y='88.606' xlink:href='#g3-107'/><use x='256.98' y='89.603' xlink:href='#g4-105'/><use x='260.136' y='88.606' xlink:href='#g1-1'/><use x='262.502' y='88.606' xlink:href='#g1-1'/><use x='264.868' y='88.606' xlink:href='#g1-1'/><use x='267.234' y='88.606' xlink:href='#g3-107'/><use x='271.469' y='89.603' xlink:href='#g4-110'/><use x='276.355' y='88.606' xlink:href='#g6-41'/><use x='279.966' y='92.72' xlink:href='#g2-97'/><use x='285.233' y='94.214' xlink:href='#g6-49'/><use x='289.204' y='94.214' xlink:href='#g3-107'/><use x='293.439' y='95.211' xlink:href='#g7-49'/><use x='299.486' y='92.72' xlink:href='#g0-1'/><use x='303.914' y='92.72' xlink:href='#g0-1'/><use x='308.342' y='92.72' xlink:href='#g0-1'/><use x='312.769' y='92.72' xlink:href='#g2-97'/><use x='318.035' y='94.214' xlink:href='#g3-106'/><use x='321.735' y='94.214' xlink:href='#g3-107'/><use x='325.97' y='95.211' xlink:href='#g4-106'/><use x='331.851' y='92.72' xlink:href='#g0-1'/><use x='336.279' y='92.72' xlink:href='#g0-1'/><use x='340.707' y='92.72' xlink:href='#g0-1'/><use x='345.134' y='92.72' xlink:href='#g2-97'/><use x='350.4' y='94.214' xlink:href='#g3-105'/><use x='353.219' y='94.214' xlink:href='#g3-107'/><use x='357.455' y='95.211' xlink:href='#g4-105'/><use x='362.769' y='92.72' xlink:href='#g0-1'/><use x='367.197' y='92.72' xlink:href='#g0-1'/><use x='371.625' y='92.72' xlink:href='#g0-1'/><use x='376.052' y='92.72' xlink:href='#g2-97'/><use x='381.319' y='94.214' xlink:href='#g3-110'/><use x='386.243' y='94.214' xlink:href='#g3-112'/><use x='390.35' y='95.211' xlink:href='#g4-110'/><use x='129.99' y='122.11' xlink:href='#g5-61'/><use x='140.506' y='122.11' xlink:href='#g0-0'/><use x='169.664' y='112.645' xlink:href='#g8-88'/><use x='149.915' y='134.093' xlink:href='#g3-107'/><use x='154.151' y='135.089' xlink:href='#g7-49'/><use x='158.039' y='134.093' xlink:href='#g1-1'/><use x='160.405' y='134.093' xlink:href='#g1-1'/><use x='162.771' y='134.093' xlink:href='#g1-1'/><use x='165.137' y='134.093' xlink:href='#g3-107'/><use x='169.373' y='135.089' xlink:href='#g4-105'/><use x='172.529' y='134.093' xlink:href='#g1-1'/><use x='174.895' y='134.093' xlink:href='#g1-1'/><use x='177.261' y='134.093' xlink:href='#g1-1'/><use x='179.627' y='134.093' xlink:href='#g3-107'/><use x='183.862' y='135.089' xlink:href='#g4-106'/><use x='187.584' y='134.093' xlink:href='#g1-1'/><use x='189.95' y='134.093' xlink:href='#g1-1'/><use x='192.317' y='134.093' xlink:href='#g1-1'/><use x='194.683' y='134.093' xlink:href='#g3-107'/><use x='198.918' y='135.089' xlink:href='#g4-110'/><use x='203.804' y='122.11' xlink:href='#g5-40'/><use x='207.678' y='122.11' xlink:href='#g0-0'/><use x='215.427' y='122.11' xlink:href='#g5-49'/><use x='220.408' y='122.11' xlink:href='#g5-41'/><use x='224.282' y='117.996' xlink:href='#g3-28'/><use x='228.763' y='117.996' xlink:href='#g6-40'/><use x='231.876' y='117.996' xlink:href='#g3-107'/><use x='236.111' y='118.993' xlink:href='#g7-49'/><use x='239.999' y='117.996' xlink:href='#g1-1'/><use x='242.366' y='117.996' xlink:href='#g1-1'/><use x='244.732' y='117.996' xlink:href='#g1-1'/><use x='247.098' y='117.996' xlink:href='#g3-107'/><use x='251.333' y='118.993' xlink:href='#g4-105'/><use x='254.489' y='117.996' xlink:href='#g1-1'/><use x='256.855' y='117.996' xlink:href='#g1-1'/><use x='259.221' y='117.996' xlink:href='#g1-1'/><use x='261.588' y='117.996' xlink:href='#g3-107'/><use x='265.823' y='118.993' xlink:href='#g4-106'/><use x='269.545' y='117.996' xlink:href='#g1-1'/><use x='271.911' y='117.996' xlink:href='#g1-1'/><use x='274.277' y='117.996' xlink:href='#g1-1'/><use x='276.643' y='117.996' xlink:href='#g3-107'/><use x='280.878' y='118.993' xlink:href='#g4-110'/><use x='285.764' y='117.996' xlink:href='#g6-41'/><use x='289.376' y='122.11' xlink:href='#g2-97'/><use x='294.642' y='123.604' xlink:href='#g6-49'/><use x='298.613' y='123.604' xlink:href='#g3-107'/><use x='302.848' y='124.6' xlink:href='#g7-49'/><use x='308.895' y='122.11' xlink:href='#g0-1'/><use x='313.323' y='122.11' xlink:href='#g0-1'/><use x='317.751' y='122.11' xlink:href='#g0-1'/><use x='322.178' y='122.11' xlink:href='#g2-97'/><use x='327.445' y='123.604' xlink:href='#g3-105'/><use x='330.263' y='123.604' xlink:href='#g3-107'/><use x='334.499' y='124.6' xlink:href='#g4-105'/><use x='339.813' y='122.11' xlink:href='#g0-1'/><use x='344.241' y='122.11' xlink:href='#g0-1'/><use x='348.669' y='122.11' xlink:href='#g0-1'/><use x='353.097' y='122.11' xlink:href='#g2-97'/><use x='358.363' y='123.604' xlink:href='#g3-106'/><use x='362.062' y='123.604' xlink:href='#g3-107'/><use x='366.298' y='124.6' xlink:href='#g4-106'/><use x='372.178' y='122.11' xlink:href='#g0-1'/><use x='376.606' y='122.11' xlink:href='#g0-1'/><use x='381.034' y='122.11' xlink:href='#g0-1'/><use x='385.462' y='122.11' xlink:href='#g2-97'/><use x='390.728' y='123.604' xlink:href='#g3-110'/><use x='395.653' y='123.604' xlink:href='#g3-112'/><use x='399.76' y='124.6' xlink:href='#g4-110'/><use x='129.99' y='149.407' xlink:href='#g5-61'/><use x='140.506' y='149.407' xlink:href='#g0-0'/><use x='148.255' y='149.407' xlink:href='#g2-68'/><use x='156.78' y='149.407' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section id="determinant-scalar-multiply" class="section section2" data-section-depth="2" data-line="88"><h3 id="heading-determinant-scalar-multiply" class="h2" data-heading-depth="2" style="display:block">数乘线性</h3>
+<div class="theorem" data-line="89" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="90"><span data-line="90"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">3</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="90"></span>  行列式某行元素的公因子可以提到行列式符号之外，即
+</p>
+<div class="math para-block" data-line="91">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="92" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:7.5736em;width:22.7716em" viewBox='98.289 53.323 216.872 72.13'><desc>\[  \begin{vmatrix}
+   a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+   c a_{i1}&amp;ca_{i2}&amp;\cdots&amp;c a_{in}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{n1}&amp;a_{n2}&amp;\dots&amp; a_{nn}
+  \end{vmatrix}=c\begin{vmatrix}
+   a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{i1}&amp;a_{i2}&amp;\dots&amp; a_{in}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{n1}&amp;a_{n2}&amp;\dots&amp; a_{nn}
+  \end{vmatrix}.
+\]</desc><g id='math-7ac0ac'><use x='98.488' y='53.522' xlink:href='#g8-12'/><use x='98.488' y='59.5' xlink:href='#g8-12'/><use x='98.488' y='65.477' xlink:href='#g8-12'/><use x='98.488' y='71.455' xlink:href='#g8-12'/><use x='98.488' y='77.433' xlink:href='#g8-12'/><use x='98.488' y='83.41' xlink:href='#g8-12'/><use x='98.488' y='89.388' xlink:href='#g8-12'/><use x='98.488' y='95.366' xlink:href='#g8-12'/><use x='98.488' y='101.343' xlink:href='#g8-12'/><use x='98.488' y='107.321' xlink:href='#g8-12'/><use x='98.488' y='113.298' xlink:href='#g8-12'/><use x='98.488' y='119.276' xlink:href='#g8-12'/><use x='103.388' y='61.238' xlink:href='#g2-97'/><use x='108.654' y='62.732' xlink:href='#g6-49'/><use x='112.626' y='62.732' xlink:href='#g6-49'/><use x='130.217' y='61.238' xlink:href='#g2-97'/><use x='135.483' y='62.732' xlink:href='#g6-49'/><use x='139.454' y='62.732' xlink:href='#g6-50'/><use x='155.465' y='61.238' xlink:href='#g0-1'/><use x='159.893' y='61.238' xlink:href='#g0-1'/><use x='164.321' y='61.238' xlink:href='#g0-1'/><use x='178.63' y='61.238' xlink:href='#g2-97'/><use x='183.897' y='62.732' xlink:href='#g6-49'/><use x='187.868' y='62.732' xlink:href='#g3-110'/><use x='108.858' y='71.854' xlink:href='#g5-46'/><use x='108.858' y='75.839' xlink:href='#g5-46'/><use x='108.858' y='79.824' xlink:href='#g5-46'/><use x='135.686' y='71.854' xlink:href='#g5-46'/><use x='135.686' y='75.839' xlink:href='#g5-46'/><use x='135.686' y='79.824' xlink:href='#g5-46'/><use x='184.577' y='71.854' xlink:href='#g5-46'/><use x='184.577' y='75.839' xlink:href='#g5-46'/><use x='184.577' y='79.824' xlink:href='#g5-46'/><use x='101.809' y='91.779' xlink:href='#g2-99'/><use x='106.12' y='91.779' xlink:href='#g2-97'/><use x='111.386' y='93.273' xlink:href='#g3-105'/><use x='114.205' y='93.273' xlink:href='#g6-49'/><use x='128.637' y='91.779' xlink:href='#g2-99'/><use x='132.949' y='91.779' xlink:href='#g2-97'/><use x='138.215' y='93.273' xlink:href='#g3-105'/><use x='141.033' y='93.273' xlink:href='#g6-50'/><use x='155.465' y='91.779' xlink:href='#g0-1'/><use x='159.893' y='91.779' xlink:href='#g0-1'/><use x='164.321' y='91.779' xlink:href='#g0-1'/><use x='177.051' y='91.779' xlink:href='#g2-99'/><use x='181.362' y='91.779' xlink:href='#g2-97'/><use x='186.629' y='93.273' xlink:href='#g3-105'/><use x='189.447' y='93.273' xlink:href='#g3-110'/><use x='108.858' y='102.395' xlink:href='#g5-46'/><use x='108.858' y='106.38' xlink:href='#g5-46'/><use x='108.858' y='110.365' xlink:href='#g5-46'/><use x='135.686' y='102.395' xlink:href='#g5-46'/><use x='135.686' y='106.38' xlink:href='#g5-46'/><use x='135.686' y='110.365' xlink:href='#g5-46'/><use x='184.577' y='102.395' xlink:href='#g5-46'/><use x='184.577' y='106.38' xlink:href='#g5-46'/><use x='184.577' y='110.365' xlink:href='#g5-46'/><use x='102.911' y='122.32' xlink:href='#g2-97'/><use x='108.178' y='123.814' xlink:href='#g3-110'/><use x='113.103' y='123.814' xlink:href='#g6-49'/><use x='129.74' y='122.32' xlink:href='#g2-97'/><use x='135.006' y='123.814' xlink:href='#g3-110'/><use x='139.931' y='123.814' xlink:href='#g6-50'/><use x='155.465' y='122.32' xlink:href='#g2-58'/><use x='159.893' y='122.32' xlink:href='#g2-58'/><use x='164.321' y='122.32' xlink:href='#g2-58'/><use x='178.154' y='122.32' xlink:href='#g2-97'/><use x='183.42' y='123.814' xlink:href='#g3-110'/><use x='188.345' y='123.814' xlink:href='#g3-110'/><use x='194.87' y='53.522' xlink:href='#g8-12'/><use x='194.87' y='59.5' xlink:href='#g8-12'/><use x='194.87' y='65.477' xlink:href='#g8-12'/><use x='194.87' y='71.455' xlink:href='#g8-12'/><use x='194.87' y='77.433' xlink:href='#g8-12'/><use x='194.87' y='83.41' xlink:href='#g8-12'/><use x='194.87' y='89.388' xlink:href='#g8-12'/><use x='194.87' y='95.366' xlink:href='#g8-12'/><use x='194.87' y='101.343' xlink:href='#g8-12'/><use x='194.87' y='107.321' xlink:href='#g8-12'/><use x='194.87' y='113.298' xlink:href='#g8-12'/><use x='194.87' y='119.276' xlink:href='#g8-12'/><use x='200.958' y='91.879' xlink:href='#g5-61'/><use x='211.475' y='91.879' xlink:href='#g2-99'/><use x='217.446' y='53.522' xlink:href='#g8-12'/><use x='217.446' y='59.5' xlink:href='#g8-12'/><use x='217.446' y='65.477' xlink:href='#g8-12'/><use x='217.446' y='71.455' xlink:href='#g8-12'/><use x='217.446' y='77.433' xlink:href='#g8-12'/><use x='217.446' y='83.41' xlink:href='#g8-12'/><use x='217.446' y='89.388' xlink:href='#g8-12'/><use x='217.446' y='95.366' xlink:href='#g8-12'/><use x='217.446' y='101.343' xlink:href='#g8-12'/><use x='217.446' y='107.321' xlink:href='#g8-12'/><use x='217.446' y='113.298' xlink:href='#g8-12'/><use x='217.446' y='119.276' xlink:href='#g8-12'/><use x='221.244' y='61.238' xlink:href='#g2-97'/><use x='226.51' y='62.732' xlink:href='#g6-49'/><use x='230.481' y='62.732' xlink:href='#g6-49'/><use x='245.867' y='61.238' xlink:href='#g2-97'/><use x='251.133' y='62.732' xlink:href='#g6-49'/><use x='255.104' y='62.732' xlink:href='#g6-50'/><use x='270.013' y='61.238' xlink:href='#g0-1'/><use x='274.441' y='61.238' xlink:href='#g0-1'/><use x='278.869' y='61.238' xlink:href='#g0-1'/><use x='292.076' y='61.238' xlink:href='#g2-97'/><use x='297.342' y='62.732' xlink:href='#g6-49'/><use x='301.313' y='62.732' xlink:href='#g3-110'/><use x='226.714' y='71.854' xlink:href='#g5-46'/><use x='226.714' y='75.839' xlink:href='#g5-46'/><use x='226.714' y='79.824' xlink:href='#g5-46'/><use x='251.337' y='71.854' xlink:href='#g5-46'/><use x='251.337' y='75.839' xlink:href='#g5-46'/><use x='251.337' y='79.824' xlink:href='#g5-46'/><use x='298.022' y='71.854' xlink:href='#g5-46'/><use x='298.022' y='75.839' xlink:href='#g5-46'/><use x='298.022' y='79.824' xlink:href='#g5-46'/><use x='221.82' y='91.779' xlink:href='#g2-97'/><use x='227.086' y='93.273' xlink:href='#g3-105'/><use x='229.905' y='93.273' xlink:href='#g6-49'/><use x='246.443' y='91.779' xlink:href='#g2-97'/><use x='251.709' y='93.273' xlink:href='#g3-105'/><use x='254.528' y='93.273' xlink:href='#g6-50'/><use x='270.013' y='91.779' xlink:href='#g2-58'/><use x='274.441' y='91.779' xlink:href='#g2-58'/><use x='278.869' y='91.779' xlink:href='#g2-58'/><use x='292.652' y='91.779' xlink:href='#g2-97'/><use x='297.918' y='93.273' xlink:href='#g3-105'/><use x='300.737' y='93.273' xlink:href='#g3-110'/><use x='226.714' y='102.395' xlink:href='#g5-46'/><use x='226.714' y='106.38' xlink:href='#g5-46'/><use x='226.714' y='110.365' xlink:href='#g5-46'/><use x='251.337' y='102.395' xlink:href='#g5-46'/><use x='251.337' y='106.38' xlink:href='#g5-46'/><use x='251.337' y='110.365' xlink:href='#g5-46'/><use x='298.022' y='102.395' xlink:href='#g5-46'/><use x='298.022' y='106.38' xlink:href='#g5-46'/><use x='298.022' y='110.365' xlink:href='#g5-46'/><use x='220.767' y='122.32' xlink:href='#g2-97'/><use x='226.033' y='123.814' xlink:href='#g3-110'/><use x='230.958' y='123.814' xlink:href='#g6-49'/><use x='245.39' y='122.32' xlink:href='#g2-97'/><use x='250.656' y='123.814' xlink:href='#g3-110'/><use x='255.581' y='123.814' xlink:href='#g6-50'/><use x='270.013' y='122.32' xlink:href='#g2-58'/><use x='274.441' y='122.32' xlink:href='#g2-58'/><use x='278.869' y='122.32' xlink:href='#g2-58'/><use x='291.599' y='122.32' xlink:href='#g2-97'/><use x='296.865' y='123.814' xlink:href='#g3-110'/><use x='301.79' y='123.814' xlink:href='#g3-110'/><use x='307.213' y='53.522' xlink:href='#g8-12'/><use x='307.213' y='59.5' xlink:href='#g8-12'/><use x='307.213' y='65.477' xlink:href='#g8-12'/><use x='307.213' y='71.455' xlink:href='#g8-12'/><use x='307.213' y='77.433' xlink:href='#g8-12'/><use x='307.213' y='83.41' xlink:href='#g8-12'/><use x='307.213' y='89.388' xlink:href='#g8-12'/><use x='307.213' y='95.366' xlink:href='#g8-12'/><use x='307.213' y='101.343' xlink:href='#g8-12'/><use x='307.213' y='107.321' xlink:href='#g8-12'/><use x='307.213' y='113.298' xlink:href='#g8-12'/><use x='307.213' y='119.276' xlink:href='#g8-12'/><use x='312.194' y='91.879' xlink:href='#g2-58'/></g></svg></div></div></div>
+<div class="corollary" data-line="107" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="108"><span data-line="108"></span><span class="corollary-before"><strong class="strong-star2">推论&#160;<span class="corollary-label">2</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="108"></span>若行列式某一行全为零，则该行列式为零；
+</p>
+<p class="p indent" data-line="110"><span data-line="110"></span>若行列式某两行成比例，则该行列式为零。</p></div></section>
+<section class="slide section" data-line="112">
+<div class="proof" data-line="113" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="114"><span data-line="114"></span><span class="proof-before"><strong class="strong-star2">证明</strong>. <span class="theorem-caption"></span> </span><span data-line="114"></span>假设预证等式左右边行列式分别记为<span data-line="114"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.8282em;width:1.2315em" viewBox='88.468 54.147 11.729 7.888'><desc>$D&#39;$</desc><g id='math-0232f2'><use x='88.667' y='61.836' xlink:href='#g2-68'/><use x='97.192' y='58.22' xlink:href='#g1-48'/></g></svg><span data-line="114"></span>、<span data-line="114"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7566em;width:0.9380em" viewBox='88.468 54.829 8.933 7.206'><desc>$D$</desc><g id='math-f623e7'><use x='88.667' y='61.836' xlink:href='#g2-68'/></g></svg><span data-line="114"></span>, 则按照行列式定义，我们有
+</p>
+<div class="math para-block" data-line="115">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="116" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:6.8891em;width:23.4001em" viewBox='148.596 52.67 222.858 65.61'><desc>\[\begin{aligned}
+  D&#39;&amp;=\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots ca_{ik_i}\cdots a_{nk_n}\\
+  &amp;=c\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots a_{ik_i}\cdots a_{nk_n}\\
+  &amp;=cD.
+\end{aligned}
+\]</desc><g id='math-e019bc'><use x='148.795' y='63.33' xlink:href='#g2-68'/><use x='157.32' y='59.217' xlink:href='#g1-48'/><use x='162.883' y='63.33' xlink:href='#g5-61'/><use x='185.62' y='53.865' xlink:href='#g8-88'/><use x='173.399' y='75.313' xlink:href='#g3-107'/><use x='177.634' y='76.309' xlink:href='#g7-49'/><use x='181.522' y='75.313' xlink:href='#g1-1'/><use x='183.889' y='75.313' xlink:href='#g1-1'/><use x='186.255' y='75.313' xlink:href='#g1-1'/><use x='188.621' y='75.313' xlink:href='#g3-107'/><use x='192.856' y='76.309' xlink:href='#g4-105'/><use x='196.012' y='75.313' xlink:href='#g1-1'/><use x='198.378' y='75.313' xlink:href='#g1-1'/><use x='200.744' y='75.313' xlink:href='#g1-1'/><use x='203.11' y='75.313' xlink:href='#g3-107'/><use x='207.346' y='76.309' xlink:href='#g4-110'/><use x='212.231' y='63.33' xlink:href='#g5-40'/><use x='216.106' y='63.33' xlink:href='#g0-0'/><use x='223.855' y='63.33' xlink:href='#g5-49'/><use x='228.836' y='63.33' xlink:href='#g5-41'/><use x='232.71' y='59.217' xlink:href='#g3-28'/><use x='237.19' y='59.217' xlink:href='#g6-40'/><use x='240.304' y='59.217' xlink:href='#g3-107'/><use x='244.539' y='60.213' xlink:href='#g7-49'/><use x='248.427' y='59.217' xlink:href='#g1-1'/><use x='250.793' y='59.217' xlink:href='#g1-1'/><use x='253.16' y='59.217' xlink:href='#g1-1'/><use x='255.526' y='59.217' xlink:href='#g3-107'/><use x='259.761' y='60.213' xlink:href='#g4-105'/><use x='262.917' y='59.217' xlink:href='#g1-1'/><use x='265.283' y='59.217' xlink:href='#g1-1'/><use x='267.649' y='59.217' xlink:href='#g1-1'/><use x='270.015' y='59.217' xlink:href='#g3-107'/><use x='274.251' y='60.213' xlink:href='#g4-110'/><use x='279.136' y='59.217' xlink:href='#g6-41'/><use x='282.748' y='63.33' xlink:href='#g2-97'/><use x='288.014' y='64.824' xlink:href='#g6-49'/><use x='291.985' y='64.824' xlink:href='#g3-107'/><use x='296.221' y='65.821' xlink:href='#g7-49'/><use x='302.267' y='63.33' xlink:href='#g0-1'/><use x='306.695' y='63.33' xlink:href='#g0-1'/><use x='311.123' y='63.33' xlink:href='#g0-1'/><use x='315.551' y='63.33' xlink:href='#g2-99'/><use x='319.862' y='63.33' xlink:href='#g2-97'/><use x='325.128' y='64.824' xlink:href='#g3-105'/><use x='327.947' y='64.824' xlink:href='#g3-107'/><use x='332.182' y='65.821' xlink:href='#g4-105'/><use x='337.497' y='63.33' xlink:href='#g0-1'/><use x='341.925' y='63.33' xlink:href='#g0-1'/><use x='346.352' y='63.33' xlink:href='#g0-1'/><use x='350.78' y='63.33' xlink:href='#g2-97'/><use x='356.046' y='64.824' xlink:href='#g3-110'/><use x='360.971' y='64.824' xlink:href='#g3-107'/><use x='365.207' y='65.821' xlink:href='#g4-110'/><use x='162.883' y='91.751' xlink:href='#g5-61'/><use x='173.399' y='91.751' xlink:href='#g2-99'/><use x='191.592' y='82.287' xlink:href='#g8-88'/><use x='179.371' y='103.734' xlink:href='#g3-107'/><use x='183.606' y='104.731' xlink:href='#g7-49'/><use x='187.494' y='103.734' xlink:href='#g1-1'/><use x='189.86' y='103.734' xlink:href='#g1-1'/><use x='192.226' y='103.734' xlink:href='#g1-1'/><use x='194.593' y='103.734' xlink:href='#g3-107'/><use x='198.828' y='104.731' xlink:href='#g4-105'/><use x='201.984' y='103.734' xlink:href='#g1-1'/><use x='204.35' y='103.734' xlink:href='#g1-1'/><use x='206.716' y='103.734' xlink:href='#g1-1'/><use x='209.082' y='103.734' xlink:href='#g3-107'/><use x='213.318' y='104.731' xlink:href='#g4-110'/><use x='218.203' y='91.751' xlink:href='#g5-40'/><use x='222.078' y='91.751' xlink:href='#g0-0'/><use x='229.826' y='91.751' xlink:href='#g5-49'/><use x='234.808' y='91.751' xlink:href='#g5-41'/><use x='238.682' y='87.638' xlink:href='#g3-28'/><use x='243.162' y='87.638' xlink:href='#g6-40'/><use x='246.276' y='87.638' xlink:href='#g3-107'/><use x='250.511' y='88.634' xlink:href='#g7-49'/><use x='254.399' y='87.638' xlink:href='#g1-1'/><use x='256.765' y='87.638' xlink:href='#g1-1'/><use x='259.131' y='87.638' xlink:href='#g1-1'/><use x='261.497' y='87.638' xlink:href='#g3-107'/><use x='265.733' y='88.634' xlink:href='#g4-105'/><use x='268.889' y='87.638' xlink:href='#g1-1'/><use x='271.255' y='87.638' xlink:href='#g1-1'/><use x='273.621' y='87.638' xlink:href='#g1-1'/><use x='275.987' y='87.638' xlink:href='#g3-107'/><use x='280.222' y='88.634' xlink:href='#g4-110'/><use x='285.108' y='87.638' xlink:href='#g6-41'/><use x='288.72' y='91.751' xlink:href='#g2-97'/><use x='293.986' y='93.246' xlink:href='#g6-49'/><use x='297.957' y='93.246' xlink:href='#g3-107'/><use x='302.192' y='94.242' xlink:href='#g7-49'/><use x='308.239' y='91.751' xlink:href='#g0-1'/><use x='312.667' y='91.751' xlink:href='#g0-1'/><use x='317.095' y='91.751' xlink:href='#g0-1'/><use x='321.523' y='91.751' xlink:href='#g2-97'/><use x='326.789' y='93.246' xlink:href='#g3-105'/><use x='329.607' y='93.246' xlink:href='#g3-107'/><use x='333.843' y='94.242' xlink:href='#g4-105'/><use x='339.157' y='91.751' xlink:href='#g0-1'/><use x='343.585' y='91.751' xlink:href='#g0-1'/><use x='348.013' y='91.751' xlink:href='#g0-1'/><use x='352.441' y='91.751' xlink:href='#g2-97'/><use x='357.707' y='93.246' xlink:href='#g3-110'/><use x='362.632' y='93.246' xlink:href='#g3-107'/><use x='366.867' y='94.242' xlink:href='#g4-110'/><use x='162.883' y='118.08' xlink:href='#g5-61'/><use x='173.399' y='118.08' xlink:href='#g2-99'/><use x='177.71' y='118.08' xlink:href='#g2-68'/><use x='186.235' y='118.08' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section id="determinant-addition-linearity" class="section section2" data-section-depth="2" data-line="125"><h3 id="heading-determinant-addition-linearity" class="h2" data-heading-depth="2" style="display:block">加法线性</h3>
+<div class="theorem" data-line="126" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="127"><span data-line="127"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">4</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="127"></span>行列式关于一行的加法可以分开，即
+</p>
+<div class="math para-block" data-line="128">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="129" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:5.4531em;width:27.7051em" viewBox='74.796 52.67 263.858 51.934'><desc>\[  \begin{vmatrix}
+    \begin{smallmatrix}
+      a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+      \vdots&amp;\vdots&amp;&amp;\vdots\\
+      b_{i1}+c_{i1}&amp;b_{i2}+c_{i2}&amp;\dots&amp; b_{in}+c_{in}\\
+      \vdots&amp;\vdots&amp;&amp;\vdots\\
+      a_{n1}&amp;a_{n2}&amp;\dots&amp; a_{nn}
+    \end{smallmatrix}
+  \end{vmatrix}=\begin{vmatrix}
+   \begin{smallmatrix}
+     a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+    b_{i1}&amp;b_{i2}&amp;\dots&amp; b_{in}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{n1}&amp;a_{n2}&amp;\dots&amp; a_{nn}
+   \end{smallmatrix}
+  \end{vmatrix}+\begin{vmatrix}
+   \begin{smallmatrix}
+     a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+    c_{i1}&amp;c_{i2}&amp;\dots&amp; c_{in}\\
+   \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{n1}&amp;a_{n2}&amp;\dots&amp; a_{nn}
+   \end{smallmatrix}
+  \end{vmatrix}.
+\]</desc><g id='math-119836'><use x='74.995' y='54.727' xlink:href='#g8-12'/><use x='74.995' y='60.704' xlink:href='#g8-12'/><use x='74.995' y='66.682' xlink:href='#g8-12'/><use x='74.995' y='72.66' xlink:href='#g8-12'/><use x='74.995' y='78.637' xlink:href='#g8-12'/><use x='74.995' y='84.615' xlink:href='#g8-12'/><use x='74.995' y='90.592' xlink:href='#g8-12'/><use x='74.995' y='96.57' xlink:href='#g8-12'/><use x='87.312' y='56.114' xlink:href='#g3-97'/><use x='91.634' y='57.11' xlink:href='#g7-49'/><use x='95.024' y='57.11' xlink:href='#g7-49'/><use x='116.351' y='56.114' xlink:href='#g3-97'/><use x='120.672' y='57.11' xlink:href='#g7-49'/><use x='124.063' y='57.11' xlink:href='#g7-50'/><use x='138.054' y='56.114' xlink:href='#g1-1'/><use x='140.42' y='56.114' xlink:href='#g1-1'/><use x='142.786' y='56.114' xlink:href='#g1-1'/><use x='157.114' y='56.114' xlink:href='#g3-97'/><use x='161.436' y='57.11' xlink:href='#g7-49'/><use x='164.826' y='57.11' xlink:href='#g4-110'/><use x='91.728' y='65.634' xlink:href='#g5-46'/><use x='91.728' y='69.619' xlink:href='#g5-46'/><use x='91.728' y='73.604' xlink:href='#g5-46'/><use x='120.767' y='65.634' xlink:href='#g5-46'/><use x='120.767' y='69.619' xlink:href='#g5-46'/><use x='120.767' y='73.604' xlink:href='#g5-46'/><use x='162.029' y='65.634' xlink:href='#g5-46'/><use x='162.029' y='69.619' xlink:href='#g5-46'/><use x='162.029' y='73.604' xlink:href='#g5-46'/><use x='79.976' y='79.941' xlink:href='#g3-98'/><use x='83.48' y='80.938' xlink:href='#g4-105'/><use x='86.138' y='80.938' xlink:href='#g7-49'/><use x='90.026' y='79.941' xlink:href='#g6-43'/><use x='96.142' y='79.941' xlink:href='#g3-99'/><use x='99.702' y='80.938' xlink:href='#g4-105'/><use x='102.36' y='80.938' xlink:href='#g7-49'/><use x='109.015' y='79.941' xlink:href='#g3-98'/><use x='112.518' y='80.938' xlink:href='#g4-105'/><use x='115.176' y='80.938' xlink:href='#g7-50'/><use x='119.065' y='79.941' xlink:href='#g6-43'/><use x='125.181' y='79.941' xlink:href='#g3-99'/><use x='128.741' y='80.938' xlink:href='#g4-105'/><use x='131.399' y='80.938' xlink:href='#g7-50'/><use x='138.054' y='79.941' xlink:href='#g3-58'/><use x='140.42' y='79.941' xlink:href='#g3-58'/><use x='142.786' y='79.941' xlink:href='#g3-58'/><use x='149.279' y='79.941' xlink:href='#g3-98'/><use x='152.783' y='80.938' xlink:href='#g4-105'/><use x='155.441' y='80.938' xlink:href='#g4-110'/><use x='160.326' y='79.941' xlink:href='#g6-43'/><use x='166.442' y='79.941' xlink:href='#g3-99'/><use x='170.003' y='80.938' xlink:href='#g4-105'/><use x='172.661' y='80.938' xlink:href='#g4-110'/><use x='91.728' y='89.461' xlink:href='#g5-46'/><use x='91.728' y='93.446' xlink:href='#g5-46'/><use x='91.728' y='97.431' xlink:href='#g5-46'/><use x='120.767' y='89.461' xlink:href='#g5-46'/><use x='120.767' y='93.446' xlink:href='#g5-46'/><use x='120.767' y='97.431' xlink:href='#g5-46'/><use x='162.029' y='89.461' xlink:href='#g5-46'/><use x='162.029' y='93.446' xlink:href='#g5-46'/><use x='162.029' y='97.431' xlink:href='#g5-46'/><use x='86.814' y='103.409' xlink:href='#g3-97'/><use x='91.135' y='104.405' xlink:href='#g4-110'/><use x='95.523' y='104.405' xlink:href='#g7-49'/><use x='115.852' y='103.409' xlink:href='#g3-97'/><use x='120.174' y='104.405' xlink:href='#g4-110'/><use x='124.561' y='104.405' xlink:href='#g7-50'/><use x='138.054' y='103.409' xlink:href='#g3-58'/><use x='140.42' y='103.409' xlink:href='#g3-58'/><use x='142.786' y='103.409' xlink:href='#g3-58'/><use x='156.615' y='103.409' xlink:href='#g3-97'/><use x='160.937' y='104.405' xlink:href='#g4-110'/><use x='165.324' y='104.405' xlink:href='#g4-110'/><use x='177.546' y='54.727' xlink:href='#g8-12'/><use x='177.546' y='60.704' xlink:href='#g8-12'/><use x='177.546' y='66.682' xlink:href='#g8-12'/><use x='177.546' y='72.66' xlink:href='#g8-12'/><use x='177.546' y='78.637' xlink:href='#g8-12'/><use x='177.546' y='84.615' xlink:href='#g8-12'/><use x='177.546' y='90.592' xlink:href='#g8-12'/><use x='177.546' y='96.57' xlink:href='#g8-12'/><use x='183.634' y='81.128' xlink:href='#g5-61'/><use x='194.15' y='54.727' xlink:href='#g8-12'/><use x='194.15' y='60.704' xlink:href='#g8-12'/><use x='194.15' y='66.682' xlink:href='#g8-12'/><use x='194.15' y='72.66' xlink:href='#g8-12'/><use x='194.15' y='78.637' xlink:href='#g8-12'/><use x='194.15' y='84.615' xlink:href='#g8-12'/><use x='194.15' y='90.592' xlink:href='#g8-12'/><use x='194.15' y='96.57' xlink:href='#g8-12'/><use x='199.63' y='56.114' xlink:href='#g3-97'/><use x='203.952' y='57.11' xlink:href='#g7-49'/><use x='207.342' y='57.11' xlink:href='#g7-49'/><use x='214.994' y='56.114' xlink:href='#g3-97'/><use x='219.316' y='57.11' xlink:href='#g7-49'/><use x='222.706' y='57.11' xlink:href='#g7-50'/><use x='229.859' y='56.114' xlink:href='#g1-1'/><use x='232.225' y='56.114' xlink:href='#g1-1'/><use x='234.592' y='56.114' xlink:href='#g1-1'/><use x='241.584' y='56.114' xlink:href='#g3-97'/><use x='245.905' y='57.11' xlink:href='#g7-49'/><use x='249.295' y='57.11' xlink:href='#g4-110'/><use x='204.047' y='65.634' xlink:href='#g5-46'/><use x='204.047' y='69.619' xlink:href='#g5-46'/><use x='204.047' y='73.604' xlink:href='#g5-46'/><use x='219.41' y='65.634' xlink:href='#g5-46'/><use x='219.41' y='69.619' xlink:href='#g5-46'/><use x='219.41' y='73.604' xlink:href='#g5-46'/><use x='246.499' y='65.634' xlink:href='#g5-46'/><use x='246.499' y='69.619' xlink:href='#g5-46'/><use x='246.499' y='73.604' xlink:href='#g5-46'/><use x='200.406' y='79.941' xlink:href='#g3-98'/><use x='203.909' y='80.938' xlink:href='#g4-105'/><use x='206.567' y='80.938' xlink:href='#g7-49'/><use x='215.769' y='79.941' xlink:href='#g3-98'/><use x='219.273' y='80.938' xlink:href='#g4-105'/><use x='221.931' y='80.938' xlink:href='#g7-50'/><use x='229.859' y='79.941' xlink:href='#g3-58'/><use x='232.225' y='79.941' xlink:href='#g3-58'/><use x='234.592' y='79.941' xlink:href='#g3-58'/><use x='242.359' y='79.941' xlink:href='#g3-98'/><use x='245.862' y='80.938' xlink:href='#g4-105'/><use x='248.52' y='80.938' xlink:href='#g4-110'/><use x='204.047' y='89.461' xlink:href='#g5-46'/><use x='204.047' y='93.446' xlink:href='#g5-46'/><use x='204.047' y='97.431' xlink:href='#g5-46'/><use x='219.41' y='89.461' xlink:href='#g5-46'/><use x='219.41' y='93.446' xlink:href='#g5-46'/><use x='219.41' y='97.431' xlink:href='#g5-46'/><use x='246.499' y='89.461' xlink:href='#g5-46'/><use x='246.499' y='93.446' xlink:href='#g5-46'/><use x='246.499' y='97.431' xlink:href='#g5-46'/><use x='199.132' y='103.409' xlink:href='#g3-97'/><use x='203.453' y='104.405' xlink:href='#g4-110'/><use x='207.841' y='104.405' xlink:href='#g7-49'/><use x='214.496' y='103.409' xlink:href='#g3-97'/><use x='218.817' y='104.405' xlink:href='#g4-110'/><use x='223.205' y='104.405' xlink:href='#g7-50'/><use x='229.859' y='103.409' xlink:href='#g3-58'/><use x='232.225' y='103.409' xlink:href='#g3-58'/><use x='234.592' y='103.409' xlink:href='#g3-58'/><use x='241.085' y='103.409' xlink:href='#g3-97'/><use x='245.406' y='104.405' xlink:href='#g4-110'/><use x='249.794' y='104.405' xlink:href='#g4-110'/><use x='254.68' y='54.727' xlink:href='#g8-12'/><use x='254.68' y='60.704' xlink:href='#g8-12'/><use x='254.68' y='66.682' xlink:href='#g8-12'/><use x='254.68' y='72.66' xlink:href='#g8-12'/><use x='254.68' y='78.637' xlink:href='#g8-12'/><use x='254.68' y='84.615' xlink:href='#g8-12'/><use x='254.68' y='90.592' xlink:href='#g8-12'/><use x='254.68' y='96.57' xlink:href='#g8-12'/><use x='260.214' y='81.128' xlink:href='#g5-43'/><use x='270.177' y='54.727' xlink:href='#g8-12'/><use x='270.177' y='60.704' xlink:href='#g8-12'/><use x='270.177' y='66.682' xlink:href='#g8-12'/><use x='270.177' y='72.66' xlink:href='#g8-12'/><use x='270.177' y='78.637' xlink:href='#g8-12'/><use x='270.177' y='84.615' xlink:href='#g8-12'/><use x='270.177' y='90.592' xlink:href='#g8-12'/><use x='270.177' y='96.57' xlink:href='#g8-12'/><use x='275.657' y='56.294' xlink:href='#g3-97'/><use x='279.978' y='57.29' xlink:href='#g7-49'/><use x='283.368' y='57.29' xlink:href='#g7-49'/><use x='291.021' y='56.294' xlink:href='#g3-97'/><use x='295.342' y='57.29' xlink:href='#g7-49'/><use x='298.732' y='57.29' xlink:href='#g7-50'/><use x='305.886' y='56.294' xlink:href='#g1-1'/><use x='308.252' y='56.294' xlink:href='#g1-1'/><use x='310.618' y='56.294' xlink:href='#g1-1'/><use x='317.61' y='56.294' xlink:href='#g3-97'/><use x='321.932' y='57.29' xlink:href='#g7-49'/><use x='325.322' y='57.29' xlink:href='#g4-110'/><use x='280.073' y='65.814' xlink:href='#g5-46'/><use x='280.073' y='69.799' xlink:href='#g5-46'/><use x='280.073' y='73.784' xlink:href='#g5-46'/><use x='295.437' y='65.814' xlink:href='#g5-46'/><use x='295.437' y='69.799' xlink:href='#g5-46'/><use x='295.437' y='73.784' xlink:href='#g5-46'/><use x='322.525' y='65.814' xlink:href='#g5-46'/><use x='322.525' y='69.799' xlink:href='#g5-46'/><use x='322.525' y='73.784' xlink:href='#g5-46'/><use x='276.404' y='79.761' xlink:href='#g3-99'/><use x='279.964' y='80.758' xlink:href='#g4-105'/><use x='282.622' y='80.758' xlink:href='#g7-49'/><use x='291.767' y='79.761' xlink:href='#g3-99'/><use x='295.328' y='80.758' xlink:href='#g4-105'/><use x='297.986' y='80.758' xlink:href='#g7-50'/><use x='305.886' y='79.761' xlink:href='#g3-58'/><use x='308.252' y='79.761' xlink:href='#g3-58'/><use x='310.618' y='79.761' xlink:href='#g3-58'/><use x='318.357' y='79.761' xlink:href='#g3-99'/><use x='321.917' y='80.758' xlink:href='#g4-105'/><use x='324.575' y='80.758' xlink:href='#g4-110'/><use x='280.073' y='89.281' xlink:href='#g5-46'/><use x='280.073' y='93.266' xlink:href='#g5-46'/><use x='280.073' y='97.251' xlink:href='#g5-46'/><use x='295.437' y='89.281' xlink:href='#g5-46'/><use x='295.437' y='93.266' xlink:href='#g5-46'/><use x='295.437' y='97.251' xlink:href='#g5-46'/><use x='322.525' y='89.281' xlink:href='#g5-46'/><use x='322.525' y='93.266' xlink:href='#g5-46'/><use x='322.525' y='97.251' xlink:href='#g5-46'/><use x='275.158' y='103.229' xlink:href='#g3-97'/><use x='279.48' y='104.225' xlink:href='#g4-110'/><use x='283.867' y='104.225' xlink:href='#g7-49'/><use x='290.522' y='103.229' xlink:href='#g3-97'/><use x='294.843' y='104.225' xlink:href='#g4-110'/><use x='299.231' y='104.225' xlink:href='#g7-50'/><use x='305.886' y='103.229' xlink:href='#g3-58'/><use x='308.252' y='103.229' xlink:href='#g3-58'/><use x='310.618' y='103.229' xlink:href='#g3-58'/><use x='317.111' y='103.229' xlink:href='#g3-97'/><use x='321.433' y='104.225' xlink:href='#g4-110'/><use x='325.82' y='104.225' xlink:href='#g4-110'/><use x='330.706' y='54.727' xlink:href='#g8-12'/><use x='330.706' y='60.704' xlink:href='#g8-12'/><use x='330.706' y='66.682' xlink:href='#g8-12'/><use x='330.706' y='72.66' xlink:href='#g8-12'/><use x='330.706' y='78.637' xlink:href='#g8-12'/><use x='330.706' y='84.615' xlink:href='#g8-12'/><use x='330.706' y='90.592' xlink:href='#g8-12'/><use x='330.706' y='96.57' xlink:href='#g8-12'/><use x='335.687' y='81.128' xlink:href='#g2-58'/></g></svg></div></div></div>
+<div class="corollary" data-line="156" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="157"><span data-line="157"></span><span class="corollary-before"><strong class="strong-star2">推论&#160;<span class="corollary-label">3</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="157"></span> 将行列式的某行元素的一个倍数加到该行列式的另一行不改变原行列式的值。</p></div></section>
+<section class="slide section" data-line="159">
+<div class="proof" data-line="160" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="161"><span data-line="161"></span><span class="proof-before"><strong class="strong-star2">证明</strong>. <span class="theorem-caption"></span> </span><span data-line="161"></span>分别记预证等式中三个行列式为<span data-line="161"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7566em;width:0.9380em" viewBox='88.468 54.829 8.933 7.206'><desc>$D$</desc><g id='math-f623e7'><use x='88.667' y='61.836' xlink:href='#g2-68'/></g></svg><span data-line="161"></span>、<span data-line="161"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1854em;height:0.9136em;width:1.3782em" viewBox='34.67 54.829 13.126 8.701'><desc>$D_1$</desc><g id='math-323b51'><use x='34.869' y='61.836' xlink:href='#g2-68'/><use x='43.117' y='63.33' xlink:href='#g6-49'/></g></svg><span data-line="161"></span>、<span data-line="161"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1854em;height:0.9136em;width:1.3782em" viewBox='88.468 54.829 13.126 8.701'><desc>$D_2$</desc><g id='math-a701eb'><use x='88.667' y='61.836' xlink:href='#g2-68'/><use x='96.916' y='63.33' xlink:href='#g6-50'/></g></svg><span data-line="161"></span>，则按照行列式的定义，我们知道
+</p>
+<div class="math para-block" data-line="162">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="163" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:10.0301em;width:26.0447em" viewBox='82.204 52.67 248.045 95.525'><desc>\[\begin{aligned}
+  D&amp;=\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots (b_{ik_i}+c_{ik_i})\cdots a_{nk_n}\\
+  &amp;=\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots b_{ik_i}\cdots a_{nk_n}\\
+  &amp;\qquad+\sum_{k_1\cdots k_i\cdots k_n}(-1)^{\tau(k_1\cdots k_i\cdots k_n)}a_{1k_1}\cdots c_{ik_i}\cdots a_{nk_n}\\
+ &amp;=D_1+D_2.
+\end{aligned}
+\]</desc><g id='math-ea2872'><use x='82.403' y='63.33' xlink:href='#g2-68'/><use x='93.696' y='63.33' xlink:href='#g5-61'/><use x='116.433' y='53.865' xlink:href='#g8-88'/><use x='104.212' y='75.313' xlink:href='#g3-107'/><use x='108.447' y='76.309' xlink:href='#g7-49'/><use x='112.335' y='75.313' xlink:href='#g1-1'/><use x='114.701' y='75.313' xlink:href='#g1-1'/><use x='117.068' y='75.313' xlink:href='#g1-1'/><use x='119.434' y='75.313' xlink:href='#g3-107'/><use x='123.669' y='76.309' xlink:href='#g4-105'/><use x='126.825' y='75.313' xlink:href='#g1-1'/><use x='129.191' y='75.313' xlink:href='#g1-1'/><use x='131.557' y='75.313' xlink:href='#g1-1'/><use x='133.923' y='75.313' xlink:href='#g3-107'/><use x='138.159' y='76.309' xlink:href='#g4-110'/><use x='143.044' y='63.33' xlink:href='#g5-40'/><use x='146.919' y='63.33' xlink:href='#g0-0'/><use x='154.668' y='63.33' xlink:href='#g5-49'/><use x='159.649' y='63.33' xlink:href='#g5-41'/><use x='163.523' y='59.217' xlink:href='#g3-28'/><use x='168.003' y='59.217' xlink:href='#g6-40'/><use x='171.117' y='59.217' xlink:href='#g3-107'/><use x='175.352' y='60.213' xlink:href='#g7-49'/><use x='179.24' y='59.217' xlink:href='#g1-1'/><use x='181.606' y='59.217' xlink:href='#g1-1'/><use x='183.973' y='59.217' xlink:href='#g1-1'/><use x='186.339' y='59.217' xlink:href='#g3-107'/><use x='190.574' y='60.213' xlink:href='#g4-105'/><use x='193.73' y='59.217' xlink:href='#g1-1'/><use x='196.096' y='59.217' xlink:href='#g1-1'/><use x='198.462' y='59.217' xlink:href='#g1-1'/><use x='200.828' y='59.217' xlink:href='#g3-107'/><use x='205.064' y='60.213' xlink:href='#g4-110'/><use x='209.949' y='59.217' xlink:href='#g6-41'/><use x='213.561' y='63.33' xlink:href='#g2-97'/><use x='218.827' y='64.824' xlink:href='#g6-49'/><use x='222.798' y='64.824' xlink:href='#g3-107'/><use x='227.033' y='65.821' xlink:href='#g7-49'/><use x='233.08' y='63.33' xlink:href='#g0-1'/><use x='237.508' y='63.33' xlink:href='#g0-1'/><use x='241.936' y='63.33' xlink:href='#g0-1'/><use x='246.364' y='63.33' xlink:href='#g5-40'/><use x='250.238' y='63.33' xlink:href='#g2-98'/><use x='254.514' y='64.824' xlink:href='#g3-105'/><use x='257.332' y='64.824' xlink:href='#g3-107'/><use x='261.568' y='65.821' xlink:href='#g4-105'/><use x='267.436' y='63.33' xlink:href='#g5-43'/><use x='277.398' y='63.33' xlink:href='#g2-99'/><use x='281.71' y='64.824' xlink:href='#g3-105'/><use x='284.528' y='64.824' xlink:href='#g3-107'/><use x='288.764' y='65.821' xlink:href='#g4-105'/><use x='292.418' y='63.33' xlink:href='#g5-41'/><use x='297.953' y='63.33' xlink:href='#g0-1'/><use x='302.38' y='63.33' xlink:href='#g0-1'/><use x='306.808' y='63.33' xlink:href='#g0-1'/><use x='311.236' y='63.33' xlink:href='#g2-97'/><use x='316.502' y='64.824' xlink:href='#g3-110'/><use x='321.427' y='64.824' xlink:href='#g3-107'/><use x='325.662' y='65.821' xlink:href='#g4-110'/><use x='93.696' y='91.751' xlink:href='#g5-61'/><use x='116.433' y='82.287' xlink:href='#g8-88'/><use x='104.212' y='103.734' xlink:href='#g3-107'/><use x='108.447' y='104.731' xlink:href='#g7-49'/><use x='112.335' y='103.734' xlink:href='#g1-1'/><use x='114.701' y='103.734' xlink:href='#g1-1'/><use x='117.068' y='103.734' xlink:href='#g1-1'/><use x='119.434' y='103.734' xlink:href='#g3-107'/><use x='123.669' y='104.731' xlink:href='#g4-105'/><use x='126.825' y='103.734' xlink:href='#g1-1'/><use x='129.191' y='103.734' xlink:href='#g1-1'/><use x='131.557' y='103.734' xlink:href='#g1-1'/><use x='133.923' y='103.734' xlink:href='#g3-107'/><use x='138.159' y='104.731' xlink:href='#g4-110'/><use x='143.044' y='91.751' xlink:href='#g5-40'/><use x='146.919' y='91.751' xlink:href='#g0-0'/><use x='154.668' y='91.751' xlink:href='#g5-49'/><use x='159.649' y='91.751' xlink:href='#g5-41'/><use x='163.523' y='87.638' xlink:href='#g3-28'/><use x='168.003' y='87.638' xlink:href='#g6-40'/><use x='171.117' y='87.638' xlink:href='#g3-107'/><use x='175.352' y='88.634' xlink:href='#g7-49'/><use x='179.24' y='87.638' xlink:href='#g1-1'/><use x='181.606' y='87.638' xlink:href='#g1-1'/><use x='183.973' y='87.638' xlink:href='#g1-1'/><use x='186.339' y='87.638' xlink:href='#g3-107'/><use x='190.574' y='88.634' xlink:href='#g4-105'/><use x='193.73' y='87.638' xlink:href='#g1-1'/><use x='196.096' y='87.638' xlink:href='#g1-1'/><use x='198.462' y='87.638' xlink:href='#g1-1'/><use x='200.828' y='87.638' xlink:href='#g3-107'/><use x='205.064' y='88.634' xlink:href='#g4-110'/><use x='209.949' y='87.638' xlink:href='#g6-41'/><use x='213.561' y='91.751' xlink:href='#g2-97'/><use x='218.827' y='93.246' xlink:href='#g6-49'/><use x='222.798' y='93.246' xlink:href='#g3-107'/><use x='227.033' y='94.242' xlink:href='#g7-49'/><use x='233.08' y='91.751' xlink:href='#g0-1'/><use x='237.508' y='91.751' xlink:href='#g0-1'/><use x='241.936' y='91.751' xlink:href='#g0-1'/><use x='246.364' y='91.751' xlink:href='#g2-98'/><use x='250.639' y='93.246' xlink:href='#g3-105'/><use x='253.458' y='93.246' xlink:href='#g3-107'/><use x='257.693' y='94.242' xlink:href='#g4-105'/><use x='263.008' y='91.751' xlink:href='#g0-1'/><use x='267.436' y='91.751' xlink:href='#g0-1'/><use x='271.864' y='91.751' xlink:href='#g0-1'/><use x='276.291' y='91.751' xlink:href='#g2-97'/><use x='281.557' y='93.246' xlink:href='#g3-110'/><use x='286.482' y='93.246' xlink:href='#g3-107'/><use x='290.718' y='94.242' xlink:href='#g4-110'/><use x='113.068' y='120.173' xlink:href='#g5-43'/><use x='135.251' y='110.708' xlink:href='#g8-88'/><use x='123.03' y='132.156' xlink:href='#g3-107'/><use x='127.265' y='133.152' xlink:href='#g7-49'/><use x='131.154' y='132.156' xlink:href='#g1-1'/><use x='133.52' y='132.156' xlink:href='#g1-1'/><use x='135.886' y='132.156' xlink:href='#g1-1'/><use x='138.252' y='132.156' xlink:href='#g3-107'/><use x='142.487' y='133.152' xlink:href='#g4-105'/><use x='145.643' y='132.156' xlink:href='#g1-1'/><use x='148.01' y='132.156' xlink:href='#g1-1'/><use x='150.376' y='132.156' xlink:href='#g1-1'/><use x='152.742' y='132.156' xlink:href='#g3-107'/><use x='156.977' y='133.152' xlink:href='#g4-110'/><use x='161.863' y='120.173' xlink:href='#g5-40'/><use x='165.737' y='120.173' xlink:href='#g0-0'/><use x='173.486' y='120.173' xlink:href='#g5-49'/><use x='178.467' y='120.173' xlink:href='#g5-41'/><use x='182.342' y='116.059' xlink:href='#g3-28'/><use x='186.822' y='116.059' xlink:href='#g6-40'/><use x='189.935' y='116.059' xlink:href='#g3-107'/><use x='194.17' y='117.055' xlink:href='#g7-49'/><use x='198.059' y='116.059' xlink:href='#g1-1'/><use x='200.425' y='116.059' xlink:href='#g1-1'/><use x='202.791' y='116.059' xlink:href='#g1-1'/><use x='205.157' y='116.059' xlink:href='#g3-107'/><use x='209.392' y='117.055' xlink:href='#g4-105'/><use x='212.548' y='116.059' xlink:href='#g1-1'/><use x='214.914' y='116.059' xlink:href='#g1-1'/><use x='217.281' y='116.059' xlink:href='#g1-1'/><use x='219.647' y='116.059' xlink:href='#g3-107'/><use x='223.882' y='117.055' xlink:href='#g4-110'/><use x='228.768' y='116.059' xlink:href='#g6-41'/><use x='232.379' y='120.173' xlink:href='#g2-97'/><use x='237.645' y='121.667' xlink:href='#g6-49'/><use x='241.617' y='121.667' xlink:href='#g3-107'/><use x='245.852' y='122.663' xlink:href='#g7-49'/><use x='251.899' y='120.173' xlink:href='#g0-1'/><use x='256.326' y='120.173' xlink:href='#g0-1'/><use x='260.754' y='120.173' xlink:href='#g0-1'/><use x='265.182' y='120.173' xlink:href='#g2-99'/><use x='269.493' y='121.667' xlink:href='#g3-105'/><use x='272.312' y='121.667' xlink:href='#g3-107'/><use x='276.547' y='122.663' xlink:href='#g4-105'/><use x='281.862' y='120.173' xlink:href='#g0-1'/><use x='286.29' y='120.173' xlink:href='#g0-1'/><use x='290.718' y='120.173' xlink:href='#g0-1'/><use x='295.145' y='120.173' xlink:href='#g2-97'/><use x='300.412' y='121.667' xlink:href='#g3-110'/><use x='305.336' y='121.667' xlink:href='#g3-107'/><use x='309.572' y='122.663' xlink:href='#g4-110'/><use x='93.696' y='146.502' xlink:href='#g5-61'/><use x='104.212' y='146.502' xlink:href='#g2-68'/><use x='112.46' y='147.996' xlink:href='#g6-49'/><use x='119.143' y='146.502' xlink:href='#g5-43'/><use x='129.106' y='146.502' xlink:href='#g2-68'/><use x='137.354' y='147.996' xlink:href='#g6-50'/><use x='141.823' y='146.502' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section id="examp-determinant-by-property" class="section section2" data-section-depth="2" data-line="172"><h3 id="heading-examp-determinant-by-property" class="h2" data-heading-depth="2" style="display:block">利用行列式的性质计算</h3>
+<div class="example" data-line="173" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="174"><span data-line="174"></span><span class="example-before"><strong class="strong-star2">例子&#160;<span class="example-label">1</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="174"></span>计算行列式
+</p>
+<div class="math para-block" data-line="175">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="176" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:5.0631em;width:8.7245em" viewBox='218.978 52.67 83.09 48.22'><desc>\[D=\begin{vmatrix}
+  3&amp;1&amp;1&amp;1\\
+  1&amp;3&amp;1&amp;1\\
+  1&amp;1&amp;3&amp;1\\
+  1&amp;1&amp;1&amp;3\\
+\end{vmatrix}.
+\]</desc><g id='math-14c28c'><use x='219.177' y='79.27' xlink:href='#g2-68'/><use x='230.47' y='79.27' xlink:href='#g5-61'/><use x='240.986' y='52.869' xlink:href='#g8-12'/><use x='240.986' y='58.847' xlink:href='#g8-12'/><use x='240.986' y='64.825' xlink:href='#g8-12'/><use x='240.986' y='70.802' xlink:href='#g8-12'/><use x='240.986' y='76.78' xlink:href='#g8-12'/><use x='240.986' y='82.757' xlink:href='#g8-12'/><use x='240.986' y='88.735' xlink:href='#g8-12'/><use x='240.986' y='94.713' xlink:href='#g8-12'/><use x='244.307' y='61.238' xlink:href='#g5-51'/><use x='259.251' y='61.238' xlink:href='#g5-49'/><use x='274.195' y='61.238' xlink:href='#g5-49'/><use x='289.139' y='61.238' xlink:href='#g5-49'/><use x='244.307' y='73.193' xlink:href='#g5-49'/><use x='259.251' y='73.193' xlink:href='#g5-51'/><use x='274.195' y='73.193' xlink:href='#g5-49'/><use x='289.139' y='73.193' xlink:href='#g5-49'/><use x='244.307' y='85.148' xlink:href='#g5-49'/><use x='259.251' y='85.148' xlink:href='#g5-49'/><use x='274.195' y='85.148' xlink:href='#g5-51'/><use x='289.139' y='85.148' xlink:href='#g5-49'/><use x='244.307' y='97.104' xlink:href='#g5-49'/><use x='259.251' y='97.104' xlink:href='#g5-49'/><use x='274.195' y='97.104' xlink:href='#g5-49'/><use x='289.139' y='97.104' xlink:href='#g5-51'/><use x='294.12' y='52.869' xlink:href='#g8-12'/><use x='294.12' y='58.847' xlink:href='#g8-12'/><use x='294.12' y='64.825' xlink:href='#g8-12'/><use x='294.12' y='70.802' xlink:href='#g8-12'/><use x='294.12' y='76.78' xlink:href='#g8-12'/><use x='294.12' y='82.757' xlink:href='#g8-12'/><use x='294.12' y='88.735' xlink:href='#g8-12'/><use x='294.12' y='94.713' xlink:href='#g8-12'/><use x='299.101' y='79.27' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section class="slide section" data-line="184">
+<div class="proof" data-line="185" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="186"><span data-line="186"></span><span class="proof-before"><strong class="strong-star2">解</strong>. <span class="theorem-caption"></span> </span><span data-line="186"></span> 观察发现，行列式有很多相同元素，而且每一行相加的和相同。故
+</p>
+<div class="math para-block" data-line="187">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="188" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:5.0631em;width:19.0109em" viewBox='111.216 52.67 181.056 48.22'><desc>\[\begin{aligned}
+ D&amp;=\begin{vmatrix}
+  6&amp;6&amp;6&amp;6\\
+  1&amp;3&amp;1&amp;1\\
+  1&amp;1&amp;3&amp;1\\
+  1&amp;1&amp;1&amp;3\\
+\end{vmatrix}=6\begin{vmatrix}
+  1&amp;1&amp;1&amp;1\\
+  0&amp;2&amp;0&amp;0\\
+  0&amp;0&amp;2&amp;0\\
+  0&amp;0&amp;0&amp;2\\
+\end{vmatrix}=48.
+\end{aligned}
+\]</desc><g id='math-eaaae6'><use x='111.415' y='79.27' xlink:href='#g2-68'/><use x='122.707' y='79.27' xlink:href='#g5-61'/><use x='133.223' y='52.869' xlink:href='#g8-12'/><use x='133.223' y='58.847' xlink:href='#g8-12'/><use x='133.223' y='64.825' xlink:href='#g8-12'/><use x='133.223' y='70.802' xlink:href='#g8-12'/><use x='133.223' y='76.78' xlink:href='#g8-12'/><use x='133.223' y='82.757' xlink:href='#g8-12'/><use x='133.223' y='88.735' xlink:href='#g8-12'/><use x='133.223' y='94.713' xlink:href='#g8-12'/><use x='136.544' y='61.238' xlink:href='#g5-54'/><use x='151.488' y='61.238' xlink:href='#g5-54'/><use x='166.432' y='61.238' xlink:href='#g5-54'/><use x='181.376' y='61.238' xlink:href='#g5-54'/><use x='136.544' y='73.193' xlink:href='#g5-49'/><use x='151.488' y='73.193' xlink:href='#g5-51'/><use x='166.432' y='73.193' xlink:href='#g5-49'/><use x='181.376' y='73.193' xlink:href='#g5-49'/><use x='136.544' y='85.148' xlink:href='#g5-49'/><use x='151.488' y='85.148' xlink:href='#g5-49'/><use x='166.432' y='85.148' xlink:href='#g5-51'/><use x='181.376' y='85.148' xlink:href='#g5-49'/><use x='136.544' y='97.104' xlink:href='#g5-49'/><use x='151.488' y='97.104' xlink:href='#g5-49'/><use x='166.432' y='97.104' xlink:href='#g5-49'/><use x='181.376' y='97.104' xlink:href='#g5-51'/><use x='186.357' y='52.869' xlink:href='#g8-12'/><use x='186.357' y='58.847' xlink:href='#g8-12'/><use x='186.357' y='64.825' xlink:href='#g8-12'/><use x='186.357' y='70.802' xlink:href='#g8-12'/><use x='186.357' y='76.78' xlink:href='#g8-12'/><use x='186.357' y='82.757' xlink:href='#g8-12'/><use x='186.357' y='88.735' xlink:href='#g8-12'/><use x='186.357' y='94.713' xlink:href='#g8-12'/><use x='192.446' y='79.27' xlink:href='#g5-61'/><use x='202.962' y='79.27' xlink:href='#g5-54'/><use x='209.603' y='52.869' xlink:href='#g8-12'/><use x='209.603' y='58.847' xlink:href='#g8-12'/><use x='209.603' y='64.825' xlink:href='#g8-12'/><use x='209.603' y='70.802' xlink:href='#g8-12'/><use x='209.603' y='76.78' xlink:href='#g8-12'/><use x='209.603' y='82.757' xlink:href='#g8-12'/><use x='209.603' y='88.735' xlink:href='#g8-12'/><use x='209.603' y='94.713' xlink:href='#g8-12'/><use x='212.924' y='61.238' xlink:href='#g5-49'/><use x='227.868' y='61.238' xlink:href='#g5-49'/><use x='242.812' y='61.238' xlink:href='#g5-49'/><use x='257.756' y='61.238' xlink:href='#g5-49'/><use x='212.924' y='73.193' xlink:href='#g5-48'/><use x='227.868' y='73.193' xlink:href='#g5-50'/><use x='242.812' y='73.193' xlink:href='#g5-48'/><use x='257.756' y='73.193' xlink:href='#g5-48'/><use x='212.924' y='85.148' xlink:href='#g5-48'/><use x='227.868' y='85.148' xlink:href='#g5-48'/><use x='242.812' y='85.148' xlink:href='#g5-50'/><use x='257.756' y='85.148' xlink:href='#g5-48'/><use x='212.924' y='97.104' xlink:href='#g5-48'/><use x='227.868' y='97.104' xlink:href='#g5-48'/><use x='242.812' y='97.104' xlink:href='#g5-48'/><use x='257.756' y='97.104' xlink:href='#g5-50'/><use x='262.738' y='52.869' xlink:href='#g8-12'/><use x='262.738' y='58.847' xlink:href='#g8-12'/><use x='262.738' y='64.825' xlink:href='#g8-12'/><use x='262.738' y='70.802' xlink:href='#g8-12'/><use x='262.738' y='76.78' xlink:href='#g8-12'/><use x='262.738' y='82.757' xlink:href='#g8-12'/><use x='262.738' y='88.735' xlink:href='#g8-12'/><use x='262.738' y='94.713' xlink:href='#g8-12'/><use x='268.826' y='79.27' xlink:href='#g5-61'/><use x='279.342' y='79.27' xlink:href='#g5-52'/><use x='284.323' y='79.27' xlink:href='#g5-56'/><use x='289.305' y='79.27' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section class="slide section" data-line="204">
+<div class="example" data-line="205" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="206"><span data-line="206"></span><span class="example-before"><strong class="strong-star2">例子&#160;<span class="example-label">2</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="206"></span>  计算行列式
+</p>
+<div class="math para-block" data-line="207">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="208" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:5.0631em;width:11.9789em" viewBox='203.481 52.67 114.085 48.22'><desc>\[  D=\begin{vmatrix}
+  3&amp;1&amp;-1&amp;2\\
+  -5&amp;1&amp;3&amp;-4\\
+  2&amp;0&amp;1&amp;-1\\
+  1&amp;-5&amp;3&amp;-3
+  \end{vmatrix}.
+\]</desc><g id='math-2b4cbb'><use x='203.68' y='79.27' xlink:href='#g2-68'/><use x='214.972' y='79.27' xlink:href='#g5-61'/><use x='225.488' y='52.869' xlink:href='#g8-12'/><use x='225.488' y='58.847' xlink:href='#g8-12'/><use x='225.488' y='64.825' xlink:href='#g8-12'/><use x='225.488' y='70.802' xlink:href='#g8-12'/><use x='225.488' y='76.78' xlink:href='#g8-12'/><use x='225.488' y='82.757' xlink:href='#g8-12'/><use x='225.488' y='88.735' xlink:href='#g8-12'/><use x='225.488' y='94.713' xlink:href='#g8-12'/><use x='232.684' y='61.238' xlink:href='#g5-51'/><use x='255.376' y='61.238' xlink:href='#g5-49'/><use x='274.195' y='61.238' xlink:href='#g0-0'/><use x='281.943' y='61.238' xlink:href='#g5-49'/><use x='300.762' y='61.238' xlink:href='#g5-50'/><use x='228.809' y='73.193' xlink:href='#g0-0'/><use x='236.558' y='73.193' xlink:href='#g5-53'/><use x='255.376' y='73.193' xlink:href='#g5-49'/><use x='278.069' y='73.193' xlink:href='#g5-51'/><use x='296.887' y='73.193' xlink:href='#g0-0'/><use x='304.636' y='73.193' xlink:href='#g5-52'/><use x='232.684' y='85.148' xlink:href='#g5-50'/><use x='255.376' y='85.148' xlink:href='#g5-48'/><use x='278.069' y='85.148' xlink:href='#g5-49'/><use x='296.887' y='85.148' xlink:href='#g0-0'/><use x='304.636' y='85.148' xlink:href='#g5-49'/><use x='232.684' y='97.104' xlink:href='#g5-49'/><use x='251.502' y='97.104' xlink:href='#g0-0'/><use x='259.251' y='97.104' xlink:href='#g5-53'/><use x='278.069' y='97.104' xlink:href='#g5-51'/><use x='296.887' y='97.104' xlink:href='#g0-0'/><use x='304.636' y='97.104' xlink:href='#g5-51'/><use x='309.617' y='52.869' xlink:href='#g8-12'/><use x='309.617' y='58.847' xlink:href='#g8-12'/><use x='309.617' y='64.825' xlink:href='#g8-12'/><use x='309.617' y='70.802' xlink:href='#g8-12'/><use x='309.617' y='76.78' xlink:href='#g8-12'/><use x='309.617' y='82.757' xlink:href='#g8-12'/><use x='309.617' y='88.735' xlink:href='#g8-12'/><use x='309.617' y='94.713' xlink:href='#g8-12'/><use x='314.599' y='79.27' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section class="slide section" data-line="217">
+<div class="proof" data-line="218" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="219"><span data-line="219"></span><span class="proof-before"><strong class="strong-star2">证明</strong>. <span class="theorem-caption"></span> </span><span data-line="219"></span>书上的办法是利用行或者列变换将其化为上三角行列式。我们给出只利用列变换化成下三角行列式的办法。
+</p>
+<div class="math para-block" data-line="220">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="221" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:6.7368em;width:26.3704em" viewBox='81.152 52.67 251.147 64.16'><desc>\[\begin{aligned}
+  -D&amp;=
+  \begin{vmatrix}
+    \begin{smallmatrix}
+      1 &amp; 3&amp;-1&amp;2\\
+      1 &amp;-5&amp;3 &amp;-4\\
+      0 &amp; 2&amp;1 &amp;-1\\
+      -5&amp; 1&amp;3 &amp;-3
+    \end{smallmatrix}
+  \end{vmatrix}=\begin{vmatrix}
+    \begin{smallmatrix}
+      1 &amp; 0 &amp;0 &amp;0\\
+      1 &amp;-8 &amp;4 &amp;-6\\
+      0 &amp; 2 &amp;1 &amp;-1\\
+      -5&amp; 16&amp;-2&amp;7
+    \end{smallmatrix}
+  \end{vmatrix}=-8\begin{vmatrix}
+    \begin{smallmatrix}
+      1 &amp; 0 &amp;0 &amp;0\\
+      1 &amp;1 &amp;4 &amp;-6\\
+      0 &amp;-1/4  &amp;1 &amp;-1\\
+      -5&amp; -2&amp;-2&amp;7
+    \end{smallmatrix}
+  \end{vmatrix}\\
+    &amp;=-8\begin{vmatrix}
+    \begin{smallmatrix}
+      1 &amp; 0 &amp;0 &amp;0\\
+      1 &amp;1 &amp;0 &amp;0\\
+      0 &amp;-1/4 &amp;2 &amp;-5/2\\
+      -5&amp; -2&amp;6&amp;-5
+    \end{smallmatrix}
+  \end{vmatrix}=-8\begin{vmatrix}
+    \begin{smallmatrix}
+      1 &amp; 0 &amp;0 &amp;0\\
+      1 &amp;1 &amp;0 &amp;0\\
+      0 &amp;-1/4 &amp;2 &amp;0\\
+      -5&amp; -2&amp;6&amp;5/2
+    \end{smallmatrix}
+  \end{vmatrix}=-40.
+\end{aligned}
+\]</desc><g id='math-4d6b5a'><use x='81.351' y='70.304' xlink:href='#g0-0'/><use x='89.1' y='70.304' xlink:href='#g2-68'/><use x='100.392' y='70.304' xlink:href='#g5-61'/><use x='110.908' y='55.858' xlink:href='#g8-12'/><use x='110.908' y='61.836' xlink:href='#g8-12'/><use x='110.908' y='67.813' xlink:href='#g8-12'/><use x='110.908' y='73.791' xlink:href='#g8-12'/><use x='119.003' y='59.417' xlink:href='#g6-49'/><use x='131.967' y='59.417' xlink:href='#g6-51'/><use x='141.818' y='59.417' xlink:href='#g1-0'/><use x='148.045' y='59.417' xlink:href='#g6-49'/><use x='157.896' y='59.417' xlink:href='#g6-50'/><use x='119.003' y='66.236' xlink:href='#g6-49'/><use x='128.854' y='66.236' xlink:href='#g1-0'/><use x='135.08' y='66.236' xlink:href='#g6-53'/><use x='144.931' y='66.236' xlink:href='#g6-51'/><use x='154.783' y='66.236' xlink:href='#g1-0'/><use x='161.009' y='66.236' xlink:href='#g6-52'/><use x='119.003' y='73.055' xlink:href='#g6-48'/><use x='131.967' y='73.055' xlink:href='#g6-50'/><use x='144.931' y='73.055' xlink:href='#g6-49'/><use x='154.783' y='73.055' xlink:href='#g1-0'/><use x='161.009' y='73.055' xlink:href='#g6-49'/><use x='115.889' y='79.874' xlink:href='#g1-0'/><use x='122.116' y='79.874' xlink:href='#g6-53'/><use x='131.967' y='79.874' xlink:href='#g6-49'/><use x='144.931' y='79.874' xlink:href='#g6-51'/><use x='154.783' y='79.874' xlink:href='#g1-0'/><use x='161.009' y='79.874' xlink:href='#g6-51'/><use x='164.981' y='55.858' xlink:href='#g8-12'/><use x='164.981' y='61.836' xlink:href='#g8-12'/><use x='164.981' y='67.813' xlink:href='#g8-12'/><use x='164.981' y='73.791' xlink:href='#g8-12'/><use x='171.069' y='70.304' xlink:href='#g5-61'/><use x='181.585' y='55.858' xlink:href='#g8-12'/><use x='181.585' y='61.836' xlink:href='#g8-12'/><use x='181.585' y='67.813' xlink:href='#g8-12'/><use x='181.585' y='73.791' xlink:href='#g8-12'/><use x='189.679' y='59.832' xlink:href='#g6-49'/><use x='202.644' y='59.832' xlink:href='#g6-48'/><use x='215.608' y='59.832' xlink:href='#g6-48'/><use x='228.573' y='59.832' xlink:href='#g6-48'/><use x='189.679' y='65.821' xlink:href='#g6-49'/><use x='199.531' y='65.821' xlink:href='#g1-0'/><use x='205.757' y='65.821' xlink:href='#g6-56'/><use x='215.608' y='65.821' xlink:href='#g6-52'/><use x='225.459' y='65.821' xlink:href='#g1-0'/><use x='231.686' y='65.821' xlink:href='#g6-54'/><use x='189.679' y='72.64' xlink:href='#g6-48'/><use x='202.644' y='72.64' xlink:href='#g6-50'/><use x='215.608' y='72.64' xlink:href='#g6-49'/><use x='225.459' y='72.64' xlink:href='#g1-0'/><use x='231.686' y='72.64' xlink:href='#g6-49'/><use x='186.566' y='79.459' xlink:href='#g1-0'/><use x='192.793' y='79.459' xlink:href='#g6-53'/><use x='200.658' y='79.459' xlink:href='#g6-49'/><use x='204.63' y='79.459' xlink:href='#g6-54'/><use x='212.495' y='79.459' xlink:href='#g1-0'/><use x='218.722' y='79.459' xlink:href='#g6-50'/><use x='228.573' y='79.459' xlink:href='#g6-55'/><use x='235.657' y='55.858' xlink:href='#g8-12'/><use x='235.657' y='61.836' xlink:href='#g8-12'/><use x='235.657' y='67.813' xlink:href='#g8-12'/><use x='235.657' y='73.791' xlink:href='#g8-12'/><use x='241.746' y='70.304' xlink:href='#g5-61'/><use x='252.262' y='70.304' xlink:href='#g0-0'/><use x='260.01' y='70.304' xlink:href='#g5-56'/><use x='266.652' y='52.869' xlink:href='#g8-12'/><use x='266.652' y='58.847' xlink:href='#g8-12'/><use x='266.652' y='64.825' xlink:href='#g8-12'/><use x='266.652' y='70.802' xlink:href='#g8-12'/><use x='266.652' y='76.78' xlink:href='#g8-12'/><use x='274.747' y='59.007' xlink:href='#g6-49'/><use x='291.738' y='59.007' xlink:href='#g6-48'/><use x='308.729' y='59.007' xlink:href='#g6-48'/><use x='321.693' y='59.007' xlink:href='#g6-48'/><use x='274.747' y='64.996' xlink:href='#g6-49'/><use x='291.738' y='64.996' xlink:href='#g6-49'/><use x='308.729' y='64.996' xlink:href='#g6-52'/><use x='318.58' y='64.996' xlink:href='#g1-0'/><use x='324.807' y='64.996' xlink:href='#g6-54'/><use x='274.747' y='72.551' xlink:href='#g6-48'/><use x='284.598' y='72.551' xlink:href='#g1-0'/><use x='290.825' y='72.551' xlink:href='#g6-49'/><use x='294.796' y='72.551' xlink:href='#g3-61'/><use x='298.878' y='72.551' xlink:href='#g6-52'/><use x='308.729' y='72.551' xlink:href='#g6-49'/><use x='318.58' y='72.551' xlink:href='#g1-0'/><use x='324.807' y='72.551' xlink:href='#g6-49'/><use x='271.633' y='80.283' xlink:href='#g1-0'/><use x='277.86' y='80.283' xlink:href='#g6-53'/><use x='288.625' y='80.283' xlink:href='#g1-0'/><use x='294.851' y='80.283' xlink:href='#g6-50'/><use x='305.616' y='80.283' xlink:href='#g1-0'/><use x='311.842' y='80.283' xlink:href='#g6-50'/><use x='321.693' y='80.283' xlink:href='#g6-55'/><use x='328.778' y='52.869' xlink:href='#g8-12'/><use x='328.778' y='58.847' xlink:href='#g8-12'/><use x='328.778' y='64.825' xlink:href='#g8-12'/><use x='328.778' y='70.802' xlink:href='#g8-12'/><use x='328.778' y='76.78' xlink:href='#g8-12'/><use x='100.392' y='104.177' xlink:href='#g5-61'/><use x='110.908' y='104.177' xlink:href='#g0-0'/><use x='118.657' y='104.177' xlink:href='#g5-56'/><use x='125.298' y='89.731' xlink:href='#g8-12'/><use x='125.298' y='95.709' xlink:href='#g8-12'/><use x='125.298' y='101.687' xlink:href='#g8-12'/><use x='125.298' y='107.664' xlink:href='#g8-12'/><use x='133.393' y='93.296' xlink:href='#g6-49'/><use x='150.384' y='93.296' xlink:href='#g6-48'/><use x='164.262' y='93.296' xlink:href='#g6-48'/><use x='178.139' y='93.296' xlink:href='#g6-48'/><use x='133.393' y='99.285' xlink:href='#g6-49'/><use x='150.384' y='99.285' xlink:href='#g6-49'/><use x='164.262' y='99.285' xlink:href='#g6-48'/><use x='178.139' y='99.285' xlink:href='#g6-48'/><use x='133.393' y='106.009' xlink:href='#g6-48'/><use x='143.244' y='106.009' xlink:href='#g1-0'/><use x='149.471' y='106.009' xlink:href='#g6-49'/><use x='153.442' y='106.009' xlink:href='#g3-61'/><use x='157.524' y='106.009' xlink:href='#g6-52'/><use x='164.262' y='106.009' xlink:href='#g6-50'/><use x='171' y='106.009' xlink:href='#g1-0'/><use x='177.226' y='106.009' xlink:href='#g6-53'/><use x='181.198' y='106.009' xlink:href='#g3-61'/><use x='185.279' y='106.009' xlink:href='#g6-50'/><use x='130.28' y='113.741' xlink:href='#g1-0'/><use x='136.506' y='113.741' xlink:href='#g6-53'/><use x='147.271' y='113.741' xlink:href='#g1-0'/><use x='153.497' y='113.741' xlink:href='#g6-50'/><use x='164.262' y='113.741' xlink:href='#g6-54'/><use x='175.026' y='113.741' xlink:href='#g1-0'/><use x='181.253' y='113.741' xlink:href='#g6-53'/><use x='189.251' y='89.731' xlink:href='#g8-12'/><use x='189.251' y='95.709' xlink:href='#g8-12'/><use x='189.251' y='101.687' xlink:href='#g8-12'/><use x='189.251' y='107.664' xlink:href='#g8-12'/><use x='195.339' y='104.177' xlink:href='#g5-61'/><use x='205.855' y='104.177' xlink:href='#g0-0'/><use x='213.604' y='104.177' xlink:href='#g5-56'/><use x='220.245' y='86.743' xlink:href='#g8-12'/><use x='220.245' y='92.72' xlink:href='#g8-12'/><use x='220.245' y='98.698' xlink:href='#g8-12'/><use x='220.245' y='104.675' xlink:href='#g8-12'/><use x='220.245' y='110.653' xlink:href='#g8-12'/><use x='228.34' y='92.471' xlink:href='#g6-49'/><use x='245.331' y='92.471' xlink:href='#g6-48'/><use x='259.209' y='92.471' xlink:href='#g6-48'/><use x='269.973' y='92.471' xlink:href='#g6-48'/><use x='228.34' y='98.46' xlink:href='#g6-49'/><use x='245.331' y='98.46' xlink:href='#g6-49'/><use x='259.209' y='98.46' xlink:href='#g6-48'/><use x='269.973' y='98.46' xlink:href='#g6-48'/><use x='228.34' y='105.185' xlink:href='#g6-48'/><use x='238.191' y='105.185' xlink:href='#g1-0'/><use x='244.418' y='105.185' xlink:href='#g6-49'/><use x='248.389' y='105.185' xlink:href='#g3-61'/><use x='252.471' y='105.185' xlink:href='#g6-52'/><use x='259.209' y='105.185' xlink:href='#g6-50'/><use x='269.973' y='105.185' xlink:href='#g6-48'/><use x='225.227' y='113.653' xlink:href='#g1-0'/><use x='231.453' y='113.653' xlink:href='#g6-53'/><use x='242.218' y='113.653' xlink:href='#g1-0'/><use x='248.444' y='113.653' xlink:href='#g6-50'/><use x='259.209' y='113.653' xlink:href='#g6-54'/><use x='265.947' y='113.653' xlink:href='#g6-53'/><use x='269.918' y='113.653' xlink:href='#g3-61'/><use x='274' y='113.653' xlink:href='#g6-50'/><use x='277.971' y='86.743' xlink:href='#g8-12'/><use x='277.971' y='92.72' xlink:href='#g8-12'/><use x='277.971' y='98.698' xlink:href='#g8-12'/><use x='277.971' y='104.675' xlink:href='#g8-12'/><use x='277.971' y='110.653' xlink:href='#g8-12'/><use x='284.059' y='104.177' xlink:href='#g5-61'/><use x='294.575' y='104.177' xlink:href='#g0-0'/><use x='302.324' y='104.177' xlink:href='#g5-52'/><use x='307.305' y='104.177' xlink:href='#g5-48'/><use x='312.287' y='104.177' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section id="blocked-determinant" class="section section2" data-section-depth="2" data-line="264"><h3 id="heading-blocked-determinant" class="h2" data-heading-depth="2" style="display:block">分块行列式公式</h3>
+<p class="p noindent" data-line="265"><span data-line="265"></span>更一般地，我们可以利用行列式的行变换(列变换)将任一行列式化为与之等值的上三角或者下三角行列式。由此，可以证明
+</p>
+<div class="theorem" data-line="266" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent para-continue" data-line="267"><span data-line="267"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">5</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="267"></span>关于分块下三角行列式，我们有
+</p>
+<div class="math para-block" data-line="268">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="269" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:7.8589em;width:28.2773em" viewBox='125.869 52.67 269.308 74.847'><desc>\[D=\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1s}&amp;0&amp;0&amp;\cdots&amp;0\\
+    a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2s}&amp;0&amp;0&amp;\cdots&amp;0\\
+    \vdots&amp;\vdots&amp;&amp;\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{s1}&amp;a_{s2}&amp;\cdots&amp;a_{ss}&amp;0&amp;0&amp;\cdots&amp;0\\
+    c_{11}&amp;c_{12}&amp;\cdots&amp;c_{1s}&amp;b_{11}&amp;b_{12}&amp;\cdots&amp;b_{1t}\\
+    c_{21}&amp;c_{22}&amp;\cdots&amp;c_{2s}&amp;b_{21}&amp;b_{22}&amp;\cdots&amp;b_{2t}\\
+    \vdots&amp;\vdots&amp;&amp;\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\
+    c_{t1}&amp;c_{t2}&amp;\cdots&amp;c_{ts}&amp;b_{t1}&amp;b_{t2}&amp;\cdots&amp;b_{tt}
+  \end{smallmatrix}
+\end{vmatrix}=\begin{vmatrix}
+  \begin{smallmatrix}
+    a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1s}\\
+    a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2s}\\
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    a_{s1}&amp;a_{s2}&amp;\cdots&amp;a_{ss}
+  \end{smallmatrix}
+\end{vmatrix}
+\begin{vmatrix}
+  \begin{smallmatrix}
+    b_{11}&amp;b_{12}&amp;\cdots&amp;b_{1t}\\
+    b_{21}&amp;b_{22}&amp;\cdots&amp;b_{2t}\\
+    \vdots&amp;\vdots&amp;&amp;\vdots\\
+    b_{t1}&amp;b_{t2}&amp;\cdots&amp;b_{tt}
+  \end{smallmatrix}
+\end{vmatrix}.
+\]</desc><g id='math-3bfc4d'><use x='126.068' y='92.584' xlink:href='#g2-68'/><use x='137.361' y='92.584' xlink:href='#g5-61'/><use x='147.877' y='54.228' xlink:href='#g8-12'/><use x='147.877' y='60.205' xlink:href='#g8-12'/><use x='147.877' y='66.183' xlink:href='#g8-12'/><use x='147.877' y='72.161' xlink:href='#g8-12'/><use x='147.877' y='78.138' xlink:href='#g8-12'/><use x='147.877' y='84.116' xlink:href='#g8-12'/><use x='147.877' y='90.094' xlink:href='#g8-12'/><use x='147.877' y='96.071' xlink:href='#g8-12'/><use x='147.877' y='102.049' xlink:href='#g8-12'/><use x='147.877' y='108.026' xlink:href='#g8-12'/><use x='147.877' y='114.004' xlink:href='#g8-12'/><use x='147.877' y='119.982' xlink:href='#g8-12'/><use x='152.858' y='57.363' xlink:href='#g3-97'/><use x='157.179' y='58.36' xlink:href='#g7-49'/><use x='160.569' y='58.36' xlink:href='#g7-49'/><use x='167.224' y='57.363' xlink:href='#g3-97'/><use x='171.546' y='58.36' xlink:href='#g7-49'/><use x='174.936' y='58.36' xlink:href='#g7-50'/><use x='181.591' y='57.363' xlink:href='#g1-1'/><use x='183.957' y='57.363' xlink:href='#g1-1'/><use x='186.323' y='57.363' xlink:href='#g1-1'/><use x='192.816' y='57.363' xlink:href='#g3-97'/><use x='197.138' y='58.36' xlink:href='#g7-49'/><use x='200.528' y='58.36' xlink:href='#g4-115'/><use x='210.536' y='57.363' xlink:href='#g6-48'/><use x='224.085' y='57.363' xlink:href='#g6-48'/><use x='234.228' y='57.363' xlink:href='#g1-1'/><use x='236.594' y='57.363' xlink:href='#g1-1'/><use x='238.96' y='57.363' xlink:href='#g1-1'/><use x='248.567' y='57.363' xlink:href='#g6-48'/><use x='152.858' y='64.348' xlink:href='#g3-97'/><use x='157.179' y='65.345' xlink:href='#g7-50'/><use x='160.569' y='65.345' xlink:href='#g7-49'/><use x='167.224' y='64.348' xlink:href='#g3-97'/><use x='171.546' y='65.345' xlink:href='#g7-50'/><use x='174.936' y='65.345' xlink:href='#g7-50'/><use x='181.591' y='64.348' xlink:href='#g1-1'/><use x='183.957' y='64.348' xlink:href='#g1-1'/><use x='186.323' y='64.348' xlink:href='#g1-1'/><use x='192.816' y='64.348' xlink:href='#g3-97'/><use x='197.138' y='65.345' xlink:href='#g7-50'/><use x='200.528' y='65.345' xlink:href='#g4-115'/><use x='210.536' y='64.348' xlink:href='#g6-48'/><use x='224.085' y='64.348' xlink:href='#g6-48'/><use x='234.228' y='64.348' xlink:href='#g1-1'/><use x='236.594' y='64.348' xlink:href='#g1-1'/><use x='238.96' y='64.348' xlink:href='#g1-1'/><use x='248.567' y='64.348' xlink:href='#g6-48'/><use x='157.274' y='73.868' xlink:href='#g5-46'/><use x='157.274' y='77.853' xlink:href='#g5-46'/><use x='157.274' y='81.838' xlink:href='#g5-46'/><use x='171.64' y='73.868' xlink:href='#g5-46'/><use x='171.64' y='77.853' xlink:href='#g5-46'/><use x='171.64' y='81.838' xlink:href='#g5-46'/><use x='197.206' y='73.868' xlink:href='#g5-46'/><use x='197.206' y='77.853' xlink:href='#g5-46'/><use x='197.206' y='81.838' xlink:href='#g5-46'/><use x='211.138' y='73.868' xlink:href='#g5-46'/><use x='211.138' y='77.853' xlink:href='#g5-46'/><use x='211.138' y='81.838' xlink:href='#g5-46'/><use x='224.686' y='73.868' xlink:href='#g5-46'/><use x='224.686' y='77.853' xlink:href='#g5-46'/><use x='224.686' y='81.838' xlink:href='#g5-46'/><use x='249.169' y='73.868' xlink:href='#g5-46'/><use x='249.169' y='77.853' xlink:href='#g5-46'/><use x='249.169' y='81.838' xlink:href='#g5-46'/><use x='152.884' y='87.827' xlink:href='#g3-97'/><use x='157.205' y='88.823' xlink:href='#g4-115'/><use x='160.543' y='88.823' xlink:href='#g7-49'/><use x='167.25' y='87.827' xlink:href='#g3-97'/><use x='171.572' y='88.823' xlink:href='#g4-115'/><use x='174.91' y='88.823' xlink:href='#g7-50'/><use x='181.591' y='87.827' xlink:href='#g1-1'/><use x='183.957' y='87.827' xlink:href='#g1-1'/><use x='186.323' y='87.827' xlink:href='#g1-1'/><use x='192.842' y='87.827' xlink:href='#g3-97'/><use x='197.164' y='88.823' xlink:href='#g4-115'/><use x='200.502' y='88.823' xlink:href='#g4-115'/><use x='210.536' y='87.827' xlink:href='#g6-48'/><use x='224.085' y='87.827' xlink:href='#g6-48'/><use x='234.228' y='87.827' xlink:href='#g1-1'/><use x='236.594' y='87.827' xlink:href='#g1-1'/><use x='238.96' y='87.827' xlink:href='#g1-1'/><use x='248.567' y='87.827' xlink:href='#g6-48'/><use x='153.238' y='95.161' xlink:href='#g3-99'/><use x='156.799' y='96.157' xlink:href='#g7-49'/><use x='160.189' y='96.157' xlink:href='#g7-49'/><use x='167.605' y='95.161' xlink:href='#g3-99'/><use x='171.165' y='96.157' xlink:href='#g7-49'/><use x='174.555' y='96.157' xlink:href='#g7-50'/><use x='181.591' y='95.161' xlink:href='#g1-1'/><use x='183.957' y='95.161' xlink:href='#g1-1'/><use x='186.323' y='95.161' xlink:href='#g1-1'/><use x='193.197' y='95.161' xlink:href='#g3-99'/><use x='196.757' y='96.157' xlink:href='#g7-49'/><use x='200.147' y='96.157' xlink:href='#g4-115'/><use x='207.131' y='95.161' xlink:href='#g3-98'/><use x='210.634' y='96.157' xlink:href='#g7-49'/><use x='214.024' y='96.157' xlink:href='#g7-49'/><use x='220.679' y='95.161' xlink:href='#g3-98'/><use x='224.183' y='96.157' xlink:href='#g7-49'/><use x='227.573' y='96.157' xlink:href='#g7-50'/><use x='234.228' y='95.161' xlink:href='#g1-1'/><use x='236.594' y='95.161' xlink:href='#g1-1'/><use x='238.96' y='95.161' xlink:href='#g1-1'/><use x='245.453' y='95.161' xlink:href='#g3-98'/><use x='248.957' y='96.157' xlink:href='#g7-49'/><use x='252.347' y='96.157' xlink:href='#g4-116'/><use x='153.238' y='102.494' xlink:href='#g3-99'/><use x='156.799' y='103.49' xlink:href='#g7-50'/><use x='160.189' y='103.49' xlink:href='#g7-49'/><use x='167.605' y='102.494' xlink:href='#g3-99'/><use x='171.165' y='103.49' xlink:href='#g7-50'/><use x='174.555' y='103.49' xlink:href='#g7-50'/><use x='181.591' y='102.494' xlink:href='#g1-1'/><use x='183.957' y='102.494' xlink:href='#g1-1'/><use x='186.323' y='102.494' xlink:href='#g1-1'/><use x='193.197' y='102.494' xlink:href='#g3-99'/><use x='196.757' y='103.49' xlink:href='#g7-50'/><use x='200.147' y='103.49' xlink:href='#g4-115'/><use x='207.131' y='102.494' xlink:href='#g3-98'/><use x='210.634' y='103.49' xlink:href='#g7-50'/><use x='214.024' y='103.49' xlink:href='#g7-49'/><use x='220.679' y='102.494' xlink:href='#g3-98'/><use x='224.183' y='103.49' xlink:href='#g7-50'/><use x='227.573' y='103.49' xlink:href='#g7-50'/><use x='234.228' y='102.494' xlink:href='#g1-1'/><use x='236.594' y='102.494' xlink:href='#g1-1'/><use x='238.96' y='102.494' xlink:href='#g1-1'/><use x='245.453' y='102.494' xlink:href='#g3-98'/><use x='248.957' y='103.49' xlink:href='#g7-50'/><use x='252.347' y='103.49' xlink:href='#g4-116'/><use x='157.274' y='112.014' xlink:href='#g5-46'/><use x='157.274' y='115.999' xlink:href='#g5-46'/><use x='157.274' y='119.984' xlink:href='#g5-46'/><use x='171.64' y='112.014' xlink:href='#g5-46'/><use x='171.64' y='115.999' xlink:href='#g5-46'/><use x='171.64' y='119.984' xlink:href='#g5-46'/><use x='197.206' y='112.014' xlink:href='#g5-46'/><use x='197.206' y='115.999' xlink:href='#g5-46'/><use x='197.206' y='119.984' xlink:href='#g5-46'/><use x='211.138' y='112.014' xlink:href='#g5-46'/><use x='211.138' y='115.999' xlink:href='#g5-46'/><use x='211.138' y='119.984' xlink:href='#g5-46'/><use x='224.686' y='112.014' xlink:href='#g5-46'/><use x='224.686' y='115.999' xlink:href='#g5-46'/><use x='224.686' y='119.984' xlink:href='#g5-46'/><use x='249.169' y='112.014' xlink:href='#g5-46'/><use x='249.169' y='115.999' xlink:href='#g5-46'/><use x='249.169' y='119.984' xlink:href='#g5-46'/><use x='153.53' y='126.321' xlink:href='#g3-99'/><use x='157.09' y='127.318' xlink:href='#g4-116'/><use x='159.898' y='127.318' xlink:href='#g7-49'/><use x='167.896' y='126.321' xlink:href='#g3-99'/><use x='171.456' y='127.318' xlink:href='#g4-116'/><use x='174.264' y='127.318' xlink:href='#g7-50'/><use x='181.591' y='126.321' xlink:href='#g1-1'/><use x='183.957' y='126.321' xlink:href='#g1-1'/><use x='186.323' y='126.321' xlink:href='#g1-1'/><use x='193.488' y='126.321' xlink:href='#g3-99'/><use x='197.048' y='127.318' xlink:href='#g4-116'/><use x='199.856' y='127.318' xlink:href='#g4-115'/><use x='207.422' y='126.321' xlink:href='#g3-98'/><use x='210.925' y='127.318' xlink:href='#g4-116'/><use x='213.733' y='127.318' xlink:href='#g7-49'/><use x='220.97' y='126.321' xlink:href='#g3-98'/><use x='224.474' y='127.318' xlink:href='#g4-116'/><use x='227.282' y='127.318' xlink:href='#g7-50'/><use x='234.228' y='126.321' xlink:href='#g1-1'/><use x='236.594' y='126.321' xlink:href='#g1-1'/><use x='238.96' y='126.321' xlink:href='#g1-1'/><use x='245.744' y='126.321' xlink:href='#g3-98'/><use x='249.248' y='127.318' xlink:href='#g4-116'/><use x='252.056' y='127.318' xlink:href='#g4-116'/><use x='255.653' y='54.228' xlink:href='#g8-12'/><use x='255.653' y='60.205' xlink:href='#g8-12'/><use x='255.653' y='66.183' xlink:href='#g8-12'/><use x='255.653' y='72.161' xlink:href='#g8-12'/><use x='255.653' y='78.138' xlink:href='#g8-12'/><use x='255.653' y='84.116' xlink:href='#g8-12'/><use x='255.653' y='90.094' xlink:href='#g8-12'/><use x='255.653' y='96.071' xlink:href='#g8-12'/><use x='255.653' y='102.049' xlink:href='#g8-12'/><use x='255.653' y='108.026' xlink:href='#g8-12'/><use x='255.653' y='114.004' xlink:href='#g8-12'/><use x='255.653' y='119.982' xlink:href='#g8-12'/><use x='261.741' y='92.584' xlink:href='#g5-61'/><use x='272.257' y='72.161' xlink:href='#g8-12'/><use x='272.257' y='78.138' xlink:href='#g8-12'/><use x='272.257' y='84.116' xlink:href='#g8-12'/><use x='272.257' y='90.094' xlink:href='#g8-12'/><use x='272.257' y='96.071' xlink:href='#g8-12'/><use x='272.257' y='102.049' xlink:href='#g8-12'/><use x='277.238' y='76.495' xlink:href='#g3-97'/><use x='281.56' y='77.491' xlink:href='#g7-49'/><use x='284.95' y='77.491' xlink:href='#g7-49'/><use x='291.605' y='76.495' xlink:href='#g3-97'/><use x='295.926' y='77.491' xlink:href='#g7-49'/><use x='299.316' y='77.491' xlink:href='#g7-50'/><use x='305.971' y='76.495' xlink:href='#g1-1'/><use x='308.337' y='76.495' xlink:href='#g1-1'/><use x='310.703' y='76.495' xlink:href='#g1-1'/><use x='317.197' y='76.495' xlink:href='#g3-97'/><use x='321.518' y='77.491' xlink:href='#g7-49'/><use x='324.908' y='77.491' xlink:href='#g4-115'/><use x='277.238' y='82.473' xlink:href='#g3-97'/><use x='281.56' y='83.469' xlink:href='#g7-50'/><use x='284.95' y='83.469' xlink:href='#g7-49'/><use x='291.605' y='82.473' xlink:href='#g3-97'/><use x='295.926' y='83.469' xlink:href='#g7-50'/><use x='299.316' y='83.469' xlink:href='#g7-50'/><use x='305.971' y='82.473' xlink:href='#g1-1'/><use x='308.337' y='82.473' xlink:href='#g1-1'/><use x='310.703' y='82.473' xlink:href='#g1-1'/><use x='317.197' y='82.473' xlink:href='#g3-97'/><use x='321.518' y='83.469' xlink:href='#g7-50'/><use x='324.908' y='83.469' xlink:href='#g4-115'/><use x='281.655' y='91.993' xlink:href='#g5-46'/><use x='281.655' y='95.978' xlink:href='#g5-46'/><use x='281.655' y='99.963' xlink:href='#g5-46'/><use x='296.021' y='91.993' xlink:href='#g5-46'/><use x='296.021' y='95.978' xlink:href='#g5-46'/><use x='296.021' y='99.963' xlink:href='#g5-46'/><use x='321.587' y='91.993' xlink:href='#g5-46'/><use x='321.587' y='95.978' xlink:href='#g5-46'/><use x='321.587' y='99.963' xlink:href='#g5-46'/><use x='277.264' y='105.94' xlink:href='#g3-97'/><use x='281.586' y='106.937' xlink:href='#g4-115'/><use x='284.924' y='106.937' xlink:href='#g7-49'/><use x='291.631' y='105.94' xlink:href='#g3-97'/><use x='295.952' y='106.937' xlink:href='#g4-115'/><use x='299.29' y='106.937' xlink:href='#g7-50'/><use x='305.971' y='105.94' xlink:href='#g1-1'/><use x='308.337' y='105.94' xlink:href='#g1-1'/><use x='310.703' y='105.94' xlink:href='#g1-1'/><use x='317.223' y='105.94' xlink:href='#g3-97'/><use x='321.544' y='106.937' xlink:href='#g4-115'/><use x='324.882' y='106.937' xlink:href='#g4-115'/><use x='328.745' y='72.161' xlink:href='#g8-12'/><use x='328.745' y='78.138' xlink:href='#g8-12'/><use x='328.745' y='84.116' xlink:href='#g8-12'/><use x='328.745' y='90.094' xlink:href='#g8-12'/><use x='328.745' y='96.071' xlink:href='#g8-12'/><use x='328.745' y='102.049' xlink:href='#g8-12'/><use x='333.726' y='72.161' xlink:href='#g8-12'/><use x='333.726' y='78.138' xlink:href='#g8-12'/><use x='333.726' y='84.116' xlink:href='#g8-12'/><use x='333.726' y='90.094' xlink:href='#g8-12'/><use x='333.726' y='96.071' xlink:href='#g8-12'/><use x='333.726' y='102.049' xlink:href='#g8-12'/><use x='338.707' y='76.436' xlink:href='#g3-98'/><use x='342.211' y='77.433' xlink:href='#g7-49'/><use x='345.601' y='77.433' xlink:href='#g7-49'/><use x='352.256' y='76.436' xlink:href='#g3-98'/><use x='355.759' y='77.433' xlink:href='#g7-49'/><use x='359.149' y='77.433' xlink:href='#g7-50'/><use x='365.804' y='76.436' xlink:href='#g1-1'/><use x='368.17' y='76.436' xlink:href='#g1-1'/><use x='370.536' y='76.436' xlink:href='#g1-1'/><use x='377.03' y='76.436' xlink:href='#g3-98'/><use x='380.533' y='77.433' xlink:href='#g7-49'/><use x='383.923' y='77.433' xlink:href='#g4-116'/><use x='338.707' y='83.77' xlink:href='#g3-98'/><use x='342.211' y='84.766' xlink:href='#g7-50'/><use x='345.601' y='84.766' xlink:href='#g7-49'/><use x='352.256' y='83.77' xlink:href='#g3-98'/><use x='355.759' y='84.766' xlink:href='#g7-50'/><use x='359.149' y='84.766' xlink:href='#g7-50'/><use x='365.804' y='83.77' xlink:href='#g1-1'/><use x='368.17' y='83.77' xlink:href='#g1-1'/><use x='370.536' y='83.77' xlink:href='#g1-1'/><use x='377.03' y='83.77' xlink:href='#g3-98'/><use x='380.533' y='84.766' xlink:href='#g7-50'/><use x='383.923' y='84.766' xlink:href='#g4-116'/><use x='342.714' y='93.29' xlink:href='#g5-46'/><use x='342.714' y='97.275' xlink:href='#g5-46'/><use x='342.714' y='101.26' xlink:href='#g5-46'/><use x='356.263' y='93.29' xlink:href='#g5-46'/><use x='356.263' y='97.275' xlink:href='#g5-46'/><use x='356.263' y='101.26' xlink:href='#g5-46'/><use x='380.746' y='93.29' xlink:href='#g5-46'/><use x='380.746' y='97.275' xlink:href='#g5-46'/><use x='380.746' y='101.26' xlink:href='#g5-46'/><use x='338.998' y='107.597' xlink:href='#g3-98'/><use x='342.502' y='108.594' xlink:href='#g4-116'/><use x='345.31' y='108.594' xlink:href='#g7-49'/><use x='352.547' y='107.597' xlink:href='#g3-98'/><use x='356.05' y='108.594' xlink:href='#g4-116'/><use x='358.858' y='108.594' xlink:href='#g7-50'/><use x='365.804' y='107.597' xlink:href='#g1-1'/><use x='368.17' y='107.597' xlink:href='#g1-1'/><use x='370.536' y='107.597' xlink:href='#g1-1'/><use x='377.321' y='107.597' xlink:href='#g3-98'/><use x='380.824' y='108.594' xlink:href='#g4-116'/><use x='383.632' y='108.594' xlink:href='#g4-116'/><use x='387.229' y='72.161' xlink:href='#g8-12'/><use x='387.229' y='78.138' xlink:href='#g8-12'/><use x='387.229' y='84.116' xlink:href='#g8-12'/><use x='387.229' y='90.094' xlink:href='#g8-12'/><use x='387.229' y='96.071' xlink:href='#g8-12'/><use x='387.229' y='102.049' xlink:href='#g8-12'/><use x='392.211' y='92.584' xlink:href='#g2-58'/></g></svg></div></div></div></section>
+<section id="excs" class="section section1" data-section-depth="1" data-line="298"><h2 id="heading-excs" class="h1" data-heading-depth="1" style="display:block">习题</h2>
+<p class="p noindent" data-line="300"><span data-line="300"></span>p22: 4, 5; p23: 6.
+</p></section></div></div><span data-line=""></span></div>
+<svg id='math-svg-paths' style='display:none' version='1.1' viewBox='0 0 0 0' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+<defs>
+<path id='g5-33' d='M1.524-2.082L1.913-6.625C1.913-6.954 1.644-7.133 1.385-7.133S.857-6.954 .857-6.625L1.245-2.092C1.255-1.943 1.265-1.863 1.385-1.863C1.484-1.863 1.514-1.913 1.524-2.082ZM1.913-.528C1.913-.817 1.674-1.056 1.385-1.056S.857-.817 .857-.528S1.096 0 1.385 0S1.913-.239 1.913-.528Z'/>
+<path id='g2-110' d='M.877-.588C.847-.438 .787-.209 .787-.159C.787 .02 .927 .11 1.076 .11C1.196 .11 1.375 .03 1.445-.169C1.455-.189 1.574-.658 1.634-.907L1.853-1.803C1.913-2.022 1.973-2.242 2.022-2.471C2.062-2.64 2.142-2.929 2.152-2.969C2.301-3.278 2.829-4.184 3.776-4.184C4.224-4.184 4.314-3.816 4.314-3.487C4.314-2.869 3.826-1.594 3.666-1.166C3.577-.936 3.567-.817 3.567-.707C3.567-.239 3.915 .11 4.384 .11C5.32 .11 5.689-1.345 5.689-1.425C5.689-1.524 5.599-1.524 5.569-1.524C5.469-1.524 5.469-1.494 5.42-1.345C5.22-.667 4.892-.11 4.403-.11C4.234-.11 4.164-.209 4.164-.438C4.164-.687 4.254-.927 4.344-1.146C4.533-1.674 4.951-2.77 4.951-3.337C4.951-4.005 4.523-4.403 3.806-4.403C2.909-4.403 2.421-3.766 2.252-3.537C2.202-4.095 1.793-4.403 1.335-4.403S.687-4.015 .588-3.836C.428-3.497 .289-2.909 .289-2.869C.289-2.77 .389-2.77 .408-2.77C.508-2.77 .518-2.78 .578-2.999C.747-3.706 .946-4.184 1.305-4.184C1.504-4.184 1.614-4.055 1.614-3.726C1.614-3.517 1.584-3.407 1.455-2.889L.877-.588Z'/>
+<path id='g1-2' d='M4.882-3.271C4.958-3.347 4.979-3.389 4.979-3.438C4.979-3.55 4.889-3.612 4.812-3.612C4.742-3.612 4.721-3.592 4.638-3.508L3.11-1.988L1.576-3.515C1.506-3.585 1.478-3.612 1.416-3.612C1.318-3.612 1.241-3.536 1.241-3.438C1.241-3.375 1.262-3.354 1.346-3.271L2.866-1.75L1.346-.23C1.248-.133 1.241-.098 1.241-.056C1.241 .042 1.318 .119 1.416 .119C1.478 .119 1.499 .098 1.576 .021L3.11-1.506L4.7 .084C4.735 .105 4.77 .119 4.812 .119C4.889 .119 4.979 .056 4.979-.056C4.979-.112 4.965-.126 4.944-.146C4.931-.174 3.578-1.527 3.354-1.743L4.882-3.271Z'/>
+<path id='g0-106' d='M1.584-7.113C1.584-7.293 1.584-7.472 1.385-7.472S1.186-7.293 1.186-7.113V2.132C1.186 2.311 1.186 2.491 1.385 2.491S1.584 2.311 1.584 2.132V-7.113Z'/>
+<path id='g3-105' d='M2.26-4.359C2.26-4.47 2.176-4.624 1.981-4.624C1.792-4.624 1.59-4.442 1.59-4.24C1.59-4.122 1.681-3.975 1.869-3.975C2.071-3.975 2.26-4.17 2.26-4.359ZM.837-.816C.809-.725 .774-.642 .774-.523C.774-.195 1.053 .07 1.437 .07C2.134 .07 2.441-.893 2.441-.997C2.441-1.088 2.35-1.088 2.329-1.088C2.232-1.088 2.225-1.046 2.197-.969C2.036-.411 1.73-.126 1.458-.126C1.318-.126 1.283-.216 1.283-.37C1.283-.53 1.332-.663 1.395-.816C1.465-1.004 1.541-1.193 1.618-1.374C1.681-1.541 1.932-2.176 1.96-2.26C1.981-2.329 2.001-2.413 2.001-2.483C2.001-2.81 1.723-3.075 1.339-3.075C.649-3.075 .328-2.127 .328-2.008C.328-1.918 .425-1.918 .446-1.918C.544-1.918 .551-1.953 .572-2.029C.753-2.629 1.06-2.88 1.318-2.88C1.43-2.88 1.492-2.824 1.492-2.636C1.492-2.476 1.451-2.371 1.276-1.939L.837-.816Z'/>
+<path id='g3-106' d='M3.062-4.359C3.062-4.477 2.971-4.624 2.783-4.624C2.58-4.624 2.392-4.428 2.392-4.24C2.392-4.129 2.476-3.975 2.671-3.975C2.859-3.975 3.062-4.156 3.062-4.359ZM1.583 .342C1.465 .823 1.095 1.227 .683 1.227C.593 1.227 .509 1.213 .432 1.186C.614 1.102 .669 .934 .669 .83C.669 .663 .537 .572 .398 .572C.181 .572 0 .76 0 .983C0 1.248 .272 1.423 .69 1.423S1.925 1.172 2.141 .321L2.769-2.176C2.79-2.253 2.803-2.315 2.803-2.42C2.803-2.803 2.476-3.075 2.057-3.075C1.283-3.075 .837-2.106 .837-2.008C.837-1.918 .934-1.918 .955-1.918C1.039-1.918 1.046-1.939 1.095-2.043C1.269-2.448 1.632-2.88 2.036-2.88C2.211-2.88 2.273-2.762 2.273-2.538C2.273-2.462 2.26-2.364 2.253-2.329L1.583 .342Z'/>
+<path id='g3-110' d='M.851-.439C.823-.349 .781-.174 .781-.153C.781 0 .907 .07 1.018 .07C1.144 .07 1.255-.021 1.29-.084S1.381-.37 1.416-.516C1.451-.649 1.527-.969 1.569-1.144C1.611-1.297 1.653-1.451 1.688-1.611C1.764-1.897 1.778-1.953 1.981-2.239C2.176-2.518 2.504-2.88 3.027-2.88C3.431-2.88 3.438-2.525 3.438-2.392C3.438-1.974 3.138-1.2 3.027-.907C2.95-.711 2.922-.649 2.922-.53C2.922-.16 3.229 .07 3.585 .07C4.282 .07 4.589-.893 4.589-.997C4.589-1.088 4.498-1.088 4.477-1.088C4.38-1.088 4.373-1.046 4.345-.969C4.184-.411 3.884-.126 3.605-.126C3.459-.126 3.431-.223 3.431-.37C3.431-.53 3.466-.621 3.592-.934C3.675-1.151 3.961-1.89 3.961-2.28C3.961-2.957 3.424-3.075 3.055-3.075C2.476-3.075 2.085-2.72 1.876-2.441C1.827-2.922 1.416-3.075 1.13-3.075C.83-3.075 .669-2.859 .579-2.699C.425-2.441 .328-2.043 .328-2.008C.328-1.918 .425-1.918 .446-1.918C.544-1.918 .551-1.939 .6-2.127C.704-2.538 .837-2.88 1.109-2.88C1.29-2.88 1.339-2.727 1.339-2.538C1.339-2.406 1.276-2.148 1.227-1.96S1.109-1.485 1.074-1.332L.851-.439Z'/>
+<path id='g5-40' d='M3.298 2.391C3.298 2.361 3.298 2.341 3.128 2.172C1.883 .917 1.564-.966 1.564-2.491C1.564-4.224 1.943-5.958 3.168-7.203C3.298-7.323 3.298-7.342 3.298-7.372C3.298-7.442 3.258-7.472 3.198-7.472C3.098-7.472 2.202-6.795 1.614-5.529C1.106-4.433 .986-3.328 .986-2.491C.986-1.714 1.096-.508 1.644 .618C2.242 1.843 3.098 2.491 3.198 2.491C3.258 2.491 3.298 2.461 3.298 2.391Z'/>
+<path id='g5-41' d='M2.879-2.491C2.879-3.268 2.77-4.473 2.222-5.599C1.624-6.824 .767-7.472 .667-7.472C.608-7.472 .568-7.432 .568-7.372C.568-7.342 .568-7.323 .757-7.143C1.733-6.157 2.301-4.573 2.301-2.491C2.301-.787 1.933 .966 .697 2.222C.568 2.341 .568 2.361 .568 2.391C.568 2.451 .608 2.491 .667 2.491C.767 2.491 1.664 1.813 2.252 .548C2.76-.548 2.879-1.654 2.879-2.491Z'/>
+<path id='g5-61' d='M6.844-3.258C6.994-3.258 7.183-3.258 7.183-3.457S6.994-3.656 6.854-3.656H.887C.747-3.656 .558-3.656 .558-3.457S.747-3.258 .897-3.258H6.844ZM6.854-1.325C6.994-1.325 7.183-1.325 7.183-1.524S6.994-1.724 6.844-1.724H.897C.747-1.724 .558-1.724 .558-1.524S.747-1.325 .887-1.325H6.854Z'/>
+<path id='g2-68' d='M1.584-.777C1.484-.389 1.465-.309 .677-.309C.508-.309 .399-.309 .399-.12C.399 0 .488 0 .677 0H3.975C6.047 0 8.01-2.102 8.01-4.284C8.01-5.689 7.163-6.804 5.669-6.804H2.321C2.132-6.804 2.022-6.804 2.022-6.615C2.022-6.496 2.112-6.496 2.311-6.496C2.441-6.496 2.62-6.486 2.74-6.476C2.899-6.456 2.959-6.426 2.959-6.316C2.959-6.276 2.949-6.247 2.919-6.127L1.584-.777ZM3.736-6.117C3.826-6.466 3.846-6.496 4.274-6.496H5.34C6.316-6.496 7.143-5.968 7.143-4.653C7.143-4.164 6.944-2.531 6.097-1.435C5.808-1.066 5.021-.309 3.796-.309H2.67C2.531-.309 2.511-.309 2.451-.319C2.351-.329 2.321-.339 2.321-.418C2.321-.448 2.321-.468 2.371-.648L3.736-6.117Z'/>
+<path id='g2-97' d='M3.716-3.766C3.537-4.134 3.248-4.403 2.8-4.403C1.634-4.403 .399-2.939 .399-1.484C.399-.548 .946 .11 1.724 .11C1.923 .11 2.421 .07 3.019-.638C3.098-.219 3.447 .11 3.925 .11C4.274 .11 4.503-.12 4.663-.438C4.832-.797 4.961-1.405 4.961-1.425C4.961-1.524 4.872-1.524 4.842-1.524C4.742-1.524 4.732-1.484 4.702-1.345C4.533-.697 4.354-.11 3.945-.11C3.676-.11 3.646-.369 3.646-.568C3.646-.787 3.666-.867 3.776-1.305C3.885-1.724 3.905-1.823 3.995-2.202L4.354-3.597C4.423-3.875 4.423-3.895 4.423-3.935C4.423-4.105 4.304-4.204 4.134-4.204C3.895-4.204 3.746-3.985 3.716-3.766ZM3.068-1.186C3.019-1.006 3.019-.986 2.869-.817C2.431-.269 2.022-.11 1.743-.11C1.245-.11 1.106-.658 1.106-1.046C1.106-1.544 1.425-2.77 1.654-3.228C1.963-3.816 2.411-4.184 2.809-4.184C3.457-4.184 3.597-3.367 3.597-3.308S3.577-3.188 3.567-3.138L3.068-1.186Z'/>
+<path id='g4-110' d='M.971-.488C.941-.364 .887-.144 .887-.12C.887-.01 .976 .055 1.071 .055C1.146 .055 1.255 .015 1.31-.11C1.315-.134 1.375-.369 1.405-.498C1.574-1.171 1.574-1.181 1.584-1.2C1.649-1.335 2.007-2.032 2.615-2.032C2.859-2.032 2.964-1.898 2.964-1.674C2.964-1.39 2.755-.877 2.64-.593C2.615-.533 2.59-.468 2.59-.384C2.59-.125 2.839 .055 3.133 .055C3.666 .055 3.94-.593 3.94-.717C3.94-.787 3.856-.787 3.836-.787C3.751-.787 3.746-.767 3.716-.672C3.621-.374 3.392-.115 3.153-.115C3.039-.115 3.004-.194 3.004-.304C3.004-.408 3.024-.458 3.068-.568C3.153-.767 3.382-1.335 3.382-1.609C3.382-1.978 3.118-2.202 2.645-2.202C2.192-2.202 1.878-1.928 1.704-1.709C1.679-2.117 1.28-2.202 1.096-2.202C.598-2.202 .453-1.44 .453-1.43C.453-1.36 .533-1.36 .558-1.36C.643-1.36 .653-1.39 .672-1.455C.747-1.743 .862-2.032 1.071-2.032C1.24-2.032 1.275-1.873 1.275-1.768C1.275-1.699 1.225-1.509 1.196-1.38C1.161-1.245 1.111-1.041 1.086-.932L.971-.488Z'/>
+<path id='g1-1' d='M1.583-1.743C1.583-1.995 1.374-2.148 1.186-2.148C.955-2.148 .781-1.96 .781-1.75C.781-1.499 .99-1.346 1.179-1.346C1.409-1.346 1.583-1.534 1.583-1.743Z'/>
+<path id='g8-12' d='M1.445 5.818C1.445 5.978 1.445 6.187 1.654 6.187C1.873 6.187 1.873 5.988 1.873 5.818V.159C1.873 0 1.873-.209 1.664-.209C1.445-.209 1.445-.01 1.445 .159V5.818Z'/>
+<path id='g7-49' d='M1.983-3.168C1.983-3.318 1.968-3.318 1.803-3.318C1.45-2.999 .897-2.999 .797-2.999H.712V-2.78H.797C.912-2.78 1.235-2.795 1.524-2.919V-.428C1.524-.274 1.524-.219 .996-.219H.747V0C1.021-.02 1.465-.02 1.753-.02S2.486-.02 2.76 0V-.219H2.511C1.983-.219 1.983-.274 1.983-.428V-3.168Z'/>
+<path id='g7-50' d='M2.934-.961H2.725C2.71-.867 2.66-.558 2.58-.508C2.54-.478 2.122-.478 2.047-.478H1.071C1.4-.722 1.768-1.001 2.067-1.2C2.516-1.509 2.934-1.798 2.934-2.326C2.934-2.964 2.331-3.318 1.619-3.318C.946-3.318 .453-2.929 .453-2.441C.453-2.182 .672-2.137 .742-2.137C.877-2.137 1.036-2.227 1.036-2.431C1.036-2.61 .907-2.71 .752-2.725C.892-2.949 1.181-3.098 1.514-3.098C1.998-3.098 2.401-2.809 2.401-2.321C2.401-1.903 2.112-1.584 1.729-1.26L.513-.229C.463-.184 .458-.184 .453-.149V0H2.77L2.934-.961Z'/>
+<path id='g3-97' d='M2.943-2.664C2.797-2.894 2.559-3.075 2.225-3.075C1.332-3.075 .425-2.092 .425-1.088C.425-.411 .879 .07 1.478 .07C1.855 .07 2.19-.146 2.469-.418C2.601 0 3.006 .07 3.187 .07C3.438 .07 3.612-.084 3.738-.3C3.891-.572 3.982-.969 3.982-.997C3.982-1.088 3.891-1.088 3.87-1.088C3.773-1.088 3.766-1.06 3.717-.872C3.633-.537 3.501-.126 3.208-.126C3.027-.126 2.978-.279 2.978-.467C2.978-.586 3.034-.837 3.082-1.018C3.131-1.206 3.201-1.492 3.236-1.646L3.375-2.176C3.417-2.357 3.501-2.685 3.501-2.72C3.501-2.873 3.375-2.943 3.264-2.943C3.145-2.943 2.985-2.859 2.943-2.664ZM2.497-.872C2.448-.676 2.294-.537 2.141-.404C2.078-.349 1.799-.126 1.499-.126C1.241-.126 .99-.307 .99-.802C.99-1.172 1.193-1.939 1.353-2.218C1.674-2.776 2.029-2.88 2.225-2.88C2.713-2.88 2.845-2.35 2.845-2.273C2.845-2.246 2.831-2.197 2.824-2.176L2.497-.872Z'/>
+<path id='g5-46' d='M1.913-.528C1.913-.817 1.674-1.056 1.385-1.056S.857-.817 .857-.528S1.096 0 1.385 0S1.913-.239 1.913-.528Z'/>
+<path id='g2-58' d='M1.913-.528C1.913-.817 1.674-1.056 1.385-1.056S.857-.817 .857-.528S1.096 0 1.385 0S1.913-.239 1.913-.528Z'/>
+<path id='g3-84' d='M3.389-4.219C3.438-4.421 3.452-4.442 3.605-4.456C3.64-4.463 3.884-4.463 4.024-4.463C4.449-4.463 4.631-4.463 4.805-4.407C5.119-4.31 5.133-4.108 5.133-3.857C5.133-3.745 5.133-3.654 5.084-3.292L5.07-3.215C5.07-3.145 5.119-3.11 5.189-3.11C5.293-3.11 5.307-3.173 5.321-3.285L5.509-4.617C5.509-4.714 5.426-4.714 5.3-4.714H1.011C.837-4.714 .823-4.714 .774-4.568L.335-3.333C.328-3.306 .3-3.243 .3-3.208C.3-3.18 .314-3.11 .418-3.11C.509-3.11 .523-3.145 .565-3.278C.969-4.394 1.2-4.463 2.26-4.463H2.552C2.762-4.463 2.769-4.456 2.769-4.394C2.769-4.387 2.769-4.352 2.741-4.247L1.82-.579C1.757-.321 1.736-.251 1.004-.251C.753-.251 .69-.251 .69-.098C.69-.077 .704 0 .809 0C1.004 0 1.213-.021 1.409-.021S1.813-.028 2.008-.028S2.441-.028 2.636-.021C2.824-.014 3.034 0 3.222 0C3.278 0 3.382 0 3.382-.153C3.382-.251 3.313-.251 3.096-.251C2.964-.251 2.824-.258 2.692-.265C2.455-.286 2.441-.314 2.441-.398C2.441-.446 2.441-.46 2.469-.558L3.389-4.219Z'/>
+<path id='g2-59' d='M2.022-.01C2.022-.667 1.773-1.056 1.385-1.056C1.056-1.056 .857-.807 .857-.528C.857-.259 1.056 0 1.385 0C1.504 0 1.634-.04 1.733-.13C1.763-.149 1.773-.159 1.783-.159S1.803-.149 1.803-.01C1.803 .727 1.455 1.325 1.126 1.654C1.016 1.763 1.016 1.783 1.016 1.813C1.016 1.883 1.066 1.923 1.116 1.923C1.225 1.923 2.022 1.156 2.022-.01Z'/>
+<path id='g2-98' d='M2.381-6.804C2.381-6.814 2.381-6.914 2.252-6.914C2.022-6.914 1.295-6.834 1.036-6.814C.956-6.804 .847-6.795 .847-6.615C.847-6.496 .936-6.496 1.086-6.496C1.564-6.496 1.584-6.426 1.584-6.326C1.584-6.257 1.494-5.918 1.445-5.709L.628-2.461C.508-1.963 .468-1.803 .468-1.455C.468-.508 .996 .11 1.733 .11C2.909 .11 4.134-1.375 4.134-2.809C4.134-3.716 3.606-4.403 2.809-4.403C2.351-4.403 1.943-4.115 1.644-3.806L2.381-6.804ZM1.445-3.039C1.504-3.258 1.504-3.278 1.594-3.387C2.082-4.035 2.531-4.184 2.79-4.184C3.148-4.184 3.417-3.885 3.417-3.248C3.417-2.66 3.088-1.514 2.909-1.136C2.58-.468 2.122-.11 1.733-.11C1.395-.11 1.066-.379 1.066-1.116C1.066-1.305 1.066-1.494 1.225-2.122L1.445-3.039Z'/>
+<path id='g5-49' d='M2.929-6.376C2.929-6.615 2.929-6.635 2.7-6.635C2.082-5.998 1.205-5.998 .887-5.998V-5.689C1.086-5.689 1.674-5.689 2.192-5.948V-.787C2.192-.428 2.162-.309 1.265-.309H.946V0C1.295-.03 2.162-.03 2.56-.03S3.826-.03 4.174 0V-.309H3.856C2.959-.309 2.929-.418 2.929-.787V-6.376Z'/>
+<path id='g5-50' d='M1.265-.767L2.321-1.793C3.875-3.168 4.473-3.706 4.473-4.702C4.473-5.838 3.577-6.635 2.361-6.635C1.235-6.635 .498-5.719 .498-4.832C.498-4.274 .996-4.274 1.026-4.274C1.196-4.274 1.544-4.394 1.544-4.802C1.544-5.061 1.365-5.32 1.016-5.32C.936-5.32 .917-5.32 .887-5.31C1.116-5.958 1.654-6.326 2.232-6.326C3.138-6.326 3.567-5.519 3.567-4.702C3.567-3.905 3.068-3.118 2.521-2.501L.608-.369C.498-.259 .498-.239 .498 0H4.194L4.473-1.733H4.224C4.174-1.435 4.105-.996 4.005-.847C3.935-.767 3.278-.767 3.059-.767H1.265Z'/>
+<path id='g2-105' d='M2.829-6.227C2.829-6.426 2.69-6.585 2.461-6.585C2.192-6.585 1.923-6.326 1.923-6.057C1.923-5.868 2.062-5.699 2.301-5.699C2.531-5.699 2.829-5.928 2.829-6.227ZM2.072-2.481C2.192-2.77 2.192-2.79 2.291-3.059C2.371-3.258 2.421-3.397 2.421-3.587C2.421-4.035 2.102-4.403 1.604-4.403C.667-4.403 .289-2.959 .289-2.869C.289-2.77 .389-2.77 .408-2.77C.508-2.77 .518-2.79 .568-2.949C.837-3.885 1.235-4.184 1.574-4.184C1.654-4.184 1.823-4.184 1.823-3.866C1.823-3.656 1.753-3.447 1.714-3.347C1.634-3.088 1.186-1.933 1.026-1.504C.927-1.245 .797-.917 .797-.707C.797-.239 1.136 .11 1.614 .11C2.55 .11 2.919-1.335 2.919-1.425C2.919-1.524 2.829-1.524 2.8-1.524C2.7-1.524 2.7-1.494 2.65-1.345C2.471-.717 2.142-.11 1.634-.11C1.465-.11 1.395-.209 1.395-.438C1.395-.687 1.455-.827 1.684-1.435L2.072-2.481Z'/>
+<path id='g2-106' d='M3.955-6.227C3.955-6.416 3.816-6.585 3.577-6.585C3.347-6.585 3.049-6.356 3.049-6.057C3.049-5.858 3.188-5.699 3.417-5.699C3.686-5.699 3.955-5.958 3.955-6.227ZM1.953 .498C1.763 1.255 1.285 1.823 .727 1.823C.667 1.823 .518 1.823 .339 1.733C.638 1.664 .787 1.405 .787 1.205C.787 1.046 .677 .857 .408 .857C.159 .857-.13 1.066-.13 1.425C-.13 1.823 .269 2.042 .747 2.042C1.445 2.042 2.371 1.514 2.62 .528L3.537-3.118C3.587-3.318 3.587-3.457 3.587-3.487C3.587-4.055 3.168-4.403 2.67-4.403C1.654-4.403 1.086-2.959 1.086-2.869C1.086-2.77 1.186-2.77 1.205-2.77C1.295-2.77 1.305-2.78 1.385-2.969C1.634-3.577 2.092-4.184 2.64-4.184C2.78-4.184 2.959-4.144 2.959-3.726C2.959-3.497 2.929-3.387 2.889-3.218L1.953 .498Z'/>
+<path id='g0-0' d='M6.565-2.291C6.735-2.291 6.914-2.291 6.914-2.491S6.735-2.69 6.565-2.69H1.176C1.006-2.69 .827-2.69 .827-2.491S1.006-2.291 1.176-2.291H6.565Z'/>
+<path id='g0-1' d='M1.913-2.491C1.913-2.78 1.674-3.019 1.385-3.019S.857-2.78 .857-2.491S1.096-1.963 1.385-1.963S1.913-2.202 1.913-2.491Z'/>
+<path id='g8-88' d='M12.613 13.948L13.818 10.76H13.569C13.181 11.796 12.125 12.473 10.979 12.772C10.77 12.822 9.793 13.081 7.88 13.081H1.873L6.944 7.133C7.014 7.054 7.034 7.024 7.034 6.974C7.034 6.954 7.034 6.924 6.964 6.824L2.321 .478H7.781C9.116 .478 10.022 .618 10.112 .638C10.65 .717 11.517 .887 12.304 1.385C12.553 1.544 13.23 1.993 13.569 2.8H13.818L12.613 0H.837C.608 0 .598 .01 .568 .07C.558 .1 .558 .289 .558 .399L5.828 7.611L.667 13.659C.568 13.778 .568 13.828 .568 13.838C.568 13.948 .658 13.948 .837 13.948H12.613Z'/>
+<path id='g6-40' d='M2.476-5.23C1.151-4.296 .802-2.817 .802-1.75C.802-.767 1.095 .76 2.476 1.736C2.532 1.736 2.615 1.736 2.615 1.653C2.615 1.611 2.594 1.597 2.545 1.548C1.618 .711 1.276-.474 1.276-1.743C1.276-3.626 1.995-4.547 2.566-5.063C2.594-5.091 2.615-5.112 2.615-5.147C2.615-5.23 2.532-5.23 2.476-5.23Z'/>
+<path id='g6-41' d='M.628-5.23C.579-5.23 .495-5.23 .495-5.147C.495-5.112 .516-5.091 .558-5.042C1.158-4.491 1.827-3.55 1.827-1.75C1.827-.293 1.374 .809 .621 1.492C.502 1.611 .495 1.618 .495 1.653S.516 1.736 .586 1.736C.669 1.736 1.332 1.276 1.792 .404C2.099-.174 2.301-.928 2.301-1.743C2.301-2.727 2.008-4.254 .628-5.23Z'/>
+<path id='g6-49' d='M2.336-4.435C2.336-4.624 2.322-4.631 2.127-4.631C1.681-4.191 1.046-4.184 .76-4.184V-3.933C.928-3.933 1.388-3.933 1.771-4.129V-.572C1.771-.342 1.771-.251 1.074-.251H.809V0C.934-.007 1.792-.028 2.05-.028C2.267-.028 3.145-.007 3.299 0V-.251H3.034C2.336-.251 2.336-.342 2.336-.572V-4.435Z'/>
+<path id='g6-50' d='M3.522-1.269H3.285C3.264-1.116 3.194-.704 3.103-.635C3.048-.593 2.511-.593 2.413-.593H1.13C1.862-1.241 2.106-1.437 2.525-1.764C3.041-2.176 3.522-2.608 3.522-3.271C3.522-4.115 2.783-4.631 1.89-4.631C1.025-4.631 .439-4.024 .439-3.382C.439-3.027 .739-2.992 .809-2.992C.976-2.992 1.179-3.11 1.179-3.361C1.179-3.487 1.13-3.731 .767-3.731C.983-4.226 1.458-4.38 1.785-4.38C2.483-4.38 2.845-3.836 2.845-3.271C2.845-2.664 2.413-2.183 2.19-1.932L.509-.272C.439-.209 .439-.195 .439 0H3.313L3.522-1.269Z'/>
+<path id='g3-28' d='M2.392-2.532H3.689C3.766-2.532 4.059-2.532 4.059-2.81C4.059-3.006 3.877-3.006 3.759-3.006H1.562C1.36-3.006 1.137-2.992 .774-2.657C.572-2.476 .314-2.106 .314-2.05C.314-1.967 .404-1.967 .432-1.967C.509-1.967 .516-1.981 .558-2.043C.914-2.532 1.339-2.532 1.499-2.532H2.12L1.43-.3C1.395-.188 1.395-.181 1.395-.139C1.395 .049 1.569 .084 1.625 .084C1.89 .084 1.939-.167 1.96-.265L2.392-2.532Z'/>
+<path id='g3-58' d='M1.583-.398C1.583-.649 1.374-.802 1.186-.802C.955-.802 .781-.614 .781-.404C.781-.153 .99 0 1.179 0C1.409 0 1.583-.188 1.583-.398Z'/>
+<path id='g3-107' d='M2.183-4.631C2.19-4.645 2.211-4.735 2.211-4.742C2.211-4.777 2.183-4.84 2.099-4.84C1.96-4.84 1.381-4.784 1.206-4.77C1.151-4.763 1.053-4.756 1.053-4.61C1.053-4.512 1.151-4.512 1.234-4.512C1.569-4.512 1.569-4.463 1.569-4.407C1.569-4.359 1.555-4.317 1.541-4.254L.558-.307C.523-.181 .523-.167 .523-.153C.523-.049 .607 .07 .76 .07C.948 .07 1.039-.07 1.081-.223C1.095-.251 1.395-1.478 1.423-1.576C1.918-1.527 2.315-1.367 2.315-1.004C2.315-.969 2.315-.934 2.301-.865C2.273-.76 2.273-.725 2.273-.649C2.273-.153 2.678 .07 3.013 .07C3.689 .07 3.898-.99 3.898-.997C3.898-1.088 3.808-1.088 3.787-1.088C3.689-1.088 3.682-1.053 3.647-.921C3.564-.621 3.375-.126 3.034-.126C2.845-.126 2.79-.3 2.79-.488C2.79-.607 2.79-.621 2.831-.802C2.838-.823 2.866-.941 2.866-1.018C2.866-1.639 2.029-1.736 1.736-1.757C1.939-1.883 2.197-2.113 2.315-2.218C2.671-2.552 3.02-2.88 3.41-2.88C3.494-2.88 3.585-2.859 3.64-2.79C3.34-2.741 3.278-2.504 3.278-2.399C3.278-2.246 3.396-2.141 3.557-2.141C3.745-2.141 3.954-2.294 3.954-2.587C3.954-2.817 3.787-3.075 3.417-3.075C3.02-3.075 2.657-2.79 2.301-2.462C2.008-2.183 1.778-1.967 1.492-1.848L2.183-4.631Z'/>
+<path id='g2-107' d='M2.859-6.804C2.859-6.814 2.859-6.914 2.73-6.914C2.501-6.914 1.773-6.834 1.514-6.814C1.435-6.804 1.325-6.795 1.325-6.615C1.325-6.496 1.415-6.496 1.564-6.496C2.042-6.496 2.062-6.426 2.062-6.326L2.032-6.127L.588-.389C.548-.249 .548-.229 .548-.169C.548 .06 .747 .11 .837 .11C.966 .11 1.116 .02 1.176-.1C1.225-.189 1.674-2.032 1.733-2.281C2.072-2.252 2.889-2.092 2.889-1.435C2.889-1.365 2.889-1.325 2.859-1.225C2.839-1.106 2.819-.986 2.819-.877C2.819-.289 3.218 .11 3.736 .11C4.035 .11 4.304-.05 4.523-.418C4.772-.857 4.882-1.405 4.882-1.425C4.882-1.524 4.792-1.524 4.762-1.524C4.663-1.524 4.653-1.484 4.623-1.345C4.423-.618 4.194-.11 3.756-.11C3.567-.11 3.437-.219 3.437-.578C3.437-.747 3.477-.976 3.517-1.136C3.557-1.305 3.557-1.345 3.557-1.445C3.557-2.092 2.929-2.381 2.082-2.491C2.391-2.67 2.71-2.989 2.939-3.228C3.417-3.756 3.875-4.184 4.364-4.184C4.423-4.184 4.433-4.184 4.453-4.174C4.573-4.154 4.583-4.154 4.663-4.095C4.682-4.085 4.682-4.075 4.702-4.055C4.224-4.025 4.134-3.636 4.134-3.517C4.134-3.357 4.244-3.168 4.513-3.168C4.772-3.168 5.061-3.387 5.061-3.776C5.061-4.075 4.832-4.403 4.384-4.403C4.105-4.403 3.646-4.324 2.929-3.527C2.59-3.148 2.202-2.75 1.823-2.6L2.859-6.804Z'/>
+<path id='g4-105' d='M1.973-3.108C1.973-3.228 1.883-3.323 1.753-3.323C1.614-3.323 1.45-3.188 1.45-3.024C1.45-2.884 1.559-2.809 1.664-2.809C1.828-2.809 1.973-2.959 1.973-3.108ZM2.207-.717C2.207-.787 2.122-.787 2.102-.787C2.017-.787 2.012-.767 1.983-.672C1.898-.399 1.674-.115 1.425-.115C1.31-.115 1.275-.194 1.275-.304C1.275-.408 1.3-.463 1.34-.558C1.38-.658 1.42-.757 1.445-.827C1.465-.872 1.659-1.335 1.729-1.514C1.768-1.614 1.798-1.679 1.798-1.763C1.798-2.002 1.569-2.202 1.255-2.202C.732-2.202 .453-1.564 .453-1.43C.453-1.36 .533-1.36 .558-1.36C.643-1.36 .648-1.385 .672-1.46C.782-1.813 1.021-2.032 1.235-2.032C1.33-2.032 1.385-1.978 1.385-1.843C1.385-1.823 1.385-1.758 1.355-1.664C1.32-1.574 1.096-1.041 1.026-.872C.991-.787 .991-.777 .917-.608C.892-.538 .862-.468 .862-.384C.862-.125 1.106 .055 1.405 .055C1.928 .055 2.207-.593 2.207-.717Z'/>
+<path id='g4-106' d='M2.54-3.108C2.54-3.223 2.456-3.323 2.321-3.323C2.167-3.323 2.012-3.173 2.012-3.024C2.012-2.904 2.107-2.809 2.232-2.809C2.401-2.809 2.54-2.969 2.54-3.108ZM1.455 .224C1.36 .603 1.046 .852 .742 .852C.658 .852 .603 .837 .563 .827C.682 .757 .717 .628 .717 .563C.717 .478 .658 .359 .493 .359C.324 .359 .184 .513 .184 .677C.184 .892 .408 1.021 .747 1.021S1.733 .847 1.888 .229L2.336-1.554C2.346-1.604 2.361-1.649 2.361-1.719C2.361-2.002 2.097-2.202 1.748-2.202C1.146-2.202 .777-1.529 .777-1.43C.777-1.36 .857-1.36 .882-1.36C.956-1.36 .966-1.38 .991-1.43C1.22-1.918 1.559-2.032 1.729-2.032C1.928-2.032 1.938-1.853 1.938-1.768C1.938-1.699 1.933-1.679 1.923-1.639L1.455 .224Z'/>
+<path id='g1-48' d='M2.022-3.292C2.078-3.41 2.085-3.466 2.085-3.515C2.085-3.731 1.89-3.898 1.674-3.898C1.409-3.898 1.325-3.682 1.29-3.571L.37-.551C.363-.537 .335-.446 .335-.439C.335-.356 .551-.286 .607-.286C.656-.286 .663-.3 .711-.404L2.022-3.292Z'/>
+<path id='g3-112' d='M.523 .851C.474 1.046 .46 1.102 .181 1.102C.091 1.102-.007 1.102-.007 1.248C-.007 1.325 .056 1.353 .091 1.353C.272 1.353 .502 1.325 .69 1.325C.928 1.325 1.193 1.353 1.423 1.353C1.485 1.353 1.562 1.332 1.562 1.2C1.562 1.102 1.465 1.102 1.381 1.102C1.227 1.102 1.039 1.102 1.039 1.018C1.039 .983 1.088 .802 1.116 .697C1.2 .328 1.297-.049 1.374-.342C1.458-.202 1.674 .07 2.092 .07C2.943 .07 3.884-.872 3.884-1.911C3.884-2.727 3.32-3.075 2.838-3.075C2.406-3.075 2.036-2.783 1.848-2.587C1.73-2.985 1.339-3.075 1.13-3.075C.858-3.075 .69-2.894 .579-2.706C.439-2.469 .328-2.05 .328-2.008C.328-1.918 .425-1.918 .446-1.918C.544-1.918 .551-1.939 .6-2.127C.704-2.532 .837-2.88 1.109-2.88C1.29-2.88 1.339-2.727 1.339-2.538C1.339-2.462 1.325-2.371 1.318-2.329L.523 .851ZM1.841-2.239C2.246-2.776 2.594-2.88 2.817-2.88C3.089-2.88 3.327-2.678 3.327-2.204C3.327-1.918 3.173-1.206 2.964-.802C2.79-.46 2.448-.126 2.092-.126C1.597-.126 1.471-.663 1.471-.732C1.471-.76 1.485-.809 1.492-.837L1.841-2.239Z'/>
+<path id='g2-99' d='M3.945-3.786C3.786-3.786 3.646-3.786 3.507-3.646C3.347-3.497 3.328-3.328 3.328-3.258C3.328-3.019 3.507-2.909 3.696-2.909C3.985-2.909 4.254-3.148 4.254-3.547C4.254-4.035 3.786-4.403 3.078-4.403C1.733-4.403 .408-2.979 .408-1.574C.408-.677 .986 .11 2.022 .11C3.447 .11 4.284-.946 4.284-1.066C4.284-1.126 4.224-1.196 4.164-1.196C4.115-1.196 4.095-1.176 4.035-1.096C3.248-.11 2.162-.11 2.042-.11C1.415-.11 1.146-.598 1.146-1.196C1.146-1.604 1.345-2.57 1.684-3.188C1.993-3.756 2.54-4.184 3.088-4.184C3.427-4.184 3.806-4.055 3.945-3.786Z'/>
+<path id='g6-43' d='M3.229-1.576H5.363C5.454-1.576 5.621-1.576 5.621-1.743C5.621-1.918 5.461-1.918 5.363-1.918H3.229V-4.059C3.229-4.149 3.229-4.317 3.062-4.317C2.887-4.317 2.887-4.156 2.887-4.059V-1.918H.746C.656-1.918 .488-1.918 .488-1.75C.488-1.576 .649-1.576 .746-1.576H2.887V.565C2.887 .656 2.887 .823 3.055 .823C3.229 .823 3.229 .663 3.229 .565V-1.576Z'/>
+<path id='g5-43' d='M4.075-2.291H6.854C6.994-2.291 7.183-2.291 7.183-2.491S6.994-2.69 6.854-2.69H4.075V-5.479C4.075-5.619 4.075-5.808 3.875-5.808S3.676-5.619 3.676-5.479V-2.69H.887C.747-2.69 .558-2.69 .558-2.491S.747-2.291 .887-2.291H3.676V.498C3.676 .638 3.676 .827 3.875 .827S4.075 .638 4.075 .498V-2.291Z'/>
+<path id='g3-98' d='M1.841-4.631C1.848-4.645 1.869-4.735 1.869-4.742C1.869-4.777 1.841-4.84 1.757-4.84C1.618-4.84 1.039-4.784 .865-4.77C.809-4.763 .711-4.756 .711-4.61C.711-4.512 .809-4.512 .893-4.512C1.227-4.512 1.227-4.463 1.227-4.407C1.227-4.359 1.158-4.08 1.116-3.919L.955-3.278C.893-3.041 .509-1.513 .495-1.423C.46-1.255 .46-1.165 .46-1.081C.46-.377 .907 .07 1.485 .07C2.357 .07 3.285-.879 3.285-1.911C3.285-2.727 2.72-3.075 2.239-3.075C1.876-3.075 1.569-2.873 1.36-2.692L1.841-4.631ZM1.492-.126C1.151-.126 .955-.425 .955-.837C.955-1.095 1.018-1.332 1.213-2.12C1.255-2.253 1.255-2.267 1.388-2.42C1.653-2.727 1.967-2.88 2.218-2.88C2.49-2.88 2.727-2.678 2.727-2.204C2.727-1.918 2.573-1.206 2.364-.802C2.197-.46 1.848-.126 1.492-.126Z'/>
+<path id='g3-99' d='M3.055-2.671C2.803-2.629 2.699-2.434 2.699-2.28C2.699-2.092 2.845-2.022 2.971-2.022C3.124-2.022 3.368-2.134 3.368-2.469C3.368-2.943 2.824-3.075 2.448-3.075C1.402-3.075 .432-2.113 .432-1.144C.432-.544 .851 .07 1.723 .07C2.901 .07 3.452-.621 3.452-.718C3.452-.76 3.389-.837 3.333-.837C3.292-.837 3.278-.823 3.222-.767C2.678-.126 1.862-.126 1.736-.126C1.234-.126 1.011-.467 1.011-.9C1.011-1.102 1.109-1.862 1.471-2.343C1.736-2.685 2.099-2.88 2.448-2.88C2.545-2.88 2.88-2.866 3.055-2.671Z'/>
+<path id='g5-51' d='M2.889-3.507C3.706-3.776 4.284-4.473 4.284-5.26C4.284-6.077 3.407-6.635 2.451-6.635C1.445-6.635 .687-6.037 .687-5.28C.687-4.951 .907-4.762 1.196-4.762C1.504-4.762 1.704-4.981 1.704-5.27C1.704-5.768 1.235-5.768 1.086-5.768C1.395-6.257 2.052-6.386 2.411-6.386C2.819-6.386 3.367-6.167 3.367-5.27C3.367-5.151 3.347-4.573 3.088-4.134C2.79-3.656 2.451-3.626 2.202-3.616C2.122-3.606 1.883-3.587 1.813-3.587C1.733-3.577 1.664-3.567 1.664-3.467C1.664-3.357 1.733-3.357 1.903-3.357H2.341C3.158-3.357 3.527-2.68 3.527-1.704C3.527-.349 2.839-.06 2.401-.06C1.973-.06 1.225-.229 .877-.817C1.225-.767 1.534-.986 1.534-1.365C1.534-1.724 1.265-1.923 .976-1.923C.737-1.923 .418-1.783 .418-1.345C.418-.438 1.345 .219 2.431 .219C3.646 .219 4.553-.687 4.553-1.704C4.553-2.521 3.925-3.298 2.889-3.507Z'/>
+<path id='g5-48' d='M4.583-3.188C4.583-3.985 4.533-4.782 4.184-5.519C3.726-6.476 2.909-6.635 2.491-6.635C1.893-6.635 1.166-6.376 .757-5.45C.438-4.762 .389-3.985 .389-3.188C.389-2.441 .428-1.544 .837-.787C1.265 .02 1.993 .219 2.481 .219C3.019 .219 3.776 .01 4.214-.936C4.533-1.624 4.583-2.401 4.583-3.188ZM2.481 0C2.092 0 1.504-.249 1.325-1.205C1.215-1.803 1.215-2.72 1.215-3.308C1.215-3.945 1.215-4.603 1.295-5.141C1.484-6.326 2.232-6.416 2.481-6.416C2.809-6.416 3.467-6.237 3.656-5.25C3.756-4.692 3.756-3.935 3.756-3.308C3.756-2.56 3.756-1.883 3.646-1.245C3.497-.299 2.929 0 2.481 0Z'/>
+<path id='g5-52' d='M2.929-1.644V-.777C2.929-.418 2.909-.309 2.172-.309H1.963V0C2.371-.03 2.889-.03 3.308-.03S4.254-.03 4.663 0V-.309H4.453C3.716-.309 3.696-.418 3.696-.777V-1.644H4.692V-1.953H3.696V-6.486C3.696-6.685 3.696-6.745 3.537-6.745C3.447-6.745 3.417-6.745 3.337-6.625L.279-1.953V-1.644H2.929ZM2.989-1.953H.558L2.989-5.669V-1.953Z'/>
+<path id='g5-54' d='M1.315-3.268V-3.507C1.315-6.027 2.55-6.386 3.059-6.386C3.298-6.386 3.716-6.326 3.935-5.988C3.786-5.988 3.387-5.988 3.387-5.539C3.387-5.23 3.626-5.081 3.846-5.081C4.005-5.081 4.304-5.171 4.304-5.559C4.304-6.157 3.866-6.635 3.039-6.635C1.763-6.635 .418-5.35 .418-3.148C.418-.488 1.574 .219 2.501 .219C3.606 .219 4.553-.717 4.553-2.032C4.553-3.298 3.666-4.254 2.56-4.254C1.883-4.254 1.514-3.746 1.315-3.268ZM2.501-.06C1.873-.06 1.574-.658 1.514-.807C1.335-1.275 1.335-2.072 1.335-2.252C1.335-3.029 1.654-4.025 2.55-4.025C2.71-4.025 3.168-4.025 3.477-3.407C3.656-3.039 3.656-2.531 3.656-2.042C3.656-1.564 3.656-1.066 3.487-.707C3.188-.11 2.73-.06 2.501-.06Z'/>
+<path id='g5-56' d='M1.624-4.553C1.166-4.852 1.126-5.191 1.126-5.36C1.126-5.968 1.773-6.386 2.481-6.386C3.208-6.386 3.846-5.868 3.846-5.151C3.846-4.583 3.457-4.105 2.859-3.756L1.624-4.553ZM3.078-3.606C3.796-3.975 4.284-4.493 4.284-5.151C4.284-6.067 3.397-6.635 2.491-6.635C1.494-6.635 .687-5.898 .687-4.971C.687-4.792 .707-4.344 1.126-3.875C1.235-3.756 1.604-3.507 1.853-3.337C1.275-3.049 .418-2.491 .418-1.504C.418-.448 1.435 .219 2.481 .219C3.606 .219 4.553-.608 4.553-1.674C4.553-2.032 4.443-2.481 4.065-2.899C3.875-3.108 3.716-3.208 3.078-3.606ZM2.082-3.188L3.308-2.411C3.587-2.222 4.055-1.923 4.055-1.315C4.055-.578 3.308-.06 2.491-.06C1.634-.06 .917-.677 .917-1.504C.917-2.082 1.235-2.72 2.082-3.188Z'/>
+<path id='g5-53' d='M4.473-2.002C4.473-3.188 3.656-4.184 2.58-4.184C2.102-4.184 1.674-4.025 1.315-3.676V-5.619C1.514-5.559 1.843-5.489 2.162-5.489C3.387-5.489 4.085-6.396 4.085-6.526C4.085-6.585 4.055-6.635 3.985-6.635C3.975-6.635 3.955-6.635 3.905-6.605C3.706-6.516 3.218-6.316 2.55-6.316C2.152-6.316 1.694-6.386 1.225-6.595C1.146-6.625 1.126-6.625 1.106-6.625C1.006-6.625 1.006-6.545 1.006-6.386V-3.437C1.006-3.258 1.006-3.178 1.146-3.178C1.215-3.178 1.235-3.208 1.275-3.268C1.385-3.427 1.753-3.965 2.56-3.965C3.078-3.965 3.328-3.507 3.407-3.328C3.567-2.959 3.587-2.57 3.587-2.072C3.587-1.724 3.587-1.126 3.347-.707C3.108-.319 2.74-.06 2.281-.06C1.554-.06 .986-.588 .817-1.176C.847-1.166 .877-1.156 .986-1.156C1.315-1.156 1.484-1.405 1.484-1.644S1.315-2.132 .986-2.132C.847-2.132 .498-2.062 .498-1.604C.498-.747 1.186 .219 2.301 .219C3.457 .219 4.473-.737 4.473-2.002Z'/>
+<path id='g1-0' d='M5.189-1.576C5.3-1.576 5.467-1.576 5.467-1.743C5.467-1.918 5.307-1.918 5.189-1.918H1.032C.921-1.918 .753-1.918 .753-1.75C.753-1.576 .914-1.576 1.032-1.576H5.189Z'/>
+<path id='g6-48' d='M3.599-2.225C3.599-2.992 3.508-3.543 3.187-4.031C2.971-4.352 2.538-4.631 1.981-4.631C.363-4.631 .363-2.727 .363-2.225S.363 .139 1.981 .139S3.599-1.723 3.599-2.225ZM1.981-.056C1.66-.056 1.234-.244 1.095-.816C.997-1.227 .997-1.799 .997-2.315C.997-2.824 .997-3.354 1.102-3.738C1.248-4.289 1.695-4.435 1.981-4.435C2.357-4.435 2.72-4.205 2.845-3.801C2.957-3.424 2.964-2.922 2.964-2.315C2.964-1.799 2.964-1.283 2.873-.844C2.734-.209 2.26-.056 1.981-.056Z'/>
+<path id='g6-51' d='M1.904-2.329C2.448-2.329 2.838-1.953 2.838-1.206C2.838-.342 2.336-.084 1.932-.084C1.653-.084 1.039-.16 .746-.572C1.074-.586 1.151-.816 1.151-.962C1.151-1.186 .983-1.346 .767-1.346C.572-1.346 .377-1.227 .377-.941C.377-.286 1.102 .139 1.946 .139C2.915 .139 3.585-.509 3.585-1.206C3.585-1.75 3.138-2.294 2.371-2.455C3.103-2.72 3.368-3.243 3.368-3.668C3.368-4.219 2.734-4.631 1.96-4.631S.593-4.254 .593-3.696C.593-3.459 .746-3.327 .955-3.327C1.172-3.327 1.311-3.487 1.311-3.682C1.311-3.884 1.172-4.031 .955-4.045C1.2-4.352 1.681-4.428 1.939-4.428C2.253-4.428 2.692-4.275 2.692-3.668C2.692-3.375 2.594-3.055 2.413-2.838C2.183-2.573 1.988-2.559 1.639-2.538C1.465-2.525 1.451-2.525 1.416-2.518C1.402-2.518 1.346-2.504 1.346-2.427C1.346-2.329 1.409-2.329 1.527-2.329H1.904Z'/>
+<path id='g6-52' d='M3.689-1.144V-1.395H2.915V-4.505C2.915-4.652 2.915-4.7 2.762-4.7C2.678-4.7 2.65-4.7 2.58-4.603L.272-1.395V-1.144H2.322V-.572C2.322-.335 2.322-.251 1.757-.251H1.569V0C1.918-.014 2.364-.028 2.615-.028C2.873-.028 3.32-.014 3.668 0V-.251H3.48C2.915-.251 2.915-.335 2.915-.572V-1.144H3.689ZM2.371-3.947V-1.395H.53L2.371-3.947Z'/>
+<path id='g6-53' d='M1.081-3.891C1.437-3.801 1.646-3.801 1.757-3.801C2.678-3.801 3.222-4.428 3.222-4.533C3.222-4.61 3.173-4.631 3.138-4.631C3.124-4.631 3.11-4.631 3.082-4.61C2.915-4.547 2.545-4.407 2.029-4.407C1.834-4.407 1.465-4.421 1.011-4.596C.941-4.631 .928-4.631 .921-4.631C.83-4.631 .83-4.554 .83-4.442V-2.385C.83-2.267 .83-2.183 .941-2.183C1.004-2.183 1.011-2.197 1.081-2.28C1.381-2.664 1.806-2.72 2.05-2.72C2.469-2.72 2.657-2.385 2.692-2.329C2.817-2.099 2.859-1.834 2.859-1.43C2.859-1.22 2.859-.809 2.65-.502C2.476-.251 2.176-.084 1.834-.084C1.381-.084 .914-.335 .739-.795C1.004-.774 1.137-.948 1.137-1.137C1.137-1.437 .879-1.492 .788-1.492C.774-1.492 .439-1.492 .439-1.116C.439-.488 1.011 .139 1.848 .139C2.741 .139 3.522-.523 3.522-1.402C3.522-2.19 2.922-2.915 2.057-2.915C1.75-2.915 1.388-2.838 1.081-2.573V-3.891Z'/>
+<path id='g6-54' d='M1.046-2.28C1.046-2.852 1.095-3.368 1.36-3.794C1.597-4.17 1.974-4.428 2.42-4.428C2.629-4.428 2.908-4.373 3.048-4.184C2.873-4.17 2.727-4.052 2.727-3.85C2.727-3.675 2.845-3.522 3.055-3.522S3.389-3.661 3.389-3.864C3.389-4.268 3.096-4.631 2.406-4.631C1.402-4.631 .377-3.71 .377-2.211C.377-.404 1.227 .139 1.995 .139C2.845 .139 3.585-.509 3.585-1.423C3.585-2.308 2.88-2.964 2.064-2.964C1.506-2.964 1.2-2.594 1.046-2.28ZM1.995-.084C1.646-.084 1.374-.286 1.227-.593C1.123-.802 1.067-1.151 1.067-1.569C1.067-2.246 1.471-2.769 2.029-2.769C2.35-2.769 2.566-2.643 2.741-2.385C2.908-2.12 2.915-1.827 2.915-1.423C2.915-1.025 2.915-.732 2.727-.46C2.559-.216 2.336-.084 1.995-.084Z'/>
+<path id='g6-55' d='M3.731-4.212C3.801-4.296 3.801-4.31 3.801-4.491H1.974C1.695-4.491 1.618-4.498 1.367-4.519C1.004-4.547 .99-4.596 .969-4.714H.732L.488-3.222H.725C.739-3.327 .809-3.787 .921-3.857C.976-3.898 1.541-3.898 1.646-3.898H3.166C2.943-3.605 2.587-3.173 2.441-2.978C1.527-1.778 1.444-.669 1.444-.258C1.444-.181 1.444 .139 1.771 .139C2.106 .139 2.106-.174 2.106-.265V-.544C2.106-1.897 2.385-2.518 2.685-2.894L3.731-4.212Z'/>
+<path id='g6-56' d='M2.476-2.518C3.02-2.783 3.368-3.11 3.368-3.592C3.368-4.268 2.664-4.631 1.988-4.631C1.22-4.631 .593-4.129 .593-3.466C.593-3.138 .746-2.901 .872-2.762C.997-2.615 1.046-2.587 1.458-2.343C1.067-2.176 .377-1.799 .377-1.067C.377-.293 1.179 .139 1.974 .139C2.859 .139 3.585-.425 3.585-1.179C3.585-1.639 3.313-2.029 2.908-2.267C2.817-2.322 2.573-2.462 2.476-2.518ZM1.339-3.18C1.158-3.285 .962-3.473 .962-3.731C.962-4.17 1.471-4.428 1.974-4.428C2.518-4.428 2.999-4.087 2.999-3.592C2.999-2.971 2.273-2.657 2.26-2.657S2.232-2.664 2.183-2.692L1.339-3.18ZM1.681-2.211L2.636-1.66C2.817-1.555 3.166-1.346 3.166-.934C3.166-.411 2.587-.084 1.988-.084C1.346-.084 .795-.495 .795-1.067C.795-1.583 1.179-1.981 1.681-2.211Z'/>
+<path id='g3-61' d='M3.494-4.924C3.536-5.014 3.536-5.028 3.536-5.056C3.536-5.168 3.445-5.23 3.368-5.23C3.25-5.23 3.215-5.147 3.18-5.056L.579 1.437C.537 1.527 .537 1.541 .537 1.569C.537 1.681 .628 1.743 .704 1.743C.823 1.743 .858 1.66 .893 1.569L3.494-4.924Z'/>
+<path id='g4-115' d='M2.526-1.883C2.351-1.833 2.326-1.684 2.326-1.634C2.326-1.509 2.431-1.455 2.516-1.455C2.575-1.455 2.78-1.499 2.78-1.763C2.78-2.097 2.386-2.202 2.012-2.202C1.171-2.202 1.011-1.689 1.011-1.509S1.116-1.225 1.205-1.156C1.345-1.056 1.494-1.036 1.758-.991C2.072-.941 2.421-.887 2.421-.633C2.421-.628 2.421-.115 1.504-.115C1.315-.115 1.006-.13 .847-.284C1.026-.324 1.106-.468 1.106-.588C1.106-.727 1.001-.792 .892-.792C.722-.792 .573-.658 .573-.433C.573 .055 1.35 .055 1.494 .055C2.516 .055 2.69-.533 2.69-.737C2.69-1.186 2.142-1.27 1.883-1.315C1.529-1.37 1.285-1.41 1.285-1.614C1.285-1.619 1.285-2.032 2.002-2.032C2.132-2.032 2.396-2.022 2.526-1.883Z'/>
+<path id='g4-116' d='M1.564-1.923H2.152C2.257-1.923 2.262-1.928 2.286-1.948S2.326-2.032 2.326-2.062C2.326-2.147 2.252-2.147 2.167-2.147H1.619L1.724-2.56C1.753-2.69 1.813-2.914 1.813-2.944C1.813-3.029 1.748-3.118 1.629-3.118C1.544-3.118 1.425-3.064 1.385-2.929C1.36-2.844 1.42-3.078 1.186-2.147H.593C.493-2.147 .418-2.147 .418-2.007C.418-1.923 .488-1.923 .578-1.923H1.131L.837-.752C.812-.643 .772-.488 .772-.428C.772-.144 1.036 .055 1.385 .055C1.988 .055 2.356-.618 2.356-.717C2.356-.787 2.271-.787 2.252-.787C2.172-.787 2.162-.767 2.137-.702C1.973-.344 1.664-.115 1.405-.115C1.245-.115 1.196-.229 1.196-.379C1.196-.458 1.2-.473 1.21-.518L1.564-1.923Z'/>
+</defs>
+</svg>
+
+</body>
+<script>
+    // initialize printing
+    revealConfig.initPrint();
+    // initialize background embedded images
+    revealConfig.getEmbeddedImages();
+    </script>
+</html>
