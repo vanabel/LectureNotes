@@ -1,0 +1,361 @@
+Title         : 线性代数II
+Date          : 2021-03-02
+[INCLUDE=../header.mdk]
+
+# 引言 {#intro}
+
+* 线性代数是在解决线性方程组的过程中发展起来的一门学科, 它是现代数学的基础之一. 
+* 线性代数顾名思义, 研究的是线性问题. 在数学的各个领域, 线性化的思想都是非常重要的. 例如导数可以看作函数在一点处的线性逼近. 
+* 现在, 线性代数的理论非常完备. 已经广泛应用于数值计算, 经济学, 控制论(工程控制)等领域.
+* 特别是随着现代计算机技术的发展, 线性代数的应用更加广泛.
+* 围绕解方程这一基本技术, 线性代数联系了行列式理论, 矩阵理论, 二次型理论以及线性变换理论. 这些理论的建立, 其实还促进了几何的发展. 
+{.fragmented}
+
+~ Begin Vertical
+## 从解方程谈起{#simplest-eq}
+
+我们熟知一元一次方程
+~ Math
+ax+b=0
+~
+的解为: 
+
+1. 当$a\neq0$时, 则有**唯一解**$x=b/a$;
+2. 当$a=0$时, 若$b\neq0$, 则**无解**;
+3. 当$a=0$时, 若$b=0$, 则有**无穷多解**.
+{.fragmented}
+
+
+本质上, 我们这门课研究的是如何推广上述结论到更一般的方程.
+{.fragment}
+
+~ Framed {.fragment}
+思考: 你能写出更加复杂的方程吗?
+~
+
+~ Slide
+### 关于一元一次方程的推广
+
+我们基本上有两种推广方式:
+
+1. 考虑更高次数的方程:
+~ Begin Math
+a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0=0.
+~ End Math
+2. 考虑更多未知数的方程:
+~ Begin Math
+a_nx_n+a_{n-1}x_{n-1}+\cdots+a_1x_1+a_0=0.
+~ End Math
+{.fragmented}
+
+~ Begin Framed{.fragment}
+思考: 一元高次方程以及多元一次方程的解的情况是怎样的?
+~ End Framed
+~
+
+~ Slide
+### 一元高次方程的解
+
+考察我们熟知的一元二次方程
+~ Begin Math
+ax^2+bx+c=0.
+~ End Math
+
+一个基本的事实是它的解依赖于所选取的**数域**:
+
+1. 在复数域$\mathbb{C}$上, 它一定有两个根:
+~ Begin Math
+x_{1,2}=\frac{-b\pm\sqrt \Delta}{2a},\quad \Delta:=b^2-4ac.
+~ End Math
+2. 在实数域$\mathbb{R}$上, 它的解的个数为:
+~ Begin Math
+\begin{cases}
+2,&\Delta>0,\\
+    1,&\Delta=0,\\
+    0,&\Delta<0
+    \end{cases}
+    ~ End Math
+{.fragmented}
+~
+
+~ Slide
+### 数域
+因此, 我们这里给出数域的严格定义:
+~ Begin Definition {caption: ' 数域'}
+假设$\mathbb{C}$是全体复数构成的集合, $\mathbb{P}\subset \mathbb{C}$. 我们称$\mathbb{P}$为一个**数域**, 如果
+
+1. 集合$\mathbb{P}$至少有两个元素;
+2. 当$a,b\in \mathbb{P}$时, 我们有$a+b$, $a-b$, $a b$, $a/b$都属于$\mathbb{P}$.
+~ End Definition
+
+简言之, 数域就是一个集合, 其上有加, 减, 乘, 除, 且在这四种运算下封闭.
+
+常见的数域有: 复数域$\mathbb{C}$, 实数域$\mathbb{R}$, 有理数域$\mathbb{Q}$等等.
+~
+
+~ Slide
+### 一元多项式, 根与重根
+
+现在我们可以考虑一般数域上的一元多项式及其根.
+
+~ Begin Definition
+假设$\mathbb{P}$是一个数域. 
+
+* 我们称$f(x):=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$为数域$\mathbb{P}$上关于$x$的一元多项式, 这里$0\leq n\in \mathbb{Z}$, $a_n$, $a_{n-1}$, $\ldots$, $a_1$, $a_0$等都属于数域$\mathbb{P}$.
+
+* 若$a_n\neq0$, 则称上述多项式是$n$次多项式. 数域$\mathbb{P}$上全体次数不超过$n$的多项式记作$\mathbb{P}_n[x]$, 而全体多项式记作$\mathbb{P}[x]$.
+
+* 若存在$c\in \mathbb{P}$, 使得$f(c)=0$, 则称$c$为多项式$f(x)$在数域$\mathbb{P}$上的一个**根**; 又若存在多项式$g(x)\neq0$以及非负整数$k$, 使得
+
+~ Begin Math
+  f(x)=(x-c)^k g(x),
+~ End Math
+则称$c$是$f(x)$的$k$重根.  
+~ End Definition
+~
+
+~ Slide
+### 代数学基本定理
+关于复数域上的一元多项式的根， 有如下基本结论。
+~ Begin Theorem
+复数域$\mathbb{C}$上的$n\geq0$次多项式有$n$个根（计算重数）。
+~ End Theorem
+~
+~ End Vertical
+
+~ Begin Vertical
+~ Slide
+# 行列式{#determinant}
+
+## 行列式的引入 {#intro-determinant}
+
+为了引入行列式，我们继续考虑一元一次方程推广为多元一次方程的情况。
+
+考察
+~ Begin Math
+ax+by+c=0
+~ End Math
+一般而言，它表示的是一条直线，而且直线上所有点的坐标都满足方程，故该方程有无穷多解。
+~ Begin Framed {.fragment}
+
+思考：如何使得二元一次方程有唯一解呢？
+~ End Framed
+
+一个想法是考虑两直线， 一般而言它们交于一点。从数学角度来说，我们需要考虑两个二元一次方程组（两条直线）。
+{.fragment} 
+
+~
+~ Slide
+## 二元一次方程组的解 {#twovariable}
+
+考察二元一次方程组
+~ Begin Math
+ \begin{cases}
+  a_{11}x_1+a_{12}x_2=b_1,\\
+  a_{21}x_1+a_{22}x_2=b_2,
+ \end{cases}
+~ End Math
+利用消元法，容易解得
+~ Begin Math
+\begin{cases}
+x_1= \frac{b_1a_{22}-b_2a_{12}}{a_{11}a_{22}-a_{12}a_{21}},\\
+     x_2= \frac{a_{11}b_2-a_{21}b_1}{a_{11}a_{22}-a_{12}a_{21}}.\\
+\end{cases}
+~ End Math
+这里，$a_{11}a_{22}-a_{12}a_{21}\neq0$.
+~ Begin Framed{.fragment} 
+思考：如何将上述一元二次方程组的解改写为更加简洁的形式呢？
+~ End Framed
+~
+~ Slide 
+如果我么引入如下**2阶行列式**的定义：
+~ Begin Math
+D=\begin{vmatrix}
+a_{11}&a_{12}\\
+    a_{21}&a_{22}
+\end{vmatrix}:= a_{11}a_{22}-a_{12}a_{21},
+~ End Math
+则我们可将上述一元二次方程组的解改写为
+~ Begin Math
+\begin{cases}
+x_1=\frac{\begin{vmatrix}
+  b_1&a_{12}\\
+    b_2&a_{22}
+  \end{vmatrix}}{\begin{vmatrix}
+    a_{11}&a_{12}\\
+      a_{21}&a_{22}
+    \end{vmatrix}}=: \frac{D_1}{D},\\
+      x_2=\frac{\begin{vmatrix}
+        a_{11}&b_1\\
+          a_{12}&b_2
+          \end{vmatrix}}{\begin{vmatrix}
+            a_{11}&a_{12}\\
+              a_{21}&a_{22}
+    \end{vmatrix}}=:\frac{D_2}{D}.
+  \end{cases}
+  ~ End Math
+~
+
+~ Slide
+### 三阶行列式的定义
+
+仿照二阶行列式的定义，我们可以定义三阶行列式如下：
+
+~ Begin Center
+![3x3matrix]
+~ End Center
+
+[3x3matrix]: images/3x3matrix.png "3x3matrix" { width:350px; max-width:90% }
+
+即，
+~ Begin Math
+\begin{aligned}
+D&=\begin{vmatrix}
+a_{11}&a_{12}&a_{13}\\
+    a_{21}&a_{22}&a_{23}\\
+    a_{31}&a_{32}&a_{33}
+    \end{vmatrix}\\
+      &:=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}\\
+      &\qquad-a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}.
+\end{aligned}
+~ End Math
+~
+
+~ Slide
+### 三元一次方程组的解
+完全类似二元一次方程组，三元一次方程组
+~ Begin Math
+\begin{cases}
+a_{11}x_1+a_{12}x_2+a_{13}x_3=b_1,\\
+    a_{21}x_1+a_{22}x_2+a_{23}x_3=b_2,\\
+    a_{31}x_1+a_{32}x_2+a_{33}x_3=b_3,
+\end{cases}
+~ End Math
+的解为
+~ Begin Math
+  x_1=\frac{D_1}{D},\quad x_2=\frac{D_2}{D},\quad x_3=\frac{D_3}{D}.
+~ End Math
+其中，
+~ Begin Math
+D_1=\begin{vmatrix}
+b_1&a_{12}&a_{13}\\
+    b_2&a_{22}&a_{23}\\
+    b_3&a_{32}&a_{33}
+    \end{vmatrix},\quad
+    D_2=\begin{vmatrix}
+    a_{11}&b_1&a_{13}\\
+      a_{21}&b_2&a_{23}\\
+      a_{31}&b_3&a_{33}
+      \end{vmatrix},\quad
+      D_3=\begin{vmatrix}
+      a_{11}&a_{12}&b_1\\
+        a_{21}&a_{22}&b_2\\
+        a_{31}&a_{32}&b_3
+\end{vmatrix}.
+~ End Math
+~
+
+~ End Vertical
+
+~ Begin Vertical
+  
+~ Slide
+# 全排列
+
+为了研究更一般方程组的解，我们有必要定义更高阶矩阵的行列式。为此，我们先来定义全排列。
+
+~ Begin Definition {caption: ' 排列'}
+我们称由自然数$1,2,\ldots,n$组成的一个全排列$i_1i_2\dots i_n$为一个$n$级排列。
+~ End Definition
+例如：$1243$就是一个4级排列；$53421$为一个5级排列。
+
+注意上述两个排列都不是按照从小到大的顺序排列的，因此存在某种逆序。
+~ Begin Definition {caption: ' 逆序'}
+在排列$i_1i_2\ldots i_n$中，若$k<l$但$i_k>i_l$, 则称$i_k,i_l$构成该排列的一个**逆序**。称一个排列的逆序总个数为该排列的**逆序数**， 记作$\tau(i_1i_2\ldots i_n)$.
+~ End Definition
+~
+
+~ Slide
+### 逆序数的计算
+
+~ Begin Example
+
+试着计算下列排列的逆序数：
+
+* $\tau(312)$
+* $\tau(53241)$
+* 你的学号构成的排列
+~ End Example
+~
+
+~ Slide
+
+### 逆序数的基本性质
+
+~ Begin Definition {caption: ' 奇排列/偶排列'}
+我们称一个排列为**奇（偶）排列**， 如果该排列的逆序数为奇（偶）数。
+~ End Definition
+~ Begin Definition {caption: ' 对换'}
+交换一个排列中两个数的位置，这种操作称为对该排列作一次**对换**。
+~ End Definition
+~
+
+~ Slide
+~ Begin Theorem
+对排列作一次对换改变该排列的奇偶性。
+~ End Theorem
+由此可知，在$n$级排列中，有$n!/2$个奇排列和$n!/2$个偶排列，即它们各占一半。
+~
+
+~ Slide
+~ Begin Proof
+容易知道，一次相邻的对换改变排列的奇偶性。下面对一般情形来证明结论成立。
+
+不妨假设排列为$i_1i_2\ldots i_n$. 考虑对换$i_k,i_l$, 不妨设$k<l$, 即该排列为
+~ Begin Math
+i_1i_2\ldots i_ki_{k+1}\ldots i_{l-1}i_l\ldots i_n.
+~ End Math
+则在对换$i_k,i_l$作用下，该排列变为
+~ Begin Math
+i_1i_2\ldots i_li_{k+1}\ldots i_{l-1}i_k\ldots i_n.
+~ End Math
+明显地，把$i_l$经过$l-k$次相邻对换，上述最后一个排列变为
+~ Begin Math
+i_1i_2\ldots i_{k-1}i_{k+1}\ldots i_{l-1}i_ki_l\ldots i_n.
+~ End Math
+在把$i_k$经过$l-k-1$次相邻对换，上述排列就变为原排列。
+
+这表明，经过$(l-k)+(l-k-1)=2(l-k)+1$次相邻对换，我们可把$i_k,i_l$对换后的排列还原为原排列。由此可见结论成立。
+~ End Proof
+~
+~ End Vertical
+
+# 习题 {#homework}
+
+1. 求解二元一次方程组
+~ Math
+\begin{cases}
+3x_1+2x_2=100,\\
+4x_1+3x_2=140.
+\end{cases}
+~
+2. {#exes-three} 利用消元法求解三元一次方程组
+~ Math
+\begin{cases}
+x_1+x_2+x_3=6,\\
+x_1-x_2+x_3=2,\\
+3x_1+4x_2+5x_3=26.
+\end{cases}
+~
+3. 利用三元一次方程组的求解公式验证题[2][#exes-three]的结论成立。
+4. 计算下来排列的逆序数：
+   
+   (1) 217986354;
+   (2) 987654321;
+5. 写出4阶行列式$\lvert (a_{ij})_{4\times}\rvert$中所有带负号且包含因子$a_{23}的项；
+
+# 使用软件求解线性方程组 {#mma}
+~ Figure {caption: ' MMA 解线性方程组'}
+![mmasolve3x3]
+[mmasolve3x3]: images/mmasolve3x3.png "mmasolve3x3" { width:450px; max-width:90% }
+~

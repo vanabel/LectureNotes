@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.2.3" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="author" content="艾万君" />
+  <title>线性代数II</title>
+  <style type="text/css"  class="link">
+  /*# sourceURL=madoko.css */
+  
+  .madoko .toc>.tocblock .tocblock .tocblock {
+    margin-left: 2.25em;
+  }
+  .madoko .toc>.tocblock .tocblock {
+    margin-left: 1.5em;
+  }
+  .madoko .toc-contents>.tocblock>.tocitem {
+    font-weight: bold;
+  }
+  .madoko .toc {
+    margin-top: 1em;
+  }
+  .madoko p.para-continue {
+    margin-bottom: 0pt;
+  }
+  .madoko .para-block+p {
+    margin-top: 0pt;
+  }
+  .madoko ul.para-block, .madoko ol.para-block {
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+  }
+  .madoko ul.para-end, .madoko ol.para-end {
+    margin-bottom: 1em;
+  }
+  .madoko dl {
+    margin-left: 0em;
+  }
+  .madoko blockquote {
+    font-style: italic;
+  }
+  .madoko a.localref {
+    text-decoration: none;
+  }
+  .madoko a.localref:hover {
+    text-decoration: underline;
+  }
+  .madoko .footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+  }
+  .madoko .footnotes hr {
+    width: 50%;
+    text-align: left;
+  }
+  .madoko .footnote {
+    margin-left: 1em;
+  }
+  .madoko .footnote-before {
+    margin-left: -1em;
+    width: 1em;
+    display: inline-block;
+  }
+  .madoko .align-center, .madoko .align-center>p {
+    text-align: center !important;
+  }
+  .madoko .align-center pre {
+    text-align: left;
+  }
+  .madoko .align-center>* {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-left, .madoko .align-left>p {
+    text-align: left !important;
+  }
+  .madoko .align-left>* {
+    margin-left: 0pt !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-right, .madoko .align-right>p {
+    text-align: right !important;
+  }
+  .madoko .align-right>* {
+    margin-left: auto !important;
+    margin-right: 0pt !important;
+  }
+  .madoko .align-center>table,
+  .madoko .align-left>table,
+  .madoko .align-right>table {
+    text-align: left !important;
+  }
+  .madoko .equation-before {
+    float: right;
+  }
+  .madoko .bibitem {
+    font-size: smaller;
+  }
+  .madoko .bibsearch {
+    font-size: x-small;
+    text-decoration:none;
+    color: black;
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .figure {
+    padding: 0.5em;
+    margin-left: 0pt;
+    margin-right: 0pt;
+  }
+  .madoko .hidden {
+    display: none;
+  }
+  .madoko .invisible {
+    visibility: hidden;
+  }
+  .madoko.preview .invisible {
+    visibility: visible;
+    opacity: 0.5;
+  }
+  .madoko code.code, .madoko span.code {
+    white-space: pre-wrap;
+  }
+  .madoko hr, hr.madoko {
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 0.5ex;
+  }
+  .madoko .framed>*:first-child {
+    margin-top: 0pt;
+  }
+  .madoko .framed>*:last-child {
+    margin-bottom: 0pt;
+  }
+  .madoko ul.list-style-type-dash {
+      list-style-type: none !important;
+  }
+  .madoko ul.list-style-type-dash > li:before {
+      content: "\2013";
+      position: absolute;
+      margin-left: -1em;
+  }
+  .madoko table.madoko {
+    border-collapse: collapse;
+  }
+  .madoko td, .madoko th {
+    padding: 0ex 0.5ex;
+    margin: 0pt;
+    vertical-align: top;
+  }
+  .madoko .cell-border-left {
+    border-left: 1px solid black;
+  }
+  .madoko .cell-border-right {
+    border-right: 1px solid black;
+  }
+  .madoko thead>tr:first-child>.cell-line,
+  .madoko tbody:first-child>tr:first-child>.cell-line {
+    border-top: 1px solid black;
+    border-bottom: none;
+  }
+  .madoko .cell-line, .madoko .cell-double-line {
+    border-bottom: 1px solid black;
+    border-top: none;
+  }
+  .madoko .cell-double-line {
+    border-top: 1px solid black;
+    padding-top: 1.5px !important;
+  }
+  .madoko .input-mathpre .MathJax_Display {
+    text-align: left !important;
+  }
+  .madoko div.input-mathpre {
+    text-align: left;
+    margin-top: 1.5ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .math-rendering {
+    text-align: left;
+    white-space: pre;
+    color: gray;
+  }
+  .madoko .mathdisplay {
+    text-align: center;
+  }
+  .madoko span.math-rendering {
+    display:inline-block;
+    width:8em;
+    overflow-x:auto;
+    font-size:70%;
+  }
+  .madoko span.math-rendering::-webkit-scrollbar {
+    width:4px;
+  }
+  .madoko .pretty table {
+    border-collapse: collapse;
+  }
+  .madoko .pretty td {
+    padding: 0em;
+  }
+  .madoko .pretty td.empty {
+    min-width: 1.5ex;
+  }
+  .madoko .pretty td.expander {
+    width: 100em;
+  }
+  body.madoko, .madoko .serif {
+    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
+  }
+  .madoko .sans-serif {
+    font-family: "Calibri", "Optima", sans-serif;
+  }
+  .madoko .symbol {
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  body.madoko {
+    -webkit-text-size-adjust: 100%;       
+    text-rendering: optimizeLegibility;
+  }
+  body.madoko {
+    max-width: 88ex; 
+    margin: 1em auto;
+    padding: 0em 2em;
+  }
+  body.preview.madoko {
+    padding: 0em 1em;
+  }
+  .madoko p {
+    text-align: justify;
+  }
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 {
+    margin-top: 1.22em;
+    margin-bottom: 1ex;
+  }
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  {
+    margin-top: 1ex;
+  }
+  .madoko h5, .madoko h6 {
+    margin-top: 1ex;
+    font-size: 1em;
+  }
+  .madoko h5 {
+    margin-bottom: 0.5ex;
+  }
+  .madoko h5 + p {
+    margin-top: 0.5ex;
+  }
+  .madoko h6 {
+    margin-bottom: 0pt;
+  }
+  .madoko h6 + p {
+    margin-top: 0pt;
+  }
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt,
+  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
+    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
+    font-size: 0.85em;
+  }
+  .madoko pre code, .madoko .token-indent {
+    font-size: 0.95em;
+  }
+  .madoko pre code {
+    font-family: inherit !important;
+  }
+  .madoko ol.linenums li {
+    background-color: white;
+    list-style-type: decimal;
+  }
+  .madoko .remote {
+    background-color: #F0FFF0;
+  }
+  .madoko .remote + * {
+    margin-top: 0pt;
+  }
+  @media print {
+    body.madoko {
+      font-size: 10pt;
+    }
+    @page {
+      margin: 1in 1.5in;
+    }
+  }
+  @media only screen and (max-device-width:1024px) {
+    body.madoko {
+      padding: 0em 0.5em;
+    }
+    .madoko li {
+      text-align: left;
+    }
+  }
+  
+    </style>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/reveal.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/solarized.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="lib/user.css"  class="link">
+  <script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/head.min.js"  class="script preview"></script>
+  <script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/js/reveal.js"  class="script preview"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/solarized.css" id="theme">    
+      <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/html5shiv.js"></script>
+      <![endif]-->
+      <style>
+      body.madoko {
+        margin: 0pt;
+        padding: 0pt;
+        max-width: 100%;      
+      }
+      .madoko .reveal h1 {
+          font-size: 3.7em;
+      }
+      .madoko .reveal h2 {
+          font-size: 2.1em;
+      }
+      .reveal .authorblock .author {
+          font-size: 120%;
+          margin-bottom: 1ex;
+      }        
+      .reveal table {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .reveal pre table {
+        margin-left: 0pt;
+      }
+      .madoko .reveal pre.pretty {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+      }
+      .reveal li p {
+          text-align: left;
+      }
+      .reveal h2 {
+          margin-bottom: 0.7em;
+      }
+      .reveal section ul,
+      .reveal section ol {
+          margin-top: 0.35em;
+          margin-bottom: 0.35em;
+      }
+      .reveal section img.math-display {
+          padding: 1em;
+          box-shadow: none;
+          border: none;
+      }
+      .reveal section img.math-inline {
+          margin: 0pt;
+          padding: 0pt;
+          background-color: none;
+          box-shadow: none;
+          border: none;
+      }
+      .reveal section img {
+          box-shadow: none;
+          border: none;
+      }
+      .madoko .reveal pre {
+          border: 1px solid black;
+          word-wrap: normal;
+          background-color: white;
+          font-size: 0.7em;
+          padding: 0.7em;
+          line-height: 100%;
+          width: 100%;
+      }      
+      .reveal pre code, .reveal code {
+          padding: 0pt;
+      }
+      .reveal nav.toc {
+          line-height: 1em;
+          font-size: 60%;
+          overflow-y: auto;
+      }    
+      .reveal .tocitem {
+          text-align: left;
+      }
+      .reveal .toc>.tocblock .tocblock {
+          margin-left: 0.5em;
+      }   
+      .reveal .toc>.tocblock .tocblock .tocblock {
+          margin-left: 1em;
+      }
+      .reveal .bibliography {
+        height: 18em;
+        overflow-y: auto;
+        font-size: 0.8em;
+        line-height: 1.25;
+      }
+      .reveal section[data-smaller=""],
+      .reveal section[data-smaller="true"] {
+        font-size: 80%;
+        width: 110%;
+      }
+      .reveal .slides>section[data-smaller=""],
+      .reveal .slides>section[data-smaller="true"] {
+        left: -55%;
+      }
+      .reveal .details {
+        display: none;
+      }
+      .reveal[data-details=""] .details,
+      .reveal[data-details="true"] .details {
+        display: initial;
+      }
+      /* Display in the preview window */
+      html, body.madoko.preview, body.madoko.preview-full, .body.madoko {
+        height  : 100% !important;
+        width   : auto!important;
+        padding : 0pt !important;
+        margin  : 0pt !important;
+      }
+      body.madoko.preview, body.madoko.preview-full, .preview .body.madoko {
+        overflow: hidden !important;
+      }
+      body.preview .reveal .slides .fragment {
+        visibility: visible;
+        opacity: 0.5;
+      }
+      body.preview .reveal .slides .fragment.visible {
+        opacity: 1.0;
+      }
+      .preview .reveal div.notes,
+      .preview .reveal aside.notes {
+        display  : block;
+        position : absolute;
+        width    : 30%;
+        left     : 70%;
+        top      : -15%;
+        font-size: 50%;
+        border   : 1px solid black;
+        border-radius   : 10px;
+        background-color: white;
+      }
+      /* 'static' display in the preview window, unused for now */
+      body.preview.static div.reveal, 
+      body.preview.static div.ticreveal .slides, 
+      body.preview.static div.reveal section {
+        display: block !important;
+        position: relative !important;
+        width: auto !important;      
+      }
+      body.preview.static div.reveal section {
+        border: solid 1px black;
+        padding: 1em !important;
+        margin-top: 1em;
+        min-height: 15em;
+        top: 0pt;
+      }
+      body.madoko.preview.static section {
+        font-size: 75%;
+      }
+      body.madoko.preview.static {
+        padding: 0em 1em !important;
+      }
+      body.madoko.preview.static .reveal pre {
+        width: 95%;
+      }    
+      body.preview .reveal[data-details="false"] .details {
+        display: initial;
+        color: gray;
+      }
+      body.preview .reveal[data-long="false"] section[data-long] {
+        border-left: 2px black solid;
+      }
+      </style>
+      <script>    
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      window.revealConfig = {
+          controls: true,
+          progress: true,
+          history: true,
+          center: /^\s*(true|1)\s*$/i.test("true"),
+          slideNumber: /^\s*(true|1)\s*$/i.test("true"),
+          dependencies: [
+            { src: 'https://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'https://cdn.jsdelivr.net/reveal.js/2.6.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'https://cdn.jsdelivr.net/reveal.js/2.6.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          ],
+      };
+      function revealAddFragments() {
+        [].forEach.call(document.querySelectorAll( ".fragmented" ), function(elem0) {
+          var elem = (/^H\d$/.test(elem0.nodeName) ? elem0.parentNode : elem0);
+          [].forEach.call(elem.children, function(item) {
+            if (item==elem0) return;
+            if (item && !/\bfragment(ed)?\b/.test(item.className) && item.nodeType===1) {
+              item.className = item.className + " fragment";
+            }
+          });
+        });
+      }
+      function revealQuotedList(listType) {
+        //compatibility with Rmarkdown slides
+        [].forEach.call( document.querySelectorAll("blockquote>" + listType), function(ul) {
+          if (!/\bfragmented\b/.test(ul.className)) {
+            ul.className = ul.className + " fragmented";
+          }        
+          var quote = ul.parentNode;
+          if (quote.childElementCount===1) {
+            quote.parentNode.replaceChild(ul,quote);
+          }
+        });
+      }
+      function revealBuildToFragmented() {
+        [].forEach.call(document.querySelectorAll( ".build" ), function(elem) {
+          if (elem && !/\bfragmented\b/.test(elem.className) && elem.nodeType===1) {
+            elem.className = elem.className + " fragmented";
+          }
+        });
+      }
+      function revealDivNotesToAside() {
+        [].forEach.call(document.querySelectorAll("div.notes"), function(elem) {
+          var aside = document.createElement("ASIDE");
+          if (elem.id) aside.id = elem.id;
+          aside.className = elem.className;
+          [].forEach.call(elem.attributes, function(attr) {
+            aside.setAttribute( attr.name, attr.value );
+          });
+          aside.innerHTML = elem.innerHTML;
+          elem.parentNode.replaceChild(aside,elem);
+        });
+      }
+      function revealDataQuery() {
+        var reveal = document.querySelector(".reveal");
+        if (!reveal) return;
+        window.location.search.replace(/\bdata-(\w+)(?:=(\w+))?\b/g, function(matched,key,value) {
+          reveal.setAttribute("data-" + key, (value ? value : ""));
+          return matched;
+        });
+      }
+      function revealRemoveLong() {
+        // remove parts for 'long' presentation
+        if (/\bpreview(?![\w\-])/.test(document.body.className)) return;
+        var reveal = document.querySelector(".reveal");
+        if (!reveal) return;
+        var value = reveal.hasAttribute("data-long") ? reveal.getAttribute("data-long") : null;
+        if (value==null || value=="false" || value=="0") {
+          [].forEach.call( document.querySelectorAll("section[data-long]"), function(elem) {
+            elem.parentNode.removeChild(elem);
+          });
+        }
+      }
+      revealConfig.onLoad = function() {
+        revealConfig.getEmbeddedImages();
+        revealDataQuery();
+        revealRemoveLong();
+        revealQuotedList("ul");
+        revealQuotedList("ol");
+        revealBuildToFragmented();
+        revealDivNotesToAside();
+        revealAddFragments();
+      };
+      document.addEventListener("load",revealConfig.onLoad);    
+      document.addEventListener("DOMContentLoaded", function() {
+        if (typeof Reveal !== "undefined" && !Reveal.isReady()) {
+          revealConfig.onLoad();
+          Reveal.initialize(revealConfig);
+        }
+      });    
+      // add support for printing:
+      // use  ?print-pdf to get a pdf-printable version (in Chrome)
+      // use  ?print-paper to get a paper-printable version.
+      revealConfig.initPrint = function() {
+        var cssLink = null;
+        var bodyClass = null;
+        var cap = window.location.search.match(/\bprint-(\w+)\b/);
+        if (cap) {
+          bodyClass = cap[0];
+          cssLink = "https://cdn.jsdelivr.net/reveal.js/2.6.2/css/print/" + cap[1] + ".css";
+        }
+        if (cssLink) {
+          var link  = document.createElement( "link" );
+          link.rel  = "stylesheet";
+          link.type = "text/css";
+          link.href = cssLink;
+          var head = document.getElementsByTagName( 'head' )[0];
+          if (head) head.appendChild( link );
+        }
+        if (bodyClass) {
+          document.body.className = document.body.className + " " + bodyClass;
+        }
+      };
+      revealConfig.getEmbeddedImages = function() {
+        var images = {};
+        [].forEach.call( document.querySelectorAll("img[data-linkid]"), function(img) {
+          var linkid = img.getAttribute("data-linkid");
+          if (linkid) images["/" + linkid] = img.src;
+          var path = img.getAttribute("data-path");
+          if (path) images["/" + path] = img.src;
+        });     
+        [].forEach.call( document.querySelectorAll("section"), function(slide) {
+          var attrName = "data-background";
+          var image = slide.getAttribute(attrName);
+          if (!image) {
+            attrName = "data-background-image";
+            image = slide.getAttribute(attrName);
+          }
+          if (!image) return;
+          var cap = /^\s*!?\[([^\]]+)\]\s*$/.exec(image);
+          var href = images["/" + (cap ? cap[1] : image)];
+          if (!href) return;
+          if (attrName==="data-background" && /^data:/.test(href)) href = "url(" + href + ")";
+          slide.setAttribute(attrName, href);
+        });
+      };    
+      </script>
+  </head>
+<body class="madoko">
+
+<div class="body madoko" lang="zh-Hans-CN" style="line-adjust:0">
+<div class="reveal" data-long="false" data-details="false" data-line="3;../header.mdk:48" style="line-adjust:0">
+<div class="slides" data-line="3;../header.mdk:48" style="line-adjust:0">
+<section class="titleblock align-center para-block" data-line="3;../header.mdk:52" style="text-align:center;line-adjust:0">
+<div class="titleheader align-center" data-line="3;../header.mdk:52" style="text-align:center;line-adjust:0">
+<h1 class="title para-block" data-line="3;../header.mdk:52" style="font-weight:bold;margin-bottom:0.5ex;font-size:3em;line-adjust:0"><span data-line="3;../header.mdk:52"></span>线性代数II</h1>
+<h2 class="subtitle para-block" data-line="3;../header.mdk:55" style="margin-bottom:0.5ex;font-size:1.8em;line-adjust:0"><span data-line="3;../header.mdk:55"></span>第 一次授课讲义</h2>
+<div class="titlenote para-block" data-line="4" style="line-adjust:0"><span data-line="4"></span>初稿, 2021-03-02</div></div>
+<div class="authors align-center" data-line="9" style="text-align:center;width:80%;line-adjust:0"><table class="authorrow columns block" data-line="9" style="margin-top:2ex;width:100%;line-adjust:0">
+<tbody><tr><td class="author column" data-line="9" style="text-align:center;font-size:x-large;line-adjust:0">
+<div class="authorname" data-line="9" style="font-size:1.4em;line-adjust:0"><span data-line="9"></span>艾万君</div>
+<div class="authoraddress" data-line="12" style="line-adjust:0"><span data-line="12"></span>西南大学</div>
+<div class="authoremail email" data-line="15" style="line-adjust:0"><span data-line="15"></span>van141.abel@gmail.com</div></td></tr></tbody></table></div></section>
+<section id="section" class="section section1" data-section-depth="1" data-line="3;../header.mdk:54"><h2 id="heading-section" class="h1" data-heading-depth="1" style="display:block">目录</h2><span data-line="3;../header.mdk:56"></span>
+<nav class="toc toc-contents" style="height:20em">
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;\u76EE\u5F55" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">1</span>.&#8194;目录</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="intro" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;\u5F15\u8A00" style="toctarget:intro"><a href="#intro" class="localref"><span class="heading-label">2</span>.&#8194;引言</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="simplest-eq" data-toc-depth="2" data-toc-line="[2.1]{.heading-label}.&#8194;\u4ECE\u89E3\u65B9\u7A0B\u8C08\u8D77" style="toctarget:simplest-eq"><a href="#simplest-eq" class="localref"><span class="heading-label">2.1</span>.&#8194;从解方程谈起</a></div></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="determinant" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;\u884C\u5217\u5F0F" style="toctarget:determinant"><a href="#determinant" class="localref"><span class="heading-label">3</span>.&#8194;行列式</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="intro-determinant" data-toc-depth="2" data-toc-line="[3.1]{.heading-label}.&#8194;\u884C\u5217\u5F0F\u7684\u5F15\u5165" style="toctarget:intro-determinant"><a href="#intro-determinant" class="localref"><span class="heading-label">3.1</span>.&#8194;行列式的引入</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="twovariable" data-toc-depth="2" data-toc-line="[3.2]{.heading-label}.&#8194;\u4E8C\u5143\u4E00\u6B21\u65B9\u7A0B\u7EC4\u7684\u89E3" style="toctarget:twovariable"><a href="#twovariable" class="localref"><span class="heading-label">3.2</span>.&#8194;二元一次方程组的解</a></div></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[4]{.heading-label}.&#8194;\u5168\u6392\u5217" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">4</span>.&#8194;全排列</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="homework" data-toc-depth="1" data-toc-line="[5]{.heading-label}.&#8194;\u4E60\u9898" style="toctarget:homework"><a href="#homework" class="localref"><span class="heading-label">5</span>.&#8194;习题</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="mma" data-toc-depth="1" data-toc-line="[6]{.heading-label}.&#8194;\u4F7F\u7528\u8F6F\u4EF6\u6C42\u89E3\u7EBF\u6027\u65B9\u7A0B\u7EC4" style="toctarget:mma"><a href="#mma" class="localref"><span class="heading-label">6</span>.&#8194;使用软件求解线性方程组</a></div></div></nav></section>
+<section id="intro" class="section section1" data-section-depth="1" data-line="5"><h2 id="heading-intro" class="h1" data-heading-depth="1" style="display:block">引言</h2>
+<ul class="ul list-star fragmented compact" data-line="7">
+<li class="li ul-li list-star-li fragmented-li compact-li" data-line="7"><span data-line="7"></span>线性代数是在解决线性方程组的过程中发展起来的一门学科, 它是现代数学的基础之一. 
+</li>
+<li class="li ul-li list-star-li fragmented-li compact-li" data-line="8"><span data-line="8"></span>线性代数顾名思义, 研究的是线性问题. 在数学的各个领域, 线性化的思想都是非常重要的. 例如导数可以看作函数在一点处的线性逼近. 
+</li>
+<li class="li ul-li list-star-li fragmented-li compact-li" data-line="9"><span data-line="9"></span>现在, 线性代数的理论非常完备. 已经广泛应用于数值计算, 经济学, 控制论(工程控制)等领域.
+</li>
+<li class="li ul-li list-star-li fragmented-li compact-li" data-line="10"><span data-line="10"></span>特别是随着现代计算机技术的发展, 线性代数的应用更加广泛.
+</li>
+<li class="li ul-li list-star-li fragmented-li compact-li" data-line="11"><span data-line="11"></span>围绕解方程这一基本技术, 线性代数联系了行列式理论, 矩阵理论, 二次型理论以及线性变换理论. 这些理论的建立, 其实还促进了几何的发展. </li></ul>
+</section>
+<section class="vertical section" data-line="14">
+<section id="simplest-eq" class="section section2" data-section-depth="2" data-line="15"><h3 id="heading-simplest-eq" class="h2" data-heading-depth="2" style="display:block">从解方程谈起</h3>
+<p class="p noindent para-continue" data-line="17"><span data-line="17"></span>我们熟知一元一次方程
+</p>
+<div class="math para-block" data-line="18">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="19" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:0.8554em;width:4.8379em" viewBox='183.687 56.71 46.075 8.147'><desc>\[ax+b=0
+\]</desc><g id='math-0b9a59'><use x='183.886' y='63.828' xlink:href='#g4-97'/><use x='189.152' y='63.828' xlink:href='#g4-120'/><use x='197.06' y='63.828' xlink:href='#g6-43'/><use x='207.023' y='63.828' xlink:href='#g4-98'/><use x='214.066' y='63.828' xlink:href='#g6-61'/><use x='224.582' y='63.828' xlink:href='#g6-48'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="21"><span data-line="21"></span>的解为: 
+</p>
+<ol class="ol fragmented compact" data-line="23">
+<li class="li ol-li fragmented-li compact-li" data-line="23"><span data-line="23"></span>当<span data-line="23"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2336em;height:0.9717em;width:2.5136em" viewBox='88.468 54.718 23.939 9.254'><desc>$a\neq0$</desc><g id='math-ae7244'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='96.701' y='61.836' xlink:href='#g2-54'/><use x='96.701' y='61.836' xlink:href='#g6-61'/><use x='107.217' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="23"></span>时, 则有<span data-line="23"></span><strong class="strong-star2">唯一解</strong><span data-line="23"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:3.5604em" viewBox='34.67 54.164 33.909 10.361'><desc>$x=b/a$</desc><g id='math-bd368a'><use x='34.869' y='61.836' xlink:href='#g4-120'/><use x='43.331' y='61.836' xlink:href='#g6-61'/><use x='53.847' y='61.836' xlink:href='#g4-98'/><use x='58.122' y='61.836' xlink:href='#g4-61'/><use x='63.104' y='61.836' xlink:href='#g4-97'/></g></svg><span data-line="23"></span>;
+</li>
+<li class="li ol-li fragmented-li compact-li" data-line="24"><span data-line="24"></span>当<span data-line="24"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7160em;width:2.5136em" viewBox='88.468 55.216 23.939 6.819'><desc>$a=0$</desc><g id='math-ded681'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='96.701' y='61.836' xlink:href='#g6-61'/><use x='107.217' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="24"></span>时, 若<span data-line="24"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2336em;height:0.9717em;width:2.4096em" viewBox='34.67 54.718 22.949 9.254'><desc>$b\neq0$</desc><g id='math-9d10bc'><use x='34.869' y='61.836' xlink:href='#g4-98'/><use x='41.912' y='61.836' xlink:href='#g2-54'/><use x='41.912' y='61.836' xlink:href='#g6-61'/><use x='52.428' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="24"></span>, 则<span data-line="24"></span><strong class="strong-star2">无解</strong><span data-line="24"></span>;
+</li>
+<li class="li ol-li fragmented-li compact-li" data-line="25"><span data-line="25"></span>当<span data-line="25"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7160em;width:2.5136em" viewBox='88.468 55.216 23.939 6.819'><desc>$a=0$</desc><g id='math-ded681'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='96.701' y='61.836' xlink:href='#g6-61'/><use x='107.217' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="25"></span>时, 若<span data-line="25"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7683em;width:2.4096em" viewBox='34.67 54.718 22.949 7.317'><desc>$b=0$</desc><g id='math-f6d5ee'><use x='34.869' y='61.836' xlink:href='#g4-98'/><use x='41.912' y='61.836' xlink:href='#g6-61'/><use x='52.428' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="25"></span>, 则有<span data-line="25"></span><strong class="strong-star2">无穷多解</strong><span data-line="25"></span>.</li></ol>
+
+<p class="p fragment noindent" data-line="29"><span data-line="29"></span>本质上, 我们这门课研究的是如何推广上述结论到更一般的方程.</p>
+<div class="framed fragment" data-line="32" style="border:solid black 1px">
+<p class="p noindent" data-line="33"><span data-line="33"></span>思考: 你能写出更加复杂的方程吗?</p></div></section>
+<section class="slide section" data-line="36"><h4 id="section" class="h3" data-line="37" data-heading-depth="3" style="display:block"><span data-line="37"></span>关于一元一次方程的推广</h4>
+<p class="p noindent" data-line="39"><span data-line="39"></span>我们基本上有两种推广方式:
+</p>
+<ol class="ol fragmented compact" data-line="41">
+<li class="li ol-li fragmented-li compact-li" data-line="41"><span data-line="41"></span>考虑更高次数的方程:
+
+<div class="math para-block" data-line="42">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="43" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:1.1898em;width:17.9480em" viewBox='175.057 55.021 170.933 11.331'><desc>\[a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0=0.
+\]</desc><g id='math-c25ea3'><use x='175.256' y='63.828' xlink:href='#g4-97'/><use x='180.522' y='65.323' xlink:href='#g5-110'/><use x='185.945' y='63.828' xlink:href='#g4-120'/><use x='191.639' y='59.715' xlink:href='#g5-110'/><use x='199.276' y='63.828' xlink:href='#g6-43'/><use x='209.239' y='63.828' xlink:href='#g4-97'/><use x='214.505' y='65.323' xlink:href='#g5-110'/><use x='219.43' y='65.323' xlink:href='#g3-0'/><use x='225.656' y='65.323' xlink:href='#g7-49'/><use x='230.126' y='63.828' xlink:href='#g4-120'/><use x='235.82' y='59.715' xlink:href='#g5-110'/><use x='240.744' y='59.715' xlink:href='#g3-0'/><use x='246.971' y='59.715' xlink:href='#g7-49'/><use x='253.654' y='63.828' xlink:href='#g6-43'/><use x='263.617' y='63.828' xlink:href='#g2-1'/><use x='268.045' y='63.828' xlink:href='#g2-1'/><use x='272.473' y='63.828' xlink:href='#g2-1'/><use x='277.454' y='63.828' xlink:href='#g6-43'/><use x='287.417' y='63.828' xlink:href='#g4-97'/><use x='292.683' y='65.323' xlink:href='#g7-49'/><use x='297.152' y='63.828' xlink:href='#g4-120'/><use x='305.06' y='63.828' xlink:href='#g6-43'/><use x='315.022' y='63.828' xlink:href='#g4-97'/><use x='320.289' y='65.323' xlink:href='#g7-48'/><use x='327.525' y='63.828' xlink:href='#g6-61'/><use x='338.041' y='63.828' xlink:href='#g6-48'/><use x='343.023' y='63.828' xlink:href='#g4-58'/></g></svg></div></div></li>
+<li class="li ol-li fragmented-li compact-li" data-line="45"><span data-line="45"></span>考虑更多未知数的方程:
+
+<div class="math para-block" data-line="46">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="47" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:0.9600em;width:18.4172em" viewBox='119.024 57.209 175.402 9.143'><desc>\[a_nx_n+a_{n-1}x_{n-1}+\cdots+a_1x_1+a_0=0.
+\]</desc><g id='math-a571b7'><use x='119.223' y='63.828' xlink:href='#g4-97'/><use x='124.489' y='65.323' xlink:href='#g5-110'/><use x='129.912' y='63.828' xlink:href='#g4-120'/><use x='135.606' y='65.323' xlink:href='#g5-110'/><use x='143.243' y='63.828' xlink:href='#g6-43'/><use x='153.206' y='63.828' xlink:href='#g4-97'/><use x='158.472' y='65.323' xlink:href='#g5-110'/><use x='163.397' y='65.323' xlink:href='#g3-0'/><use x='169.623' y='65.323' xlink:href='#g7-49'/><use x='174.093' y='63.828' xlink:href='#g4-120'/><use x='179.787' y='65.323' xlink:href='#g5-110'/><use x='184.712' y='65.323' xlink:href='#g3-0'/><use x='190.938' y='65.323' xlink:href='#g7-49'/><use x='197.621' y='63.828' xlink:href='#g6-43'/><use x='207.584' y='63.828' xlink:href='#g2-1'/><use x='212.012' y='63.828' xlink:href='#g2-1'/><use x='216.44' y='63.828' xlink:href='#g2-1'/><use x='221.421' y='63.828' xlink:href='#g6-43'/><use x='231.384' y='63.828' xlink:href='#g4-97'/><use x='236.65' y='65.323' xlink:href='#g7-49'/><use x='241.119' y='63.828' xlink:href='#g4-120'/><use x='246.813' y='65.323' xlink:href='#g7-49'/><use x='253.496' y='63.828' xlink:href='#g6-43'/><use x='263.459' y='63.828' xlink:href='#g4-97'/><use x='268.725' y='65.323' xlink:href='#g7-48'/><use x='275.962' y='63.828' xlink:href='#g6-61'/><use x='286.478' y='63.828' xlink:href='#g6-48'/><use x='291.459' y='63.828' xlink:href='#g4-58'/></g></svg></div></div></li></ol>
+
+<div class="framed fragment" data-line="51" style="border:solid black 1px">
+<p class="p noindent" data-line="52"><span data-line="52"></span>思考: 一元高次方程以及多元一次方程的解的情况是怎样的?</p></div></section>
+<section class="slide section" data-line="56"><h4 id="section" class="h3" data-line="57" data-heading-depth="3" style="display:block"><span data-line="57"></span>一元高次方程的解</h4>
+<p class="p noindent para-continue" data-line="59"><span data-line="59"></span>考察我们熟知的一元二次方程
+</p>
+<div class="math para-block" data-line="60">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="61" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:1.0328em;width:7.9269em" viewBox='222.776 55.021 75.494 9.836'><desc>\[ax^2+bx+c=0.
+\]</desc><g id='math-0e3f15'><use x='222.975' y='63.828' xlink:href='#g4-97'/><use x='228.241' y='63.828' xlink:href='#g4-120'/><use x='233.935' y='59.715' xlink:href='#g7-50'/><use x='240.619' y='63.828' xlink:href='#g6-43'/><use x='250.581' y='63.828' xlink:href='#g4-98'/><use x='254.857' y='63.828' xlink:href='#g4-120'/><use x='262.765' y='63.828' xlink:href='#g6-43'/><use x='272.727' y='63.828' xlink:href='#g4-99'/><use x='279.806' y='63.828' xlink:href='#g6-61'/><use x='290.322' y='63.828' xlink:href='#g6-48'/><use x='295.303' y='63.828' xlink:href='#g4-58'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="64"><span data-line="64"></span>一个基本的事实是它的解依赖于所选取的<span data-line="64"></span><strong class="strong-star2">数域</strong><span data-line="64"></span>:
+</p>
+<ol class="ol fragmented compact" data-line="66">
+<li class="li ol-li fragmented-li compact-li" data-line="66"><span data-line="66"></span>在复数域<span data-line="66"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.7984em" viewBox='88.468 54.773 7.604 7.262'><desc>$\mathbb{C}$</desc><g id='math-55a258'><use x='88.667' y='61.836' xlink:href='#g0-67'/></g></svg><span data-line="66"></span>上, 它一定有两个根:
+
+<div class="math para-block" data-line="67">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="68" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:2.3946em;width:15.7889em" viewBox='185.338 53.068 150.37 22.806'><desc>\[x_{1,2}=\frac{-b\pm\sqrt \Delta}{2a},\quad \Delta:=b^2-4ac.
+\]</desc><g id='math-144b58'><use x='185.537' y='68.841' xlink:href='#g4-120'/><use x='191.231' y='70.335' xlink:href='#g7-49'/><use x='195.202' y='70.335' xlink:href='#g5-59'/><use x='197.569' y='70.335' xlink:href='#g7-50'/><use x='204.805' y='68.841' xlink:href='#g6-61'/><use x='216.517' y='62.101' xlink:href='#g2-0'/><use x='224.266' y='62.101' xlink:href='#g4-98'/><use x='230.755' y='62.101' xlink:href='#g2-6'/><use x='240.718' y='53.666' xlink:href='#g2-112'/><rect x='249.02' y='53.268' height='.398' width='8.302'/><use x='249.02' y='62.101' xlink:href='#g6-1'/><rect x='216.517' y='66.151' height='.398' width='40.805'/><use x='231.796' y='75.675' xlink:href='#g6-50'/><use x='236.777' y='75.675' xlink:href='#g4-97'/><use x='258.518' y='68.841' xlink:href='#g4-59'/><use x='272.908' y='68.841' xlink:href='#g6-1'/><use x='283.978' y='68.841' xlink:href='#g6-58'/><use x='286.745' y='68.841' xlink:href='#g6-61'/><use x='297.261' y='68.841' xlink:href='#g4-98'/><use x='301.537' y='64.728' xlink:href='#g7-50'/><use x='308.22' y='68.841' xlink:href='#g2-0'/><use x='318.183' y='68.841' xlink:href='#g6-52'/><use x='323.164' y='68.841' xlink:href='#g4-97'/><use x='328.43' y='68.841' xlink:href='#g4-99'/><use x='332.742' y='68.841' xlink:href='#g4-58'/></g></svg></div></div></li>
+<li class="li ol-li fragmented-li compact-li" data-line="70"><span data-line="70"></span>在实数域<span data-line="70"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.7984em" viewBox='88.468 54.773 7.604 7.262'><desc>$\mathbb{R}$</desc><g id='math-2369a2'><use x='88.667' y='61.836' xlink:href='#g0-82'/></g></svg><span data-line="70"></span>上, 它的解的个数为:
+
+<div class="math para-block" data-line="71">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="72" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:4.4354em;width:5.9115em" viewBox='231.775 53.267 56.3 42.242'><desc>\[\begin{cases}
+2,&amp;\Delta&gt;0,\\
+ 1,&amp;\Delta=0,\\
+ 0,&amp;\Delta&lt;0
+ \end{cases}
+\]</desc><g id='math-7b9bc9'><use x='231.975' y='53.467' xlink:href='#g9-56'/><use x='231.975' y='62.433' xlink:href='#g9-62'/><use x='231.975' y='65.422' xlink:href='#g9-60'/><use x='231.975' y='83.355' xlink:href='#g9-62'/><use x='231.975' y='86.344' xlink:href='#g9-58'/><use x='240.83' y='62.911' xlink:href='#g6-50'/><use x='245.812' y='62.911' xlink:href='#g4-59'/><use x='258.542' y='62.911' xlink:href='#g6-1'/><use x='269.611' y='62.911' xlink:href='#g4-62'/><use x='280.127' y='62.911' xlink:href='#g6-48'/><use x='285.109' y='62.911' xlink:href='#g4-59'/><use x='240.83' y='77.258' xlink:href='#g6-49'/><use x='245.812' y='77.258' xlink:href='#g4-59'/><use x='258.542' y='77.258' xlink:href='#g6-1'/><use x='269.611' y='77.258' xlink:href='#g6-61'/><use x='280.127' y='77.258' xlink:href='#g6-48'/><use x='285.109' y='77.258' xlink:href='#g4-59'/><use x='240.83' y='91.604' xlink:href='#g6-48'/><use x='245.812' y='91.604' xlink:href='#g4-59'/><use x='258.542' y='91.604' xlink:href='#g6-1'/><use x='269.611' y='91.604' xlink:href='#g4-60'/><use x='280.127' y='91.604' xlink:href='#g6-48'/></g></svg></div></div></li></ol></section>
+<section class="slide section" data-line="81"><h4 id="section" class="h3" data-line="82" data-heading-depth="3" style="display:block"><span data-line="82"></span>数域</h4>
+<p class="p noindent" data-line="83"><span data-line="83"></span>因此, 我们这里给出数域的严格定义:
+</p>
+<div class="definition" data-line="84" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="85"><span data-line="85"></span><span class="definition-before"><strong class="strong-star2">定义&#160;<span class="definition-label">1</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic"> 数域</span>)</span> </span><span data-line="85"></span>假设<span data-line="85"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.7984em" viewBox='88.468 54.773 7.604 7.262'><desc>$\mathbb{C}$</desc><g id='math-55a258'><use x='88.667' y='61.836' xlink:href='#g0-67'/></g></svg><span data-line="85"></span>是全体复数构成的集合, <span data-line="85"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0641em;height:0.8034em;width:2.8324em" viewBox='88.468 54.773 26.975 7.651'><desc>$\mathbb{P}\subset \mathbb{C}$</desc><g id='math-92c5a4'><use x='88.667' y='61.836' xlink:href='#g0-80'/><use x='97.523' y='61.836' xlink:href='#g2-26'/><use x='108.039' y='61.836' xlink:href='#g0-67'/></g></svg><span data-line="85"></span>. 我们称<span data-line="85"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="85"></span>为一个<span data-line="85"></span><strong class="strong-star2">数域</strong><span data-line="85"></span>, 如果
+</p>
+<ol class="ol compact" data-line="87">
+<li class="li ol-li compact-li" data-line="87"><span data-line="87"></span>集合<span data-line="87"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="87"></span>至少有两个元素;
+</li>
+<li class="li ol-li compact-li" data-line="88"><span data-line="88"></span>当<span data-line="88"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2336em;height:0.9717em;width:3.4275em" viewBox='34.67 54.718 32.643 9.254'><desc>$a,b\in \mathbb{P}$</desc><g id='math-4393c1'><use x='34.869' y='61.836' xlink:href='#g4-97'/><use x='40.135' y='61.836' xlink:href='#g4-59'/><use x='44.563' y='61.836' xlink:href='#g4-98'/><use x='51.606' y='61.836' xlink:href='#g2-50'/><use x='61.015' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="88"></span>时, 我们有<span data-line="88"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1127em;height:0.8554em;width:2.3233em" viewBox='88.468 54.718 22.127 8.147'><desc>$a+b$</desc><g id='math-65c884'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='96.148' y='61.836' xlink:href='#g6-43'/><use x='106.11' y='61.836' xlink:href='#g4-98'/></g></svg><span data-line="88"></span>, <span data-line="88"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1127em;height:0.8554em;width:2.3233em" viewBox='34.67 54.718 22.127 8.147'><desc>$a-b$</desc><g id='math-8ca2ed'><use x='34.869' y='61.836' xlink:href='#g4-97'/><use x='42.349' y='61.836' xlink:href='#g2-0'/><use x='52.312' y='61.836' xlink:href='#g4-98'/></g></svg><span data-line="88"></span>, <span data-line="88"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7683em;width:1.0448em" viewBox='88.468 54.718 9.95 7.317'><desc>$a b$</desc><g id='math-0cc9cd'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='93.934' y='61.836' xlink:href='#g4-98'/></g></svg><span data-line="88"></span>, <span data-line="88"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:1.5679em" viewBox='34.67 54.164 14.932 10.361'><desc>$a/b$</desc><g id='math-a7e861'><use x='34.869' y='61.836' xlink:href='#g4-97'/><use x='40.135' y='61.836' xlink:href='#g4-61'/><use x='45.117' y='61.836' xlink:href='#g4-98'/></g></svg><span data-line="88"></span>都属于<span data-line="88"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="88"></span>.</li></ol></div>
+<p class="p noindent" data-line="91"><span data-line="91"></span>简言之, 数域就是一个集合, 其上有加, 减, 乘, 除, 且在这四种运算下封闭.
+</p>
+<p class="p indent" data-line="93"><span data-line="93"></span>常见的数域有: 复数域<span data-line="93"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.7984em" viewBox='88.468 54.773 7.604 7.262'><desc>$\mathbb{C}$</desc><g id='math-55a258'><use x='88.667' y='61.836' xlink:href='#g0-67'/></g></svg><span data-line="93"></span>, 实数域<span data-line="93"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.7984em" viewBox='88.468 54.773 7.604 7.262'><desc>$\mathbb{R}$</desc><g id='math-2369a2'><use x='88.667' y='61.836' xlink:href='#g0-82'/></g></svg><span data-line="93"></span>, 有理数域<span data-line="93"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2035em;height:0.9368em;width:0.8565em" viewBox='34.67 54.773 8.157 8.922'><desc>$\mathbb{Q}$</desc><g id='math-5eac30'><use x='34.869' y='61.836' xlink:href='#g0-81'/></g></svg><span data-line="93"></span>等等.</p></section>
+<section class="slide section" data-line="96"><h4 id="sec--" class="h3" data-line="97" data-heading-depth="3" style="display:block"><span data-line="97"></span>一元多项式, 根与重根</h4>
+<p class="p noindent" data-line="99"><span data-line="99"></span>现在我们可以考虑一般数域上的一元多项式及其根.
+</p>
+<div class="definition" data-line="101" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="102"><span data-line="102"></span><span class="definition-before"><strong class="strong-star2">定义&#160;<span class="definition-label">2</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="102"></span>假设<span data-line="102"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="102"></span>是一个数域. 
+</p>
+<ul class="ul list-star loose" data-line="104">
+<li class="li ul-li list-star-li loose-li" data-line="104">
+<p data-line="104"><span data-line="104"></span>我们称<span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2924em;height:1.1549em;width:19.4622em" viewBox='34.67 53.527 185.354 10.999'><desc>$f(x):=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$</desc><g id='math-d5660f'><use x='34.869' y='61.836' xlink:href='#g4-102'/><use x='40.819' y='61.836' xlink:href='#g6-40'/><use x='44.694' y='61.836' xlink:href='#g4-120'/><use x='50.387' y='61.836' xlink:href='#g6-41'/><use x='57.029' y='61.836' xlink:href='#g6-58'/><use x='59.797' y='61.836' xlink:href='#g6-61'/><use x='70.313' y='61.836' xlink:href='#g4-97'/><use x='75.579' y='63.33' xlink:href='#g5-110'/><use x='81.002' y='61.836' xlink:href='#g4-120'/><use x='86.696' y='58.22' xlink:href='#g5-110'/><use x='94.333' y='61.836' xlink:href='#g6-43'/><use x='104.295' y='61.836' xlink:href='#g4-97'/><use x='109.561' y='63.33' xlink:href='#g5-110'/><use x='114.486' y='63.33' xlink:href='#g3-0'/><use x='120.713' y='63.33' xlink:href='#g7-49'/><use x='125.182' y='61.836' xlink:href='#g4-120'/><use x='130.876' y='58.22' xlink:href='#g5-110'/><use x='135.801' y='58.22' xlink:href='#g3-0'/><use x='142.028' y='58.22' xlink:href='#g7-49'/><use x='148.711' y='61.836' xlink:href='#g6-43'/><use x='158.674' y='61.836' xlink:href='#g2-1'/><use x='163.101' y='61.836' xlink:href='#g2-1'/><use x='167.529' y='61.836' xlink:href='#g2-1'/><use x='172.51' y='61.836' xlink:href='#g6-43'/><use x='182.473' y='61.836' xlink:href='#g4-97'/><use x='187.739' y='63.33' xlink:href='#g7-49'/><use x='192.209' y='61.836' xlink:href='#g4-120'/><use x='200.116' y='61.836' xlink:href='#g6-43'/><use x='210.079' y='61.836' xlink:href='#g4-97'/><use x='215.345' y='63.33' xlink:href='#g7-48'/></g></svg><span data-line="104"></span>为数域<span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="104"></span>上关于<span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.6407em" viewBox='34.67 57.347 6.102 4.688'><desc>$x$</desc><g id='math-9dd4e4'><use x='34.869' y='61.836' xlink:href='#g4-120'/></g></svg><span data-line="104"></span>的一元多项式, 这里<span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1701em;height:0.9047em;width:4.5645em" viewBox='88.468 54.773 43.471 8.616'><desc>$0\leq n\in \mathbb{Z}$</desc><g id='math-8073ad'><use x='88.667' y='61.836' xlink:href='#g6-48'/><use x='96.416' y='61.836' xlink:href='#g2-20'/><use x='106.932' y='61.836' xlink:href='#g4-110'/><use x='115.68' y='61.836' xlink:href='#g2-50'/><use x='125.089' y='61.836' xlink:href='#g0-90'/></g></svg><span data-line="104"></span>, <span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1887em;height:0.6491em;width:1.1653em" viewBox='34.67 57.347 11.098 6.182'><desc>$a_n$</desc><g id='math-825b3f'><use x='34.869' y='61.836' xlink:href='#g4-97'/><use x='40.135' y='63.33' xlink:href='#g5-110'/></g></svg><span data-line="104"></span>, <span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2798em;height:0.7364em;width:2.2361em" viewBox='88.468 57.347 21.296 7.013'><desc>$a_{n-1}$</desc><g id='math-1cebe5'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='93.934' y='63.33' xlink:href='#g5-110'/><use x='98.859' y='63.33' xlink:href='#g3-0'/><use x='105.085' y='63.33' xlink:href='#g7-49'/></g></svg><span data-line="104"></span>, <span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.1522em;width:1.2633em" viewBox='34.67 60.585 12.031 1.45'><desc>$\ldots$</desc><g id='math-379ee6'><use x='34.869' y='61.836' xlink:href='#g4-58'/><use x='39.297' y='61.836' xlink:href='#g4-58'/><use x='43.725' y='61.836' xlink:href='#g4-58'/></g></svg><span data-line="104"></span>, <span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1887em;height:0.6491em;width:1.0651em" viewBox='88.468 57.347 10.144 6.182'><desc>$a_1$</desc><g id='math-027c34'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='93.934' y='63.33' xlink:href='#g7-49'/></g></svg><span data-line="104"></span>, <span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1887em;height:0.6491em;width:1.0651em" viewBox='34.67 57.347 10.144 6.182'><desc>$a_0$</desc><g id='math-6a9275'><use x='34.869' y='61.836' xlink:href='#g4-97'/><use x='40.135' y='63.33' xlink:href='#g7-48'/></g></svg><span data-line="104"></span>等都属于数域<span data-line="104"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="104"></span>.
+</p></li>
+<li class="li ul-li list-star-li loose-li" data-line="106">
+<p data-line="106"><span data-line="106"></span>若<span data-line="106"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2336em;height:0.9717em;width:3.0830em" viewBox='34.67 54.718 29.362 9.254'><desc>$a_n\neq0$</desc><g id='math-ee9f39'><use x='34.869' y='61.836' xlink:href='#g4-97'/><use x='40.135' y='63.33' xlink:href='#g5-110'/><use x='48.326' y='61.836' xlink:href='#g2-54'/><use x='48.326' y='61.836' xlink:href='#g6-61'/><use x='58.842' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="106"></span>, 则称上述多项式是<span data-line="106"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.6707em" viewBox='34.67 57.347 6.388 4.688'><desc>$n$</desc><g id='math-7b8b96'><use x='34.869' y='61.836' xlink:href='#g4-110'/></g></svg><span data-line="106"></span>次多项式. 数域<span data-line="106"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="106"></span>上全体次数不超过<span data-line="106"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.6707em" viewBox='34.67 57.347 6.388 4.688'><desc>$n$</desc><g id='math-7b8b96'><use x='34.869' y='61.836' xlink:href='#g4-110'/></g></svg><span data-line="106"></span>的多项式记作<span data-line="106"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:2.4306em" viewBox='34.67 54.164 23.149 10.361'><desc>$\mathbb{P}_n[x]$</desc><g id='math-4e1604'><use x='34.869' y='61.836' xlink:href='#g0-80'/><use x='40.958' y='63.33' xlink:href='#g5-110'/><use x='46.381' y='61.836' xlink:href='#g6-91'/><use x='49.148' y='61.836' xlink:href='#g4-120'/><use x='54.842' y='61.836' xlink:href='#g6-93'/></g></svg><span data-line="106"></span>, 而全体多项式记作<span data-line="106"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:1.8612em" viewBox='88.468 54.164 17.726 10.361'><desc>$\mathbb{P}[x]$</desc><g id='math-78560e'><use x='88.667' y='61.836' xlink:href='#g0-80'/><use x='94.756' y='61.836' xlink:href='#g6-91'/><use x='97.523' y='61.836' xlink:href='#g4-120'/><use x='103.217' y='61.836' xlink:href='#g6-93'/></g></svg><span data-line="106"></span>.
+</p></li>
+<li class="li ul-li list-star-li loose-li" data-line="108">
+<p data-line="108"><span data-line="108"></span>若存在<span data-line="108"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0641em;height:0.8034em;width:2.4134em" viewBox='34.67 54.773 22.985 7.651'><desc>$c\in \mathbb{P}$</desc><g id='math-d23520'><use x='34.869' y='61.836' xlink:href='#g4-99'/><use x='41.948' y='61.836' xlink:href='#g2-50'/><use x='51.357' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="108"></span>, 使得<span data-line="108"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:3.8517em" viewBox='88.468 54.164 36.683 10.361'><desc>$f(c)=0$</desc><g id='math-e31f72'><use x='88.667' y='61.836' xlink:href='#g4-102'/><use x='94.617' y='61.836' xlink:href='#g6-40'/><use x='98.492' y='61.836' xlink:href='#g4-99'/><use x='102.803' y='61.836' xlink:href='#g6-41'/><use x='109.445' y='61.836' xlink:href='#g6-61'/><use x='119.961' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="108"></span>, 则称<span data-line="108"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.4956em" viewBox='34.67 57.347 4.72 4.688'><desc>$c$</desc><g id='math-4a8a08'><use x='34.869' y='61.836' xlink:href='#g4-99'/></g></svg><span data-line="108"></span>为多项式<span data-line="108"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:2.0791em" viewBox='88.468 54.164 19.801 10.361'><desc>$f(x)$</desc><g id='math-50bbd3'><use x='88.667' y='61.836' xlink:href='#g4-102'/><use x='94.617' y='61.836' xlink:href='#g6-40'/><use x='98.492' y='61.836' xlink:href='#g4-120'/><use x='104.186' y='61.836' xlink:href='#g6-41'/></g></svg><span data-line="108"></span>在数域<span data-line="108"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.6822em" viewBox='34.67 54.773 6.497 7.262'><desc>$\mathbb{P}$</desc><g id='math-a5eeed'><use x='34.869' y='61.836' xlink:href='#g0-80'/></g></svg><span data-line="108"></span>上的一个<span data-line="108"></span><strong class="strong-star2">根</strong><span data-line="108"></span>; 又若存在多项式<span data-line="108"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:3.9086em" viewBox='88.468 54.164 37.225 10.361'><desc>$g(x)\neq0$</desc><g id='math-a2b1a6'><use x='88.667' y='61.836' xlink:href='#g4-103'/><use x='93.777' y='61.836' xlink:href='#g6-40'/><use x='97.651' y='61.836' xlink:href='#g4-120'/><use x='103.345' y='61.836' xlink:href='#g6-41'/><use x='109.987' y='61.836' xlink:href='#g2-54'/><use x='109.987' y='61.836' xlink:href='#g6-61'/><use x='120.503' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="108"></span>以及非负整数<span data-line="108"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7683em;width:0.6204em" viewBox='34.67 54.718 5.909 7.317'><desc>$k$</desc><g id='math-8ce4b1'><use x='34.869' y='61.836' xlink:href='#g4-107'/></g></svg><span data-line="108"></span>, 使得
+</p></li></ul>
+
+<div class="math para-block" data-line="110">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="111" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:1.2438em;width:9.3687em" viewBox='215.91 54.672 89.226 11.846'><desc>\[  f(x)=(x-c)^k g(x),
+\]</desc><g id='math-ed4c46'><use x='216.109' y='63.828' xlink:href='#g4-102'/><use x='222.059' y='63.828' xlink:href='#g6-40'/><use x='225.934' y='63.828' xlink:href='#g4-120'/><use x='231.627' y='63.828' xlink:href='#g6-41'/><use x='238.269' y='63.828' xlink:href='#g6-61'/><use x='248.785' y='63.828' xlink:href='#g6-40'/><use x='252.66' y='63.828' xlink:href='#g4-120'/><use x='260.567' y='63.828' xlink:href='#g2-0'/><use x='270.53' y='63.828' xlink:href='#g4-99'/><use x='274.841' y='63.828' xlink:href='#g6-41'/><use x='278.716' y='59.715' xlink:href='#g5-107'/><use x='283.618' y='63.828' xlink:href='#g4-103'/><use x='288.727' y='63.828' xlink:href='#g6-40'/><use x='292.601' y='63.828' xlink:href='#g4-120'/><use x='298.295' y='63.828' xlink:href='#g6-41'/><use x='302.17' y='63.828' xlink:href='#g4-59'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="113"><span data-line="113"></span>则称<span data-line="113"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.4956em" viewBox='34.67 57.347 4.72 4.688'><desc>$c$</desc><g id='math-4a8a08'><use x='34.869' y='61.836' xlink:href='#g4-99'/></g></svg><span data-line="113"></span>是<span data-line="113"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:2.0791em" viewBox='88.468 54.164 19.801 10.361'><desc>$f(x)$</desc><g id='math-50bbd3'><use x='88.667' y='61.836' xlink:href='#g4-102'/><use x='94.617' y='61.836' xlink:href='#g6-40'/><use x='98.492' y='61.836' xlink:href='#g4-120'/><use x='104.186' y='61.836' xlink:href='#g6-41'/></g></svg><span data-line="113"></span>的<span data-line="113"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7683em;width:0.6204em" viewBox='34.67 54.718 5.909 7.317'><desc>$k$</desc><g id='math-8ce4b1'><use x='34.869' y='61.836' xlink:href='#g4-107'/></g></svg><span data-line="113"></span>重根.  </p></div></section>
+<section class="slide section" data-line="117"><h4 id="section" class="h3" data-line="118" data-heading-depth="3" style="display:block"><span data-line="118"></span>代数学基本定理</h4>
+<p class="p noindent" data-line="119"><span data-line="119"></span>关于复数域上的一元多项式的根， 有如下基本结论。
+</p>
+<div class="theorem" data-line="120" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="121"><span data-line="121"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">1</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="121"></span>复数域<span data-line="121"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7625em;width:0.7984em" viewBox='88.468 54.773 7.604 7.262'><desc>$\mathbb{C}$</desc><g id='math-55a258'><use x='88.667' y='61.836' xlink:href='#g0-67'/></g></svg><span data-line="121"></span>上的<span data-line="121"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1705em;height:0.8583em;width:2.5886em" viewBox='34.67 55.216 24.653 8.174'><desc>$n\geq0$</desc><g id='math-691e69'><use x='34.869' y='61.836' xlink:href='#g4-110'/><use x='43.616' y='61.836' xlink:href='#g2-21'/><use x='54.133' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="121"></span>次多项式有<span data-line="121"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.6707em" viewBox='34.67 57.347 6.388 4.688'><desc>$n$</desc><g id='math-7b8b96'><use x='34.869' y='61.836' xlink:href='#g4-110'/></g></svg><span data-line="121"></span>个根（计算重数）。</p></div></section></section>
+<section class="vertical section" data-line="126">
+<section class="slide section" data-line="127"><h2 id="determinant" class="h1" data-line="128" data-heading-depth="1" style="display:block"><span data-line="128"></span>行列式</h2><h3 id="intro-determinant" class="h2" data-line="130" data-heading-depth="2" style="display:block"><span data-line="130"></span>行列式的引入</h3>
+<p class="p noindent" data-line="132"><span data-line="132"></span>为了引入行列式，我们继续考虑一元一次方程推广为多元一次方程的情况。
+</p>
+<p class="p indent para-continue" data-line="134"><span data-line="134"></span>考察
+</p>
+<div class="math para-block" data-line="135">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="136" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:0.9717em;width:7.1195em" viewBox='172.822 56.71 67.805 9.254'><desc>\[ax+by+c=0
+\]</desc><g id='math-d231e5'><use x='173.021' y='63.828' xlink:href='#g4-97'/><use x='178.288' y='63.828' xlink:href='#g4-120'/><use x='186.195' y='63.828' xlink:href='#g6-43'/><use x='196.158' y='63.828' xlink:href='#g4-98'/><use x='200.434' y='63.828' xlink:href='#g4-121'/><use x='207.889' y='63.828' xlink:href='#g6-43'/><use x='217.852' y='63.828' xlink:href='#g4-99'/><use x='224.931' y='63.828' xlink:href='#g6-61'/><use x='235.447' y='63.828' xlink:href='#g6-48'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="138"><span data-line="138"></span>一般而言，它表示的是一条直线，而且直线上所有点的坐标都满足方程，故该方程有无穷多解。
+</p>
+<div class="framed fragment" data-line="139" style="border:solid black 1px">
+
+<p class="p noindent" data-line="141"><span data-line="141"></span>思考：如何使得二元一次方程有唯一解呢？</p></div>
+<p class="p fragment noindent" data-line="144"><span data-line="144"></span>一个想法是考虑两直线， 一般而言它们交于一点。从数学角度来说，我们需要考虑两个二元一次方程组（两条直线）。</p></section>
+<section class="slide section" data-line="148"><h3 id="twovariable" class="h2" data-line="149" data-heading-depth="2" style="display:block"><span data-line="149"></span>二元一次方程组的解</h3>
+<p class="p noindent para-continue" data-line="151"><span data-line="151"></span>考察二元一次方程组
+</p>
+<div class="math para-block" data-line="152">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="153" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.1801em;width:9.7793em" viewBox='208.376 52.67 93.136 30.287'><desc>\[ \begin{cases}
+  a_{11}x_1+a_{12}x_2=b_1,\\
+  a_{21}x_1+a_{22}x_2=b_2,
+ \end{cases}
+\]</desc><g id='math-b976c5'><use x='208.575' y='53.268' xlink:href='#g9-40'/><use x='216.601' y='63.509' xlink:href='#g4-97'/><use x='221.867' y='65.004' xlink:href='#g7-49'/><use x='225.838' y='65.004' xlink:href='#g7-49'/><use x='230.307' y='63.509' xlink:href='#g4-120'/><use x='236.001' y='65.004' xlink:href='#g7-49'/><use x='242.684' y='63.509' xlink:href='#g6-43'/><use x='252.647' y='63.509' xlink:href='#g4-97'/><use x='257.913' y='65.004' xlink:href='#g7-49'/><use x='261.884' y='65.004' xlink:href='#g7-50'/><use x='266.354' y='63.509' xlink:href='#g4-120'/><use x='272.048' y='65.004' xlink:href='#g7-50'/><use x='279.284' y='63.509' xlink:href='#g6-61'/><use x='289.801' y='63.509' xlink:href='#g4-98'/><use x='294.076' y='65.004' xlink:href='#g7-49'/><use x='298.546' y='63.509' xlink:href='#g4-59'/><use x='216.601' y='77.856' xlink:href='#g4-97'/><use x='221.867' y='79.35' xlink:href='#g7-50'/><use x='225.838' y='79.35' xlink:href='#g7-49'/><use x='230.307' y='77.856' xlink:href='#g4-120'/><use x='236.001' y='79.35' xlink:href='#g7-49'/><use x='242.684' y='77.856' xlink:href='#g6-43'/><use x='252.647' y='77.856' xlink:href='#g4-97'/><use x='257.913' y='79.35' xlink:href='#g7-50'/><use x='261.884' y='79.35' xlink:href='#g7-50'/><use x='266.354' y='77.856' xlink:href='#g4-120'/><use x='272.048' y='79.35' xlink:href='#g7-50'/><use x='279.284' y='77.856' xlink:href='#g6-61'/><use x='289.801' y='77.856' xlink:href='#g4-98'/><use x='294.076' y='79.35' xlink:href='#g7-50'/><use x='298.546' y='77.856' xlink:href='#g4-59'/></g></svg></div></div>
+<p class="p noindent para-continued para-continue" data-line="158"><span data-line="158"></span>利用消元法，容易解得
+</p>
+<div class="math para-block" data-line="159">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="160" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.1801em;width:9.4138em" viewBox='156.318 52.67 89.655 30.287'><desc>\[\begin{cases}
+x_1= \frac{b_1a_{22}-b_2a_{12}}{a_{11}a_{22}-a_{12}a_{21}},\\
+     x_2= \frac{a_{11}b_2-a_{21}b_1}{a_{11}a_{22}-a_{12}a_{21}}.\\
+\end{cases}
+\]</desc><g id='math-f81aaf'><use x='156.517' y='53.268' xlink:href='#g9-40'/><use x='164.543' y='63.382' xlink:href='#g4-120'/><use x='170.237' y='64.876' xlink:href='#g7-49'/><use x='177.474' y='63.382' xlink:href='#g6-61'/><use x='193.393' y='59.297' xlink:href='#g5-98'/><use x='196.897' y='60.293' xlink:href='#g8-49'/><use x='200.785' y='59.297' xlink:href='#g5-97'/><use x='205.106' y='60.293' xlink:href='#g8-50'/><use x='208.497' y='60.293' xlink:href='#g8-50'/><use x='212.385' y='59.297' xlink:href='#g3-0'/><use x='218.611' y='59.297' xlink:href='#g5-98'/><use x='222.115' y='60.293' xlink:href='#g8-50'/><use x='226.003' y='59.297' xlink:href='#g5-97'/><use x='230.325' y='60.293' xlink:href='#g8-49'/><use x='233.715' y='60.293' xlink:href='#g8-50'/><rect x='189.185' y='60.692' height='.398' width='52.626'/><use x='189.185' y='66.817' xlink:href='#g5-97'/><use x='193.507' y='67.813' xlink:href='#g8-49'/><use x='196.897' y='67.813' xlink:href='#g8-49'/><use x='200.785' y='66.817' xlink:href='#g5-97'/><use x='205.106' y='67.813' xlink:href='#g8-50'/><use x='208.497' y='67.813' xlink:href='#g8-50'/><use x='212.385' y='66.817' xlink:href='#g3-0'/><use x='218.611' y='66.817' xlink:href='#g5-97'/><use x='222.933' y='67.813' xlink:href='#g8-49'/><use x='226.323' y='67.813' xlink:href='#g8-50'/><use x='230.211' y='66.817' xlink:href='#g5-97'/><use x='234.533' y='67.813' xlink:href='#g8-50'/><use x='237.923' y='67.813' xlink:href='#g8-49'/><use x='243.007' y='63.382' xlink:href='#g4-59'/><use x='164.543' y='77.856' xlink:href='#g4-120'/><use x='170.237' y='79.35' xlink:href='#g7-50'/><use x='177.474' y='77.856' xlink:href='#g6-61'/><use x='193.393' y='73.771' xlink:href='#g5-97'/><use x='197.715' y='74.767' xlink:href='#g8-49'/><use x='201.105' y='74.767' xlink:href='#g8-49'/><use x='204.993' y='73.771' xlink:href='#g5-98'/><use x='208.497' y='74.767' xlink:href='#g8-50'/><use x='212.385' y='73.771' xlink:href='#g3-0'/><use x='218.611' y='73.771' xlink:href='#g5-97'/><use x='222.933' y='74.767' xlink:href='#g8-50'/><use x='226.323' y='74.767' xlink:href='#g8-49'/><use x='230.211' y='73.771' xlink:href='#g5-98'/><use x='233.715' y='74.767' xlink:href='#g8-49'/><rect x='189.185' y='75.166' height='.398' width='52.626'/><use x='189.185' y='81.291' xlink:href='#g5-97'/><use x='193.507' y='82.287' xlink:href='#g8-49'/><use x='196.897' y='82.287' xlink:href='#g8-49'/><use x='200.785' y='81.291' xlink:href='#g5-97'/><use x='205.106' y='82.287' xlink:href='#g8-50'/><use x='208.497' y='82.287' xlink:href='#g8-50'/><use x='212.385' y='81.291' xlink:href='#g3-0'/><use x='218.611' y='81.291' xlink:href='#g5-97'/><use x='222.933' y='82.287' xlink:href='#g8-49'/><use x='226.323' y='82.287' xlink:href='#g8-50'/><use x='230.211' y='81.291' xlink:href='#g5-97'/><use x='234.533' y='82.287' xlink:href='#g8-50'/><use x='237.923' y='82.287' xlink:href='#g8-49'/><use x='243.007' y='77.856' xlink:href='#g4-58'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="165"><span data-line="165"></span>这里，<span data-line="165"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2336em;height:0.9717em;width:8.9961em" viewBox='88.468 54.718 85.677 9.254'><desc>$a_{11}a_{22}-a_{12}a_{21}\neq0$</desc><g id='math-7e599c'><use x='88.667' y='61.836' xlink:href='#g4-97'/><use x='93.934' y='63.33' xlink:href='#g7-49'/><use x='97.905' y='63.33' xlink:href='#g7-49'/><use x='102.374' y='61.836' xlink:href='#g4-97'/><use x='107.64' y='63.33' xlink:href='#g7-50'/><use x='111.612' y='63.33' xlink:href='#g7-50'/><use x='118.295' y='61.836' xlink:href='#g2-0'/><use x='128.257' y='61.836' xlink:href='#g4-97'/><use x='133.524' y='63.33' xlink:href='#g7-49'/><use x='137.495' y='63.33' xlink:href='#g7-50'/><use x='141.964' y='61.836' xlink:href='#g4-97'/><use x='147.23' y='63.33' xlink:href='#g7-50'/><use x='151.202' y='63.33' xlink:href='#g7-49'/><use x='158.438' y='61.836' xlink:href='#g2-54'/><use x='158.438' y='61.836' xlink:href='#g6-61'/><use x='168.954' y='61.836' xlink:href='#g6-48'/></g></svg><span data-line="165"></span>.
+</p>
+<div class="framed fragment" data-line="166" style="border:solid black 1px">
+<p class="p noindent" data-line="167"><span data-line="167"></span>思考：如何将上述一元二次方程组的解改写为更加简洁的形式呢？</p></div></section>
+<section class="slide section" data-line="170">
+<p class="p noindent para-continue" data-line="171"><span data-line="171"></span>如果我么引入如下<span data-line="171"></span><strong class="strong-star2">2阶行列式</strong><span data-line="171"></span>的定义：
+</p>
+<div class="math para-block" data-line="172">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="173" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:2.5524em;width:15.9649em" viewBox='130.702 52.67 152.047 24.309'><desc>\[D=\begin{vmatrix}
+a_{11}&amp;a_{12}\\
+    a_{21}&amp;a_{22}
+\end{vmatrix}:= a_{11}a_{22}-a_{12}a_{21},
+\]</desc><g id='math-321ad3'><use x='130.901' y='67.315' xlink:href='#g4-68'/><use x='142.193' y='67.315' xlink:href='#g6-61'/><use x='152.709' y='52.869' xlink:href='#g9-12'/><use x='152.709' y='58.847' xlink:href='#g9-12'/><use x='152.709' y='64.825' xlink:href='#g9-12'/><use x='152.709' y='70.802' xlink:href='#g9-12'/><use x='156.03' y='61.238' xlink:href='#g4-97'/><use x='161.296' y='62.732' xlink:href='#g7-49'/><use x='165.267' y='62.732' xlink:href='#g7-49'/><use x='179.699' y='61.238' xlink:href='#g4-97'/><use x='184.966' y='62.732' xlink:href='#g7-49'/><use x='188.937' y='62.732' xlink:href='#g7-50'/><use x='156.03' y='73.193' xlink:href='#g4-97'/><use x='161.296' y='74.687' xlink:href='#g7-50'/><use x='165.267' y='74.687' xlink:href='#g7-49'/><use x='179.699' y='73.193' xlink:href='#g4-97'/><use x='184.966' y='74.687' xlink:href='#g7-50'/><use x='188.937' y='74.687' xlink:href='#g7-50'/><use x='193.406' y='52.869' xlink:href='#g9-12'/><use x='193.406' y='58.847' xlink:href='#g9-12'/><use x='193.406' y='64.825' xlink:href='#g9-12'/><use x='193.406' y='70.802' xlink:href='#g9-12'/><use x='199.494' y='67.315' xlink:href='#g6-58'/><use x='202.262' y='67.315' xlink:href='#g6-61'/><use x='212.778' y='67.315' xlink:href='#g4-97'/><use x='218.044' y='68.81' xlink:href='#g7-49'/><use x='222.015' y='68.81' xlink:href='#g7-49'/><use x='226.485' y='67.315' xlink:href='#g4-97'/><use x='231.751' y='68.81' xlink:href='#g7-50'/><use x='235.722' y='68.81' xlink:href='#g7-50'/><use x='242.405' y='67.315' xlink:href='#g2-0'/><use x='252.368' y='67.315' xlink:href='#g4-97'/><use x='257.634' y='68.81' xlink:href='#g7-49'/><use x='261.605' y='68.81' xlink:href='#g7-50'/><use x='266.075' y='67.315' xlink:href='#g4-97'/><use x='271.341' y='68.81' xlink:href='#g7-50'/><use x='275.312' y='68.81' xlink:href='#g7-49'/><use x='279.781' y='67.315' xlink:href='#g4-59'/></g></svg></div></div>
+<p class="p noindent para-continued para-continue" data-line="178"><span data-line="178"></span>则我们可将上述一元二次方程组的解改写为
+</p>
+<div class="math para-block" data-line="179">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="180" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:12.5949em;width:11.5154em" viewBox='200.109 52.67 109.67 119.951'><desc>\[\begin{cases}
+x_1=\frac{\begin{vmatrix}
+  b_1&amp;a_{12}\\
+    b_2&amp;a_{22}
+  \end{vmatrix}}{\begin{vmatrix}
+    a_{11}&amp;a_{12}\\
+      a_{21}&amp;a_{22}
+    \end{vmatrix}}=: \frac{D_1}{D},\\
+      x_2=\frac{\begin{vmatrix}
+        a_{11}&amp;b_1\\
+          a_{12}&amp;b_2
+          \end{vmatrix}}{\begin{vmatrix}
+            a_{11}&amp;a_{12}\\
+              a_{21}&amp;a_{22}
+    \end{vmatrix}}=:\frac{D_2}{D}.
+  \end{cases}
+\]</desc><g id='math-b44ef0'><use x='200.308' y='52.869' xlink:href='#g9-56'/><use x='200.308' y='61.836' xlink:href='#g9-62'/><use x='200.308' y='64.825' xlink:href='#g9-62'/><use x='200.308' y='67.813' xlink:href='#g9-62'/><use x='200.308' y='70.802' xlink:href='#g9-62'/><use x='200.308' y='73.791' xlink:href='#g9-62'/><use x='200.308' y='76.78' xlink:href='#g9-62'/><use x='200.308' y='79.769' xlink:href='#g9-62'/><use x='200.308' y='82.757' xlink:href='#g9-62'/><use x='200.308' y='85.746' xlink:href='#g9-62'/><use x='200.308' y='88.735' xlink:href='#g9-62'/><use x='200.308' y='91.724' xlink:href='#g9-62'/><use x='200.308' y='94.713' xlink:href='#g9-62'/><use x='200.308' y='97.702' xlink:href='#g9-62'/><use x='200.308' y='100.69' xlink:href='#g9-62'/><use x='200.308' y='103.679' xlink:href='#g9-60'/><use x='200.308' y='121.612' xlink:href='#g9-62'/><use x='200.308' y='124.601' xlink:href='#g9-62'/><use x='200.308' y='127.59' xlink:href='#g9-62'/><use x='200.308' y='130.579' xlink:href='#g9-62'/><use x='200.308' y='133.567' xlink:href='#g9-62'/><use x='200.308' y='136.556' xlink:href='#g9-62'/><use x='200.308' y='139.545' xlink:href='#g9-62'/><use x='200.308' y='142.534' xlink:href='#g9-62'/><use x='200.308' y='145.523' xlink:href='#g9-62'/><use x='200.308' y='148.512' xlink:href='#g9-62'/><use x='200.308' y='151.5' xlink:href='#g9-62'/><use x='200.308' y='154.489' xlink:href='#g9-62'/><use x='200.308' y='157.478' xlink:href='#g9-62'/><use x='200.308' y='160.467' xlink:href='#g9-62'/><use x='200.308' y='163.456' xlink:href='#g9-58'/><use x='209.164' y='85.248' xlink:href='#g4-120'/><use x='214.858' y='86.743' xlink:href='#g7-49'/><use x='222.095' y='85.248' xlink:href='#g6-61'/><use x='236.287' y='52.869' xlink:href='#g1-12'/><use x='236.287' y='57.054' xlink:href='#g1-12'/><use x='236.287' y='61.238' xlink:href='#g1-12'/><use x='236.287' y='65.422' xlink:href='#g1-12'/><use x='236.287' y='69.607' xlink:href='#g1-12'/><use x='236.287' y='73.791' xlink:href='#g1-12'/><use x='236.287' y='77.975' xlink:href='#g1-12'/><use x='239.082' y='63.211' xlink:href='#g4-98'/><use x='243.358' y='64.705' xlink:href='#g7-49'/><use x='257.79' y='63.211' xlink:href='#g4-97'/><use x='263.056' y='64.705' xlink:href='#g7-49'/><use x='267.027' y='64.705' xlink:href='#g7-50'/><use x='239.082' y='77.557' xlink:href='#g4-98'/><use x='243.358' y='79.051' xlink:href='#g7-50'/><use x='257.79' y='77.557' xlink:href='#g4-97'/><use x='263.056' y='79.051' xlink:href='#g7-50'/><use x='267.027' y='79.051' xlink:href='#g7-50'/><use x='271.497' y='52.869' xlink:href='#g1-12'/><use x='271.497' y='57.054' xlink:href='#g1-12'/><use x='271.497' y='61.238' xlink:href='#g1-12'/><use x='271.497' y='65.422' xlink:href='#g1-12'/><use x='271.497' y='69.607' xlink:href='#g1-12'/><use x='271.497' y='73.791' xlink:href='#g1-12'/><use x='271.497' y='77.975' xlink:href='#g1-12'/><rect x='233.806' y='82.558' height='.398' width='42.966'/><use x='233.806' y='83.355' xlink:href='#g1-12'/><use x='233.806' y='87.54' xlink:href='#g1-12'/><use x='233.806' y='91.724' xlink:href='#g1-12'/><use x='233.806' y='95.908' xlink:href='#g1-12'/><use x='233.806' y='100.093' xlink:href='#g1-12'/><use x='233.806' y='104.277' xlink:href='#g1-12'/><use x='233.806' y='108.461' xlink:href='#g1-12'/><use x='236.601' y='93.697' xlink:href='#g4-97'/><use x='241.867' y='95.191' xlink:href='#g7-49'/><use x='245.839' y='95.191' xlink:href='#g7-49'/><use x='260.271' y='93.697' xlink:href='#g4-97'/><use x='265.537' y='95.191' xlink:href='#g7-49'/><use x='269.508' y='95.191' xlink:href='#g7-50'/><use x='236.601' y='108.043' xlink:href='#g4-97'/><use x='241.867' y='109.537' xlink:href='#g7-50'/><use x='245.839' y='109.537' xlink:href='#g7-49'/><use x='260.271' y='108.043' xlink:href='#g4-97'/><use x='265.537' y='109.537' xlink:href='#g7-50'/><use x='269.508' y='109.537' xlink:href='#g7-50'/><use x='273.977' y='83.355' xlink:href='#g1-12'/><use x='273.977' y='87.54' xlink:href='#g1-12'/><use x='273.977' y='91.724' xlink:href='#g1-12'/><use x='273.977' y='95.908' xlink:href='#g1-12'/><use x='273.977' y='100.093' xlink:href='#g1-12'/><use x='273.977' y='104.277' xlink:href='#g1-12'/><use x='273.977' y='108.461' xlink:href='#g1-12'/><use x='280.735' y='85.248' xlink:href='#g6-61'/><use x='288.484' y='85.248' xlink:href='#g6-58'/><use x='295.214' y='81.163' xlink:href='#g5-68'/><use x='301.728' y='82.16' xlink:href='#g8-49'/><rect x='295.214' y='82.558' height='.398' width='10.402'/><use x='297.051' y='88.684' xlink:href='#g5-68'/><use x='306.812' y='85.248' xlink:href='#g4-59'/><use x='209.164' y='145.025' xlink:href='#g4-120'/><use x='214.858' y='146.519' xlink:href='#g7-50'/><use x='222.095' y='145.025' xlink:href='#g6-61'/><use x='236.287' y='112.646' xlink:href='#g1-12'/><use x='236.287' y='116.83' xlink:href='#g1-12'/><use x='236.287' y='121.014' xlink:href='#g1-12'/><use x='236.287' y='125.199' xlink:href='#g1-12'/><use x='236.287' y='129.383' xlink:href='#g1-12'/><use x='236.287' y='133.567' xlink:href='#g1-12'/><use x='236.287' y='137.752' xlink:href='#g1-12'/><use x='239.082' y='122.987' xlink:href='#g4-97'/><use x='244.348' y='124.481' xlink:href='#g7-49'/><use x='248.32' y='124.481' xlink:href='#g7-49'/><use x='262.752' y='122.987' xlink:href='#g4-98'/><use x='267.027' y='124.481' xlink:href='#g7-49'/><use x='239.082' y='137.333' xlink:href='#g4-97'/><use x='244.348' y='138.828' xlink:href='#g7-49'/><use x='248.32' y='138.828' xlink:href='#g7-50'/><use x='262.752' y='137.333' xlink:href='#g4-98'/><use x='267.027' y='138.828' xlink:href='#g7-50'/><use x='271.497' y='112.646' xlink:href='#g1-12'/><use x='271.497' y='116.83' xlink:href='#g1-12'/><use x='271.497' y='121.014' xlink:href='#g1-12'/><use x='271.497' y='125.199' xlink:href='#g1-12'/><use x='271.497' y='129.383' xlink:href='#g1-12'/><use x='271.497' y='133.567' xlink:href='#g1-12'/><use x='271.497' y='137.752' xlink:href='#g1-12'/><rect x='233.806' y='142.335' height='.398' width='42.966'/><use x='233.806' y='143.132' xlink:href='#g1-12'/><use x='233.806' y='147.316' xlink:href='#g1-12'/><use x='233.806' y='151.5' xlink:href='#g1-12'/><use x='233.806' y='155.685' xlink:href='#g1-12'/><use x='233.806' y='159.869' xlink:href='#g1-12'/><use x='233.806' y='164.053' xlink:href='#g1-12'/><use x='233.806' y='168.238' xlink:href='#g1-12'/><use x='236.601' y='153.473' xlink:href='#g4-97'/><use x='241.867' y='154.967' xlink:href='#g7-49'/><use x='245.839' y='154.967' xlink:href='#g7-49'/><use x='260.271' y='153.473' xlink:href='#g4-97'/><use x='265.537' y='154.967' xlink:href='#g7-49'/><use x='269.508' y='154.967' xlink:href='#g7-50'/><use x='236.601' y='167.819' xlink:href='#g4-97'/><use x='241.867' y='169.313' xlink:href='#g7-50'/><use x='245.839' y='169.313' xlink:href='#g7-49'/><use x='260.271' y='167.819' xlink:href='#g4-97'/><use x='265.537' y='169.313' xlink:href='#g7-50'/><use x='269.508' y='169.313' xlink:href='#g7-50'/><use x='273.977' y='143.132' xlink:href='#g1-12'/><use x='273.977' y='147.316' xlink:href='#g1-12'/><use x='273.977' y='151.5' xlink:href='#g1-12'/><use x='273.977' y='155.685' xlink:href='#g1-12'/><use x='273.977' y='159.869' xlink:href='#g1-12'/><use x='273.977' y='164.053' xlink:href='#g1-12'/><use x='273.977' y='168.238' xlink:href='#g1-12'/><use x='280.735' y='145.025' xlink:href='#g6-61'/><use x='288.484' y='145.025' xlink:href='#g6-58'/><use x='295.214' y='140.94' xlink:href='#g5-68'/><use x='301.728' y='141.936' xlink:href='#g8-50'/><rect x='295.214' y='142.335' height='.398' width='10.402'/><use x='297.051' y='148.46' xlink:href='#g5-68'/><use x='306.812' y='145.025' xlink:href='#g4-58'/></g></svg></div></div></section>
+<section class="slide section" data-line="199"><h4 id="section" class="h3" data-line="200" data-heading-depth="3" style="display:block"><span data-line="200"></span>三阶行列式的定义</h4>
+<p class="p noindent" data-line="202"><span data-line="202"></span>仿照二阶行列式的定义，我们可以定义三阶行列式如下：
+</p>
+<div class="center align-center" data-line="204" style="text-align:center">
+<p class="p noindent" data-line="205"><span data-line="205"></span><img src="data:image/png;base64,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" title="3x3matrix" alt="3x3matrix" data-path="images/3x3matrix.png" data-linkid="3x3matrix" style="width:350px;max-width:90%"></p></div>
+<p class="p noindent para-continue" data-line="210"><span data-line="210"></span>即，
+</p>
+<div class="math para-block" data-line="211">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="212" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:6.8309em;width:20.1081em" viewBox='110.972 52.67 191.506 65.056'><desc>\[\begin{aligned}
+D&amp;=\begin{vmatrix}
+a_{11}&amp;a_{12}&amp;a_{13}\\
+    a_{21}&amp;a_{22}&amp;a_{23}\\
+    a_{31}&amp;a_{32}&amp;a_{33}
+    \end{vmatrix}\\
+      &amp;:=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}\\
+      &amp;\qquad-a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}.
+\end{aligned}
+\]</desc><g id='math-0b23b1'><use x='111.171' y='73.293' xlink:href='#g4-68'/><use x='122.463' y='73.293' xlink:href='#g6-61'/><use x='132.979' y='52.869' xlink:href='#g9-12'/><use x='132.979' y='58.847' xlink:href='#g9-12'/><use x='132.979' y='64.825' xlink:href='#g9-12'/><use x='132.979' y='70.802' xlink:href='#g9-12'/><use x='132.979' y='76.78' xlink:href='#g9-12'/><use x='132.979' y='82.757' xlink:href='#g9-12'/><use x='136.3' y='61.238' xlink:href='#g4-97'/><use x='141.566' y='62.732' xlink:href='#g7-49'/><use x='145.538' y='62.732' xlink:href='#g7-49'/><use x='159.97' y='61.238' xlink:href='#g4-97'/><use x='165.236' y='62.732' xlink:href='#g7-49'/><use x='169.207' y='62.732' xlink:href='#g7-50'/><use x='183.639' y='61.238' xlink:href='#g4-97'/><use x='188.905' y='62.732' xlink:href='#g7-49'/><use x='192.876' y='62.732' xlink:href='#g7-51'/><use x='136.3' y='73.193' xlink:href='#g4-97'/><use x='141.566' y='74.688' xlink:href='#g7-50'/><use x='145.538' y='74.688' xlink:href='#g7-49'/><use x='159.97' y='73.193' xlink:href='#g4-97'/><use x='165.236' y='74.688' xlink:href='#g7-50'/><use x='169.207' y='74.688' xlink:href='#g7-50'/><use x='183.639' y='73.193' xlink:href='#g4-97'/><use x='188.905' y='74.688' xlink:href='#g7-50'/><use x='192.876' y='74.688' xlink:href='#g7-51'/><use x='136.3' y='85.148' xlink:href='#g4-97'/><use x='141.566' y='86.643' xlink:href='#g7-51'/><use x='145.538' y='86.643' xlink:href='#g7-49'/><use x='159.97' y='85.148' xlink:href='#g4-97'/><use x='165.236' y='86.643' xlink:href='#g7-51'/><use x='169.207' y='86.643' xlink:href='#g7-50'/><use x='183.639' y='85.148' xlink:href='#g4-97'/><use x='188.905' y='86.643' xlink:href='#g7-51'/><use x='192.876' y='86.643' xlink:href='#g7-51'/><use x='197.346' y='52.869' xlink:href='#g9-12'/><use x='197.346' y='58.847' xlink:href='#g9-12'/><use x='197.346' y='64.825' xlink:href='#g9-12'/><use x='197.346' y='70.802' xlink:href='#g9-12'/><use x='197.346' y='76.78' xlink:href='#g9-12'/><use x='197.346' y='82.757' xlink:href='#g9-12'/><use x='122.463' y='101.089' xlink:href='#g6-58'/><use x='125.231' y='101.089' xlink:href='#g6-61'/><use x='135.747' y='101.089' xlink:href='#g4-97'/><use x='141.013' y='102.583' xlink:href='#g7-49'/><use x='144.984' y='102.583' xlink:href='#g7-49'/><use x='149.453' y='101.089' xlink:href='#g4-97'/><use x='154.72' y='102.583' xlink:href='#g7-50'/><use x='158.691' y='102.583' xlink:href='#g7-50'/><use x='163.16' y='101.089' xlink:href='#g4-97'/><use x='168.426' y='102.583' xlink:href='#g7-51'/><use x='172.398' y='102.583' xlink:href='#g7-51'/><use x='179.081' y='101.089' xlink:href='#g6-43'/><use x='189.043' y='101.089' xlink:href='#g4-97'/><use x='194.31' y='102.583' xlink:href='#g7-49'/><use x='198.281' y='102.583' xlink:href='#g7-50'/><use x='202.75' y='101.089' xlink:href='#g4-97'/><use x='208.016' y='102.583' xlink:href='#g7-50'/><use x='211.988' y='102.583' xlink:href='#g7-51'/><use x='216.457' y='101.089' xlink:href='#g4-97'/><use x='221.723' y='102.583' xlink:href='#g7-51'/><use x='225.694' y='102.583' xlink:href='#g7-49'/><use x='232.378' y='101.089' xlink:href='#g6-43'/><use x='242.34' y='101.089' xlink:href='#g4-97'/><use x='247.606' y='102.583' xlink:href='#g7-49'/><use x='251.578' y='102.583' xlink:href='#g7-51'/><use x='256.047' y='101.089' xlink:href='#g4-97'/><use x='261.313' y='102.583' xlink:href='#g7-50'/><use x='265.284' y='102.583' xlink:href='#g7-49'/><use x='269.754' y='101.089' xlink:href='#g4-97'/><use x='275.02' y='102.583' xlink:href='#g7-51'/><use x='278.991' y='102.583' xlink:href='#g7-50'/><use x='141.835' y='116.033' xlink:href='#g2-0'/><use x='151.798' y='116.033' xlink:href='#g4-97'/><use x='157.064' y='117.527' xlink:href='#g7-51'/><use x='161.035' y='117.527' xlink:href='#g7-49'/><use x='165.504' y='116.033' xlink:href='#g4-97'/><use x='170.771' y='117.527' xlink:href='#g7-50'/><use x='174.742' y='117.527' xlink:href='#g7-50'/><use x='179.211' y='116.033' xlink:href='#g4-97'/><use x='184.477' y='117.527' xlink:href='#g7-49'/><use x='188.449' y='117.527' xlink:href='#g7-51'/><use x='195.132' y='116.033' xlink:href='#g2-0'/><use x='205.094' y='116.033' xlink:href='#g4-97'/><use x='210.361' y='117.527' xlink:href='#g7-51'/><use x='214.332' y='117.527' xlink:href='#g7-50'/><use x='218.801' y='116.033' xlink:href='#g4-97'/><use x='224.067' y='117.527' xlink:href='#g7-50'/><use x='228.039' y='117.527' xlink:href='#g7-51'/><use x='232.508' y='116.033' xlink:href='#g4-97'/><use x='237.774' y='117.527' xlink:href='#g7-49'/><use x='241.745' y='117.527' xlink:href='#g7-49'/><use x='248.429' y='116.033' xlink:href='#g2-0'/><use x='258.391' y='116.033' xlink:href='#g4-97'/><use x='263.657' y='117.527' xlink:href='#g7-51'/><use x='267.629' y='117.527' xlink:href='#g7-51'/><use x='272.098' y='116.033' xlink:href='#g4-97'/><use x='277.364' y='117.527' xlink:href='#g7-50'/><use x='281.335' y='117.527' xlink:href='#g7-49'/><use x='285.805' y='116.033' xlink:href='#g4-97'/><use x='291.071' y='117.527' xlink:href='#g7-49'/><use x='295.042' y='117.527' xlink:href='#g7-50'/><use x='299.511' y='116.033' xlink:href='#g4-58'/></g></svg></div></div></section>
+<section class="slide section" data-line="224"><h4 id="section" class="h3" data-line="225" data-heading-depth="3" style="display:block"><span data-line="225"></span>三元一次方程组的解</h4>
+<p class="p noindent para-continue" data-line="226"><span data-line="226"></span>完全类似二元一次方程组，三元一次方程组
+</p>
+<div class="math para-block" data-line="227">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="228" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:4.4354em;width:13.6514em" viewBox='189.937 53.267 130.013 42.242'><desc>\[\begin{cases}
+a_{11}x_1+a_{12}x_2+a_{13}x_3=b_1,\\
+    a_{21}x_1+a_{22}x_2+a_{23}x_3=b_2,\\
+    a_{31}x_1+a_{32}x_2+a_{33}x_3=b_3,
+\end{cases}
+\]</desc><g id='math-1ed3ae'><use x='190.137' y='53.467' xlink:href='#g9-56'/><use x='190.137' y='62.433' xlink:href='#g9-62'/><use x='190.137' y='65.422' xlink:href='#g9-60'/><use x='190.137' y='83.355' xlink:href='#g9-62'/><use x='190.137' y='86.344' xlink:href='#g9-58'/><use x='198.992' y='62.911' xlink:href='#g4-97'/><use x='204.259' y='64.406' xlink:href='#g7-49'/><use x='208.23' y='64.406' xlink:href='#g7-49'/><use x='212.699' y='62.911' xlink:href='#g4-120'/><use x='218.393' y='64.406' xlink:href='#g7-49'/><use x='225.076' y='62.911' xlink:href='#g6-43'/><use x='235.039' y='62.911' xlink:href='#g4-97'/><use x='240.305' y='64.406' xlink:href='#g7-49'/><use x='244.276' y='64.406' xlink:href='#g7-50'/><use x='248.746' y='62.911' xlink:href='#g4-120'/><use x='254.44' y='64.406' xlink:href='#g7-50'/><use x='261.123' y='62.911' xlink:href='#g6-43'/><use x='271.085' y='62.911' xlink:href='#g4-97'/><use x='276.352' y='64.406' xlink:href='#g7-49'/><use x='280.323' y='64.406' xlink:href='#g7-51'/><use x='284.792' y='62.911' xlink:href='#g4-120'/><use x='290.486' y='64.406' xlink:href='#g7-51'/><use x='297.723' y='62.911' xlink:href='#g6-61'/><use x='308.239' y='62.911' xlink:href='#g4-98'/><use x='312.515' y='64.406' xlink:href='#g7-49'/><use x='316.984' y='62.911' xlink:href='#g4-59'/><use x='198.992' y='77.258' xlink:href='#g4-97'/><use x='204.259' y='78.752' xlink:href='#g7-50'/><use x='208.23' y='78.752' xlink:href='#g7-49'/><use x='212.699' y='77.258' xlink:href='#g4-120'/><use x='218.393' y='78.752' xlink:href='#g7-49'/><use x='225.076' y='77.258' xlink:href='#g6-43'/><use x='235.039' y='77.258' xlink:href='#g4-97'/><use x='240.305' y='78.752' xlink:href='#g7-50'/><use x='244.276' y='78.752' xlink:href='#g7-50'/><use x='248.746' y='77.258' xlink:href='#g4-120'/><use x='254.44' y='78.752' xlink:href='#g7-50'/><use x='261.123' y='77.258' xlink:href='#g6-43'/><use x='271.085' y='77.258' xlink:href='#g4-97'/><use x='276.352' y='78.752' xlink:href='#g7-50'/><use x='280.323' y='78.752' xlink:href='#g7-51'/><use x='284.792' y='77.258' xlink:href='#g4-120'/><use x='290.486' y='78.752' xlink:href='#g7-51'/><use x='297.723' y='77.258' xlink:href='#g6-61'/><use x='308.239' y='77.258' xlink:href='#g4-98'/><use x='312.515' y='78.752' xlink:href='#g7-50'/><use x='316.984' y='77.258' xlink:href='#g4-59'/><use x='198.992' y='91.604' xlink:href='#g4-97'/><use x='204.259' y='93.098' xlink:href='#g7-51'/><use x='208.23' y='93.098' xlink:href='#g7-49'/><use x='212.699' y='91.604' xlink:href='#g4-120'/><use x='218.393' y='93.098' xlink:href='#g7-49'/><use x='225.076' y='91.604' xlink:href='#g6-43'/><use x='235.039' y='91.604' xlink:href='#g4-97'/><use x='240.305' y='93.098' xlink:href='#g7-51'/><use x='244.276' y='93.098' xlink:href='#g7-50'/><use x='248.746' y='91.604' xlink:href='#g4-120'/><use x='254.44' y='93.098' xlink:href='#g7-50'/><use x='261.123' y='91.604' xlink:href='#g6-43'/><use x='271.085' y='91.604' xlink:href='#g4-97'/><use x='276.352' y='93.098' xlink:href='#g7-51'/><use x='280.323' y='93.098' xlink:href='#g7-51'/><use x='284.792' y='91.604' xlink:href='#g4-120'/><use x='290.486' y='93.098' xlink:href='#g7-51'/><use x='297.723' y='91.604' xlink:href='#g6-61'/><use x='308.239' y='91.604' xlink:href='#g4-98'/><use x='312.515' y='93.098' xlink:href='#g7-51'/><use x='316.984' y='91.604' xlink:href='#g4-59'/></g></svg></div></div>
+<p class="p noindent para-continued para-continue" data-line="234"><span data-line="234"></span>的解为
+</p>
+<div class="math para-block" data-line="235">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="236" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:2.1819em;width:15.4994em" viewBox='132.918 52.67 147.613 20.78'><desc>\[  x_1=\frac{D_1}{D},\quad x_2=\frac{D_2}{D},\quad x_3=\frac{D_3}{D}.
+\]</desc><g id='math-4c5499'><use x='133.118' y='66.417' xlink:href='#g4-120'/><use x='138.812' y='67.911' xlink:href='#g7-49'/><use x='146.048' y='66.417' xlink:href='#g6-61'/><use x='157.76' y='59.677' xlink:href='#g4-68'/><use x='166.008' y='61.171' xlink:href='#g7-49'/><rect x='157.76' y='63.727' height='.398' width='12.718'/><use x='159.856' y='73.251' xlink:href='#g4-68'/><use x='171.673' y='66.417' xlink:href='#g4-59'/><use x='186.063' y='66.417' xlink:href='#g4-120'/><use x='191.757' y='67.911' xlink:href='#g7-50'/><use x='198.994' y='66.417' xlink:href='#g6-61'/><use x='210.706' y='59.677' xlink:href='#g4-68'/><use x='218.954' y='61.171' xlink:href='#g7-50'/><rect x='210.706' y='63.727' height='.398' width='12.718'/><use x='212.802' y='73.251' xlink:href='#g4-68'/><use x='224.619' y='66.417' xlink:href='#g4-59'/><use x='239.009' y='66.417' xlink:href='#g4-120'/><use x='244.703' y='67.911' xlink:href='#g7-51'/><use x='251.94' y='66.417' xlink:href='#g6-61'/><use x='263.651' y='59.677' xlink:href='#g4-68'/><use x='271.9' y='61.171' xlink:href='#g7-51'/><rect x='263.651' y='63.727' height='.398' width='12.718'/><use x='265.748' y='73.251' xlink:href='#g4-68'/><use x='277.565' y='66.417' xlink:href='#g4-58'/></g></svg></div></div>
+<p class="p noindent para-continued para-continue" data-line="238"><span data-line="238"></span>其中，
+</p>
+<div class="math para-block" data-line="239">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="240" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.8077em;width:31.8263em" viewBox='108.969 52.67 303.108 36.264'><desc>\[D_1=\begin{vmatrix}
+b_1&amp;a_{12}&amp;a_{13}\\
+    b_2&amp;a_{22}&amp;a_{23}\\
+    b_3&amp;a_{32}&amp;a_{33}
+    \end{vmatrix},\quad
+    D_2=\begin{vmatrix}
+    a_{11}&amp;b_1&amp;a_{13}\\
+      a_{21}&amp;b_2&amp;a_{23}\\
+      a_{31}&amp;b_3&amp;a_{33}
+      \end{vmatrix},\quad
+      D_3=\begin{vmatrix}
+      a_{11}&amp;a_{12}&amp;b_1\\
+        a_{21}&amp;a_{22}&amp;b_2\\
+        a_{31}&amp;a_{32}&amp;b_3
+\end{vmatrix}.
+\]</desc><g id='math-afff85'><use x='109.168' y='73.293' xlink:href='#g4-68'/><use x='117.417' y='74.787' xlink:href='#g7-49'/><use x='124.653' y='73.293' xlink:href='#g6-61'/><use x='135.17' y='52.869' xlink:href='#g9-12'/><use x='135.17' y='58.847' xlink:href='#g9-12'/><use x='135.17' y='64.825' xlink:href='#g9-12'/><use x='135.17' y='70.802' xlink:href='#g9-12'/><use x='135.17' y='76.78' xlink:href='#g9-12'/><use x='135.17' y='82.757' xlink:href='#g9-12'/><use x='138.49' y='61.238' xlink:href='#g4-98'/><use x='142.766' y='62.732' xlink:href='#g7-49'/><use x='157.198' y='61.238' xlink:href='#g4-97'/><use x='162.464' y='62.732' xlink:href='#g7-49'/><use x='166.435' y='62.732' xlink:href='#g7-50'/><use x='180.867' y='61.238' xlink:href='#g4-97'/><use x='186.134' y='62.732' xlink:href='#g7-49'/><use x='190.105' y='62.732' xlink:href='#g7-51'/><use x='138.49' y='73.193' xlink:href='#g4-98'/><use x='142.766' y='74.688' xlink:href='#g7-50'/><use x='157.198' y='73.193' xlink:href='#g4-97'/><use x='162.464' y='74.688' xlink:href='#g7-50'/><use x='166.435' y='74.688' xlink:href='#g7-50'/><use x='180.867' y='73.193' xlink:href='#g4-97'/><use x='186.134' y='74.688' xlink:href='#g7-50'/><use x='190.105' y='74.688' xlink:href='#g7-51'/><use x='138.49' y='85.148' xlink:href='#g4-98'/><use x='142.766' y='86.643' xlink:href='#g7-51'/><use x='157.198' y='85.148' xlink:href='#g4-97'/><use x='162.464' y='86.643' xlink:href='#g7-51'/><use x='166.435' y='86.643' xlink:href='#g7-50'/><use x='180.867' y='85.148' xlink:href='#g4-97'/><use x='186.134' y='86.643' xlink:href='#g7-51'/><use x='190.105' y='86.643' xlink:href='#g7-51'/><use x='194.574' y='52.869' xlink:href='#g9-12'/><use x='194.574' y='58.847' xlink:href='#g9-12'/><use x='194.574' y='64.825' xlink:href='#g9-12'/><use x='194.574' y='70.802' xlink:href='#g9-12'/><use x='194.574' y='76.78' xlink:href='#g9-12'/><use x='194.574' y='82.757' xlink:href='#g9-12'/><use x='199.555' y='73.293' xlink:href='#g4-59'/><use x='213.946' y='73.293' xlink:href='#g4-68'/><use x='222.194' y='74.787' xlink:href='#g7-50'/><use x='229.431' y='73.293' xlink:href='#g6-61'/><use x='239.947' y='52.869' xlink:href='#g9-12'/><use x='239.947' y='58.847' xlink:href='#g9-12'/><use x='239.947' y='64.825' xlink:href='#g9-12'/><use x='239.947' y='70.802' xlink:href='#g9-12'/><use x='239.947' y='76.78' xlink:href='#g9-12'/><use x='239.947' y='82.757' xlink:href='#g9-12'/><use x='243.268' y='61.238' xlink:href='#g4-97'/><use x='248.534' y='62.732' xlink:href='#g7-49'/><use x='252.505' y='62.732' xlink:href='#g7-49'/><use x='266.937' y='61.238' xlink:href='#g4-98'/><use x='271.213' y='62.732' xlink:href='#g7-49'/><use x='285.645' y='61.238' xlink:href='#g4-97'/><use x='290.911' y='62.732' xlink:href='#g7-49'/><use x='294.882' y='62.732' xlink:href='#g7-51'/><use x='243.268' y='73.193' xlink:href='#g4-97'/><use x='248.534' y='74.688' xlink:href='#g7-50'/><use x='252.505' y='74.688' xlink:href='#g7-49'/><use x='266.937' y='73.193' xlink:href='#g4-98'/><use x='271.213' y='74.688' xlink:href='#g7-50'/><use x='285.645' y='73.193' xlink:href='#g4-97'/><use x='290.911' y='74.688' xlink:href='#g7-50'/><use x='294.882' y='74.688' xlink:href='#g7-51'/><use x='243.268' y='85.148' xlink:href='#g4-97'/><use x='248.534' y='86.643' xlink:href='#g7-51'/><use x='252.505' y='86.643' xlink:href='#g7-49'/><use x='266.937' y='85.148' xlink:href='#g4-98'/><use x='271.213' y='86.643' xlink:href='#g7-51'/><use x='285.645' y='85.148' xlink:href='#g4-97'/><use x='290.911' y='86.643' xlink:href='#g7-51'/><use x='294.882' y='86.643' xlink:href='#g7-51'/><use x='299.352' y='52.869' xlink:href='#g9-12'/><use x='299.352' y='58.847' xlink:href='#g9-12'/><use x='299.352' y='64.825' xlink:href='#g9-12'/><use x='299.352' y='70.802' xlink:href='#g9-12'/><use x='299.352' y='76.78' xlink:href='#g9-12'/><use x='299.352' y='82.757' xlink:href='#g9-12'/><use x='304.333' y='73.293' xlink:href='#g4-59'/><use x='318.723' y='73.293' xlink:href='#g4-68'/><use x='326.972' y='74.787' xlink:href='#g7-51'/><use x='334.208' y='73.293' xlink:href='#g6-61'/><use x='344.724' y='52.869' xlink:href='#g9-12'/><use x='344.724' y='58.847' xlink:href='#g9-12'/><use x='344.724' y='64.825' xlink:href='#g9-12'/><use x='344.724' y='70.802' xlink:href='#g9-12'/><use x='344.724' y='76.78' xlink:href='#g9-12'/><use x='344.724' y='82.757' xlink:href='#g9-12'/><use x='348.045' y='61.238' xlink:href='#g4-97'/><use x='353.311' y='62.732' xlink:href='#g7-49'/><use x='357.283' y='62.732' xlink:href='#g7-49'/><use x='371.715' y='61.238' xlink:href='#g4-97'/><use x='376.981' y='62.732' xlink:href='#g7-49'/><use x='380.952' y='62.732' xlink:href='#g7-50'/><use x='395.384' y='61.238' xlink:href='#g4-98'/><use x='399.66' y='62.732' xlink:href='#g7-49'/><use x='348.045' y='73.193' xlink:href='#g4-97'/><use x='353.311' y='74.688' xlink:href='#g7-50'/><use x='357.283' y='74.688' xlink:href='#g7-49'/><use x='371.715' y='73.193' xlink:href='#g4-97'/><use x='376.981' y='74.688' xlink:href='#g7-50'/><use x='380.952' y='74.688' xlink:href='#g7-50'/><use x='395.384' y='73.193' xlink:href='#g4-98'/><use x='399.66' y='74.688' xlink:href='#g7-50'/><use x='348.045' y='85.148' xlink:href='#g4-97'/><use x='353.311' y='86.643' xlink:href='#g7-51'/><use x='357.283' y='86.643' xlink:href='#g7-49'/><use x='371.715' y='85.148' xlink:href='#g4-97'/><use x='376.981' y='86.643' xlink:href='#g7-51'/><use x='380.952' y='86.643' xlink:href='#g7-50'/><use x='395.384' y='85.148' xlink:href='#g4-98'/><use x='399.66' y='86.643' xlink:href='#g7-51'/><use x='404.129' y='52.869' xlink:href='#g9-12'/><use x='404.129' y='58.847' xlink:href='#g9-12'/><use x='404.129' y='64.825' xlink:href='#g9-12'/><use x='404.129' y='70.802' xlink:href='#g9-12'/><use x='404.129' y='76.78' xlink:href='#g9-12'/><use x='404.129' y='82.757' xlink:href='#g9-12'/><use x='409.11' y='73.293' xlink:href='#g4-58'/></g></svg></div></div></section></section>
+<section class="vertical section" data-line="260">
+<p class="p noindent" data-line="262"><span data-line="262"></span> <span data-line="262"></span> 
+</p>
+<section class="slide section" data-line="262"><h2 id="section" class="h1" data-line="263" data-heading-depth="1" style="display:block"><span data-line="263"></span>全排列</h2>
+<p class="p noindent" data-line="265"><span data-line="265"></span>为了研究更一般方程组的解，我们有必要定义更高阶矩阵的行列式。为此，我们先来定义全排列。
+</p>
+<div class="definition" data-line="267" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="268"><span data-line="268"></span><span class="definition-before"><strong class="strong-star2">定义&#160;<span class="definition-label">3</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic"> 排列</span>)</span> </span><span data-line="268"></span>我们称由自然数<span data-line="268"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2341em;height:0.9194em;width:4.5064em" viewBox='34.67 55.216 42.918 8.756'><desc>$1,2,\ldots,n$</desc><g id='math-0d115e'><use x='34.869' y='61.836' xlink:href='#g6-49'/><use x='39.851' y='61.836' xlink:href='#g4-59'/><use x='44.278' y='61.836' xlink:href='#g6-50'/><use x='49.26' y='61.836' xlink:href='#g4-59'/><use x='53.688' y='61.836' xlink:href='#g4-58'/><use x='58.115' y='61.836' xlink:href='#g4-58'/><use x='62.543' y='61.836' xlink:href='#g4-58'/><use x='66.971' y='61.836' xlink:href='#g4-59'/><use x='71.399' y='61.836' xlink:href='#g4-110'/></g></svg><span data-line="268"></span>组成的一个全排列<span data-line="268"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1857em;height:0.8886em;width:4.2012em" viewBox='88.468 55.066 40.011 8.463'><desc>$i_1i_2\dots i_n$</desc><g id='math-103ad2'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g7-49'/><use x='96.569' y='61.836' xlink:href='#g4-105'/><use x='100.001' y='63.33' xlink:href='#g7-50'/><use x='106.131' y='61.836' xlink:href='#g4-58'/><use x='110.559' y='61.836' xlink:href='#g4-58'/><use x='114.987' y='61.836' xlink:href='#g4-58'/><use x='119.415' y='61.836' xlink:href='#g4-105'/><use x='122.847' y='63.33' xlink:href='#g5-110'/></g></svg><span data-line="268"></span>为一个<span data-line="268"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.6707em" viewBox='34.67 57.347 6.388 4.688'><desc>$n$</desc><g id='math-7b8b96'><use x='34.869' y='61.836' xlink:href='#g4-110'/></g></svg><span data-line="268"></span>级排列。</p></div>
+<p class="p noindent" data-line="270"><span data-line="270"></span>例如：<span data-line="270"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7160em;width:2.1351em" viewBox='88.468 55.216 20.334 6.819'><desc>$1243$</desc><g id='math-e1d5be'><use x='88.667' y='61.836' xlink:href='#g6-49'/><use x='93.649' y='61.836' xlink:href='#g6-50'/><use x='98.63' y='61.836' xlink:href='#g6-52'/><use x='103.612' y='61.836' xlink:href='#g6-51'/></g></svg><span data-line="270"></span>就是一个4级排列；<span data-line="270"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7160em;width:2.6581em" viewBox='34.67 55.216 25.315 6.819'><desc>$53421$</desc><g id='math-ee23cd'><use x='34.869' y='61.836' xlink:href='#g6-53'/><use x='39.851' y='61.836' xlink:href='#g6-51'/><use x='44.832' y='61.836' xlink:href='#g6-52'/><use x='49.813' y='61.836' xlink:href='#g6-50'/><use x='54.795' y='61.836' xlink:href='#g6-49'/></g></svg><span data-line="270"></span>为一个5级排列。
+</p>
+<p class="p indent" data-line="272"><span data-line="272"></span>注意上述两个排列都不是按照从小到大的顺序排列的，因此存在某种逆序。
+</p>
+<div class="definition" data-line="273" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="274"><span data-line="274"></span><span class="definition-before"><strong class="strong-star2">定义&#160;<span class="definition-label">4</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic"> 逆序</span>)</span> </span><span data-line="274"></span>在排列<span data-line="274"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1857em;height:0.8886em;width:4.2012em" viewBox='88.468 55.066 40.011 8.463'><desc>$i_1i_2\ldots i_n$</desc><g id='math-f78bc7'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g7-49'/><use x='96.569' y='61.836' xlink:href='#g4-105'/><use x='100.001' y='63.33' xlink:href='#g7-50'/><use x='106.131' y='61.836' xlink:href='#g4-58'/><use x='110.559' y='61.836' xlink:href='#g4-58'/><use x='114.987' y='61.836' xlink:href='#g4-58'/><use x='119.415' y='61.836' xlink:href='#g4-105'/><use x='122.847' y='63.33' xlink:href='#g5-110'/></g></svg><span data-line="274"></span>中，若<span data-line="274"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0641em;height:0.8092em;width:2.3479em" viewBox='88.468 54.718 22.361 7.707'><desc>$k&lt;l$</desc><g id='math-49b36a'><use x='88.667' y='61.836' xlink:href='#g4-107'/><use x='96.935' y='61.836' xlink:href='#g4-60'/><use x='107.451' y='61.836' xlink:href='#g4-108'/></g></svg><span data-line="274"></span>但<span data-line="274"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1857em;height:0.8886em;width:2.9942em" viewBox='88.468 55.066 28.516 8.463'><desc>$i_k&gt;i_l$</desc><g id='math-0ffb1a'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g5-107'/><use x='99.769' y='61.836' xlink:href='#g4-62'/><use x='110.285' y='61.836' xlink:href='#g4-105'/><use x='113.717' y='63.33' xlink:href='#g5-108'/></g></svg><span data-line="274"></span>, 则称<span data-line="274"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2339em;height:0.9351em;width:2.0644em" viewBox='88.468 55.066 19.661 8.906'><desc>$i_k,i_l$</desc><g id='math-e9f21c'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g5-107'/><use x='97.002' y='61.836' xlink:href='#g4-59'/><use x='101.429' y='61.836' xlink:href='#g4-105'/><use x='104.862' y='63.33' xlink:href='#g5-108'/></g></svg><span data-line="274"></span>构成该排列的一个<span data-line="274"></span><strong class="strong-star2">逆序</strong><span data-line="274"></span>。称一个排列的逆序总个数为该排列的<span data-line="274"></span><strong class="strong-star2">逆序数</strong><span data-line="274"></span>， 记作<span data-line="274"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:5.5904em" viewBox='88.468 54.164 53.242 10.361'><desc>$\tau(i_1i_2\ldots i_n)$</desc><g id='math-365802'><use x='88.667' y='61.836' xlink:href='#g4-28'/><use x='94.15' y='61.836' xlink:href='#g6-40'/><use x='98.025' y='61.836' xlink:href='#g4-105'/><use x='101.457' y='63.33' xlink:href='#g7-49'/><use x='105.926' y='61.836' xlink:href='#g4-105'/><use x='109.359' y='63.33' xlink:href='#g7-50'/><use x='115.488' y='61.836' xlink:href='#g4-58'/><use x='119.916' y='61.836' xlink:href='#g4-58'/><use x='124.344' y='61.836' xlink:href='#g4-58'/><use x='128.772' y='61.836' xlink:href='#g4-105'/><use x='132.204' y='63.33' xlink:href='#g5-110'/><use x='137.627' y='61.836' xlink:href='#g6-41'/></g></svg><span data-line="274"></span>.</p></div></section>
+<section class="slide section" data-line="278"><h4 id="section" class="h3" data-line="279" data-heading-depth="3" style="display:block"><span data-line="279"></span>逆序数的计算</h4>
+<div class="example" data-line="281" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="282"><span data-line="282"></span><span class="example-before"><strong class="strong-star2">例子&#160;<span class="example-label">1</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="282"></span>
+试着计算下列排列的逆序数：
+</p>
+<ul class="ul list-star compact" data-line="285">
+<li class="li ul-li list-star-li compact-li" data-line="285"><span data-line="285"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:3.0013em" viewBox='34.67 54.164 28.584 10.361'><desc>$\tau(312)$</desc><g id='math-e48b33'><use x='34.869' y='61.836' xlink:href='#g4-28'/><use x='40.352' y='61.836' xlink:href='#g6-40'/><use x='44.227' y='61.836' xlink:href='#g6-51'/><use x='49.208' y='61.836' xlink:href='#g6-49'/><use x='54.189' y='61.836' xlink:href='#g6-50'/><use x='59.171' y='61.836' xlink:href='#g6-41'/></g></svg><span data-line="285"></span>
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="286"><span data-line="286"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:4.0474em" viewBox='88.468 54.164 38.547 10.361'><desc>$\tau(53241)$</desc><g id='math-cbdaae'><use x='88.667' y='61.836' xlink:href='#g4-28'/><use x='94.15' y='61.836' xlink:href='#g6-40'/><use x='98.025' y='61.836' xlink:href='#g6-53'/><use x='103.006' y='61.836' xlink:href='#g6-51'/><use x='107.987' y='61.836' xlink:href='#g6-50'/><use x='112.969' y='61.836' xlink:href='#g6-52'/><use x='117.95' y='61.836' xlink:href='#g6-49'/><use x='122.931' y='61.836' xlink:href='#g6-41'/></g></svg><span data-line="286"></span>
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="287"><span data-line="287"></span>你的学号构成的排列</li></ul></div></section>
+<section class="slide section" data-line="291">
+<h4 id="section" class="h3" data-line="293" data-heading-depth="3" style="display:block"><span data-line="293"></span>逆序数的基本性质</h4>
+<div class="definition" data-line="295" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="296"><span data-line="296"></span><span class="definition-before"><strong class="strong-star2">定义&#160;<span class="definition-label">5</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic"> 奇排列/偶排列</span>)</span> </span><span data-line="296"></span>我们称一个排列为<span data-line="296"></span><strong class="strong-star2">奇（偶）排列</strong><span data-line="296"></span>， 如果该排列的逆序数为奇（偶）数。</p></div>
+<div class="definition" data-line="298" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="299"><span data-line="299"></span><span class="definition-before"><strong class="strong-star2">定义&#160;<span class="definition-label">6</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic"> 对换</span>)</span> </span><span data-line="299"></span>交换一个排列中两个数的位置，这种操作称为对该排列作一次<span data-line="299"></span><strong class="strong-star2">对换</strong><span data-line="299"></span>。</p></div></section>
+<section class="slide section" data-line="303">
+<div class="theorem" data-line="304" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="305"><span data-line="305"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">2</span>.</strong> <span class="theorem-caption"></span> </span><span data-line="305"></span>对排列作一次对换改变该排列的奇偶性。</p></div>
+<p class="p noindent" data-line="307"><span data-line="307"></span>由此可知，在<span data-line="307"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.4922em;width:0.6707em" viewBox='34.67 57.347 6.388 4.688'><desc>$n$</desc><g id='math-7b8b96'><use x='34.869' y='61.836' xlink:href='#g4-110'/></g></svg><span data-line="307"></span>级排列中，有<span data-line="307"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:2.0074em" viewBox='34.67 54.164 19.118 10.361'><desc>$n!/2$</desc><g id='math-e67baa'><use x='34.869' y='61.836' xlink:href='#g4-110'/><use x='40.849' y='61.836' xlink:href='#g6-33'/><use x='43.617' y='61.836' xlink:href='#g4-61'/><use x='48.598' y='61.836' xlink:href='#g6-50'/></g></svg><span data-line="307"></span>个奇排列和<span data-line="307"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:2.0074em" viewBox='34.67 54.164 19.118 10.361'><desc>$n!/2$</desc><g id='math-e67baa'><use x='34.869' y='61.836' xlink:href='#g4-110'/><use x='40.849' y='61.836' xlink:href='#g6-33'/><use x='43.617' y='61.836' xlink:href='#g4-61'/><use x='48.598' y='61.836' xlink:href='#g6-50'/></g></svg><span data-line="307"></span>个偶排列，即它们各占一半。</p></section>
+<section class="slide section" data-line="310">
+<div class="proof" data-line="311" style="display:block;margin:1ex 0pt;theorem-caption-end: ">
+<p class="p noindent" data-line="312"><span data-line="312"></span><span class="proof-before"><strong class="strong-star2">证明</strong>. <span class="theorem-caption"></span> </span><span data-line="312"></span>容易知道，一次相邻的对换改变排列的奇偶性。下面对一般情形来证明结论成立。
+</p>
+<p class="p indent para-continue" data-line="314"><span data-line="314"></span>不妨假设排列为<span data-line="314"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1857em;height:0.8886em;width:4.2012em" viewBox='88.468 55.066 40.011 8.463'><desc>$i_1i_2\ldots i_n$</desc><g id='math-f78bc7'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g7-49'/><use x='96.569' y='61.836' xlink:href='#g4-105'/><use x='100.001' y='63.33' xlink:href='#g7-50'/><use x='106.131' y='61.836' xlink:href='#g4-58'/><use x='110.559' y='61.836' xlink:href='#g4-58'/><use x='114.987' y='61.836' xlink:href='#g4-58'/><use x='119.415' y='61.836' xlink:href='#g4-105'/><use x='122.847' y='63.33' xlink:href='#g5-110'/></g></svg><span data-line="314"></span>. 考虑对换<span data-line="314"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2339em;height:0.9351em;width:2.0644em" viewBox='88.468 55.066 19.661 8.906'><desc>$i_k,i_l$</desc><g id='math-e9f21c'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g5-107'/><use x='97.002' y='61.836' xlink:href='#g4-59'/><use x='101.429' y='61.836' xlink:href='#g4-105'/><use x='104.862' y='63.33' xlink:href='#g5-108'/></g></svg><span data-line="314"></span>, 不妨设<span data-line="314"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.0641em;height:0.8092em;width:2.3479em" viewBox='88.468 54.718 22.361 7.707'><desc>$k&lt;l$</desc><g id='math-49b36a'><use x='88.667' y='61.836' xlink:href='#g4-107'/><use x='96.935' y='61.836' xlink:href='#g4-60'/><use x='107.451' y='61.836' xlink:href='#g4-108'/></g></svg><span data-line="314"></span>, 即该排列为
+</p>
+<div class="math para-block" data-line="315">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="316" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:0.9759em;width:12.8720em" viewBox='145.43 57.058 122.59 9.294'><desc>\[i_1i_2\ldots i_ki_{k+1}\ldots i_{l-1}i_l\ldots i_n.
+\]</desc><g id='math-a85a53'><use x='145.629' y='63.828' xlink:href='#g4-105'/><use x='149.062' y='65.323' xlink:href='#g7-49'/><use x='153.531' y='63.828' xlink:href='#g4-105'/><use x='156.963' y='65.323' xlink:href='#g7-50'/><use x='163.093' y='63.828' xlink:href='#g4-58'/><use x='167.521' y='63.828' xlink:href='#g4-58'/><use x='171.949' y='63.828' xlink:href='#g4-58'/><use x='176.376' y='63.828' xlink:href='#g4-105'/><use x='179.809' y='65.323' xlink:href='#g5-107'/><use x='184.71' y='63.828' xlink:href='#g4-105'/><use x='188.143' y='65.323' xlink:href='#g5-107'/><use x='192.546' y='65.323' xlink:href='#g7-43'/><use x='198.662' y='65.323' xlink:href='#g7-49'/><use x='204.792' y='63.828' xlink:href='#g4-58'/><use x='209.22' y='63.828' xlink:href='#g4-58'/><use x='213.648' y='63.828' xlink:href='#g4-58'/><use x='218.075' y='63.828' xlink:href='#g4-105'/><use x='221.508' y='65.323' xlink:href='#g5-108'/><use x='224.068' y='65.323' xlink:href='#g3-0'/><use x='230.294' y='65.323' xlink:href='#g7-49'/><use x='234.764' y='63.828' xlink:href='#g4-105'/><use x='238.196' y='65.323' xlink:href='#g5-108'/><use x='242.914' y='63.828' xlink:href='#g4-58'/><use x='247.342' y='63.828' xlink:href='#g4-58'/><use x='251.77' y='63.828' xlink:href='#g4-58'/><use x='256.198' y='63.828' xlink:href='#g4-105'/><use x='259.63' y='65.323' xlink:href='#g5-110'/><use x='265.053' y='63.828' xlink:href='#g4-58'/></g></svg></div></div>
+<p class="p noindent para-continued para-continue" data-line="318"><span data-line="318"></span>则在对换<span data-line="318"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2339em;height:0.9351em;width:2.0644em" viewBox='88.468 55.066 19.661 8.906'><desc>$i_k,i_l$</desc><g id='math-e9f21c'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g5-107'/><use x='97.002' y='61.836' xlink:href='#g4-59'/><use x='101.429' y='61.836' xlink:href='#g4-105'/><use x='104.862' y='63.33' xlink:href='#g5-108'/></g></svg><span data-line="318"></span>作用下，该排列变为
+</p>
+<div class="math para-block" data-line="319">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="320" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:0.9759em;width:12.8720em" viewBox='145.43 57.058 122.59 9.294'><desc>\[i_1i_2\ldots i_li_{k+1}\ldots i_{l-1}i_k\ldots i_n.
+\]</desc><g id='math-62c74e'><use x='145.629' y='63.828' xlink:href='#g4-105'/><use x='149.062' y='65.323' xlink:href='#g7-49'/><use x='153.531' y='63.828' xlink:href='#g4-105'/><use x='156.963' y='65.323' xlink:href='#g7-50'/><use x='163.093' y='63.828' xlink:href='#g4-58'/><use x='167.521' y='63.828' xlink:href='#g4-58'/><use x='171.949' y='63.828' xlink:href='#g4-58'/><use x='176.376' y='63.828' xlink:href='#g4-105'/><use x='179.809' y='65.323' xlink:href='#g5-108'/><use x='182.867' y='63.828' xlink:href='#g4-105'/><use x='186.299' y='65.323' xlink:href='#g5-107'/><use x='190.702' y='65.323' xlink:href='#g7-43'/><use x='196.818' y='65.323' xlink:href='#g7-49'/><use x='202.948' y='63.828' xlink:href='#g4-58'/><use x='207.376' y='63.828' xlink:href='#g4-58'/><use x='211.804' y='63.828' xlink:href='#g4-58'/><use x='216.232' y='63.828' xlink:href='#g4-105'/><use x='219.664' y='65.323' xlink:href='#g5-108'/><use x='222.224' y='65.323' xlink:href='#g3-0'/><use x='228.45' y='65.323' xlink:href='#g7-49'/><use x='232.92' y='63.828' xlink:href='#g4-105'/><use x='236.352' y='65.323' xlink:href='#g5-107'/><use x='242.914' y='63.828' xlink:href='#g4-58'/><use x='247.342' y='63.828' xlink:href='#g4-58'/><use x='251.77' y='63.828' xlink:href='#g4-58'/><use x='256.198' y='63.828' xlink:href='#g4-105'/><use x='259.63' y='65.323' xlink:href='#g5-110'/><use x='265.053' y='63.828' xlink:href='#g4-58'/></g></svg></div></div>
+<p class="p noindent para-continued para-continue" data-line="322"><span data-line="322"></span>明显地，把<span data-line="322"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1857em;height:0.8886em;width:0.7244em" viewBox='88.468 55.066 6.899 8.463'><desc>$i_l$</desc><g id='math-772013'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g5-108'/></g></svg><span data-line="322"></span>经过<span data-line="322"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1127em;height:0.8554em;width:2.2317em" viewBox='34.67 54.718 21.254 8.147'><desc>$l-k$</desc><g id='math-864463'><use x='34.869' y='61.836' xlink:href='#g4-108'/><use x='40.252' y='61.836' xlink:href='#g2-0'/><use x='50.214' y='61.836' xlink:href='#g4-107'/></g></svg><span data-line="322"></span>次相邻对换，上述最后一个排列变为
+</p>
+<div class="math para-block" data-line="323">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="324" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:0.9759em;width:14.8178em" viewBox='189.962 57.058 141.122 9.294'><desc>\[i_1i_2\ldots i_{k-1}i_{k+1}\ldots i_{l-1}i_ki_l\ldots i_n.
+\]</desc><g id='math-830dbf'><use x='190.162' y='63.828' xlink:href='#g4-105'/><use x='193.594' y='65.323' xlink:href='#g7-49'/><use x='198.063' y='63.828' xlink:href='#g4-105'/><use x='201.495' y='65.323' xlink:href='#g7-50'/><use x='207.625' y='63.828' xlink:href='#g4-58'/><use x='212.053' y='63.828' xlink:href='#g4-58'/><use x='216.481' y='63.828' xlink:href='#g4-58'/><use x='220.909' y='63.828' xlink:href='#g4-105'/><use x='224.341' y='65.323' xlink:href='#g5-107'/><use x='228.745' y='65.323' xlink:href='#g3-0'/><use x='234.971' y='65.323' xlink:href='#g7-49'/><use x='239.441' y='63.828' xlink:href='#g4-105'/><use x='242.873' y='65.323' xlink:href='#g5-107'/><use x='247.276' y='65.323' xlink:href='#g7-43'/><use x='253.392' y='65.323' xlink:href='#g7-49'/><use x='259.522' y='63.828' xlink:href='#g4-58'/><use x='263.95' y='63.828' xlink:href='#g4-58'/><use x='268.378' y='63.828' xlink:href='#g4-58'/><use x='272.806' y='63.828' xlink:href='#g4-105'/><use x='276.238' y='65.323' xlink:href='#g5-108'/><use x='278.798' y='65.323' xlink:href='#g3-0'/><use x='285.024' y='65.323' xlink:href='#g7-49'/><use x='289.494' y='63.828' xlink:href='#g4-105'/><use x='292.926' y='65.323' xlink:href='#g5-107'/><use x='297.828' y='63.828' xlink:href='#g4-105'/><use x='301.26' y='65.323' xlink:href='#g5-108'/><use x='305.978' y='63.828' xlink:href='#g4-58'/><use x='310.406' y='63.828' xlink:href='#g4-58'/><use x='314.834' y='63.828' xlink:href='#g4-58'/><use x='319.262' y='63.828' xlink:href='#g4-105'/><use x='322.694' y='65.323' xlink:href='#g5-110'/><use x='328.117' y='63.828' xlink:href='#g4-58'/></g></svg></div></div>
+<p class="p noindent para-continued" data-line="326"><span data-line="326"></span>在把<span data-line="326"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1857em;height:0.8886em;width:0.9180em" viewBox='34.67 55.066 8.743 8.463'><desc>$i_k$</desc><g id='math-f0807c'><use x='34.869' y='61.836' xlink:href='#g4-105'/><use x='38.301' y='63.33' xlink:href='#g5-107'/></g></svg><span data-line="326"></span>经过<span data-line="326"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.1127em;height:0.8554em;width:4.0333em" viewBox='88.468 54.718 38.412 8.147'><desc>$l-k-1$</desc><g id='math-c46aa7'><use x='88.667' y='61.836' xlink:href='#g4-108'/><use x='94.05' y='61.836' xlink:href='#g2-0'/><use x='104.013' y='61.836' xlink:href='#g4-107'/><use x='111.727' y='61.836' xlink:href='#g2-0'/><use x='121.689' y='61.836' xlink:href='#g6-49'/></g></svg><span data-line="326"></span>次相邻对换，上述排列就变为原排列。
+</p>
+<p class="p indent" data-line="328"><span data-line="328"></span>这表明，经过<span data-line="328"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:15.8495em" viewBox='34.67 54.164 150.948 10.361'><desc>$(l-k)+(l-k-1)=2(l-k)+1$</desc><g id='math-1a40a1'><use x='34.869' y='61.836' xlink:href='#g6-40'/><use x='38.744' y='61.836' xlink:href='#g4-108'/><use x='44.126' y='61.836' xlink:href='#g2-0'/><use x='54.089' y='61.836' xlink:href='#g4-107'/><use x='59.589' y='61.836' xlink:href='#g6-41'/><use x='65.677' y='61.836' xlink:href='#g6-43'/><use x='75.64' y='61.836' xlink:href='#g6-40'/><use x='79.514' y='61.836' xlink:href='#g4-108'/><use x='84.897' y='61.836' xlink:href='#g2-0'/><use x='94.859' y='61.836' xlink:href='#g4-107'/><use x='102.573' y='61.836' xlink:href='#g2-0'/><use x='112.536' y='61.836' xlink:href='#g6-49'/><use x='117.517' y='61.836' xlink:href='#g6-41'/><use x='124.159' y='61.836' xlink:href='#g6-61'/><use x='134.675' y='61.836' xlink:href='#g6-50'/><use x='139.657' y='61.836' xlink:href='#g6-40'/><use x='143.531' y='61.836' xlink:href='#g4-108'/><use x='148.914' y='61.836' xlink:href='#g2-0'/><use x='158.876' y='61.836' xlink:href='#g4-107'/><use x='164.376' y='61.836' xlink:href='#g6-41'/><use x='170.465' y='61.836' xlink:href='#g6-43'/><use x='180.427' y='61.836' xlink:href='#g6-49'/></g></svg><span data-line="328"></span>次相邻对换，我们可把<span data-line="328"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.2339em;height:0.9351em;width:2.0644em" viewBox='88.468 55.066 19.661 8.906'><desc>$i_k,i_l$</desc><g id='math-e9f21c'><use x='88.667' y='61.836' xlink:href='#g4-105'/><use x='92.1' y='63.33' xlink:href='#g5-107'/><use x='97.002' y='61.836' xlink:href='#g4-59'/><use x='101.429' y='61.836' xlink:href='#g4-105'/><use x='104.862' y='63.33' xlink:href='#g5-108'/></g></svg><span data-line="328"></span>对换后的排列还原为原排列。由此可见结论成立。</p></div></section></section>
+<section id="homework" class="section section1" data-section-depth="1" data-line="333"><h2 id="heading-homework" class="h1" data-heading-depth="1" style="display:block">习题</h2>
+<ol class="ol compact" data-line="335">
+<li class="li ol-li compact-li" data-line="335"><span data-line="335"></span>求解二元一次方程组
+
+<div class="math para-block" data-line="336">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="337" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.1801em;width:8.5979em" viewBox='160.203 52.67 81.885 30.287'><desc>\[\begin{cases}
+3x_1+2x_2=100,\\
+4x_1+3x_2=140.
+\end{cases}
+\]</desc><g id='math-21f7dd'><use x='160.403' y='53.268' xlink:href='#g9-40'/><use x='168.428' y='63.509' xlink:href='#g6-51'/><use x='173.41' y='63.509' xlink:href='#g4-120'/><use x='179.103' y='65.004' xlink:href='#g7-49'/><use x='185.787' y='63.509' xlink:href='#g6-43'/><use x='195.749' y='63.509' xlink:href='#g6-50'/><use x='200.731' y='63.509' xlink:href='#g4-120'/><use x='206.425' y='65.004' xlink:href='#g7-50'/><use x='213.661' y='63.509' xlink:href='#g6-61'/><use x='224.177' y='63.509' xlink:href='#g6-49'/><use x='229.159' y='63.509' xlink:href='#g6-48'/><use x='234.14' y='63.509' xlink:href='#g6-48'/><use x='239.121' y='63.509' xlink:href='#g4-59'/><use x='168.428' y='77.856' xlink:href='#g6-52'/><use x='173.41' y='77.856' xlink:href='#g4-120'/><use x='179.103' y='79.35' xlink:href='#g7-49'/><use x='185.787' y='77.856' xlink:href='#g6-43'/><use x='195.749' y='77.856' xlink:href='#g6-51'/><use x='200.731' y='77.856' xlink:href='#g4-120'/><use x='206.425' y='79.35' xlink:href='#g7-50'/><use x='213.661' y='77.856' xlink:href='#g6-61'/><use x='224.177' y='77.856' xlink:href='#g6-49'/><use x='229.159' y='77.856' xlink:href='#g6-52'/><use x='234.14' y='77.856' xlink:href='#g6-48'/><use x='239.121' y='77.856' xlink:href='#g4-58'/></g></svg></div></div></li>
+<li id="exes-three" class="li ol-li compact-li" data-line="342"><span data-line="342"></span>利用消元法求解三元一次方程组
+
+<div class="math para-block" data-line="343">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="344" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:4.4354em;width:11.0308em" viewBox='202.417 53.267 105.055 42.242'><desc>\[\begin{cases}
+x_1+x_2+x_3=6,\\
+x_1-x_2+x_3=2,\\
+3x_1+4x_2+5x_3=26.
+\end{cases}
+\]</desc><g id='math-86fb6b'><use x='202.616' y='53.467' xlink:href='#g9-56'/><use x='202.616' y='62.433' xlink:href='#g9-62'/><use x='202.616' y='65.422' xlink:href='#g9-60'/><use x='202.616' y='83.355' xlink:href='#g9-62'/><use x='202.616' y='86.344' xlink:href='#g9-58'/><use x='211.472' y='62.911' xlink:href='#g4-120'/><use x='217.166' y='64.406' xlink:href='#g7-49'/><use x='223.849' y='62.911' xlink:href='#g6-43'/><use x='233.811' y='62.911' xlink:href='#g4-120'/><use x='239.505' y='64.406' xlink:href='#g7-50'/><use x='246.189' y='62.911' xlink:href='#g6-43'/><use x='256.151' y='62.911' xlink:href='#g4-120'/><use x='261.845' y='64.406' xlink:href='#g7-51'/><use x='269.082' y='62.911' xlink:href='#g6-61'/><use x='279.598' y='62.911' xlink:href='#g6-54'/><use x='284.579' y='62.911' xlink:href='#g4-59'/><use x='211.472' y='77.258' xlink:href='#g4-120'/><use x='217.166' y='78.752' xlink:href='#g7-49'/><use x='223.849' y='77.258' xlink:href='#g2-0'/><use x='233.811' y='77.258' xlink:href='#g4-120'/><use x='239.505' y='78.752' xlink:href='#g7-50'/><use x='246.189' y='77.258' xlink:href='#g6-43'/><use x='256.151' y='77.258' xlink:href='#g4-120'/><use x='261.845' y='78.752' xlink:href='#g7-51'/><use x='269.082' y='77.258' xlink:href='#g6-61'/><use x='279.598' y='77.258' xlink:href='#g6-50'/><use x='284.579' y='77.258' xlink:href='#g4-59'/><use x='211.472' y='91.604' xlink:href='#g6-51'/><use x='216.453' y='91.604' xlink:href='#g4-120'/><use x='222.147' y='93.098' xlink:href='#g7-49'/><use x='228.83' y='91.604' xlink:href='#g6-43'/><use x='238.793' y='91.604' xlink:href='#g6-52'/><use x='243.774' y='91.604' xlink:href='#g4-120'/><use x='249.468' y='93.098' xlink:href='#g7-50'/><use x='256.151' y='91.604' xlink:href='#g6-43'/><use x='266.114' y='91.604' xlink:href='#g6-53'/><use x='271.095' y='91.604' xlink:href='#g4-120'/><use x='276.789' y='93.098' xlink:href='#g7-51'/><use x='284.026' y='91.604' xlink:href='#g6-61'/><use x='294.542' y='91.604' xlink:href='#g6-50'/><use x='299.523' y='91.604' xlink:href='#g6-54'/><use x='304.505' y='91.604' xlink:href='#g4-58'/></g></svg></div></div></li>
+<li class="li ol-li compact-li" data-line="350"><span data-line="350"></span>利用三元一次方程组的求解公式验证题<span data-line="350"></span><a href="#exes-three" class="localref" style="target-element:li">2</a><span data-line="350"></span>的结论成立。
+</li>
+<li class="li ol-li compact-li" data-line="351">
+<p data-line="351"><span data-line="351"></span>计算下来排列的逆序数：
+</p><span data-line="353"></span>(1) 217986354;
+(2) 987654321;
+</li>
+<li class="li ol-li compact-li" data-line="355"><span data-line="355"></span>写出4阶行列式<span data-line="355"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.3318em;height:1.1257em;width:3.8505em" viewBox='34.67 54.164 36.671 10.721'><desc>$\lvert (a_{ij})_{4\times}\rvert$</desc><g id='math-459e02'><use x='34.869' y='61.836' xlink:href='#g2-106'/><use x='37.637' y='61.836' xlink:href='#g6-40'/><use x='41.511' y='61.836' xlink:href='#g4-97'/><use x='46.777' y='63.33' xlink:href='#g5-105'/><use x='49.596' y='63.33' xlink:href='#g5-106'/><use x='53.794' y='61.836' xlink:href='#g6-41'/><use x='57.668' y='63.33' xlink:href='#g7-52'/><use x='61.639' y='63.33' xlink:href='#g3-2'/><use x='68.364' y='61.836' xlink:href='#g2-106'/></g></svg><span data-line="355"></span>中所有带负号且包含因子<span data-line="355"></span>$<span data-line="355"></span>a<span data-line="355"></span>_<span data-line="355"></span>{23}的项；
+</li></ol>
+</section>
+<section id="mma" class="section section1" data-section-depth="1" data-line="357"><h2 id="heading-mma" class="h1" data-heading-depth="1" style="display:block">使用软件求解线性方程组</h2>
+<figure class="figure floating align-center float" data-line="358" style="text-align:center;float-env:figure;float-name:Figure">
+<p class="p noindent" data-line="359"><span data-line="359"></span><img src="data:image/png;base64,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" title="mmasolve3x3" alt="mmasolve3x3" data-path="images/mmasolve3x3.png" data-linkid="mmasolve3x3" style="width:450px;max-width:90%"><span data-line="359"></span>
+</p>
+<hr  class="madoko figureline" lang="zh-Hans-CN" data-line="361" style="display:block">
+
+<div class="p noindent" data-line="362"><span data-line="362"></span><fig-caption class="figure-caption"><span class="caption-before"><strong class="strong-star2">图&#160;<span class="figure-label">1</span>.</strong>&#160;</span><span class="caption-text"> MMA 解线性方程组</span></fig-caption></div></figure></section></div></div><span data-line=""></span></div>
+<svg id='math-svg-paths' style='display:none' version='1.1' viewBox='0 0 0 0' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+<defs>
+<path id='g6-43' d='M4.075-2.291H6.854C6.994-2.291 7.183-2.291 7.183-2.491S6.994-2.69 6.854-2.69H4.075V-5.479C4.075-5.619 4.075-5.808 3.875-5.808S3.676-5.619 3.676-5.479V-2.69H.887C.747-2.69 .558-2.69 .558-2.491S.747-2.291 .887-2.291H3.676V.498C3.676 .638 3.676 .827 3.875 .827S4.075 .638 4.075 .498V-2.291Z'/>
+<path id='g6-48' d='M4.583-3.188C4.583-3.985 4.533-4.782 4.184-5.519C3.726-6.476 2.909-6.635 2.491-6.635C1.893-6.635 1.166-6.376 .757-5.45C.438-4.762 .389-3.985 .389-3.188C.389-2.441 .428-1.544 .837-.787C1.265 .02 1.993 .219 2.481 .219C3.019 .219 3.776 .01 4.214-.936C4.533-1.624 4.583-2.401 4.583-3.188ZM2.481 0C2.092 0 1.504-.249 1.325-1.205C1.215-1.803 1.215-2.72 1.215-3.308C1.215-3.945 1.215-4.603 1.295-5.141C1.484-6.326 2.232-6.416 2.481-6.416C2.809-6.416 3.467-6.237 3.656-5.25C3.756-4.692 3.756-3.935 3.756-3.308C3.756-2.56 3.756-1.883 3.646-1.245C3.497-.299 2.929 0 2.481 0Z'/>
+<path id='g6-61' d='M6.844-3.258C6.994-3.258 7.183-3.258 7.183-3.457S6.994-3.656 6.854-3.656H.887C.747-3.656 .558-3.656 .558-3.457S.747-3.258 .897-3.258H6.844ZM6.854-1.325C6.994-1.325 7.183-1.325 7.183-1.524S6.994-1.724 6.844-1.724H.897C.747-1.724 .558-1.724 .558-1.524S.747-1.325 .887-1.325H6.854Z'/>
+<path id='g4-97' d='M3.716-3.766C3.537-4.134 3.248-4.403 2.8-4.403C1.634-4.403 .399-2.939 .399-1.484C.399-.548 .946 .11 1.724 .11C1.923 .11 2.421 .07 3.019-.638C3.098-.219 3.447 .11 3.925 .11C4.274 .11 4.503-.12 4.663-.438C4.832-.797 4.961-1.405 4.961-1.425C4.961-1.524 4.872-1.524 4.842-1.524C4.742-1.524 4.732-1.484 4.702-1.345C4.533-.697 4.354-.11 3.945-.11C3.676-.11 3.646-.369 3.646-.568C3.646-.787 3.666-.867 3.776-1.305C3.885-1.724 3.905-1.823 3.995-2.202L4.354-3.597C4.423-3.875 4.423-3.895 4.423-3.935C4.423-4.105 4.304-4.204 4.134-4.204C3.895-4.204 3.746-3.985 3.716-3.766ZM3.068-1.186C3.019-1.006 3.019-.986 2.869-.817C2.431-.269 2.022-.11 1.743-.11C1.245-.11 1.106-.658 1.106-1.046C1.106-1.544 1.425-2.77 1.654-3.228C1.963-3.816 2.411-4.184 2.809-4.184C3.457-4.184 3.597-3.367 3.597-3.308S3.577-3.188 3.567-3.138L3.068-1.186Z'/>
+<path id='g4-98' d='M2.381-6.804C2.381-6.814 2.381-6.914 2.252-6.914C2.022-6.914 1.295-6.834 1.036-6.814C.956-6.804 .847-6.795 .847-6.615C.847-6.496 .936-6.496 1.086-6.496C1.564-6.496 1.584-6.426 1.584-6.326C1.584-6.257 1.494-5.918 1.445-5.709L.628-2.461C.508-1.963 .468-1.803 .468-1.455C.468-.508 .996 .11 1.733 .11C2.909 .11 4.134-1.375 4.134-2.809C4.134-3.716 3.606-4.403 2.809-4.403C2.351-4.403 1.943-4.115 1.644-3.806L2.381-6.804ZM1.445-3.039C1.504-3.258 1.504-3.278 1.594-3.387C2.082-4.035 2.531-4.184 2.79-4.184C3.148-4.184 3.417-3.885 3.417-3.248C3.417-2.66 3.088-1.514 2.909-1.136C2.58-.468 2.122-.11 1.733-.11C1.395-.11 1.066-.379 1.066-1.116C1.066-1.305 1.066-1.494 1.225-2.122L1.445-3.039Z'/>
+<path id='g4-120' d='M3.328-3.009C3.387-3.268 3.616-4.184 4.314-4.184C4.364-4.184 4.603-4.184 4.812-4.055C4.533-4.005 4.334-3.756 4.334-3.517C4.334-3.357 4.443-3.168 4.712-3.168C4.932-3.168 5.25-3.347 5.25-3.746C5.25-4.264 4.663-4.403 4.324-4.403C3.746-4.403 3.397-3.875 3.278-3.646C3.029-4.304 2.491-4.403 2.202-4.403C1.166-4.403 .598-3.118 .598-2.869C.598-2.77 .697-2.77 .717-2.77C.797-2.77 .827-2.79 .847-2.879C1.186-3.935 1.843-4.184 2.182-4.184C2.371-4.184 2.72-4.095 2.72-3.517C2.72-3.208 2.55-2.54 2.182-1.146C2.022-.528 1.674-.11 1.235-.11C1.176-.11 .946-.11 .737-.239C.986-.289 1.205-.498 1.205-.777C1.205-1.046 .986-1.126 .837-1.126C.538-1.126 .289-.867 .289-.548C.289-.09 .787 .11 1.225 .11C1.883 .11 2.242-.588 2.271-.648C2.391-.279 2.75 .11 3.347 .11C4.374 .11 4.941-1.176 4.941-1.425C4.941-1.524 4.852-1.524 4.822-1.524C4.732-1.524 4.712-1.484 4.692-1.415C4.364-.349 3.686-.11 3.367-.11C2.979-.11 2.819-.428 2.819-.767C2.819-.986 2.879-1.205 2.989-1.644L3.328-3.009Z'/>
+<path id='g2-54' d='M6.276-6.745C6.356-6.884 6.356-6.904 6.356-6.934C6.356-7.004 6.296-7.133 6.157-7.133C6.037-7.133 6.007-7.073 5.938-6.934L1.465 1.763C1.385 1.903 1.385 1.923 1.385 1.953C1.385 2.032 1.455 2.152 1.584 2.152C1.704 2.152 1.733 2.092 1.803 1.953L6.276-6.745Z'/>
+<path id='g4-61' d='M4.374-7.093C4.423-7.223 4.423-7.263 4.423-7.273C4.423-7.382 4.334-7.472 4.224-7.472C4.154-7.472 4.085-7.442 4.055-7.382L.598 2.112C.548 2.242 .548 2.281 .548 2.291C.548 2.401 .638 2.491 .747 2.491C.877 2.491 .907 2.421 .966 2.252L4.374-7.093Z'/>
+<path id='g2-1' d='M1.913-2.491C1.913-2.78 1.674-3.019 1.385-3.019S.857-2.78 .857-2.491S1.096-1.963 1.385-1.963S1.913-2.202 1.913-2.491Z'/>
+<path id='g5-110' d='M.851-.439C.823-.349 .781-.174 .781-.153C.781 0 .907 .07 1.018 .07C1.144 .07 1.255-.021 1.29-.084S1.381-.37 1.416-.516C1.451-.649 1.527-.969 1.569-1.144C1.611-1.297 1.653-1.451 1.688-1.611C1.764-1.897 1.778-1.953 1.981-2.239C2.176-2.518 2.504-2.88 3.027-2.88C3.431-2.88 3.438-2.525 3.438-2.392C3.438-1.974 3.138-1.2 3.027-.907C2.95-.711 2.922-.649 2.922-.53C2.922-.16 3.229 .07 3.585 .07C4.282 .07 4.589-.893 4.589-.997C4.589-1.088 4.498-1.088 4.477-1.088C4.38-1.088 4.373-1.046 4.345-.969C4.184-.411 3.884-.126 3.605-.126C3.459-.126 3.431-.223 3.431-.37C3.431-.53 3.466-.621 3.592-.934C3.675-1.151 3.961-1.89 3.961-2.28C3.961-2.957 3.424-3.075 3.055-3.075C2.476-3.075 2.085-2.72 1.876-2.441C1.827-2.922 1.416-3.075 1.13-3.075C.83-3.075 .669-2.859 .579-2.699C.425-2.441 .328-2.043 .328-2.008C.328-1.918 .425-1.918 .446-1.918C.544-1.918 .551-1.939 .6-2.127C.704-2.538 .837-2.88 1.109-2.88C1.29-2.88 1.339-2.727 1.339-2.538C1.339-2.406 1.276-2.148 1.227-1.96S1.109-1.485 1.074-1.332L.851-.439Z'/>
+<path id='g7-48' d='M3.599-2.225C3.599-2.992 3.508-3.543 3.187-4.031C2.971-4.352 2.538-4.631 1.981-4.631C.363-4.631 .363-2.727 .363-2.225S.363 .139 1.981 .139S3.599-1.723 3.599-2.225ZM1.981-.056C1.66-.056 1.234-.244 1.095-.816C.997-1.227 .997-1.799 .997-2.315C.997-2.824 .997-3.354 1.102-3.738C1.248-4.289 1.695-4.435 1.981-4.435C2.357-4.435 2.72-4.205 2.845-3.801C2.957-3.424 2.964-2.922 2.964-2.315C2.964-1.799 2.964-1.283 2.873-.844C2.734-.209 2.26-.056 1.981-.056Z'/>
+<path id='g7-49' d='M2.336-4.435C2.336-4.624 2.322-4.631 2.127-4.631C1.681-4.191 1.046-4.184 .76-4.184V-3.933C.928-3.933 1.388-3.933 1.771-4.129V-.572C1.771-.342 1.771-.251 1.074-.251H.809V0C.934-.007 1.792-.028 2.05-.028C2.267-.028 3.145-.007 3.299 0V-.251H3.034C2.336-.251 2.336-.342 2.336-.572V-4.435Z'/>
+<path id='g3-0' d='M5.189-1.576C5.3-1.576 5.467-1.576 5.467-1.743C5.467-1.918 5.307-1.918 5.189-1.918H1.032C.921-1.918 .753-1.918 .753-1.75C.753-1.576 .914-1.576 1.032-1.576H5.189Z'/>
+<path id='g4-58' d='M1.913-.528C1.913-.817 1.674-1.056 1.385-1.056S.857-.817 .857-.528S1.096 0 1.385 0S1.913-.239 1.913-.528Z'/>
+<path id='g7-50' d='M3.522-1.269H3.285C3.264-1.116 3.194-.704 3.103-.635C3.048-.593 2.511-.593 2.413-.593H1.13C1.862-1.241 2.106-1.437 2.525-1.764C3.041-2.176 3.522-2.608 3.522-3.271C3.522-4.115 2.783-4.631 1.89-4.631C1.025-4.631 .439-4.024 .439-3.382C.439-3.027 .739-2.992 .809-2.992C.976-2.992 1.179-3.11 1.179-3.361C1.179-3.487 1.13-3.731 .767-3.731C.983-4.226 1.458-4.38 1.785-4.38C2.483-4.38 2.845-3.836 2.845-3.271C2.845-2.664 2.413-2.183 2.19-1.932L.509-.272C.439-.209 .439-.195 .439 0H3.313L3.522-1.269Z'/>
+<path id='g4-99' d='M3.945-3.786C3.786-3.786 3.646-3.786 3.507-3.646C3.347-3.497 3.328-3.328 3.328-3.258C3.328-3.019 3.507-2.909 3.696-2.909C3.985-2.909 4.254-3.148 4.254-3.547C4.254-4.035 3.786-4.403 3.078-4.403C1.733-4.403 .408-2.979 .408-1.574C.408-.677 .986 .11 2.022 .11C3.447 .11 4.284-.946 4.284-1.066C4.284-1.126 4.224-1.196 4.164-1.196C4.115-1.196 4.095-1.176 4.035-1.096C3.248-.11 2.162-.11 2.042-.11C1.415-.11 1.146-.598 1.146-1.196C1.146-1.604 1.345-2.57 1.684-3.188C1.993-3.756 2.54-4.184 3.088-4.184C3.427-4.184 3.806-4.055 3.945-3.786Z'/>
+<path id='g0-67' d='M6.545-6.685C6.545-6.854 6.545-7.014 6.376-7.014C6.366-7.014 6.217-7.014 6.197-6.834C6.167-6.555 5.938-6.555 5.868-6.555C5.519-6.555 5.171-6.705 4.971-6.795C4.463-7.014 4.035-7.014 3.875-7.014C2.212-7.014 .369-5.968 .369-3.417C.369-.877 2.172 .189 3.895 .189C4.423 .189 5.131 .08 5.858-.359C6.316-.648 6.824-1.146 6.824-1.285S6.675-1.484 6.615-1.484C6.545-1.484 6.506-1.455 6.406-1.345C5.828-.687 4.941-.289 4.055-.289C2.511-.289 2.122-1.853 2.122-3.397C2.122-5.36 2.839-6.665 3.905-6.665C4.653-6.665 5.848-5.938 6.187-4.882C6.217-4.792 6.247-4.692 6.376-4.692C6.545-4.692 6.545-4.852 6.545-5.021V-6.685ZM6.197-5.659C6.077-5.828 5.948-5.958 5.699-6.217C5.748-6.207 5.828-6.207 5.878-6.207C5.988-6.207 6.117-6.227 6.197-6.276V-5.659ZM2.66-6.436C2.431-6.207 1.773-5.35 1.773-3.397C1.773-2.411 1.923-1.036 2.819-.319C1.186-.847 .717-2.192 .717-3.407C.717-5.24 1.724-6.127 2.66-6.446V-6.436Z'/>
+<path id='g2-0' d='M6.565-2.291C6.735-2.291 6.914-2.291 6.914-2.491S6.735-2.69 6.565-2.69H1.176C1.006-2.69 .827-2.69 .827-2.491S1.006-2.291 1.176-2.291H6.565Z'/>
+<path id='g2-6' d='M4.075-3.118H6.844C7.014-3.118 7.193-3.118 7.193-3.318S7.014-3.517 6.844-3.517H4.075V-6.267C4.075-6.426 4.075-6.635 3.875-6.635S3.676-6.456 3.676-6.296V-3.517H.897C.727-3.517 .548-3.517 .548-3.318S.727-3.118 .897-3.118H3.676V-.399H.897C.727-.399 .548-.399 .548-.199S.727 0 .897 0H6.844C7.014 0 7.193 0 7.193-.199S7.014-.399 6.844-.399H4.075V-3.118Z'/>
+<path id='g2-112' d='M3.875 8.518L2.122 4.643C2.052 4.483 2.002 4.483 1.973 4.483C1.963 4.483 1.913 4.483 1.803 4.563L.857 5.28C.727 5.38 .727 5.41 .727 5.44C.727 5.489 .757 5.549 .827 5.549C.887 5.549 1.056 5.41 1.166 5.33C1.225 5.28 1.375 5.171 1.484 5.091L3.447 9.405C3.517 9.564 3.567 9.564 3.656 9.564C3.806 9.564 3.836 9.504 3.905 9.365L8.428 0C8.498-.139 8.498-.179 8.498-.199C8.498-.299 8.418-.399 8.299-.399C8.219-.399 8.149-.349 8.07-.189L3.875 8.518Z'/>
+<path id='g6-1' d='M4.403-6.954C4.334-7.083 4.314-7.133 4.144-7.133S3.955-7.083 3.885-6.954L.518-.199C.468-.11 .468-.09 .468-.08C.468 0 .528 0 .687 0H7.601C7.761 0 7.821 0 7.821-.08C7.821-.09 7.821-.11 7.771-.199L4.403-6.954ZM3.826-6.137L6.506-.757H1.136L3.826-6.137Z'/>
+<path id='g6-50' d='M1.265-.767L2.321-1.793C3.875-3.168 4.473-3.706 4.473-4.702C4.473-5.838 3.577-6.635 2.361-6.635C1.235-6.635 .498-5.719 .498-4.832C.498-4.274 .996-4.274 1.026-4.274C1.196-4.274 1.544-4.394 1.544-4.802C1.544-5.061 1.365-5.32 1.016-5.32C.936-5.32 .917-5.32 .887-5.31C1.116-5.958 1.654-6.326 2.232-6.326C3.138-6.326 3.567-5.519 3.567-4.702C3.567-3.905 3.068-3.118 2.521-2.501L.608-.369C.498-.259 .498-.239 .498 0H4.194L4.473-1.733H4.224C4.174-1.435 4.105-.996 4.005-.847C3.935-.767 3.278-.767 3.059-.767H1.265Z'/>
+<path id='g6-52' d='M2.929-1.644V-.777C2.929-.418 2.909-.309 2.172-.309H1.963V0C2.371-.03 2.889-.03 3.308-.03S4.254-.03 4.663 0V-.309H4.453C3.716-.309 3.696-.418 3.696-.777V-1.644H4.692V-1.953H3.696V-6.486C3.696-6.685 3.696-6.745 3.537-6.745C3.447-6.745 3.417-6.745 3.337-6.625L.279-1.953V-1.644H2.929ZM2.989-1.953H.558L2.989-5.669V-1.953Z'/>
+<path id='g6-58' d='M1.913-3.766C1.913-4.055 1.674-4.294 1.385-4.294S.857-4.055 .857-3.766S1.096-3.238 1.385-3.238S1.913-3.477 1.913-3.766ZM1.913-.528C1.913-.817 1.674-1.056 1.385-1.056S.857-.817 .857-.528S1.096 0 1.385 0S1.913-.239 1.913-.528Z'/>
+<path id='g5-59' d='M1.471-.112C1.471 .272 1.402 .718 .928 1.165C.9 1.193 .879 1.213 .879 1.248C.879 1.297 .934 1.346 .976 1.346C1.074 1.346 1.667 .788 1.667-.042C1.667-.474 1.499-.802 1.179-.802C.948-.802 .781-.621 .781-.404C.781-.181 .941 0 1.186 0C1.353 0 1.465-.112 1.471-.112Z'/>
+<path id='g4-59' d='M2.022-.01C2.022-.667 1.773-1.056 1.385-1.056C1.056-1.056 .857-.807 .857-.528C.857-.259 1.056 0 1.385 0C1.504 0 1.634-.04 1.733-.13C1.763-.149 1.773-.159 1.783-.159S1.803-.149 1.803-.01C1.803 .727 1.455 1.325 1.126 1.654C1.016 1.763 1.016 1.783 1.016 1.813C1.016 1.883 1.066 1.923 1.116 1.923C1.225 1.923 2.022 1.156 2.022-.01Z'/>
+<path id='g0-82' d='M2.67-3.128H3.029L4.523-.817C4.623-.658 4.862-.269 4.971-.12C5.041 0 5.071 0 5.3 0H6.675C6.854 0 7.004 0 7.004-.179C7.004-.259 6.944-.329 6.854-.349C6.486-.428 5.998-1.086 5.758-1.405C5.689-1.504 5.191-2.162 4.523-3.238C5.41-3.397 6.267-3.776 6.267-4.961C6.267-6.346 4.802-6.824 3.626-6.824H.498C.319-6.824 .159-6.824 .159-6.645C.159-6.476 .349-6.476 .428-6.476C.996-6.476 1.046-6.406 1.046-5.908V-.917C1.046-.418 .996-.349 .428-.349C.349-.349 .159-.349 .159-.179C.159 0 .319 0 .498 0H3.228C3.407 0 3.557 0 3.557-.179C3.557-.349 3.387-.349 3.278-.349C2.71-.349 2.67-.428 2.67-.917V-3.128ZM4.593-3.616C4.872-3.985 4.902-4.513 4.902-4.951C4.902-5.43 4.842-5.958 4.523-6.366C4.932-6.276 5.918-5.968 5.918-4.961C5.918-4.314 5.619-3.806 4.593-3.616ZM2.67-5.938C2.67-6.147 2.67-6.476 3.288-6.476C4.134-6.476 4.553-6.127 4.553-4.951C4.553-3.666 4.244-3.477 2.67-3.477V-5.938ZM1.315-.349C1.395-.528 1.395-.807 1.395-.897V-5.928C1.395-6.027 1.395-6.296 1.315-6.476H2.451C2.321-6.316 2.321-6.117 2.321-5.968V-.897C2.321-.797 2.321-.528 2.401-.349H1.315ZM3.437-3.128C3.507-3.138 3.547-3.148 3.626-3.148C3.776-3.148 3.995-3.168 4.144-3.188C4.294-2.949 5.37-1.176 6.197-.349H5.23L3.437-3.128Z'/>
+<path id='g4-60' d='M6.725-4.961C6.844-5.021 6.914-5.071 6.914-5.181S6.824-5.38 6.715-5.38C6.685-5.38 6.665-5.38 6.535-5.31L1.016-2.71C.907-2.66 .827-2.61 .827-2.491S.907-2.321 1.016-2.271L6.535 .329C6.665 .399 6.685 .399 6.715 .399C6.824 .399 6.914 .309 6.914 .199S6.844 .04 6.725-.02L1.494-2.491L6.725-4.961Z'/>
+<path id='g4-62' d='M6.725-2.271C6.834-2.321 6.914-2.371 6.914-2.491S6.834-2.66 6.725-2.71L1.205-5.31C1.076-5.38 1.056-5.38 1.026-5.38C.917-5.38 .827-5.29 .827-5.181C.827-5.091 .877-5.031 1.016-4.961L6.247-2.491L1.016-.02C.877 .05 .827 .11 .827 .199C.827 .309 .917 .399 1.026 .399C1.056 .399 1.076 .399 1.205 .329L6.725-2.271Z'/>
+<path id='g6-49' d='M2.929-6.376C2.929-6.615 2.929-6.635 2.7-6.635C2.082-5.998 1.205-5.998 .887-5.998V-5.689C1.086-5.689 1.674-5.689 2.192-5.948V-.787C2.192-.428 2.162-.309 1.265-.309H.946V0C1.295-.03 2.162-.03 2.56-.03S3.826-.03 4.174 0V-.309H3.856C2.959-.309 2.929-.418 2.929-.787V-6.376Z'/>
+<path id='g9-56' d='M5.021 4.513C5.021 3.696 5.24 1.793 7.014 .538C7.143 .438 7.153 .428 7.153 .249C7.153 .02 7.143 .01 6.894 .01H6.735C4.593 1.166 3.826 3.049 3.826 4.513V8.797C3.826 9.056 3.836 9.066 4.105 9.066H4.742C5.011 9.066 5.021 9.056 5.021 8.797V4.513Z'/>
+<path id='g9-58' d='M6.894 8.956C7.143 8.956 7.153 8.946 7.153 8.717C7.153 8.538 7.143 8.528 7.103 8.498C6.795 8.269 6.077 7.761 5.609 6.844C5.22 6.087 5.021 5.32 5.021 4.453V.169C5.021-.09 5.011-.1 4.742-.1H4.105C3.836-.1 3.826-.09 3.826 .169V4.453C3.826 5.928 4.593 7.811 6.735 8.956H6.894Z'/>
+<path id='g9-60' d='M3.826 17.763C3.826 18.022 3.836 18.032 4.105 18.032H4.742C5.011 18.032 5.021 18.022 5.021 17.763V13.559C5.021 12.354 4.513 10.321 2.281 8.966C4.533 7.601 5.021 5.549 5.021 4.374V.169C5.021-.09 5.011-.1 4.742-.1H4.105C3.836-.1 3.826-.09 3.826 .169V4.384C3.826 5.22 3.646 7.293 1.813 8.687C1.704 8.777 1.694 8.787 1.694 8.966S1.704 9.156 1.813 9.245C2.072 9.445 2.76 9.973 3.238 10.979C3.626 11.776 3.826 12.663 3.826 13.549V17.763Z'/>
+<path id='g9-62' d='M5.021 .169C5.021-.09 5.011-.1 4.742-.1H4.105C3.836-.1 3.826-.09 3.826 .169V2.819C3.826 3.078 3.836 3.088 4.105 3.088H4.742C5.011 3.088 5.021 3.078 5.021 2.819V.169Z'/>
+<path id='g2-26' d='M6.565-4.981C6.735-4.981 6.914-4.981 6.914-5.181S6.735-5.38 6.565-5.38H3.885C2.182-5.38 .827-4.085 .827-2.491S2.182 .399 3.885 .399H6.565C6.735 .399 6.914 .399 6.914 .199S6.735 0 6.565 0H3.905C2.351 0 1.225-1.156 1.225-2.491S2.351-4.981 3.905-4.981H6.565Z'/>
+<path id='g0-80' d='M2.61-3.068C2.65-3.068 2.859-3.068 2.879-3.059H3.218C5.24-3.059 5.968-4.005 5.968-4.951C5.968-6.366 4.692-6.824 3.407-6.824H.498C.319-6.824 .159-6.824 .159-6.645C.159-6.476 .349-6.476 .428-6.476C.946-6.476 .986-6.396 .986-5.908V-.917C.986-.428 .946-.349 .438-.349C.339-.349 .159-.349 .159-.179C.159 0 .319 0 .498 0H3.168C3.347 0 3.497 0 3.497-.179C3.497-.349 3.328-.349 3.218-.349C2.65-.349 2.61-.428 2.61-.917V-3.068ZM4.254-3.517C4.573-3.935 4.603-4.563 4.603-4.961C4.603-5.489 4.553-6.017 4.294-6.386C4.842-6.257 5.619-5.958 5.619-4.951C5.619-4.254 5.171-3.746 4.254-3.517ZM2.61-5.938C2.61-6.137 2.61-6.476 3.208-6.476C3.925-6.476 4.254-6.207 4.254-4.961C4.254-3.537 3.726-3.417 3.108-3.417H2.61V-5.938ZM1.255-.349C1.335-.528 1.335-.767 1.335-.897V-5.928C1.335-6.057 1.335-6.296 1.255-6.476H2.391C2.262-6.316 2.262-6.117 2.262-5.968V-.897C2.262-.797 2.262-.528 2.341-.349H1.255Z'/>
+<path id='g2-50' d='M5.46-2.291C5.629-2.291 5.808-2.291 5.808-2.491S5.629-2.69 5.46-2.69H1.235C1.355-4.025 2.501-4.981 3.905-4.981H5.46C5.629-4.981 5.808-4.981 5.808-5.181S5.629-5.38 5.46-5.38H3.885C2.182-5.38 .827-4.085 .827-2.491S2.182 .399 3.885 .399H5.46C5.629 .399 5.808 .399 5.808 .199S5.629 0 5.46 0H3.905C2.501 0 1.355-.956 1.235-2.291H5.46Z'/>
+<path id='g0-81' d='M4.762 .09C6.167-.199 7.422-1.315 7.422-3.407C7.422-5.918 5.659-7.014 3.875-7.014C2.052-7.014 .329-5.868 .329-3.417C.329-1.285 1.604-.269 2.78 .04C3.228 1.066 4.214 1.783 5.45 1.783C5.948 1.783 6.496 1.684 7.014 1.484C7.193 1.415 7.293 1.375 7.293 1.255S7.203 1.076 7.123 1.076C7.103 1.076 7.093 1.076 7.024 1.096C6.745 1.166 6.635 1.166 6.476 1.166C5.559 1.166 4.991 .588 4.762 .09ZM2.501-6.386C1.893-5.679 1.733-4.513 1.733-3.417C1.733-2.441 1.853-1.196 2.511-.418C1.823-.677 .677-1.474 .677-3.407C.677-5.44 1.913-6.177 2.491-6.396L2.501-6.386ZM5.26-6.396C5.928-6.147 7.073-5.35 7.073-3.417C7.073-1.385 5.838-.648 5.24-.418C5.858-1.146 6.017-2.311 6.017-3.407C6.017-4.384 5.898-5.629 5.25-6.386L5.26-6.396ZM3.875-.159C2.262-.159 2.082-2.271 2.082-3.407C2.082-4.603 2.281-6.665 3.875-6.665C5.489-6.665 5.669-4.553 5.669-3.417C5.669-2.222 5.469-.159 3.875-.159ZM3.218 .139C3.497 .189 3.866 .189 3.875 .189C3.925 .189 4.134 .189 4.413 .159C4.682 .787 5.151 1.166 5.649 1.365C5.748 1.405 5.758 1.405 5.758 1.415C5.758 1.435 5.579 1.435 5.45 1.435C4.603 1.435 3.736 1.036 3.218 .139Z'/>
+<path id='g4-102' d='M3.656-3.985H4.513C4.712-3.985 4.812-3.985 4.812-4.184C4.812-4.294 4.712-4.294 4.543-4.294H3.716L3.925-5.43C3.965-5.639 4.105-6.346 4.164-6.466C4.254-6.655 4.423-6.804 4.633-6.804C4.672-6.804 4.932-6.804 5.121-6.625C4.682-6.585 4.583-6.237 4.583-6.087C4.583-5.858 4.762-5.738 4.951-5.738C5.21-5.738 5.499-5.958 5.499-6.336C5.499-6.795 5.041-7.024 4.633-7.024C4.294-7.024 3.666-6.844 3.367-5.858C3.308-5.649 3.278-5.549 3.039-4.294H2.351C2.162-4.294 2.052-4.294 2.052-4.105C2.052-3.985 2.142-3.985 2.331-3.985H2.989L2.242-.05C2.062 .917 1.893 1.823 1.375 1.823C1.335 1.823 1.086 1.823 .897 1.644C1.355 1.614 1.445 1.255 1.445 1.106C1.445 .877 1.265 .757 1.076 .757C.817 .757 .528 .976 .528 1.355C.528 1.803 .966 2.042 1.375 2.042C1.923 2.042 2.321 1.455 2.501 1.076C2.819 .448 3.049-.757 3.059-.827L3.656-3.985Z'/>
+<path id='g6-40' d='M3.298 2.391C3.298 2.361 3.298 2.341 3.128 2.172C1.883 .917 1.564-.966 1.564-2.491C1.564-4.224 1.943-5.958 3.168-7.203C3.298-7.323 3.298-7.342 3.298-7.372C3.298-7.442 3.258-7.472 3.198-7.472C3.098-7.472 2.202-6.795 1.614-5.529C1.106-4.433 .986-3.328 .986-2.491C.986-1.714 1.096-.508 1.644 .618C2.242 1.843 3.098 2.491 3.198 2.491C3.258 2.491 3.298 2.461 3.298 2.391Z'/>
+<path id='g6-41' d='M2.879-2.491C2.879-3.268 2.77-4.473 2.222-5.599C1.624-6.824 .767-7.472 .667-7.472C.608-7.472 .568-7.432 .568-7.372C.568-7.342 .568-7.323 .757-7.143C1.733-6.157 2.301-4.573 2.301-2.491C2.301-.787 1.933 .966 .697 2.222C.568 2.341 .568 2.361 .568 2.391C.568 2.451 .608 2.491 .667 2.491C.767 2.491 1.664 1.813 2.252 .548C2.76-.548 2.879-1.654 2.879-2.491Z'/>
+<path id='g0-90' d='M5.938-6.466C6.027-6.595 6.027-6.615 6.027-6.645C6.027-6.824 5.878-6.824 5.699-6.824H1.136C.817-6.824 .817-6.795 .787-6.535L.638-5.191L.618-5.061C.618-4.922 .727-4.872 .797-4.872C.887-4.872 .946-4.941 .966-5.021C1.006-5.26 1.096-5.699 1.704-6.077C2.271-6.446 2.969-6.476 3.308-6.476H4.115L.369-.359C.279-.229 .279-.209 .279-.179C.279 0 .438 0 .618 0H5.729C6.027 0 6.027-.02 6.067-.279L6.336-2.242C6.336-2.351 6.247-2.421 6.167-2.421C6.017-2.421 5.998-2.321 5.968-2.122C5.798-1.305 5.021-.349 3.606-.349H2.192L5.938-6.466ZM1.126-6.476H1.654V-6.466C1.385-6.316 1.196-6.137 1.076-6.027L1.126-6.476ZM4.523-6.476H5.539L1.783-.349H.767L4.523-6.476ZM5.051-.359C5.33-.518 5.589-.737 5.818-1.016C5.798-.817 5.778-.707 5.729-.349H5.051V-.359Z'/>
+<path id='g4-110' d='M.877-.588C.847-.438 .787-.209 .787-.159C.787 .02 .927 .11 1.076 .11C1.196 .11 1.375 .03 1.445-.169C1.455-.189 1.574-.658 1.634-.907L1.853-1.803C1.913-2.022 1.973-2.242 2.022-2.471C2.062-2.64 2.142-2.929 2.152-2.969C2.301-3.278 2.829-4.184 3.776-4.184C4.224-4.184 4.314-3.816 4.314-3.487C4.314-2.869 3.826-1.594 3.666-1.166C3.577-.936 3.567-.817 3.567-.707C3.567-.239 3.915 .11 4.384 .11C5.32 .11 5.689-1.345 5.689-1.425C5.689-1.524 5.599-1.524 5.569-1.524C5.469-1.524 5.469-1.494 5.42-1.345C5.22-.667 4.892-.11 4.403-.11C4.234-.11 4.164-.209 4.164-.438C4.164-.687 4.254-.927 4.344-1.146C4.533-1.674 4.951-2.77 4.951-3.337C4.951-4.005 4.523-4.403 3.806-4.403C2.909-4.403 2.421-3.766 2.252-3.537C2.202-4.095 1.793-4.403 1.335-4.403S.687-4.015 .588-3.836C.428-3.497 .289-2.909 .289-2.869C.289-2.77 .389-2.77 .408-2.77C.508-2.77 .518-2.78 .578-2.999C.747-3.706 .946-4.184 1.305-4.184C1.504-4.184 1.614-4.055 1.614-3.726C1.614-3.517 1.584-3.407 1.455-2.889L.877-.588Z'/>
+<path id='g2-20' d='M6.725-5.918C6.834-5.968 6.914-6.017 6.914-6.137C6.914-6.247 6.834-6.336 6.715-6.336C6.665-6.336 6.575-6.296 6.535-6.276L1.026-3.676C.857-3.597 .827-3.527 .827-3.447C.827-3.357 .887-3.288 1.026-3.228L6.535-.638C6.665-.568 6.685-.568 6.715-.568C6.824-.568 6.914-.658 6.914-.767C6.914-.857 6.874-.917 6.705-.996L1.494-3.447L6.725-5.918ZM6.565 1.365C6.735 1.365 6.914 1.365 6.914 1.166S6.705 .966 6.555 .966H1.186C1.036 .966 .827 .966 .827 1.166S1.006 1.365 1.176 1.365H6.565Z'/>
+<path id='g6-91' d='M2.54 2.491V2.092H1.574V-7.073H2.54V-7.472H1.176V2.491H2.54Z'/>
+<path id='g6-93' d='M1.584-7.472H.219V-7.073H1.186V2.092H.219V2.491H1.584V-7.472Z'/>
+<path id='g4-103' d='M4.692-3.756C4.702-3.816 4.722-3.866 4.722-3.935C4.722-4.105 4.603-4.204 4.433-4.204C4.334-4.204 4.065-4.134 4.025-3.776C3.846-4.144 3.497-4.403 3.098-4.403C1.963-4.403 .727-3.009 .727-1.574C.727-.588 1.335 0 2.052 0C2.64 0 3.108-.468 3.208-.578L3.218-.568C3.009 .319 2.889 .727 2.889 .747C2.849 .837 2.511 1.823 1.455 1.823C1.265 1.823 .936 1.813 .658 1.724C.956 1.634 1.066 1.375 1.066 1.205C1.066 1.046 .956 .857 .687 .857C.468 .857 .149 1.036 .149 1.435C.149 1.843 .518 2.042 1.474 2.042C2.72 2.042 3.437 1.265 3.587 .667L4.692-3.756ZM3.397-1.275C3.337-1.016 3.108-.767 2.889-.578C2.68-.399 2.371-.219 2.082-.219C1.584-.219 1.435-.737 1.435-1.136C1.435-1.614 1.724-2.79 1.993-3.298C2.262-3.786 2.69-4.184 3.108-4.184C3.766-4.184 3.905-3.377 3.905-3.328S3.885-3.218 3.875-3.178L3.397-1.275Z'/>
+<path id='g4-107' d='M2.859-6.804C2.859-6.814 2.859-6.914 2.73-6.914C2.501-6.914 1.773-6.834 1.514-6.814C1.435-6.804 1.325-6.795 1.325-6.615C1.325-6.496 1.415-6.496 1.564-6.496C2.042-6.496 2.062-6.426 2.062-6.326L2.032-6.127L.588-.389C.548-.249 .548-.229 .548-.169C.548 .06 .747 .11 .837 .11C.966 .11 1.116 .02 1.176-.1C1.225-.189 1.674-2.032 1.733-2.281C2.072-2.252 2.889-2.092 2.889-1.435C2.889-1.365 2.889-1.325 2.859-1.225C2.839-1.106 2.819-.986 2.819-.877C2.819-.289 3.218 .11 3.736 .11C4.035 .11 4.304-.05 4.523-.418C4.772-.857 4.882-1.405 4.882-1.425C4.882-1.524 4.792-1.524 4.762-1.524C4.663-1.524 4.653-1.484 4.623-1.345C4.423-.618 4.194-.11 3.756-.11C3.567-.11 3.437-.219 3.437-.578C3.437-.747 3.477-.976 3.517-1.136C3.557-1.305 3.557-1.345 3.557-1.445C3.557-2.092 2.929-2.381 2.082-2.491C2.391-2.67 2.71-2.989 2.939-3.228C3.417-3.756 3.875-4.184 4.364-4.184C4.423-4.184 4.433-4.184 4.453-4.174C4.573-4.154 4.583-4.154 4.663-4.095C4.682-4.085 4.682-4.075 4.702-4.055C4.224-4.025 4.134-3.636 4.134-3.517C4.134-3.357 4.244-3.168 4.513-3.168C4.772-3.168 5.061-3.387 5.061-3.776C5.061-4.075 4.832-4.403 4.384-4.403C4.105-4.403 3.646-4.324 2.929-3.527C2.59-3.148 2.202-2.75 1.823-2.6L2.859-6.804Z'/>
+<path id='g5-107' d='M2.183-4.631C2.19-4.645 2.211-4.735 2.211-4.742C2.211-4.777 2.183-4.84 2.099-4.84C1.96-4.84 1.381-4.784 1.206-4.77C1.151-4.763 1.053-4.756 1.053-4.61C1.053-4.512 1.151-4.512 1.234-4.512C1.569-4.512 1.569-4.463 1.569-4.407C1.569-4.359 1.555-4.317 1.541-4.254L.558-.307C.523-.181 .523-.167 .523-.153C.523-.049 .607 .07 .76 .07C.948 .07 1.039-.07 1.081-.223C1.095-.251 1.395-1.478 1.423-1.576C1.918-1.527 2.315-1.367 2.315-1.004C2.315-.969 2.315-.934 2.301-.865C2.273-.76 2.273-.725 2.273-.649C2.273-.153 2.678 .07 3.013 .07C3.689 .07 3.898-.99 3.898-.997C3.898-1.088 3.808-1.088 3.787-1.088C3.689-1.088 3.682-1.053 3.647-.921C3.564-.621 3.375-.126 3.034-.126C2.845-.126 2.79-.3 2.79-.488C2.79-.607 2.79-.621 2.831-.802C2.838-.823 2.866-.941 2.866-1.018C2.866-1.639 2.029-1.736 1.736-1.757C1.939-1.883 2.197-2.113 2.315-2.218C2.671-2.552 3.02-2.88 3.41-2.88C3.494-2.88 3.585-2.859 3.64-2.79C3.34-2.741 3.278-2.504 3.278-2.399C3.278-2.246 3.396-2.141 3.557-2.141C3.745-2.141 3.954-2.294 3.954-2.587C3.954-2.817 3.787-3.075 3.417-3.075C3.02-3.075 2.657-2.79 2.301-2.462C2.008-2.183 1.778-1.967 1.492-1.848L2.183-4.631Z'/>
+<path id='g2-21' d='M6.715-3.228C6.854-3.288 6.914-3.357 6.914-3.447C6.914-3.547 6.874-3.606 6.715-3.676L1.225-6.267C1.086-6.336 1.046-6.336 1.026-6.336C.907-6.336 .827-6.247 .827-6.137C.827-6.017 .907-5.968 1.016-5.918L6.247-3.457L1.036-.996C.837-.907 .827-.827 .827-.767C.827-.658 .917-.568 1.026-.568C1.056-.568 1.076-.568 1.205-.638L6.715-3.228ZM6.565 1.365C6.735 1.365 6.914 1.365 6.914 1.166S6.705 .966 6.555 .966H1.186C1.036 .966 .827 .966 .827 1.166S1.006 1.365 1.176 1.365H6.565Z'/>
+<path id='g4-121' d='M4.842-3.796C4.882-3.935 4.882-3.955 4.882-4.025C4.882-4.204 4.742-4.294 4.593-4.294C4.493-4.294 4.334-4.234 4.244-4.085C4.224-4.035 4.144-3.726 4.105-3.547C4.035-3.288 3.965-3.019 3.905-2.75L3.457-.956C3.417-.807 2.989-.11 2.331-.11C1.823-.11 1.714-.548 1.714-.917C1.714-1.375 1.883-1.993 2.222-2.869C2.381-3.278 2.421-3.387 2.421-3.587C2.421-4.035 2.102-4.403 1.604-4.403C.658-4.403 .289-2.959 .289-2.869C.289-2.77 .389-2.77 .408-2.77C.508-2.77 .518-2.79 .568-2.949C.837-3.885 1.235-4.184 1.574-4.184C1.654-4.184 1.823-4.184 1.823-3.866C1.823-3.616 1.724-3.357 1.654-3.168C1.255-2.112 1.076-1.544 1.076-1.076C1.076-.189 1.704 .11 2.291 .11C2.68 .11 3.019-.06 3.298-.339C3.168 .179 3.049 .667 2.65 1.196C2.391 1.534 2.012 1.823 1.554 1.823C1.415 1.823 .966 1.793 .797 1.405C.956 1.405 1.086 1.405 1.225 1.285C1.325 1.196 1.425 1.066 1.425 .877C1.425 .568 1.156 .528 1.056 .528C.827 .528 .498 .687 .498 1.176C.498 1.674 .936 2.042 1.554 2.042C2.58 2.042 3.606 1.136 3.885 .01L4.842-3.796Z'/>
+<path id='g9-40' d='M4.493 18.202C4.493 17.106 3.736 15.422 2.002 14.545C3.078 13.968 4.364 12.802 4.483 10.939L4.493 10.879V3.975C4.493 3.158 4.493 2.979 4.573 2.6C4.752 1.803 5.23 .817 6.496 .07C6.575 .02 6.585 .01 6.585-.169C6.585-.389 6.575-.399 6.356-.399C6.177-.399 6.157-.399 5.888-.239C3.656 1.026 3.527 2.879 3.527 3.228V10.311C3.527 11.029 3.527 11.836 3.009 12.752C2.55 13.569 2.012 13.978 1.584 14.267C1.445 14.356 1.435 14.366 1.435 14.535C1.435 14.715 1.445 14.725 1.524 14.775C2.371 15.333 3.278 16.219 3.497 17.843C3.527 18.062 3.527 18.082 3.527 18.202V25.853C3.527 26.66 4.025 28.334 5.948 29.35C6.177 29.479 6.197 29.479 6.356 29.479C6.575 29.479 6.585 29.469 6.585 29.25C6.585 29.071 6.575 29.061 6.535 29.041C6.107 28.772 4.802 27.985 4.533 26.252C4.493 25.993 4.493 25.973 4.493 25.843V18.202Z'/>
+<path id='g8-49' d='M1.983-3.168C1.983-3.318 1.968-3.318 1.803-3.318C1.45-2.999 .897-2.999 .797-2.999H.712V-2.78H.797C.912-2.78 1.235-2.795 1.524-2.919V-.428C1.524-.274 1.524-.219 .996-.219H.747V0C1.021-.02 1.465-.02 1.753-.02S2.486-.02 2.76 0V-.219H2.511C1.983-.219 1.983-.274 1.983-.428V-3.168Z'/>
+<path id='g8-50' d='M2.934-.961H2.725C2.71-.867 2.66-.558 2.58-.508C2.54-.478 2.122-.478 2.047-.478H1.071C1.4-.722 1.768-1.001 2.067-1.2C2.516-1.509 2.934-1.798 2.934-2.326C2.934-2.964 2.331-3.318 1.619-3.318C.946-3.318 .453-2.929 .453-2.441C.453-2.182 .672-2.137 .742-2.137C.877-2.137 1.036-2.227 1.036-2.431C1.036-2.61 .907-2.71 .752-2.725C.892-2.949 1.181-3.098 1.514-3.098C1.998-3.098 2.401-2.809 2.401-2.321C2.401-1.903 2.112-1.584 1.729-1.26L.513-.229C.463-.184 .458-.184 .453-.149V0H2.77L2.934-.961Z'/>
+<path id='g5-97' d='M2.943-2.664C2.797-2.894 2.559-3.075 2.225-3.075C1.332-3.075 .425-2.092 .425-1.088C.425-.411 .879 .07 1.478 .07C1.855 .07 2.19-.146 2.469-.418C2.601 0 3.006 .07 3.187 .07C3.438 .07 3.612-.084 3.738-.3C3.891-.572 3.982-.969 3.982-.997C3.982-1.088 3.891-1.088 3.87-1.088C3.773-1.088 3.766-1.06 3.717-.872C3.633-.537 3.501-.126 3.208-.126C3.027-.126 2.978-.279 2.978-.467C2.978-.586 3.034-.837 3.082-1.018C3.131-1.206 3.201-1.492 3.236-1.646L3.375-2.176C3.417-2.357 3.501-2.685 3.501-2.72C3.501-2.873 3.375-2.943 3.264-2.943C3.145-2.943 2.985-2.859 2.943-2.664ZM2.497-.872C2.448-.676 2.294-.537 2.141-.404C2.078-.349 1.799-.126 1.499-.126C1.241-.126 .99-.307 .99-.802C.99-1.172 1.193-1.939 1.353-2.218C1.674-2.776 2.029-2.88 2.225-2.88C2.713-2.88 2.845-2.35 2.845-2.273C2.845-2.246 2.831-2.197 2.824-2.176L2.497-.872Z'/>
+<path id='g5-98' d='M1.841-4.631C1.848-4.645 1.869-4.735 1.869-4.742C1.869-4.777 1.841-4.84 1.757-4.84C1.618-4.84 1.039-4.784 .865-4.77C.809-4.763 .711-4.756 .711-4.61C.711-4.512 .809-4.512 .893-4.512C1.227-4.512 1.227-4.463 1.227-4.407C1.227-4.359 1.158-4.08 1.116-3.919L.955-3.278C.893-3.041 .509-1.513 .495-1.423C.46-1.255 .46-1.165 .46-1.081C.46-.377 .907 .07 1.485 .07C2.357 .07 3.285-.879 3.285-1.911C3.285-2.727 2.72-3.075 2.239-3.075C1.876-3.075 1.569-2.873 1.36-2.692L1.841-4.631ZM1.492-.126C1.151-.126 .955-.425 .955-.837C.955-1.095 1.018-1.332 1.213-2.12C1.255-2.253 1.255-2.267 1.388-2.42C1.653-2.727 1.967-2.88 2.218-2.88C2.49-2.88 2.727-2.678 2.727-2.204C2.727-1.918 2.573-1.206 2.364-.802C2.197-.46 1.848-.126 1.492-.126Z'/>
+<path id='g9-12' d='M1.445 5.818C1.445 5.978 1.445 6.187 1.654 6.187C1.873 6.187 1.873 5.988 1.873 5.818V.159C1.873 0 1.873-.209 1.664-.209C1.445-.209 1.445-.01 1.445 .159V5.818Z'/>
+<path id='g4-68' d='M1.584-.777C1.484-.389 1.465-.309 .677-.309C.508-.309 .399-.309 .399-.12C.399 0 .488 0 .677 0H3.975C6.047 0 8.01-2.102 8.01-4.284C8.01-5.689 7.163-6.804 5.669-6.804H2.321C2.132-6.804 2.022-6.804 2.022-6.615C2.022-6.496 2.112-6.496 2.311-6.496C2.441-6.496 2.62-6.486 2.74-6.476C2.899-6.456 2.959-6.426 2.959-6.316C2.959-6.276 2.949-6.247 2.919-6.127L1.584-.777ZM3.736-6.117C3.826-6.466 3.846-6.496 4.274-6.496H5.34C6.316-6.496 7.143-5.968 7.143-4.653C7.143-4.164 6.944-2.531 6.097-1.435C5.808-1.066 5.021-.309 3.796-.309H2.67C2.531-.309 2.511-.309 2.451-.319C2.351-.329 2.321-.339 2.321-.418C2.321-.448 2.321-.468 2.371-.648L3.736-6.117Z'/>
+<path id='g5-68' d='M1.318-.544C1.262-.307 1.248-.251 .704-.251C.579-.251 .495-.251 .495-.098C.495 0 .579 0 .704 0H3.194C4.742 0 6.228-1.423 6.228-2.943C6.228-3.961 5.523-4.763 4.387-4.763H1.848C1.709-4.763 1.625-4.763 1.625-4.61C1.625-4.512 1.702-4.512 1.855-4.512C1.967-4.512 1.995-4.512 2.12-4.498C2.26-4.484 2.273-4.47 2.273-4.4C2.273-4.387 2.273-4.352 2.246-4.247L1.318-.544ZM2.88-4.275C2.936-4.491 2.943-4.512 3.236-4.512H4.129C4.91-4.512 5.565-4.122 5.565-3.173C5.565-3.013 5.495-1.806 4.798-1.011C4.526-.697 3.926-.251 3.068-.251H2.12C1.904-.251 1.897-.258 1.897-.321C1.897-.328 1.897-.363 1.925-.467L2.88-4.275Z'/>
+<path id='g1-12' d='M1.576 .098C1.576 0 1.576-.181 1.402-.181C1.22-.181 1.22-.007 1.22 .098V4.087C1.22 4.184 1.22 4.366 1.395 4.366C1.576 4.366 1.576 4.191 1.576 4.087V.098Z'/>
+<path id='g7-51' d='M1.904-2.329C2.448-2.329 2.838-1.953 2.838-1.206C2.838-.342 2.336-.084 1.932-.084C1.653-.084 1.039-.16 .746-.572C1.074-.586 1.151-.816 1.151-.962C1.151-1.186 .983-1.346 .767-1.346C.572-1.346 .377-1.227 .377-.941C.377-.286 1.102 .139 1.946 .139C2.915 .139 3.585-.509 3.585-1.206C3.585-1.75 3.138-2.294 2.371-2.455C3.103-2.72 3.368-3.243 3.368-3.668C3.368-4.219 2.734-4.631 1.96-4.631S.593-4.254 .593-3.696C.593-3.459 .746-3.327 .955-3.327C1.172-3.327 1.311-3.487 1.311-3.682C1.311-3.884 1.172-4.031 .955-4.045C1.2-4.352 1.681-4.428 1.939-4.428C2.253-4.428 2.692-4.275 2.692-3.668C2.692-3.375 2.594-3.055 2.413-2.838C2.183-2.573 1.988-2.559 1.639-2.538C1.465-2.525 1.451-2.525 1.416-2.518C1.402-2.518 1.346-2.504 1.346-2.427C1.346-2.329 1.409-2.329 1.527-2.329H1.904Z'/>
+<path id='g4-105' d='M2.829-6.227C2.829-6.426 2.69-6.585 2.461-6.585C2.192-6.585 1.923-6.326 1.923-6.057C1.923-5.868 2.062-5.699 2.301-5.699C2.531-5.699 2.829-5.928 2.829-6.227ZM2.072-2.481C2.192-2.77 2.192-2.79 2.291-3.059C2.371-3.258 2.421-3.397 2.421-3.587C2.421-4.035 2.102-4.403 1.604-4.403C.667-4.403 .289-2.959 .289-2.869C.289-2.77 .389-2.77 .408-2.77C.508-2.77 .518-2.79 .568-2.949C.837-3.885 1.235-4.184 1.574-4.184C1.654-4.184 1.823-4.184 1.823-3.866C1.823-3.656 1.753-3.447 1.714-3.347C1.634-3.088 1.186-1.933 1.026-1.504C.927-1.245 .797-.917 .797-.707C.797-.239 1.136 .11 1.614 .11C2.55 .11 2.919-1.335 2.919-1.425C2.919-1.524 2.829-1.524 2.8-1.524C2.7-1.524 2.7-1.494 2.65-1.345C2.471-.717 2.142-.11 1.634-.11C1.465-.11 1.395-.209 1.395-.438C1.395-.687 1.455-.827 1.684-1.435L2.072-2.481Z'/>
+<path id='g6-51' d='M2.889-3.507C3.706-3.776 4.284-4.473 4.284-5.26C4.284-6.077 3.407-6.635 2.451-6.635C1.445-6.635 .687-6.037 .687-5.28C.687-4.951 .907-4.762 1.196-4.762C1.504-4.762 1.704-4.981 1.704-5.27C1.704-5.768 1.235-5.768 1.086-5.768C1.395-6.257 2.052-6.386 2.411-6.386C2.819-6.386 3.367-6.167 3.367-5.27C3.367-5.151 3.347-4.573 3.088-4.134C2.79-3.656 2.451-3.626 2.202-3.616C2.122-3.606 1.883-3.587 1.813-3.587C1.733-3.577 1.664-3.567 1.664-3.467C1.664-3.357 1.733-3.357 1.903-3.357H2.341C3.158-3.357 3.527-2.68 3.527-1.704C3.527-.349 2.839-.06 2.401-.06C1.973-.06 1.225-.229 .877-.817C1.225-.767 1.534-.986 1.534-1.365C1.534-1.724 1.265-1.923 .976-1.923C.737-1.923 .418-1.783 .418-1.345C.418-.438 1.345 .219 2.431 .219C3.646 .219 4.553-.687 4.553-1.704C4.553-2.521 3.925-3.298 2.889-3.507Z'/>
+<path id='g6-53' d='M4.473-2.002C4.473-3.188 3.656-4.184 2.58-4.184C2.102-4.184 1.674-4.025 1.315-3.676V-5.619C1.514-5.559 1.843-5.489 2.162-5.489C3.387-5.489 4.085-6.396 4.085-6.526C4.085-6.585 4.055-6.635 3.985-6.635C3.975-6.635 3.955-6.635 3.905-6.605C3.706-6.516 3.218-6.316 2.55-6.316C2.152-6.316 1.694-6.386 1.225-6.595C1.146-6.625 1.126-6.625 1.106-6.625C1.006-6.625 1.006-6.545 1.006-6.386V-3.437C1.006-3.258 1.006-3.178 1.146-3.178C1.215-3.178 1.235-3.208 1.275-3.268C1.385-3.427 1.753-3.965 2.56-3.965C3.078-3.965 3.328-3.507 3.407-3.328C3.567-2.959 3.587-2.57 3.587-2.072C3.587-1.724 3.587-1.126 3.347-.707C3.108-.319 2.74-.06 2.281-.06C1.554-.06 .986-.588 .817-1.176C.847-1.166 .877-1.156 .986-1.156C1.315-1.156 1.484-1.405 1.484-1.644S1.315-2.132 .986-2.132C.847-2.132 .498-2.062 .498-1.604C.498-.747 1.186 .219 2.301 .219C3.457 .219 4.473-.737 4.473-2.002Z'/>
+<path id='g4-108' d='M2.57-6.804C2.57-6.814 2.57-6.914 2.441-6.914C2.212-6.914 1.484-6.834 1.225-6.814C1.146-6.804 1.036-6.795 1.036-6.605C1.036-6.496 1.136-6.496 1.285-6.496C1.763-6.496 1.773-6.406 1.773-6.326L1.743-6.127L.488-1.146C.458-1.036 .438-.966 .438-.807C.438-.239 .877 .11 1.345 .11C1.674 .11 1.923-.09 2.092-.448C2.271-.827 2.391-1.405 2.391-1.425C2.391-1.524 2.301-1.524 2.271-1.524C2.172-1.524 2.162-1.484 2.132-1.345C1.963-.697 1.773-.11 1.375-.11C1.076-.11 1.076-.428 1.076-.568C1.076-.807 1.086-.857 1.136-1.046L2.57-6.804Z'/>
+<path id='g5-108' d='M1.967-4.631C1.974-4.645 1.995-4.735 1.995-4.742C1.995-4.777 1.967-4.84 1.883-4.84C1.743-4.84 1.165-4.784 .99-4.77C.941-4.763 .844-4.756 .844-4.61C.844-4.512 .941-4.512 1.018-4.512C1.353-4.512 1.353-4.463 1.353-4.407C1.353-4.359 1.339-4.317 1.325-4.254L.46-.809C.439-.739 .432-.663 .432-.593C.432-.146 .83 .07 1.165 .07C1.332 .07 1.541 .014 1.723-.3C1.869-.558 1.967-.969 1.967-.997C1.967-1.088 1.876-1.088 1.855-1.088C1.757-1.088 1.743-1.046 1.716-.921C1.625-.572 1.492-.126 1.193-.126C1.004-.126 .955-.3 .955-.467C.955-.544 .976-.676 .997-.753L1.967-4.631Z'/>
+<path id='g4-28' d='M2.929-3.716H4.603C4.732-3.716 5.091-3.716 5.091-4.055C5.091-4.294 4.882-4.294 4.692-4.294H1.903C1.704-4.294 1.315-4.294 .877-3.826C.548-3.467 .269-2.989 .269-2.929C.269-2.919 .269-2.829 .389-2.829C.468-2.829 .488-2.869 .548-2.949C1.036-3.716 1.604-3.716 1.813-3.716H2.64L1.664-.518C1.624-.399 1.564-.189 1.564-.149C1.564-.04 1.634 .12 1.853 .12C2.182 .12 2.232-.159 2.262-.309L2.929-3.716Z'/>
+<path id='g6-33' d='M1.524-2.082L1.913-6.625C1.913-6.954 1.644-7.133 1.385-7.133S.857-6.954 .857-6.625L1.245-2.092C1.255-1.943 1.265-1.863 1.385-1.863C1.484-1.863 1.514-1.913 1.524-2.082ZM1.913-.528C1.913-.817 1.674-1.056 1.385-1.056S.857-.817 .857-.528S1.096 0 1.385 0S1.913-.239 1.913-.528Z'/>
+<path id='g7-43' d='M3.229-1.576H5.363C5.454-1.576 5.621-1.576 5.621-1.743C5.621-1.918 5.461-1.918 5.363-1.918H3.229V-4.059C3.229-4.149 3.229-4.317 3.062-4.317C2.887-4.317 2.887-4.156 2.887-4.059V-1.918H.746C.656-1.918 .488-1.918 .488-1.75C.488-1.576 .649-1.576 .746-1.576H2.887V.565C2.887 .656 2.887 .823 3.055 .823C3.229 .823 3.229 .663 3.229 .565V-1.576Z'/>
+<path id='g6-54' d='M1.315-3.268V-3.507C1.315-6.027 2.55-6.386 3.059-6.386C3.298-6.386 3.716-6.326 3.935-5.988C3.786-5.988 3.387-5.988 3.387-5.539C3.387-5.23 3.626-5.081 3.846-5.081C4.005-5.081 4.304-5.171 4.304-5.559C4.304-6.157 3.866-6.635 3.039-6.635C1.763-6.635 .418-5.35 .418-3.148C.418-.488 1.574 .219 2.501 .219C3.606 .219 4.553-.717 4.553-2.032C4.553-3.298 3.666-4.254 2.56-4.254C1.883-4.254 1.514-3.746 1.315-3.268ZM2.501-.06C1.873-.06 1.574-.658 1.514-.807C1.335-1.275 1.335-2.072 1.335-2.252C1.335-3.029 1.654-4.025 2.55-4.025C2.71-4.025 3.168-4.025 3.477-3.407C3.656-3.039 3.656-2.531 3.656-2.042C3.656-1.564 3.656-1.066 3.487-.707C3.188-.11 2.73-.06 2.501-.06Z'/>
+<path id='g3-2' d='M4.882-3.271C4.958-3.347 4.979-3.389 4.979-3.438C4.979-3.55 4.889-3.612 4.812-3.612C4.742-3.612 4.721-3.592 4.638-3.508L3.11-1.988L1.576-3.515C1.506-3.585 1.478-3.612 1.416-3.612C1.318-3.612 1.241-3.536 1.241-3.438C1.241-3.375 1.262-3.354 1.346-3.271L2.866-1.75L1.346-.23C1.248-.133 1.241-.098 1.241-.056C1.241 .042 1.318 .119 1.416 .119C1.478 .119 1.499 .098 1.576 .021L3.11-1.506L4.7 .084C4.735 .105 4.77 .119 4.812 .119C4.889 .119 4.979 .056 4.979-.056C4.979-.112 4.965-.126 4.944-.146C4.931-.174 3.578-1.527 3.354-1.743L4.882-3.271Z'/>
+<path id='g7-52' d='M3.689-1.144V-1.395H2.915V-4.505C2.915-4.652 2.915-4.7 2.762-4.7C2.678-4.7 2.65-4.7 2.58-4.603L.272-1.395V-1.144H2.322V-.572C2.322-.335 2.322-.251 1.757-.251H1.569V0C1.918-.014 2.364-.028 2.615-.028C2.873-.028 3.32-.014 3.668 0V-.251H3.48C2.915-.251 2.915-.335 2.915-.572V-1.144H3.689ZM2.371-3.947V-1.395H.53L2.371-3.947Z'/>
+<path id='g5-105' d='M2.26-4.359C2.26-4.47 2.176-4.624 1.981-4.624C1.792-4.624 1.59-4.442 1.59-4.24C1.59-4.122 1.681-3.975 1.869-3.975C2.071-3.975 2.26-4.17 2.26-4.359ZM.837-.816C.809-.725 .774-.642 .774-.523C.774-.195 1.053 .07 1.437 .07C2.134 .07 2.441-.893 2.441-.997C2.441-1.088 2.35-1.088 2.329-1.088C2.232-1.088 2.225-1.046 2.197-.969C2.036-.411 1.73-.126 1.458-.126C1.318-.126 1.283-.216 1.283-.37C1.283-.53 1.332-.663 1.395-.816C1.465-1.004 1.541-1.193 1.618-1.374C1.681-1.541 1.932-2.176 1.96-2.26C1.981-2.329 2.001-2.413 2.001-2.483C2.001-2.81 1.723-3.075 1.339-3.075C.649-3.075 .328-2.127 .328-2.008C.328-1.918 .425-1.918 .446-1.918C.544-1.918 .551-1.953 .572-2.029C.753-2.629 1.06-2.88 1.318-2.88C1.43-2.88 1.492-2.824 1.492-2.636C1.492-2.476 1.451-2.371 1.276-1.939L.837-.816Z'/>
+<path id='g5-106' d='M3.062-4.359C3.062-4.477 2.971-4.624 2.783-4.624C2.58-4.624 2.392-4.428 2.392-4.24C2.392-4.129 2.476-3.975 2.671-3.975C2.859-3.975 3.062-4.156 3.062-4.359ZM1.583 .342C1.465 .823 1.095 1.227 .683 1.227C.593 1.227 .509 1.213 .432 1.186C.614 1.102 .669 .934 .669 .83C.669 .663 .537 .572 .398 .572C.181 .572 0 .76 0 .983C0 1.248 .272 1.423 .69 1.423S1.925 1.172 2.141 .321L2.769-2.176C2.79-2.253 2.803-2.315 2.803-2.42C2.803-2.803 2.476-3.075 2.057-3.075C1.283-3.075 .837-2.106 .837-2.008C.837-1.918 .934-1.918 .955-1.918C1.039-1.918 1.046-1.939 1.095-2.043C1.269-2.448 1.632-2.88 2.036-2.88C2.211-2.88 2.273-2.762 2.273-2.538C2.273-2.462 2.26-2.364 2.253-2.329L1.583 .342Z'/>
+<path id='g2-106' d='M1.584-7.113C1.584-7.293 1.584-7.472 1.385-7.472S1.186-7.293 1.186-7.113V2.132C1.186 2.311 1.186 2.491 1.385 2.491S1.584 2.311 1.584 2.132V-7.113Z'/>
+</defs>
+</svg>
+
+</body>
+<script>
+    // initialize printing
+    revealConfig.initPrint();
+    // initialize background embedded images
+    revealConfig.getEmbeddedImages();
+    </script>
+</html>
